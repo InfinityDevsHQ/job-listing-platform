@@ -5,7 +5,7 @@ import Subscribe from "./subscribe";
 import Copyright from "./copyright";
 export default function Footer() {
   return (
-    <footer className="p-8 bg-primary w-full grid grid-cols-2">
+    <footer className="p-8 bg-primary w-full hidden lg:grid grid-cols-2">
       <span className="mb-8 col-span-2">
         {/* <Image src={"/assets/logo_white.png"} alt="Logo" /> */}
         <Image src={logo_white} alt="logo" />

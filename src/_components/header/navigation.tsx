@@ -1,25 +1,33 @@
 import Link from "next/link";
 import MobileNav from "./mobile-nav";
-export default function Navigation() {
+
+type Tabs = {
+  text: string;
+  href: string;
+};
+
+const Navigation = () => {
+  const tabs: Tabs[] = [
+    { text: "Home", href: "#" },
+    { text: "About", href: "#" },
+    { text: "Contact Us", href: "#" },
+    { text: "For Companies", href: "#" },
+  ];
+
   return (
     <>
       <nav className="hidden lg:block">
         <ol className="flex gap-4">
-          <li>
-            <Link href={"#"}>Home</Link>
-          </li>
-          <li>
-            <Link href={"#"}>About</Link>
-          </li>
-          <li>
-            <Link href={"#"}>Contact Us</Link>
-          </li>
-          <li>
-            <Link href={"#"}>For Companies</Link>
-          </li>
+          {tabs.map((link, index) => (
+            <li key={index}>
+              <Link href={link.href}>{link.text}</Link>
+            </li>
+          ))}
         </ol>
       </nav>
       <MobileNav />
     </>
   );
-}
+};
+
+export default Navigation;
