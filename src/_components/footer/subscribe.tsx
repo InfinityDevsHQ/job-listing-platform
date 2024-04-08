@@ -7,7 +7,7 @@ export default function Subscribe() {
   const [mail, setMail] = useState("");
   return (
     <>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 mb-8">
         <h2 className="text-white text-[38px] font-bold leading-[48px] tracking-[-0.0075em]">
           Subscribe to our newsletter
         </h2>
@@ -32,6 +32,7 @@ export default function Subscribe() {
           Subscribe
         </Button>
       </form>
+      <span className="border-b border-neutral-50 col-span-2 mb-8" />
     </>
   );
 }
