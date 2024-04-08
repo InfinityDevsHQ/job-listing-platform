@@ -23,7 +23,7 @@ export default function FooterNav() {
           <Link href={"#"}>Contact Us</Link>
         </span>
       </div>
-      <span className="border-b border-neutral-50 col-span-2 mb-32" />
+      <span className="border-b border-neutral-50 col-span-2 mb-8" />
     </>
   );
 }

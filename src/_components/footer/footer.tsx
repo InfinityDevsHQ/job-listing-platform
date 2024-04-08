@@ -1,6 +1,7 @@
 import Image from "next/image";
 import logo_white from "@/../public/assets/logo_white.png";
 import FooterNav from "./footer-nav";
+import Subscribe from "./subscribe";
 export default function Footer() {
   return (
     <footer className="p-8 bg-primary w-full grid grid-cols-2">
@@ -15,6 +16,7 @@ export default function Footer() {
         est!
       </p>
       <FooterNav />
+      <Subscribe />
     </footer>
   );
 }

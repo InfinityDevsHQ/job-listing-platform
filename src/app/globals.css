@@ -47,3 +47,17 @@
     @apply bg-background text-foreground;
   }
 }
+.section-heading {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.0075em;
+  font-family: "Geist";
+}
+.section-description {
+  font-family: "Geist";
+  @apply text-xl font-normal leading-[32px] tracking-[-0.001em];
+}
+.btn {
+  font-family: "Geist";
+  @apply text-base leading-[24px] font-medium;
+}
