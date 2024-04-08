@@ -1,3 +1,4 @@
+import Footer from "@/_components/footer/footer";
 import Header from "@/_components/header/header";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
         fugiat incidunt, cum doloremque saepe vel accusantium nesciunt nihil
         voluptatibus! Quaerat, quae.
       </p>
+      <Footer />
     </main>
   );
 }
