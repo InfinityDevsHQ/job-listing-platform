@@ -1,14 +1,12 @@
-import logo from "@/../public/assets/logo.png";
 import Image from "next/image";
 import Navigation from "./navigation";
 import Link from "next/link";
 export default function Header() {
   return (
     <>
-      <header className="flex items-center justify-between w-full px-12 py-8">
+      <header className="flex items-center justify-between w-full px-16 py-8">
         <span className="flex-center">
-          <Image alt="logo" src={logo} />
-          {/* <Image alt="logo" src={"/assets/logo.png"} /> */}
+          <Image alt="logo" src={"/assets/logo.png"} width={208} height={50} />
         </span>
         <Navigation />
         <span className="hidden lg:flex gap-2">
