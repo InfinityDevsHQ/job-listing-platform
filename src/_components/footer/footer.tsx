@@ -4,11 +4,19 @@ import Subscribe from "./subscribe";
 import Copyright from "./copyright";
 export default function Footer() {
   return (
-    <footer className="p-8 bg-secondary lg:bg-primary w-full grid grid-cols-2">
+    <footer className="p-[30px] lg:p-8 bg-secondary lg:bg-primary w-full grid grid-cols-2">
       <span className="mb-8 col-span-2">
         <Image
           src={"/assets/logo_white.png"}
           alt="Logo"
+          className="hidden lg:block"
+          width={208}
+          height={50}
+        />
+        <Image
+          src={"/assets/al_fugu_logo.png"}
+          alt="Logo"
+          className="lg:hidden mx-auto"
           width={208}
           height={50}
         />

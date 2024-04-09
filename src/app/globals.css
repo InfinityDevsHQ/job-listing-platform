@@ -58,12 +58,5 @@
   @apply lg:text-xl text-sm font-normal lg:leading-[32px] lg:tracking-[-0.001em];
 }
 .btn {
-  font-family: "Roboto";
-  @apply text-sm leading-normal font-bold;
-}
-@media (min-width: 1024px) {
-  .btn {
-    font-family: "Geist";
-    @apply text-base leading-[24px] font-medium;
-  }
+  @apply text-sm lg:text-base font-roboto lg:font-geist leading-normal lg:leading-[24px] font-bold lg:font-medium;
 }
