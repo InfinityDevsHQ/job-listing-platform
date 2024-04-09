@@ -58,6 +58,15 @@
   .text-gray-dark {
     color: #383838;
   }
+  .h-30 {
+    height: 30px;
+  }
+  .w-30 {
+    width: 30px;
+  }
+  .bg-third {
+    background-color: #ffede5;
+  }
   .flex-center {
     @apply flex items-center justify-center;
   }
