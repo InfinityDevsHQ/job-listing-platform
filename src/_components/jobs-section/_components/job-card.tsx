@@ -6,7 +6,7 @@ type JobCardProps = {
   company: string;
   description?: string;
   urgent: boolean;
-  jobType: "Full Time" | "Part Time";
+  jobType: string;
   experienceRequired: string;
   location: string;
   salary: string;

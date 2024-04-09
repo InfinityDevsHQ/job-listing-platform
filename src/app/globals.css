@@ -61,6 +61,12 @@
   .text-gray {
     color: #70777f;
   }
+  .text-gray-medium {
+    color: #151515;
+  }
+  .text-gray-third {
+    color: #5a5a5a;
+  }
   .text-gray-dark {
     color: #383838;
   }
@@ -72,6 +78,9 @@
   }
   .text-11 {
     font-size: 11px;
+  }
+  .text-26 {
+    font-size: 26px;
   }
   .h-30 {
     height: 30px;
