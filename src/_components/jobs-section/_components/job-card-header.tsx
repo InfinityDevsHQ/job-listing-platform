@@ -1,5 +1,14 @@
 import { Plane } from "lucide-react";
-export default function JobCardHeader() {
+type JobCardHeaderProps = {
+  jobTitle: string;
+  company: string;
+  urgent?: boolean;
+};
+export default function JobCardHeader({
+  jobTitle,
+  company,
+  urgent = false,
+}: JobCardHeaderProps) {
   return (
     <>
       <div className="flex items-center justify-between">
@@ -8,10 +17,15 @@ export default function JobCardHeader() {
         </span>
         <div>
           <h3 className="text-base font-semibold text-neutral-900">
-            Senior Frontend Developer
+            {jobTitle}
           </h3>
           <p className="text-neutral-500 text-[11px] leading-[15px] font-medium">
-            Semrush
+            {company}
+            {urgent && (
+              <span className="ml-[15px] bg-greenish font-normal px-[5px] py-1 text-white text-11 leading-[15px] rounded-5">
+                Urgent
+              </span>
+            )}
           </p>
         </div>
         <button
