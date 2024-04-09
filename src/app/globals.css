@@ -55,6 +55,9 @@
   .rounded-20 {
     border-radius: 20px;
   }
+  .rounded-100 {
+    border-radius: 100px;
+  }
   .text-gray {
     color: #70777f;
   }
@@ -81,6 +84,9 @@
   }
   .flex-center {
     @apply flex items-center justify-center;
+  }
+  .gap-five {
+    gap: 5px;
   }
 }
 .section-heading {
