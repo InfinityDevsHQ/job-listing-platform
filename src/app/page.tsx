@@ -4,10 +4,12 @@ import Jobs from "@/_components/jobs-section/jobs";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <>
       <Header />
-      <Jobs />
+      <main className="flex flex-col items-center justify-between">
+        <Jobs />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
