@@ -35,9 +35,7 @@
     --radius: 0.5rem;
   }
 }
-.flex-center {
-  @apply flex items-center justify-center;
-}
+
 @layer base {
   * {
     @apply border-border;
@@ -45,6 +43,23 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+@layer utilities {
+  .rounded-10 {
+    border-radius: 10px;
+  }
+  .rounded-20 {
+    border-radius: 20px;
+  }
+  .text-gray {
+    color: #70777f;
+  }
+  .text-gray-dark {
+    color: #383838;
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
   }
 }
 .section-heading {
