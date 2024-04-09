@@ -1,5 +1,6 @@
 import JobCardHeader from "./job-card-header";
 import JobCardDetails from "./job-card-details";
+import Tags from "./tags";
 type JobCardProps = {
   jobTitle: string;
   company: string;
@@ -43,6 +44,7 @@ export default function JobCard({
         explicabo, adipisci cupiditate.
       </p>
       <span className="border-b border-neutral-200" />
+      <Tags python django sql git />
     </div>
   );
 }

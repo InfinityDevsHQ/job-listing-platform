@@ -96,3 +96,6 @@
 .btn {
   @apply text-sm lg:text-base font-roboto lg:font-geist leading-normal lg:leading-[24px] font-bold lg:font-medium;
 }
+.tag {
+  @apply px-2 py-1 rounded-5 text-10 font-geist leading-[12px] font-medium;
+}
