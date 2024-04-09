@@ -33,9 +33,9 @@ export default function JobCardDetails({
               />
             </svg>
           </span>
-          <span className="text-10">{jobType}</span>
+          <span className="text-10 text-sm lg:leading-[20px]">{jobType}</span>
         </span>
-        <span className="flex items-center gap-2.5 font-geist text-10 font-semibold leading-[12px]">
+        <span className="flex items-center gap-2.5 font-geist text-10 text-sm lg:leading-[20px] font-semibold leading-[12px]">
           <span>
             <svg
               width="12"
@@ -50,9 +50,11 @@ export default function JobCardDetails({
               />
             </svg>
           </span>
-          <span className="text-10">{experienceRequired}</span>
+          <span className="text-10 text-sm lg:leading-[20px]">
+            {experienceRequired}
+          </span>
         </span>
-        <span className="flex items-center gap-2.5 font-geist text-10 font-semibold leading-[12px]">
+        <span className="flex items-center gap-2.5 font-geist text-10 text-sm lg:leading-[20px] font-semibold leading-[12px]">
           <span>
             <svg
               width="9"
@@ -67,12 +69,12 @@ export default function JobCardDetails({
               />
             </svg>
           </span>
-          <span className="text-10">{location}</span>
+          <span className="text-10 text-sm lg:leading-[20px]">{location}</span>
         </span>
       </div>
 
       <div className="flex items-center justify-between">
-        <span className="flex items-center gap-2.5 font-geist text-10 font-semibold leading-[12px]">
+        <span className="flex items-center gap-2.5 font-geist text-10 text-sm lg:leading-[20px] font-semibold leading-[12px]">
           <span>
             <svg
               width="12"
@@ -87,9 +89,9 @@ export default function JobCardDetails({
               />
             </svg>
           </span>
-          <span className="text-10">{salary}</span>
+          <span className="text-10 text-sm lg:leading-[20px]">{salary}</span>
         </span>
-        <span className="flex items-center gap-2.5 font-geist text-10 font-semibold leading-[12px]">
+        <span className="flex items-center gap-2.5 font-geist text-10 text-sm lg:leading-[20px] font-semibold leading-[12px]">
           <span>
             <svg
               width="12"
@@ -104,9 +106,11 @@ export default function JobCardDetails({
               />
             </svg>
           </span>
-          <span className="text-10">{applications} Applied</span>
+          <span className="text-10 text-sm lg:leading-[20px]">
+            {applications} Applied
+          </span>
         </span>
-        <span className="flex items-center gap-2.5 font-geist text-10 font-semibold leading-[12px]">
+        <span className="flex items-center gap-2.5 font-geist text-10 text-sm lg:leading-[20px] font-semibold leading-[12px]">
           <span>
             <svg
               width="9"

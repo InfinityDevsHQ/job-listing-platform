@@ -16,13 +16,18 @@ export default function JobCardHeader({
           <Plane />
         </span>
         <div>
-          <h3 className="text-base font-semibold text-neutral-900">
+          <h3 className="text-base lg:text-xl lg:leading-[32px] tracking-[-0.001em] font-semibold text-neutral-900">
             {jobTitle}
+            {urgent && (
+              <span className="hidden lg:block ml-[15px] bg-greenish font-medium  px-2 py-1 text-white text-10 leading-[12px] rounded-5 font-geist">
+                Urgent
+              </span>
+            )}
           </h3>
-          <p className="text-neutral-500 text-[11px] leading-[15px] font-medium">
+          <p className="text-neutral-500 text-[11px] lg:text-sm leading-[15px] lg:leading-[20px] font-medium">
             {company}
             {urgent && (
-              <span className="ml-[15px] bg-greenish font-normal px-[5px] py-1 text-white text-11 leading-[15px] rounded-5">
+              <span className="lg:hidden ml-[15px] bg-greenish font-normal px-[5px] py-1 text-white text-11 leading-[15px] rounded-5">
                 Urgent
               </span>
             )}

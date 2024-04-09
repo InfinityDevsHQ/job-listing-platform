@@ -4,7 +4,7 @@ import Tags from "./tags";
 type JobCardProps = {
   jobTitle: string;
   company: string;
-  description: string;
+  description?: string;
   urgent: boolean;
   jobType: "Full Time" | "Part Time";
   experienceRequired: string;
@@ -37,12 +37,11 @@ export default function JobCard({
         applications={applications}
         date={date}
       />
-      <p className="text-xs text-neutral-600 leading-[16px] font-normal font-geist">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga
-        blanditiis reiciendis sapiente dolore dicta accusamus odio voluptate
-        ullam quibusdam, itaque at nobis ea doloribus illum dolorum distinctio
-        explicabo, adipisci cupiditate.
-      </p>
+      {description && (
+        <p className="text-xs lg:text-sm text-neutral-600 leading-[16px] lg:leading-[28px] font-normal font-geist">
+          {description}
+        </p>
+      )}
       <span className="border-b border-neutral-200" />
       <Tags python django sql git />
     </div>
