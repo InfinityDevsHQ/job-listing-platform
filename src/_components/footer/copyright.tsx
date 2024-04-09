@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Copyright() {
   return (
-    <div className="col-span-2 flex items-center justify-between">
-      <span className="text-base !font-medium leading-[24px] text-white">
+    <div className="col-span-2 flex flex-col lg:flex-row gap-10 items-center justify-between">
+      <span className="text-sm lg:text-base font-normal lg:!font-medium leading-[24px] text-white">
         &copy; 2023 Project Al-fugu, Inc. All rights reserved.
       </span>
       <div className="flex items-center gap-5">

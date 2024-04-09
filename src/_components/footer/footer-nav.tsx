@@ -16,17 +16,19 @@ const FooterNav = () => {
 
   return (
     <>
-      <div className="col-start-1 flex items-center justify-between text-white font-semibold text-sm lg:text-base mb-8">
-        {links.map((link, index) => (
-          <React.Fragment key={index}>
-            <span className="px-4 py-2">
-              <Link href={link.href}>{link.text}</Link>
-            </span>
-            {index !== links.length - 1 && (
-              <span className="w-1 bg-white h-6" />
-            )}
-          </React.Fragment>
-        ))}
+      <div className="flex-center col-span-2 lg:col-start-1 lg:col-span-1">
+        <div className="flex flex-wrap lg:flex-nowrap items-center justify-between text-white font-semibold text-sm lg:text-base mb-8">
+          {links.map((link, index) => (
+            <React.Fragment key={index}>
+              <span className="px-4 py-2">
+                <Link href={link.href}>{link.text}</Link>
+              </span>
+              {index !== links.length - 1 && (
+                <span className="w-1 bg-white h-6" />
+              )}
+            </React.Fragment>
+          ))}
+        </div>
       </div>
       <span className="border-b border-neutral-50 col-span-2 mb-8" />
     </>
