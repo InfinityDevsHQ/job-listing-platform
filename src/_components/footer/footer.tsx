@@ -4,7 +4,7 @@ import Subscribe from "./subscribe";
 import Copyright from "./copyright";
 export default function Footer() {
   return (
-    <footer className="p-[30px] lg:p-8 bg-secondary lg:bg-primary w-full grid grid-cols-2">
+    <footer className="p-high lg:p-8 bg-secondary lg:bg-primary w-full grid grid-cols-2">
       <span className="mb-8 col-span-2">
         <Image
           src={"/assets/logo_white.png"}

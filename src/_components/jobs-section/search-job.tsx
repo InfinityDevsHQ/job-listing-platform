@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 export default function SearchJobs() {
   return (
-    <div className="flex flex-col gap-5  bg-secondary p-5 lg:p-[30px] rounded-20">
+    <div className="flex flex-col gap-5  bg-secondary p-5 lg:p-hight rounded-20">
       <h2 className="text-xl lg:text-3xl font-bold font-roboto text-white">
         Find your dream job here
       </h2>

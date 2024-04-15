@@ -18,18 +18,18 @@ export default function JobCardHeader({
             <Plane />
           </span>
           <div>
-            <h3 className="flex items-center gap-[15px] text-base lg:text-xl lg:leading-[32px] tracking-[-0.001em] font-semibold text-neutral-900">
+            <h3 className="flex items-center gap-3.9 text-base lg:text-xl lg:leading-8 tracking-weak font-semibold text-neutral-900">
               {jobTitle}
               {urgent && (
-                <span className="hidden lg:block  bg-greenish font-medium  px-2 py-1 text-white text-10 leading-[12px] rounded-5 font-geist">
+                <span className="hidden lg:block  bg-greenish font-medium  px-2 py-1 text-white text-10 leading-3 rounded-5 font-geist">
                   Urgent
                 </span>
               )}
             </h3>
-            <p className="text-neutral-500 text-[11px] lg:text-sm leading-[15px] lg:leading-[20px] font-medium">
+            <p className="text-neutral-500 text-mid lg:text-sm leading-3.5 lg:leading-5 font-medium">
               {company}
               {urgent && (
-                <span className="lg:hidden ml-[15px] bg-greenish font-normal px-[5px] py-1 text-white text-11 leading-[15px] rounded-5">
+                <span className="lg:hidden ml-3.9 bg-greenish font-normal px-1.3  py-1 text-white text-mid leading-3.5 rounded-5">
                   Urgent
                 </span>
               )}
@@ -41,7 +41,7 @@ export default function JobCardHeader({
           aria-label="Save Job"
           className="flex items-center justify-center w-30 h-30 border border-neutral-300"
         >
-          <span className="px-[11.21px]">
+          <span className="px-2.8">
             <CompanyBookmark />
           </span>
         </button>

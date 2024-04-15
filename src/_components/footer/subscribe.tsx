@@ -11,7 +11,7 @@ export default function Subscribe() {
   return (
     <>
       <div className="flex flex-col gap-5 lg:gap-8 mb-8 col-span-2 lg:col-span-1 text-center lg:text-left">
-        <h2 className="text-white text-base lg:text-[38px] font-bold lg:leading-[48px] lg:tracking-[-0.0075em]">
+        <h2 className="text-white text-base lg:text-mid-1 font-bold lg:leading-12 lg:tracking-tightest">
           Subscribe to our newsletter
         </h2>
         <p className="section-description text-white">
@@ -24,7 +24,7 @@ export default function Subscribe() {
       >
         <Input
           placeholder="Email"
-          className="font-semibold placeholder:text-[#d1d1d1] lg:placeholder:text-gray-600 rounded-lg bg-white bg-opacity-25 lg:bg-opacity-100 border border-[#d1d1d1] lg:border-2 lg:border-gray-300 px-1 py-1.5 lg:py-2 lg:pr-14 lg:pl-3"
+          className="font-semibold placeholder:text-gray-1 lg:placeholder:text-gray-600 rounded-lg bg-white bg-opacity-25 lg:bg-opacity-100 border border-gray-1 lg:border-2 lg:border-gray-300 px-1 py-1.5 lg:py-2 lg:pr-14 lg:pl-3"
           name="Mail"
           value={mail}
           onChange={(e) => {

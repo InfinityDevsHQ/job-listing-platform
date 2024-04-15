@@ -16,11 +16,11 @@ export default function CompanyCard({
 }: CompanyCardProps) {
   return (
     <div
-      className="flex flex-col gap-[15px] lg:gap-8  p-[15px] lg:p-8 bg-[#f7f7f7]
+      className="flex flex-col gap-3.9 lg:gap-8  p-3.9 lg:p-8 bg-gray-basic
     lg:bg-white rounded-20 lg:rounded-none lg:border border-neutral-200"
     >
       <header className="flex items-center gap-5">
-        <span className="inline-block p-5 rounded-100 bg-[#D9D9D9]">
+        <span className="inline-block p-5 rounded-100 bg-gray-2">
           <Image
             src={imgUrl}
             alt={`${companyName} logo`}
@@ -36,25 +36,25 @@ export default function CompanyCard({
             className="hidden lg:block"
           />
         </span>
-        <h3 className="font-roboto font-bold text-3xl lg:text-[32px] leading-[40px]  tracking-[-0.002em] text-[#1D192F] ">
+        <h3 className="font-roboto font-bold text-3xl lg:text-mid-2 leading-9  tracking-fit text-deep-blue">
           {companyName}
         </h3>
       </header>
-      <p className="text-xs leading-[14px] font-normal font-roboto">
+      <p className="text-xs leading-3.5 font-normal font-roboto">
         {description}
       </p>
       <div className="flex justify-between lg:hidden">
         <span />
         <Link
           href={"/login"}
-          className="flex items-center gap-five bg-secondary  h-[35px] px-2.5 rounded-full"
+          className="flex items-center gap-1.3 bg-secondary  h-higher px-2.5 rounded-full"
         >
           <CompanyArrow width={13} height={12} />
           <span className="text-sm  text-white font-bold ">Login</span>
           <CompanyArrow width={13} height={12} />
         </Link>
       </div>
-      <div className="hidden lg:flex justify-between leading-[24px] text-base font-geist font-medium">
+      <div className="hidden lg:flex justify-between leading-6 text-base font-geist font-medium">
         <span />
         <Button className="flex gap-2.5 px-4 py-2 items-center">
           <span>M</span>
