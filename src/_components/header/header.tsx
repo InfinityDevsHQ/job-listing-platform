@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Navigation from "./navigation";
 import Link from "next/link";
+import AppNavigation from "./app-navigation";
 export default function Header() {
   return (
     <>
@@ -21,7 +21,7 @@ export default function Header() {
             className="lg:hidden"
           />
         </span>
-        <Navigation />
+        <AppNavigation />
         <span className="hidden lg:flex gap-2">
           <Link className="px-4 py-2 font-medium border" href={"/register"}>
             Sign up

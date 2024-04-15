@@ -6,7 +6,7 @@ type Tabs = {
   href: string;
 };
 
-const Navigation = () => {
+const AppNavigation = () => {
   const tabs: Tabs[] = [
     { text: "Home", href: "#" },
     { text: "About", href: "#" },
@@ -30,4 +30,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default AppNavigation;
