@@ -121,7 +121,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        geist: ["Geist", "sans-serif"],
+        sans: ["Geist", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
       },
     },

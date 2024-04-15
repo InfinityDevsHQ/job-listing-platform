@@ -53,7 +53,7 @@ export default function CompanyCard({
           <CompanyArrow width={13} height={12} />
         </Link>
       </div>
-      <div className="hidden lg:flex justify-between leading-6 text-base font-geist font-medium">
+      <div className="hidden lg:flex justify-between leading-6 text-base font-sans font-medium">
         <Link href={"/login"} className="flex gap-2.5 px-4 py-2 items-center">
           <span>M</span>
           <span>Continue</span>

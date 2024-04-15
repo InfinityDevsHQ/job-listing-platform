@@ -26,34 +26,34 @@ export default function JobCardDetails({
     <>
       <div className="flex flex-col lg:flex-row gap-4">
         <div className="flex items-center justify-between  flex-1">
-          <span className="flex items-center gap-2.5 font-geist text-10 font-semibold leading-3">
+          <span className="flex items-center gap-2.5 font-sans text-10 font-semibold leading-3">
             <CompanyClock width={14} height={12} />
             <span className="text-10 lg:text-sm lg:leading-5">{jobType}</span>
           </span>
-          <span className="flex items-center gap-2.5 font-geist text-10 lg:text-sm lg:leading-5 font-semibold leading-3">
+          <span className="flex items-center gap-2.5 font-sans text-10 lg:text-sm lg:leading-5 font-semibold leading-3">
             <CompanyExperience width={14} height={12} />
             <span className="text-10 lg:text-sm lg:leading-5">
               {experienceRequired}
             </span>
           </span>
-          <span className="flex items-center gap-2.5 font-geist text-10 lg:text-sm lg:leading-5 font-semibold leading-5">
+          <span className="flex items-center gap-2.5 font-sans text-10 lg:text-sm lg:leading-5 font-semibold leading-5">
             <CompanyLocation width={11} height={12} />
             <span className="text-10 lg:text-sm lg:leading-5">{location}</span>
           </span>
         </div>
 
         <div className="flex items-center justify-between flex-1">
-          <span className="flex items-center gap-2.5 font-geist text-10 lg:text-sm lg:leading-5 font-semibold leading-3">
+          <span className="flex items-center gap-2.5 font-sans text-10 lg:text-sm lg:leading-5 font-semibold leading-3">
             <CompanyDollar width={14} height={12} />
             <span className="text-10 lg:text-sm lg:leading-5">{salary}</span>
           </span>
-          <span className="flex items-center gap-2.5 font-geist text-10 lg:text-sm lg:leading-5 font-semibold leading-3">
+          <span className="flex items-center gap-2.5 font-sans text-10 lg:text-sm lg:leading-5 font-semibold leading-3">
             <CompanyApplied width={18} height={12} />
             <span className="text-10 lg:text-sm lg:leading-5">
               {applications} Applied
             </span>
           </span>
-          <span className="flex items-center gap-2.5 font-geist text-10 lg:text-sm lg:leading-5 font-semibold leading-3">
+          <span className="flex items-center gap-2.5 font-sans text-10 lg:text-sm lg:leading-5 font-semibold leading-3">
             <CompanyCalender width={13} height={12} />
             <span className="text-10">{date}</span>
           </span>

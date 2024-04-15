@@ -38,7 +38,7 @@ export default function JobCard({
         date={date}
       />
       {description && (
-        <p className="text-xs lg:text-sm text-neutral-600 leading-4 lg:leading-5 font-normal font-geist">
+        <p className="text-xs lg:text-sm text-neutral-600 leading-4 lg:leading-5 font-normal font-sans">
           {description}
         </p>
       )}

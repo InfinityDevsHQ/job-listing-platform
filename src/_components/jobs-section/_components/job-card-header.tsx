@@ -22,7 +22,7 @@ export default function JobCardHeader({
             <h3 className="flex items-center gap-3.9 text-base lg:text-xl lg:leading-8 tracking-weak font-semibold text-neutral-900">
               {jobTitle}
               {urgent && (
-                <span className="hidden lg:block  bg-greenish font-medium  px-2 py-1 text-white text-10 leading-3 rounded-5 font-geist">
+                <span className="hidden lg:block  bg-greenish font-medium  px-2 py-1 text-white text-10 leading-3 rounded-5 font-sans">
                   Urgent
                 </span>
               )}
