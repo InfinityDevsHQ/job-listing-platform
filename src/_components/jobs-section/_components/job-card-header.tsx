@@ -1,4 +1,5 @@
 import CompanyBookmark from "@/components/svgs/company-bookmark";
+import { Button } from "@/components/ui/button";
 import { Plane } from "lucide-react";
 type JobCardHeaderProps = {
   jobTitle: string;
@@ -36,7 +37,7 @@ export default function JobCardHeader({
             </p>
           </div>
         </div>
-        <button
+        <Button
           type="button"
           aria-label="Save Job"
           className="flex items-center justify-center w-30 h-30 border border-neutral-300"
@@ -44,7 +45,7 @@ export default function JobCardHeader({
           <span className="px-2.8">
             <CompanyBookmark />
           </span>
-        </button>
+        </Button>
       </div>
     </>
   );
