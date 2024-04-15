@@ -1,4 +1,5 @@
 import CompanyBookmark from "@/components/svgs/company-bookmark";
+import CompanyFlame from "@/components/svgs/company-flame";
 import { Button } from "@/components/ui/button";
 import { Plane } from "lucide-react";
 type JobCardHeaderProps = {
@@ -15,8 +16,8 @@ export default function JobCardHeader({
     <>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-5">
-          <span className="p-3 rounded-full bg-third">
-            <Plane />
+          <span className="flex-center p-3 rounded-full bg-third">
+            <CompanyFlame fill="#FF652E" />
           </span>
           <div>
             <h3 className="flex items-center gap-3.9 text-base lg:text-xl lg:leading-8 tracking-weak font-semibold text-neutral-900">
@@ -40,7 +41,7 @@ export default function JobCardHeader({
         <Button
           type="button"
           aria-label="Save Job"
-          className="flex items-center justify-center w-30 h-30 border border-neutral-300"
+          className="flex-center bg-transparent hover:bg-transparent w-30 h-30 border border-neutral-300"
         >
           <span className="px-2.8">
             <CompanyBookmark />
