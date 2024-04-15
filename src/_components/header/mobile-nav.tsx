@@ -1,12 +1,13 @@
+import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
 
 export default function MobileNav() {
   return (
     <div className="flex lg:hidden">
       <span>
-        <button type="button" aria-label="Messages">
+        <Button type="button" aria-label="Messages">
           <Mail size={30} className="text-neutral-400" />
-        </button>
+        </Button>
       </span>
       <span>
         <button type="button" aria-label="Notifications">
