@@ -44,7 +44,6 @@ export default function CompanyCard({
         {description}
       </p>
       <div className="flex justify-between lg:hidden">
-        <span />
         <Link
           href={"/login"}
           className="flex items-center gap-1.3 bg-secondary  h-higher px-2.5 rounded-full"
@@ -55,14 +54,13 @@ export default function CompanyCard({
         </Link>
       </div>
       <div className="hidden lg:flex justify-between leading-6 text-base font-geist font-medium">
-        <span />
-        <Button className="flex gap-2.5 px-4 py-2 items-center">
+        <Link href={"/login"} className="flex gap-2.5 px-4 py-2 items-center">
           <span>M</span>
           <span>Continue</span>
           <span>
             <CompanyPhone width={15} height={15} />
           </span>
-        </Button>
+        </Link>
       </div>
     </div>
   );
