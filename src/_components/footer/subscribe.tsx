@@ -5,6 +5,9 @@ import { useState } from "react";
 
 export default function Subscribe() {
   const [mail, setMail] = useState("");
+  function handleSubmit() {
+    console.log("Here:", mail);
+  }
   return (
     <>
       <div className="flex flex-col gap-5 lg:gap-8 mb-8 col-span-2 lg:col-span-1 text-center lg:text-left">
@@ -15,7 +18,10 @@ export default function Subscribe() {
           Mauris pharetra imperdiet iaculis elementum nulla. Tellus morb
         </p>
       </div>
-      <form className="flex flex-col gap-5 lg:flex-row lg:gap-2 self-center col-span-2 lg:col-span-1">
+      <form
+        className="flex flex-col gap-5 lg:flex-row lg:gap-2 self-center col-span-2 lg:col-span-1"
+        onSubmit={handleSubmit}
+      >
         <Input
           placeholder="Email"
           className="font-semibold placeholder:text-[#d1d1d1] lg:placeholder:text-gray-600 rounded-lg bg-white bg-opacity-25 lg:bg-opacity-100 border border-[#d1d1d1] lg:border-2 lg:border-gray-300 px-1 py-1.5 lg:py-2 lg:pr-14 lg:pl-3"
