@@ -55,23 +55,22 @@ export default function Jobs() {
     {
       imgUrl: "/assets/webglobe.png",
       company: "Webglobe",
-      description: `  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, odio quaerat labore deleniti sapiente iste! Consequuntur sunt tempore expedita quidem unde. Corporis ipsum ducimus voluptas asperiores fugit maxime, adipisci minus.
+      description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, odio quaerat labore deleniti sapiente iste! Consequuntur sunt tempore expedita quidem unde. Corporis ipsum ducimus voluptas asperiores fugit maxime, adipisci minus.
     `,
     },
   ];
   return (
-    <section className="grid grid-cols-3 gap-8 px-10 pt-10 bg-neutral-200">
-      <div className="col-span-2 flex flex-col gap-5">
+    <section className="grid grid-cols-3 gap-8 px-2 lg:px-10 pt-10 lg:bg-neutral-200">
+      <div className="col-span-3 lg:col-span-2 flex flex-col gap-5">
         <SearchJobs />
         <div className="flex items-center justify-between">
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-5 lg:gap-4 items-center">
             <CompanyFlame width={27} height={27} />
-
-            <h4 className="text-2xl font-bold text-gray-medium">
+            <h4 className="leading-6  text-neutral-900 text-18 lg:text-2xl font-semibold lg:font-bold lg:text-neutral-950">
               Latest Hot Offers
             </h4>
           </div>
-          <p className="text-base font-bold  font-roboto text-gray-third">
+          <p className="text-base text-mid lg:text-16 leading-3.9 font-medium text-neutral-600  lg:font-sans">
             12,054 JOBS
           </p>
         </div>
@@ -95,15 +94,16 @@ export default function Jobs() {
           />
         ))}
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 col-span-3 lg:col-span-1">
         <div className="flex items-center justify-between">
           <div className="flex gap-4 items-center">
             <CompanyPlane />
-            <h4 className="text-26 font-bold text-gray-medium">
+            <h4 className="leading-6  text-neutral-900 text-18 lg:text-2xl font-semibold lg:font-bold lg:text-neutral-950">
               Companies That Will Frow You Forword
             </h4>
           </div>
         </div>
+
         {companies.map((company, index) => (
           <CompanyCard
             key={index}

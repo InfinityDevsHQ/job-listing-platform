@@ -39,6 +39,8 @@ const config = {
       },
       fontSize: {
         10: "10px",
+        16: "16px",
+        18: "18px",
         26: "26px",
         mid: "11px",
         "mid-1": "38px",
@@ -47,6 +49,7 @@ const config = {
       colors: {
         border: "hsl(var(--border))",
         gray: "#70777f",
+        blackish: "#171717",
         "gray-medium": "#151515",
         "gray-third": "#5a5a5a",
         "gray-dark": "#383838",

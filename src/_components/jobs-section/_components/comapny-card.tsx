@@ -1,23 +1,23 @@
 import CompanyArrow from "@/components/svgs/company-arrow";
-import CompanyM from "@/components/svgs/company-arrow";
 import CompanyPhone from "@/components/svgs/company-phone";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 type CompanyCardProps = {
   imgUrl: string;
   companyName: string;
   description: string;
+  className?: string;
 };
 export default function CompanyCard({
   imgUrl,
   companyName,
   description,
+  className,
 }: CompanyCardProps) {
   return (
     <div
-      className="flex flex-col gap-3.9 lg:gap-8  p-3.9 lg:p-8 bg-gray-basic
-    lg:bg-white rounded-20 lg:rounded-none lg:border border-neutral-200"
+      className={`flex flex-col gap-3.9 lg:gap-8  p-3.9 lg:p-8
+      bg-white  lg:border border-neutral-200 ${className}`}
     >
       <header className="flex items-center gap-5">
         <span className="inline-block p-5 rounded-100 bg-gray-2">
