@@ -4,6 +4,7 @@ import PageHeader from "@/_components/page-header";
 import VectorText from "@/_components/vector-text";
 import AppsAuth from "@/_components/apps-auth";
 import { Button } from "@/components/ui/button";
+import RegisterCompanyInputs from "./_components/register-company-inputs";
 export default function Register() {
   return (
     <main className="grid grid-cols-2 min-h-screen">
@@ -29,6 +30,7 @@ export default function Register() {
           <VectorText text="Select Account Type" />
           <VectorText text="Select Method to Login" />
           <AppsAuth />
+          <RegisterCompanyInputs />
           <VectorText text="or Continue with Email" />
           {/* Replace text with Gray/800 and bg with gray-200 later */}
           <Button className="font-sans bg-white px-4 py-2 text-16 leading-6 text-gray-medium font-medium">
