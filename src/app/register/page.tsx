@@ -1,3 +1,4 @@
+"use client";
 import Poster from "@/_components/poster";
 import Image from "next/image";
 import PageHeader from "@/_components/page-header";
@@ -5,7 +6,10 @@ import VectorText from "@/_components/vector-text";
 import AppsAuth from "@/_components/apps-auth";
 import { Button } from "@/components/ui/button";
 import RegisterCompanyInputs from "./_components/register-company-inputs";
+import InputsToggler from "./_components/inputs-toggler";
+import { useState } from "react";
 export default function Register() {
+  const [opened, setOpened] = useState("Candidate");
   return (
     <main className="grid grid-cols-2 min-h-screen">
       <div className="col-span-2 lg:col-span-1 flex-center lg:block flex-col px-3.9 lg:px-0 bg-primary lg:bg-red-200">
@@ -28,9 +32,10 @@ export default function Register() {
         <form className="flex flex-col gap-8 px-35">
           <PageHeader title="Create your Account" />
           <VectorText text="Select Account Type" />
+          <InputsToggler open={opened} setOpen={setOpened} />
           <VectorText text="Select Method to Login" />
           <AppsAuth />
-          <RegisterCompanyInputs />
+          {opened === "Company" ? <RegisterCompanyInputs /> : ""}
           <VectorText text="or Continue with Email" />
           {/* Replace text with Gray/800 and bg with gray-200 later */}
           <Button className="font-sans bg-white px-4 py-2 text-16 leading-6 text-gray-medium font-medium">
