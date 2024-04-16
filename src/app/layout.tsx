@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
 import "./globals.css";
-
-const roboto = Roboto({
-  weight: ["100", "900"],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto',
-})
+// Fonts
+import { GeistSans } from "geist/font/sans";
 
 // Get meta data from relevant persons
 export const metadata: Metadata = {
@@ -22,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={`${GeistSans.variable}`}>{children}</body>
     </html>
   );
 }

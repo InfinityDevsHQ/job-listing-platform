@@ -36,7 +36,7 @@ export default function CompanyCard({
             className="hidden lg:block"
           />
         </span>
-        <h3 className="font-roboto font-bold text-3xl lg:text-mid-2 leading-9  tracking-fit text-deep-blue">
+        <h3 className="font-bold text-3xl lg:text-mid-2 leading-9  tracking-fit text-deep-blue">
           {companyName}
         </h3>
       </header>
