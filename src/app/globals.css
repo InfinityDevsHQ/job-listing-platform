@@ -83,3 +83,9 @@
 .text-basic-1 {
   color: #717171;
 }
+.leading-40 {
+  line-height: 40px;
+}
+.px-225 {
+  padding: 0 90px;
+}

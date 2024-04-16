@@ -5,6 +5,7 @@ import LoginInputs from "./_components/login-inputs";
 import { Button } from "@/components/ui/button";
 import NewAccount from "./_components/new-account";
 import Image from "next/image";
+import Poster from "@/_components/poster";
 
 export default function Login() {
   return (
@@ -39,6 +40,14 @@ export default function Login() {
           <NewAccount />
         </form>
       </div>
+      <Poster
+        imgUrl="/assets/login_poster.png"
+        heading="Clickjob.ai"
+        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+              officia hic ducimus voluptatibus libero asperiores veritatis magni
+              aliquam. Rem vitae cupiditate velit tenetur veritatis repellat,
+              delectus placeat minima saepe architecto?"
+      />
     </main>
   );
 }
