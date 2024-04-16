@@ -35,7 +35,7 @@ export default function Register() {
           <VectorText text="Select Account Type" />
           <InputsToggler open={opened} setOpen={setOpened} />
           <VectorText text="Select Method to Login" />
-          <AppsAuth />
+          <AppsAuth google linkedin github auth="register" />
           {opened === "Company" ? (
             <RegisterCompanyInputs />
           ) : (
