@@ -10,7 +10,7 @@ export default function Login() {
   return (
     <main className="grid grid-cols-2 min-h-screen">
       <div className="col-span-2 lg:col-span-1 flex-center lg:block flex-col px-3.9 lg:px-0 bg-primary lg:bg-red-200">
-        <div className="mb-16 mt-10 lg:mb-0 lg:ml-10">
+        <div className="mb-16 mt-10 lg:mb-37 lg:ml-10">
           <Image
             src={"/assets/logo_white_vertical.png"}
             className="lg:hidden"

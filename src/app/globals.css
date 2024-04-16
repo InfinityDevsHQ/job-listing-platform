@@ -70,7 +70,16 @@
 .text-primary-200 {
   color: #bfdbfe;
 }
-/* Need to add this in spacing */
+/* Need to add these in spacing */
 .px-35 {
   padding: 0 40px;
+}
+.mb-37 {
+  margin-bottom: 148px;
+}
+.text-mold {
+  font-size: 32px;
+}
+.text-basic-1 {
+  color: #717171;
 }
