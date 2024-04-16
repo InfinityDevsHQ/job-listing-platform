@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import RegisterCompanyInputs from "./_components/register-company-inputs";
 import InputsToggler from "./_components/inputs-toggler";
 import { useState } from "react";
+import RegisterCandidateInputs from "./_components/register-candidate-inputs";
 export default function Register() {
   const [opened, setOpened] = useState("Candidate");
   return (
@@ -35,7 +36,11 @@ export default function Register() {
           <InputsToggler open={opened} setOpen={setOpened} />
           <VectorText text="Select Method to Login" />
           <AppsAuth />
-          {opened === "Company" ? <RegisterCompanyInputs /> : ""}
+          {opened === "Company" ? (
+            <RegisterCompanyInputs />
+          ) : (
+            <RegisterCandidateInputs />
+          )}
           <VectorText text="or Continue with Email" />
           {/* Replace text with Gray/800 and bg with gray-200 later */}
           <Button className="font-sans bg-white px-4 py-2 text-16 leading-6 text-gray-medium font-medium">
