@@ -23,7 +23,7 @@ export default function JobCardHeader({
             <h3 className="flex items-center gap-3.9 text-base lg:text-xl lg:leading-8 tracking-weak font-semibold text-neutral-900">
               {jobTitle}
               {urgent && (
-                <span className="hidden lg:block  bg-greenish font-medium  px-2 py-1 text-white text-10 leading-3 rounded-5 font-sans">
+                <span className="hidden lg:block  bg-greenish font-medium  px-2 py-1 text-white text-10 leading-3 rounded-md font-sans">
                   Urgent
                 </span>
               )}
@@ -31,7 +31,7 @@ export default function JobCardHeader({
             <p className="text-neutral-500 text-mid lg:text-sm leading-3.5 lg:leading-5 font-medium">
               {company}
               {urgent && (
-                <span className="lg:hidden ml-3.9 bg-greenish font-normal px-1.3  py-1 text-white text-mid leading-3.5 rounded-5">
+                <span className="lg:hidden ml-3.9 bg-greenish font-normal px-1.3  py-1 text-white text-mid leading-3.5 rounded-md">
                   Urgent
                 </span>
               )}

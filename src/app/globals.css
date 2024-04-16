@@ -37,6 +37,10 @@
 }
 
 @layer base {
+  body, html{
+    @apply font-sans
+  }
+
   * {
     @apply border-border;
   }
@@ -58,11 +62,11 @@
 }
 .section-description {
   font-family: "Geist";
-  @apply lg:text-xl text-sm font-normal lg:leading-8 lg:tracking-weak;
+  @apply lg:text-xl text-sm font-normal lg:leading-8;
 }
 .btn {
-  @apply text-sm lg:text-base font-roboto lg:font-sans leading-normal lg:leading-6 font-bold lg:font-medium;
+  @apply text-sm lg:text-base lg:font-sans font-bold lg:font-medium;
 }
 .tag {
-  @apply px-2 py-1 rounded-5 text-10 font-sans leading-3 font-medium;
+  @apply px-2 py-1 rounded-md font-sans font-medium;
 }

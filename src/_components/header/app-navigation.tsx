@@ -8,10 +8,10 @@ type Tabs = {
 
 const AppNavigation = () => {
   const tabs: Tabs[] = [
-    { text: "Home", href: "#" },
-    { text: "About", href: "#" },
-    { text: "Contact Us", href: "#" },
-    { text: "For Companies", href: "#" },
+    { text: "Home", href: "/" },
+    { text: "About", href: "/about" },
+    { text: "Contact Us", href: "/contact" },
+    { text: "For Companies", href: "/companies" },
   ];
 
   return (
@@ -20,7 +20,7 @@ const AppNavigation = () => {
         <ol className="flex gap-4">
           {tabs.map((link, index) => (
             <li key={index}>
-              <Link href={link.href}>{link.text}</Link>
+              <Link href={link.href} className="font-semibold text-neutral-500">{link.text}</Link>
             </li>
           ))}
         </ol>
