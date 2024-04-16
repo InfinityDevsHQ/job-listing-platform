@@ -44,6 +44,7 @@ export default function LoginInputs() {
           id="reminder"
           name="remember"
           checked={loginData.remember}
+          value={`${loginData.remember}`}
           onChange={(e) => handleChange(e)}
         />
         <label
