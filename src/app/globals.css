@@ -66,3 +66,11 @@
 .tag {
   @apply px-2 py-1 rounded-5 text-10 font-sans leading-3 font-medium;
 }
+/* Make it in tailwind-config later */
+.text-primary-200 {
+  color: #bfdbfe;
+}
+/* Need to add this in spacing */
+.px-35 {
+  padding: 0 40px;
+}
