@@ -1,20 +1,31 @@
 "use client";
 import Poster from "@/_components/poster";
-import Image from "next/image";
 import PageHeader from "@/_components/page-header";
 import VectorText from "@/_components/vector-text";
 import AppsAuth from "@/_components/apps-auth";
 import { Button } from "@/components/ui/button";
 import RegisterCompanyInputs from "./_components/register-company-inputs";
-import InputsToggler from "./_components/register-inputs-toggler";
 import { useState } from "react";
 import useRegisterStore from "@/stores/register-store";
 import RegisterCandidateInputs from "./_components/register-candidate-inputs";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
 import FormsHeader from "@/_components/forms-header";
+import TabNavigator from "@/_components/tab-navigator";
 export default function Register() {
   const [opened, setOpened] = useState("Candidate");
+  const Tabs = [
+    {
+      tabText: "Company",
+      clickHandler: () => setOpened("Company"),
+      active: opened === "Company",
+    },
+    {
+      tabText: "Candidate",
+      clickHandler: () => setOpened("Candidate"),
+      active: opened === "Candidate",
+    },
+  ];
   const { registerData, setRegisterData } = useRegisterStore();
   return (
     <main className="grid grid-cols-2 min-h-screen">
@@ -25,7 +36,8 @@ export default function Register() {
           <VectorText text="Select Method to Login" />
           <AppsAuth google linkedin github auth="register" />
           <VectorText text="or" />
-          <InputsToggler open={opened} registerSetOpen={setOpened} />
+          <TabNavigator tabs={Tabs} />
+          {/* <InputsToggler open={opened} registerSetOpen={setOpened} /> */}
 
           {opened === "Company" ? (
             <RegisterCompanyInputs />
