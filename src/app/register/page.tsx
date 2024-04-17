@@ -37,6 +37,7 @@ const Languages = [
     text: "Urdu",
   },
 ];
+
 export default function Register() {
   const [opened, setOpened] = useState("Candidate");
   const [employs, setEmploys] = useState(EmployOptions[0].value);
@@ -55,6 +56,11 @@ export default function Register() {
     },
   ];
   const { registerData, setRegisterData } = useRegisterStore();
+  console.log(registerData);
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setRegisterData({ ...registerData, [name]: value });
+  }
   return (
     <main className="grid grid-cols-2 min-h-screen">
       <div className="col-span-2 lg:col-span-1 flex-center lg:block flex-col px-3.9 lg:px-0 bg-primary-900 lg:bg-primary-100">
@@ -67,6 +73,7 @@ export default function Register() {
           <TabNavigator tabs={Tabs} />
           {opened === "Company" ? (
             <RegisterCompanyInputs
+              handleChange={(e) => handleChange(e)}
               employees={EmployOptions}
               selectEmploy={employs}
               setSelectEmploy={setEmploys}
@@ -78,7 +85,7 @@ export default function Register() {
               setSelectLanguage={setLanguage}
             />
           ) : (
-            <RegisterCandidateInputs />
+            <RegisterCandidateInputs handleChange={handleChange} />
           )}
           <Button className="flex items-center gap-2.5 font-sans bg-white lg:bg-primary-900 lg:hover:bg-primary-700 border border-gray-200 px-4 py-2 text-base text-gray-900 lg:text-white font-medium">
             <span>Continue</span>

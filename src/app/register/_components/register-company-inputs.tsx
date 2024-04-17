@@ -23,6 +23,7 @@ export default function RegisterCompanyInputs({
   languages,
   selectLanguage,
   setSelectLanguage,
+  handleChange,
 }) {
   return (
     <>
@@ -31,6 +32,8 @@ export default function RegisterCompanyInputs({
         <Input
           className="w-full border-none placeholder:text-gray-400 !text-black"
           placeholder="Company"
+          name="company"
+          onChange={handleChange}
         />
       </div>
 
@@ -39,6 +42,8 @@ export default function RegisterCompanyInputs({
         <Input
           className="w-full border-none placeholder:text-gray-400 !text-black"
           placeholder="Contact Name"
+          name="contactName"
+          onChange={handleChange}
         />
       </div>
       <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
@@ -46,6 +51,8 @@ export default function RegisterCompanyInputs({
         <Input
           className="w-full border-none placeholder:text-gray-400 !text-black"
           placeholder="Work Mail"
+          name="workMail"
+          onChange={handleChange}
         />
       </div>
       <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
@@ -53,6 +60,8 @@ export default function RegisterCompanyInputs({
         <Input
           className="w-full border-none placeholder:text-gray-400 !text-black"
           placeholder="Phone Number"
+          name="phoneNumber"
+          onChange={handleChange}
         />
       </div>
 
@@ -77,6 +86,8 @@ export default function RegisterCompanyInputs({
         <Input
           className="w-full border-none placeholder:text-gray-400 !text-black"
           placeholder="City"
+          name="city"
+          onChange={handleChange}
         />
       </div>
       <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
