@@ -12,7 +12,7 @@ import CompanyArrow from "@/components/svgs/company-arrow";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
 import FormsHeader from "@/_components/forms-header";
 import TabNavigator from "@/_components/tab-navigator";
-// For testing, update Later
+// For testing, update Later with api
 const EmployOptions = [
   {
     value: 200,
@@ -23,10 +23,25 @@ const EmployOptions = [
     text: "500",
   },
 ];
-
+const Countries = [
+  { value: "Pakistan", text: "Pakistan" },
+  { value: "Australia", text: "Australia" },
+];
+const Languages = [
+  {
+    value: "en",
+    text: "English",
+  },
+  {
+    value: "ur",
+    text: "Urdu",
+  },
+];
 export default function Register() {
   const [opened, setOpened] = useState("Candidate");
   const [employs, setEmploys] = useState(EmployOptions[0].value);
+  const [country, setCountry] = useState(Countries[0].value);
+  const [language, setLanguage] = useState(Languages[0].value);
   const Tabs = [
     {
       tabText: "Company",
@@ -52,9 +67,15 @@ export default function Register() {
           <TabNavigator tabs={Tabs} />
           {opened === "Company" ? (
             <RegisterCompanyInputs
-              options={EmployOptions}
-              select={employs}
-              setSelect={setEmploys}
+              employees={EmployOptions}
+              selectEmploy={employs}
+              setSelectEmploy={setEmploys}
+              countries={Countries}
+              selectCountry={country}
+              setSelectCountry={setCountry}
+              languages={Languages}
+              selectLanguage={language}
+              setSelectLanguage={setLanguage}
             />
           ) : (
             <RegisterCandidateInputs />

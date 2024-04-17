@@ -13,7 +13,7 @@ export default function DropDown({
 }: DropdownProps) {
   return (
     <>
-      <Select value={select} onValueChange={(select) => setSelect(select)}>
+      <Select value={`${select}`} onValueChange={(select) => setSelect(select)}>
         <SelectTrigger className="border-none">
           <SelectValue />
         </SelectTrigger>
