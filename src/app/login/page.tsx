@@ -30,7 +30,7 @@ export default function Login() {
         <form className="flex flex-col gap-8 px-35">
           <PageHeader title="Login to your Account" />
           <VectorText text="Select Method to Login" />
-          <AppsAuth />
+          <AppsAuth google github linkedin auth="login" />
           <VectorText text="or Continue with Email" />
           <LoginInputs />
           {/* Replace text with Gray/800 and bg with gray-200 later */}
