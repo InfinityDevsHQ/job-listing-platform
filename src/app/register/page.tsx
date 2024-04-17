@@ -11,7 +11,7 @@ import { useState } from "react";
 import useRegisterStore from "@/stores/register-store";
 import RegisterCandidateInputs from "./_components/register-candidate-inputs";
 import CompanyArrow from "@/components/svgs/company-arrow";
-import OldAccount from "./_components/old-account";
+import LoginRegisterToggler from "@/_components/login-register-toggler";
 export default function Register() {
   const [opened, setOpened] = useState("Candidate");
   const { registerData, setRegisterData } = useRegisterStore();
@@ -55,7 +55,7 @@ export default function Register() {
               className="pt-1"
             />
           </Button>
-          <OldAccount />
+          <LoginRegisterToggler currentPage="register" />
         </form>
       </div>
       <Poster

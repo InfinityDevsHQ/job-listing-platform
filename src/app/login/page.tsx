@@ -4,13 +4,13 @@ import PageHeader from "@/_components/page-header";
 import VectorText from "@/_components/vector-text";
 import LoginInputs from "./_components/login-inputs";
 import { Button } from "@/components/ui/button";
-import NewAccount from "./_components/new-account";
 import Image from "next/image";
 import Poster from "@/_components/poster";
 import LoginInputsToggler from "./_components/login-inputs-toggler";
 import { useState } from "react";
 import useLoginData from "@/stores/login-store";
 import CompanyArrow from "@/components/svgs/company-arrow";
+import LoginRegisterToggler from "@/_components/login-register-toggler";
 export default function Login() {
   const { loginData, setLoginData } = useLoginData();
   // Manages Login Inputs
@@ -54,7 +54,7 @@ export default function Login() {
               className="pt-1"
             />
           </Button>
-          <NewAccount />
+          <LoginRegisterToggler currentPage="login" />
         </form>
       </div>
       <Poster
