@@ -1,6 +1,7 @@
 import Footer from "@/_components/footer/footer";
 import Header from "@/_components/header/header";
 import Intro from "./_components/intro";
+import StepNavigator from "./_components/steps-navigator";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Header />
       <main className="flex flex-col items-center justify-between">
         <Intro />
+        <StepNavigator />
       </main>
       <Footer />
     </>
