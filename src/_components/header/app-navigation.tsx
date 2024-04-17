@@ -1,4 +1,8 @@
+"use client"
+
+import { usePathname } from "next/navigation";
 import Link from "next/link";
+
 import MobileNav from "./mobile-nav";
 
 type Tabs = {
@@ -7,6 +11,8 @@ type Tabs = {
 };
 
 const AppNavigation = () => {
+  const pathname  = usePathname();
+
   const tabs: Tabs[] = [
     { text: "Home", href: "/" },
     { text: "About", href: "/about" },
@@ -20,7 +26,12 @@ const AppNavigation = () => {
         <ol className="flex gap-8">
           {tabs.map((link, index) => (
             <li key={index}>
-              <Link href={link.href} className="text-xl font-semibold text-neutral-500">{link.text}</Link>
+              <Link 
+                href={link.href}
+                className={`text-xl font-semibold ${pathname === link.href ? 'text-primary-900' : 'text-neutral-500'}`}
+                >
+                  {link.text}
+              </Link>
             </li>
           ))}
         </ol>
