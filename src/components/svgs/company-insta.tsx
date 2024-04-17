@@ -1,10 +1,11 @@
-export default function CompanyInsta({ width, height, fill }: SvgProps) {
+export default function CompanyInsta({ width, height }: SvgProps) {
   return (
     <svg
       width={`${width || "27"}`}
       height={`${height || "27"}`}
       viewBox={`0 0 ${width || "27"} ${height || "27"}`}
-      fill={fill || "#fff"}
+      fill={"fillCurrent"}
+      className="fill-current"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248zm0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008z"></path>

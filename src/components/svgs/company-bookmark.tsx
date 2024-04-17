@@ -6,7 +6,7 @@ export default function CompanyBookmark({ width, height, fill }: SvgProps) {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-4 h-4 text-neutral-300"
+      className="w-4 h-4 text-current"
     >
       <path
         strokeLinecap="round"
