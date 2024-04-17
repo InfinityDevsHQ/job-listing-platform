@@ -4,23 +4,23 @@ import AppNavigation from "./app-navigation";
 export default function Header() {
   return (
     <>
-      <header className="flex items-center justify-between w-full px-4 py-2 lg:px-16 lg:py-8">
-        <span className="flex-center">
+      <header className="flex items-center justify-between w-full px-4 py-2 lg:px-16 lg:py-8 bg-white">
+        <Link href={"/"}>
           <Image
             alt="logo"
-            src={"/assets/logo.png"}
-            width={208}
+            src={"/assets/images/common/logo_clickJob_primary.svg"}
+            width={226}
             height={50}
             className="hidden lg:block"
           />
           <Image
             alt="logo"
-            src={"/assets/logo.png"}
-            width={30}
+            src={"/assets/images/common/logo_clickJob_primary.svg"}
+            width={118}
             height={30}
-            className="lg:hidden"
+            className="block lg:hidden"
           />
-        </span>
+        </Link>
         <AppNavigation />
         <span className="hidden lg:flex gap-2">
           <Link className="px-4 py-2 font-medium border" href={"/register"}>
