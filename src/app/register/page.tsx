@@ -34,7 +34,7 @@ export default function Register() {
             height={50}
           />
         </div>
-        <form className="flex flex-col gap-8 px-35">
+        <form className="flex flex-col gap-8 px-16">
           <PageHeader title="Create your Account" />
           <VectorText text="Select Method to Login" />
           <AppsAuth google linkedin github auth="register" />
