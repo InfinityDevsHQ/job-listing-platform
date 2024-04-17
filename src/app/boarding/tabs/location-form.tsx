@@ -1,11 +1,11 @@
 import { Input } from "@/components/ui/input";
 import CompanyMail from "@/components/svgs/coompany-mail";
-import PageHeader from "@/_components/page-header";
 import CompanyClock from "@/components/svgs/company-clock";
 import CompanyGlobe from "@/components/svgs/company-globe";
 import CompanyLock from "@/components/svgs/company-lock";
 import CompanyEye from "@/components/svgs/company-eye";
 import Image from "next/image";
+import BoardingHeader from "../_components/boarding-header";
 export default function LocationForm() {
   // Replace Icons Later
   // Also add dropdowns later
@@ -20,10 +20,11 @@ export default function LocationForm() {
         />
       </div>
       <div className="flex flex-col gap-4 w-full col-span-2 lg:col-span-1">
-        <PageHeader
+        <BoardingHeader
           title="1. Location"
-          boXClassName="!py-0"
-          textClassName="!text-left !text-2xl lg:!text-4xl !text-gray-950 !font-sans"
+          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia nihil
+        enim, dolorum odio est animi reprehenderit ipsam, accusantium quas rem
+        aliquam porro eveniet tempora nisi ipsa odit necessitatibus voluptas ad!"
         />
         <div className="flex flex-col">
           <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
