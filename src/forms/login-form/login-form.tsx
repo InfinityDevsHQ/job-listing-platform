@@ -33,7 +33,7 @@ export default function LoginForm({
         setLoginData={setLoginData}
         openInputs={open}
       />
-      <Button className="flex items-center gap-2.5 font-sans bg-primary-900 px-4 py-2 text-base leading-6 text-white font-medium">
+      <Button className="flex items-center gap-2.5 font-sans bg-white lg:bg-primary-900 lg:hover:bg-primary-700 border border-gray-200 px-4 py-2 text-base text-gray-900 lg:text-white font-medium">
         <span>Login</span>
         <CompanyArrow width={16} height={16} fill="white" className="pt-1" />
       </Button>

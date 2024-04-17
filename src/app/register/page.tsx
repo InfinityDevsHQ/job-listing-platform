@@ -18,7 +18,7 @@ export default function Register() {
   const { registerData, setRegisterData } = useRegisterStore();
   return (
     <main className="grid grid-cols-2 min-h-screen">
-      <div className="col-span-2 lg:col-span-1 flex-center lg:block flex-col px-3.9 lg:px-0 bg-primary lg:bg-red-200">
+      <div className="col-span-2 lg:col-span-1 flex-center lg:block flex-col px-3.9 lg:px-0 bg-primary-900 lg:bg-primary-100">
         <FormsHeader />
         <form className="flex flex-col gap-8 px-16">
           <PageHeader title="Create your Account" />
@@ -32,7 +32,7 @@ export default function Register() {
           ) : (
             <RegisterCandidateInputs />
           )}
-          <Button className="flex items-center gap-2.5 font-sans bg-primary-900 px-4 py-2 text-base leading-6 text-white font-medium">
+          <Button className="flex items-center gap-2.5 font-sans bg-white lg:bg-primary-900 lg:hover:bg-primary-700 border border-gray-200 px-4 py-2 text-base text-gray-900 lg:text-white font-medium">
             <span>Continue</span>
             <CompanyArrow
               width={16}
