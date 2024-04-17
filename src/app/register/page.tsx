@@ -10,6 +10,8 @@ import InputsToggler from "./_components/register-inputs-toggler";
 import { useState } from "react";
 import useRegisterStore from "@/stores/register-store";
 import RegisterCandidateInputs from "./_components/register-candidate-inputs";
+import CompanyArrow from "@/components/svgs/company-arrow";
+import OldAccount from "./_components/old-account";
 export default function Register() {
   const [opened, setOpened] = useState("Candidate");
   const { registerData, setRegisterData } = useRegisterStore();
@@ -34,20 +36,26 @@ export default function Register() {
         </div>
         <form className="flex flex-col gap-8 px-35">
           <PageHeader title="Create your Account" />
-          <VectorText text="Select Account Type" />
-          <InputsToggler open={opened} registerSetOpen={setOpened} />
           <VectorText text="Select Method to Login" />
           <AppsAuth google linkedin github auth="register" />
+          <VectorText text="or" />
+          <InputsToggler open={opened} registerSetOpen={setOpened} />
+
           {opened === "Company" ? (
             <RegisterCompanyInputs />
           ) : (
             <RegisterCandidateInputs />
           )}
-          <VectorText text="or Continue with Email" />
-          {/* Replace text with Gray/800 and bg with gray-200 later */}
-          <Button className="font-sans bg-white px-4 py-2 text-16 leading-6 text-gray-medium font-medium">
-            Cancel
+          <Button className="flex items-center gap-2.5 font-sans bg-primary-900 px-4 py-2 text-base leading-6 text-white font-medium">
+            <span>Continue</span>
+            <CompanyArrow
+              width={16}
+              height={16}
+              fill="white"
+              className="pt-1"
+            />
           </Button>
+          <OldAccount />
         </form>
       </div>
       <Poster
