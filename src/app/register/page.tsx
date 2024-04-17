@@ -37,8 +37,6 @@ export default function Register() {
           <AppsAuth google linkedin github auth="register" />
           <VectorText text="or" />
           <TabNavigator tabs={Tabs} />
-          {/* <InputsToggler open={opened} registerSetOpen={setOpened} /> */}
-
           {opened === "Company" ? (
             <RegisterCompanyInputs />
           ) : (
