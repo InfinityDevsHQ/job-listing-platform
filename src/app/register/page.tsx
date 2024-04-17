@@ -12,6 +12,7 @@ import CompanyArrow from "@/components/svgs/company-arrow";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
 import FormsHeader from "@/_components/forms-header";
 import TabNavigator from "@/_components/tab-navigator";
+import RegisterForm from "@/forms/register-form/register-form";
 // For testing, update Later with api
 const EmployOptions = [
   {
@@ -43,18 +44,7 @@ export default function Register() {
   const [employs, setEmploys] = useState(EmployOptions[0].value);
   const [country, setCountry] = useState(Countries[0].value);
   const [language, setLanguage] = useState(Languages[0].value);
-  const Tabs = [
-    {
-      tabText: "Company",
-      clickHandler: () => setOpened("Company"),
-      active: opened === "Company",
-    },
-    {
-      tabText: "Candidate",
-      clickHandler: () => setOpened("Candidate"),
-      active: opened === "Candidate",
-    },
-  ];
+
   const { registerData, setRegisterData } = useRegisterStore();
   console.log(registerData);
   function handleChange(event) {
@@ -65,7 +55,21 @@ export default function Register() {
     <main className="grid grid-cols-2 min-h-screen">
       <div className="col-span-2 lg:col-span-1 flex-center lg:block flex-col px-3.9 lg:px-0 bg-primary-900 lg:bg-primary-100">
         <FormsHeader />
-        <form className="flex flex-col gap-8 px-16">
+        <RegisterForm
+          opened={opened}
+          setOpened={setOpened}
+          handleChange={handleChange}
+          employOptions={EmployOptions}
+          employees={employs}
+          setEmploys={setEmploys}
+          countries={Countries}
+          country={country}
+          setCountry={setCountry}
+          language={language}
+          setLanguage={setLanguage}
+          languages={Languages}
+        />
+        {/* <form className="flex flex-col gap-8 px-16">
           <PageHeader title="Create your Account" />
           <VectorText text="Select Method to Login" />
           <AppsAuth google linkedin github auth="register" />
@@ -97,7 +101,7 @@ export default function Register() {
             />
           </Button>
           <LoginRegisterToggler currentPage="register" />
-        </form>
+        </form> */}
       </div>
       <Poster
         imgUrl="/assets/login_poster.png"
