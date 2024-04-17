@@ -1,29 +1,32 @@
 import { Button } from "@/components/ui/button";
 
-export default function InputsToggler({ open, setOpen }: InputsTogglerProps) {
+export default function LoginInputsToggler({
+  open,
+  loginSetOpen,
+}: InputsTogglerProps) {
   return (
     <div className="flex self-center p-1 rounded-md bg-gray-100">
       <Button
         className={`px-3 py-1.5 text-sm font-medium leading-5 ${
-          open === "Candidate"
+          open === "EmailPassword"
             ? "bg-white text-gray-900 hover:bg-white"
             : "bg-transparent text-gray-700 hover:bg-transparent"
         }`}
         type="button"
-        onClick={() => setOpen("Candidate")}
+        onClick={() => loginSetOpen && loginSetOpen("EmailPassword")}
       >
-        Candidate
+        Email/Password
       </Button>
       <Button
         className={`px-3 py-1.5 text-sm font-medium leading-5 ${
-          open === "Company"
+          open === "PasswordLess"
             ? "bg-white text-gray-900 hover:bg-white"
             : "bg-transparent text-gray-700 hover:bg-transparent"
         }`}
         type="button"
-        onClick={() => setOpen("Company")}
+        onClick={() => loginSetOpen && loginSetOpen("PasswordLess")}
       >
-        Company
+        PasswordLess
       </Button>
     </div>
   );

@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 
-export default function InputsToggler({ open, setOpen }: InputsTogglerProps) {
+export default function InputsToggler({
+  open,
+  registerSetOpen,
+}: InputsTogglerProps) {
   return (
     <div className="flex self-center p-1 rounded-md bg-gray-100">
       <Button
@@ -10,7 +13,7 @@ export default function InputsToggler({ open, setOpen }: InputsTogglerProps) {
             : "bg-transparent text-gray-700 hover:bg-transparent"
         }`}
         type="button"
-        onClick={() => setOpen("Candidate")}
+        onClick={() => registerSetOpen && registerSetOpen("Candidate")}
       >
         Candidate
       </Button>
@@ -21,7 +24,7 @@ export default function InputsToggler({ open, setOpen }: InputsTogglerProps) {
             : "bg-transparent text-gray-700 hover:bg-transparent"
         }`}
         type="button"
-        onClick={() => setOpen("Company")}
+        onClick={() => registerSetOpen && registerSetOpen("Company")}
       >
         Company
       </Button>

@@ -1,4 +1,5 @@
 type InputsTogglerProps = {
   open: string;
-  setOpen: (value: "Candidate" | "Company") => void;
+  registerSetOpen?: (value: "Candidate" | "Company") => void;
+  loginSetOpen?: (value: "EmailPassword" | "PasswordLess") => void;
 };

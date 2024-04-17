@@ -1,3 +1,4 @@
+"use client";
 import AppsAuth from "@/_components/apps-auth";
 import PageHeader from "@/_components/page-header";
 import VectorText from "@/_components/vector-text";
@@ -6,8 +7,14 @@ import { Button } from "@/components/ui/button";
 import NewAccount from "./_components/new-account";
 import Image from "next/image";
 import Poster from "@/_components/poster";
-
+import LoginInputsToggler from "./_components/login-inputs-toggler";
+import { useState } from "react";
+import useLoginData from "@/stores/login-store";
+import CompanyArrow from "@/components/svgs/company-arrow";
 export default function Login() {
+  const { loginData, setLoginData } = useLoginData();
+  // Manages Login Inputs
+  const [open, setOpen] = useState("EmailPassword");
   return (
     <main className="grid grid-cols-2 min-h-screen">
       <div className="col-span-2 lg:col-span-1 flex-center lg:block flex-col px-3.9 lg:px-0 bg-primary lg:bg-red-200">
@@ -31,11 +38,21 @@ export default function Login() {
           <PageHeader title="Login to your Account" />
           <VectorText text="Select Method to Login" />
           <AppsAuth google github linkedin auth="login" />
-          <VectorText text="or Continue with Email" />
-          <LoginInputs />
-          {/* Replace text with Gray/800 and bg with gray-200 later */}
-          <Button className="font-sans bg-white px-4 py-2 text-16 leading-6 text-gray-medium font-medium">
-            Cancel
+          <VectorText text="or" />
+          <LoginInputsToggler open={open} loginSetOpen={setOpen} />
+          <LoginInputs
+            loginData={loginData}
+            setLoginData={setLoginData}
+            openInputs={open}
+          />
+          <Button className="flex items-center gap-2.5 font-sans bg-primary-900 px-4 py-2 text-base leading-6 text-white font-medium">
+            <span>Login</span>
+            <CompanyArrow
+              width={16}
+              height={16}
+              fill="white"
+              className="pt-1"
+            />
           </Button>
           <NewAccount />
         </form>

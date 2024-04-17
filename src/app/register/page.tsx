@@ -35,7 +35,7 @@ export default function Register() {
         <form className="flex flex-col gap-8 px-35">
           <PageHeader title="Create your Account" />
           <VectorText text="Select Account Type" />
-          <InputsToggler open={opened} setOpen={setOpened} />
+          <InputsToggler open={opened} registerSetOpen={setOpened} />
           <VectorText text="Select Method to Login" />
           <AppsAuth google linkedin github auth="register" />
           {opened === "Company" ? (
