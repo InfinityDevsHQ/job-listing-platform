@@ -1,7 +1,18 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
+
+import { useRouter } from "next/navigation"
+
 import AppNavigation from "./app-navigation";
+import Button from "@/components/ui/app-button";
+
+import LockIcon from "@/components/svgs/lock";
+import ArrowRightIcon from "@/components/svgs/arrow-right";
+
 export default function Header() {
+  const router = useRouter()
   return (
     <>
       <header className="flex items-center justify-between w-full px-4 py-2 lg:px-16 lg:py-8 bg-white">
@@ -23,15 +34,18 @@ export default function Header() {
         </Link>
         <AppNavigation />
         <span className="hidden lg:flex gap-2">
-          <Link className="px-4 py-2 font-medium border" href={"/register"}>
-            Sign up
-          </Link>
-          <Link
-            href={"#"}
-            className="px-4 py-2 font-medium border bg-primary text-white"
-          >
-            <span>Continue</span>
-          </Link>
+          <Button
+            text="Login"
+            variant={"outline-primary"}
+            trailingIcon={<LockIcon />}
+            onClick={() => router.push('/login')}
+          />
+          <Button
+            text="Register"
+            trailingIcon={<ArrowRightIcon />}
+            variant={"primary"}
+            onClick={() => router.push('/register')}
+          />
         </span>
       </header>
     </>
