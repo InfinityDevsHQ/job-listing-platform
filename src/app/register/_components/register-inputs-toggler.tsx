@@ -9,8 +9,8 @@ export default function InputsToggler({
       <Button
         className={`px-3 py-1.5 text-sm font-medium leading-5 ${
           open === "Candidate"
-            ? "bg-white text-gray-900 hover:bg-white"
-            : "bg-transparent text-gray-700 hover:bg-transparent"
+            ? "bg-primary-900 text-gray-50 hover:bg-primary-900"
+            : "bg-transparent text-gray-950 hover:bg-transparent"
         }`}
         type="button"
         onClick={() => registerSetOpen && registerSetOpen("Candidate")}
@@ -20,8 +20,8 @@ export default function InputsToggler({
       <Button
         className={`px-3 py-1.5 text-sm font-medium leading-5 ${
           open === "Company"
-            ? "bg-white text-gray-900 hover:bg-white"
-            : "bg-transparent text-gray-700 hover:bg-transparent"
+            ? "bg-primary-900 text-gray-50 hover:bg-primary-900"
+            : "bg-transparent text-gray-950 hover:bg-transparent"
         }`}
         type="button"
         onClick={() => registerSetOpen && registerSetOpen("Company")}
