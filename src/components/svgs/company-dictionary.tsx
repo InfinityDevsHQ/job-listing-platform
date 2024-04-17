@@ -1,4 +1,4 @@
-export default function CompanyCity({ width, height, fill }: SvgProps) {
+export default function CompanyDictionary({ width, height, fill }: SvgProps) {
   return (
     <span>
       <svg

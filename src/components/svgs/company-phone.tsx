@@ -1,4 +1,4 @@
-export default function CompanyArrow({ width, height, fill }: SvgProps) {
+export default function CompanyPhone({ width, height, fill }: SvgProps) {
   return (
     <span>
       <svg
