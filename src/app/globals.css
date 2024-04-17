@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-  body, html{
-    @apply font-sans
+  body,
+  html {
+    @apply font-sans;
   }
 
   body {
@@ -31,4 +32,10 @@
 }
 .tag {
   @apply px-2 py-1 rounded-md font-sans font-medium;
+}
+.new-gray {
+  color: #70777f;
+}
+.bg-new-gray {
+  background-color: #70777f;
 }

@@ -4,7 +4,16 @@ import CompanyMail from "@/components/svgs/coompany-mail";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-export default function LoginInputs({ loginData, setLoginData, openInputs }) {
+type LoginInputsProps = {
+  loginData: LoginFormData;
+  setLoginData: SetLoginDataState;
+  openInputs: "EmailPassword" | "PasswordLess";
+};
+export default function LoginInputs({
+  loginData,
+  setLoginData,
+  openInputs,
+}: LoginInputsProps) {
   const handleChange = (event) => {
     const { name, value, checked } = event.target;
     const newValue = event.target.type === "checkbox" ? checked : value;
@@ -38,7 +47,7 @@ export default function LoginInputs({ loginData, setLoginData, openInputs }) {
             />
             <CompanyEye width={16} height={13} />
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
             <Checkbox
               className="bg-white data-[state=checked]:bg-white"
               id="reminder"
@@ -49,13 +58,13 @@ export default function LoginInputs({ loginData, setLoginData, openInputs }) {
             />
             <label
               htmlFor="reminder"
-              className="font-sans px-4 py-2 font-medium text-16 leading-6 !text-gray-200"
+              className="font-sans font-medium text-base leading-6 text-neutral-50 lg:text-black"
             >
               Remember Me
             </label>
             <Link
               href={"#"}
-              className="ml-auto px-4 py-2 font-sans text-gray-200 text-16 leading-6 font-medium"
+              className="ml-auto px-4 py-2 font-sans text-neutral-50 lg:text-gray-800 text-16 leading-6 font-medium"
             >
               Forgot Password?
             </Link>

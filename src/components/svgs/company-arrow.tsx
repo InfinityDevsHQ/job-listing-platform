@@ -1,6 +1,11 @@
-export default function CompanyArrow({ width, height, fill }: SvgProps) {
+export default function CompanyArrow({
+  width,
+  height,
+  fill,
+  className,
+}: SvgProps) {
   return (
-    <span>
+    <span className={className}>
       <svg
         width={`${width || "27"}`}
         height={`${height || "27"}`}

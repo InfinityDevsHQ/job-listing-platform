@@ -7,11 +7,15 @@ type StepTabProps = {
 };
 export default function StepTab({ svg, stepNumber, stepName }: StepTabProps) {
   return (
-    <div className="bg-white rounded-full  pr-9 lg:pr-12 lg:pl-2 lg:py-2">
-      {svg}
+    <div className="flex items-center gap-1.5 bg-primary rounded-100 pr-9 lg:pr-12 lg:pl-2 lg:py-2">
+      <span className="flex-center w-9 h-9 rounded-full bg-new-gray">
+        {svg}
+      </span>
       <div>
-        <p>Step {stepNumber}</p>
-        <span>{stepName}</span>
+        <p className="new-text text-sm leading-6 font-sans font-semibold">
+          Step {stepNumber}
+        </p>
+        <span className="new-text text-sm leading-6 font-sans">{stepName}</span>
       </div>
     </div>
   );
