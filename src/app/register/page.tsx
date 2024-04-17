@@ -6,7 +6,7 @@ import VectorText from "@/_components/vector-text";
 import AppsAuth from "@/_components/apps-auth";
 import { Button } from "@/components/ui/button";
 import RegisterCompanyInputs from "./_components/register-company-inputs";
-import InputsToggler from "./_components/inputs-toggler";
+import InputsToggler from "./_components/register-inputs-toggler";
 import { useState } from "react";
 import useRegisterStore from "@/stores/register-store";
 import RegisterCandidateInputs from "./_components/register-candidate-inputs";

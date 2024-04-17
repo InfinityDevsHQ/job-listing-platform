@@ -1,8 +1,5 @@
 import { Button } from "@/components/ui/button";
-type InputsTogglerProps = {
-  open: string;
-  setOpen: (value: "Candidate" | "Company") => void;
-};
+
 export default function InputsToggler({ open, setOpen }: InputsTogglerProps) {
   return (
     <div className="flex self-center p-1 rounded-md bg-gray-100">
