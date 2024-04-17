@@ -12,28 +12,14 @@ import useRegisterStore from "@/stores/register-store";
 import RegisterCandidateInputs from "./_components/register-candidate-inputs";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
+import FormsHeader from "@/_components/forms-header";
 export default function Register() {
   const [opened, setOpened] = useState("Candidate");
   const { registerData, setRegisterData } = useRegisterStore();
   return (
     <main className="grid grid-cols-2 min-h-screen">
       <div className="col-span-2 lg:col-span-1 flex-center lg:block flex-col px-3.9 lg:px-0 bg-primary lg:bg-red-200">
-        <div className="mb-16 mt-10 lg:mb-37 lg:ml-10">
-          <Image
-            src={"/assets/logo_white_vertical.png"}
-            className="lg:hidden"
-            alt="Logo"
-            width={77}
-            height={58}
-          />
-          <Image
-            src={"/assets/logo.png"}
-            className="hidden lg:inline-block"
-            alt="Logo"
-            width={208}
-            height={50}
-          />
-        </div>
+        <FormsHeader />
         <form className="flex flex-col gap-8 px-16">
           <PageHeader title="Create your Account" />
           <VectorText text="Select Method to Login" />
