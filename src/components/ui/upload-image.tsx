@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
+import CompanyCloud from "../svgs/company-cloud";
 
 type File = {
   name: string;
@@ -9,11 +11,12 @@ type File = {
   preview: string; // Add preview property for image URL
 };
 
-function MyDropzone() {
+export default function UploadImage() {
   const [files, setFiles] = useState<File[]>([]);
 
   const { getRootProps, getInputProps } = useDropzone<File>({
     accept: "image/*", // Allow only images for upload
+    maxFiles: 1,
     onDrop: (acceptedFiles) => {
       setFiles(
         acceptedFiles.map((file) => ({
@@ -25,14 +28,26 @@ function MyDropzone() {
   });
 
   return (
-    <div {...getRootProps()}>
+    // Replace rounded with 20px
+    <div
+      {...getRootProps()}
+      className="flex items-center new-gray justify-center rounded-2xl w-full h-full bg-white border border-dashed border-black p-12"
+    >
       <input {...getInputProps()} />
-      <p>Drag & drop some images here, or click to select files</p>
+      {files.length === 0 && (
+        <div className="flex items-center flex-col gap-11">
+          <span>
+            <CompanyCloud />
+          </span>
+          <p className="lg:text-base font-sans ">
+            <span className="font-bold">Click to Upload</span> or drag and drop
+          </p>
+        </div>
+      )}
       {files.length > 0 && (
         <ul>
           {files.map((file) => (
             <li key={file.name}>
-              {file.name} ({file.size} bytes)
               <Image
                 src={file.preview}
                 alt={file.name}
@@ -47,5 +62,3 @@ function MyDropzone() {
     </div>
   );
 }
-
-export default MyDropzone;

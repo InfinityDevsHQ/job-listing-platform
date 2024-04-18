@@ -4,6 +4,7 @@ import Intro from "./_components/intro";
 import StepNavigator from "./_components/steps-navigator";
 import LocationForm from "./tabs/location-form";
 import ContactForm from "./tabs/contact-form";
+import UploadCV from "./tabs/upload-cv";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <Intro />
         {/* <StepNavigator /> */}
         <LocationForm />
+        <UploadCV />
         <ContactForm />
       </main>
     </>
