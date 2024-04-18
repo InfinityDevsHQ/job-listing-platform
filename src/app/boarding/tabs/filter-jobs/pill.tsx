@@ -3,11 +3,13 @@ import CompanyCheck from "@/components/svgs/company-check";
 type PillProps = {
   text: string;
   active?: boolean;
+  setValue: (value: string) => void;
 };
-export default function Pill({ text, active }: PillProps) {
+export default function Pill({ text, active, setValue }: PillProps) {
   return (
     <div
       role="button"
+      onClick={() => setValue(text)}
       className={`flex items-center gap-0.5 lg:gap-1 p-1 lg:p-2 rounded-full shadow-sm w-max ${
         active ? "bg-primary-900" : "bg-white"
       } `}

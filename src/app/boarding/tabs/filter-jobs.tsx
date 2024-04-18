@@ -1,8 +1,13 @@
 import Image from "next/image";
 import BoardingHeader from "../_components/boarding-header";
 import FilterJobsSelect from "./filter-jobs/filter-jobs-select";
-export default function UploadCV() {
-  // Also add dropdowns later
+
+export default function FilterJobs({
+  employmentType,
+  setEmploymentType,
+  collaborationType,
+  setCollaborationType,
+}: FilterJobsProps) {
   return (
     <div className="grid grid-cols-2 w-full">
       <div className="hidden lg:flex items-center justify-center col-span-2 lg:col-span-1 w-full">
@@ -18,7 +23,12 @@ export default function UploadCV() {
           title="3. Filter Jobs"
           description="Set your preferences and we'll find the best jobs for you."
         />
-        <FilterJobsSelect />
+        <FilterJobsSelect
+          employmentType={employmentType}
+          setEmploymentType={setEmploymentType}
+          collaborationType={collaborationType}
+          setCollaborationType={setCollaborationType}
+        />
       </div>
     </div>
   );
