@@ -6,7 +6,7 @@ type PosterProps = {
 };
 export default function Poster({ imgUrl, heading, text }: PosterProps) {
   return (
-    <div className="hidden lg:flex justify-center items-center bg-primary-900 h-full">
+    <div className="h-screen overflow-hidden hidden lg:flex justify-center items-center bg-primary-900">
       <div className="flex flex-col gap-10">
         <div className="flex-center">
           <Image src={imgUrl} alt="poster" width={535} height={535} />

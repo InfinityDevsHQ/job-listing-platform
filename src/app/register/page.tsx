@@ -44,8 +44,8 @@ export default function Register() {
     setRegisterData({ ...registerData, [name]: value });
   }
   return (
-    <main className="grid grid-cols-2 min-h-screen">
-      <div className="col-span-2 lg:col-span-1 flex-center lg:block flex-col px-3.9 lg:px-0 bg-primary-900 lg:bg-primary-50">
+    <main className="grid grid-cols-2 lg:h-screen overflow-hidden">
+      <div className="overflow-auto col-span-2 lg:col-span-1 flex-center lg:block flex-col px-3.9 lg:px-0 bg-primary-900 lg:bg-primary-50">
         <FormsHeader />
         <RegisterForm
           opened={opened}
