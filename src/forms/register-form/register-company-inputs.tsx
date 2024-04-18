@@ -8,6 +8,7 @@ import CompanyCommunity from "@/components/svgs/company-community";
 import CompanyGlobe from "@/components/svgs/company-globe";
 import CompanyCity from "@/components/svgs/company-city";
 import CompanyDictionary from "@/components/svgs/company-dictionary";
+import AppInput from "@/components/ui/app-input";
 type EmployProps = {
   employees: DropdownData[];
   countries: DropdownData[];
@@ -24,46 +25,46 @@ export default function RegisterCompanyInputs({
   selectLanguage,
   setSelectLanguage,
   handleChange,
+  registerFormData,
 }) {
   return (
     <>
-      <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
-        <CompanyIcon />
-        <Input
-          className="w-full border-none placeholder:text-gray-400 !text-black"
-          placeholder="Company"
-          name="company"
-          onChange={handleChange}
-        />
-      </div>
-
-      <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
-        <CompanyProfileOne />
-        <Input
-          className="w-full border-none placeholder:text-gray-400 !text-black"
-          placeholder="Contact Name"
-          name="contactName"
-          onChange={handleChange}
-        />
-      </div>
-      <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
-        <CompanyMail width={14} height={11} />
-        <Input
-          className="w-full border-none placeholder:text-gray-400 !text-black"
-          placeholder="Work Mail"
-          name="workMail"
-          onChange={handleChange}
-        />
-      </div>
-      <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
-        <CompanyArrow fill="black" width={15} height={15} />
-        <Input
-          className="w-full border-none placeholder:text-gray-400 !text-black"
-          placeholder="Phone Number"
-          name="phoneNumber"
-          onChange={handleChange}
-        />
-      </div>
+      <AppInput
+        variant={"primary"}
+        placeholder="Company"
+        name="company"
+        type="text"
+        leadingIcon={<CompanyIcon />}
+        onChange={handleChange}
+        value={registerFormData.company}
+      />
+      <AppInput
+        variant={"primary"}
+        placeholder="Contact Name"
+        name="contactName"
+        type="text"
+        leadingIcon={<CompanyProfileOne />}
+        onChange={handleChange}
+        value={registerFormData.contactName}
+      />
+      <AppInput
+        variant={"primary"}
+        placeholder="Work Mail"
+        name="workMail"
+        type="text"
+        leadingIcon={<CompanyMail width={14} height={11} />}
+        onChange={handleChange}
+        value={registerFormData.workMail}
+      />
+      <AppInput
+        variant={"primary"}
+        placeholder="Phone Number"
+        name="phoneNumber"
+        type="text"
+        leadingIcon={<CompanyArrow width={15} height={15} />}
+        onChange={handleChange}
+        value={registerFormData.workMail}
+      />
 
       <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
         <CompanyCommunity />
@@ -81,15 +82,14 @@ export default function RegisterCompanyInputs({
           setSelect={setSelectCountry}
         />
       </div>
-      <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
-        <CompanyCity />
-        <Input
-          className="w-full border-none placeholder:text-gray-400 !text-black"
-          placeholder="City"
-          name="city"
-          onChange={handleChange}
-        />
-      </div>
+      <AppInput
+        placeholder="City"
+        type="text"
+        name="city"
+        leadingIcon={<CompanyCity />}
+        onChange={handleChange}
+        value={registerFormData.city}
+      />
       <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
         <CompanyDictionary />
         <DropDown

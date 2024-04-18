@@ -23,7 +23,9 @@ export default function RegisterForm({
   languages,
   language,
   setLanguage,
+  registerFormData,
 }) {
+  console.log(registerFormData);
   const Tabs = [
     {
       tabText: "Company",
@@ -45,7 +47,7 @@ export default function RegisterForm({
       <TabNavigator tabs={Tabs} />
       {opened === "Company" ? (
         <RegisterCompanyInputs
-          handleChange={(e) => handleChange(e)}
+          handleChange={handleChange}
           employees={employOptions}
           selectEmploy={employs}
           setSelectEmploy={setEmploys}
@@ -55,9 +57,13 @@ export default function RegisterForm({
           languages={languages}
           selectLanguage={language}
           setSelectLanguage={setLanguage}
+          registerFormData={registerFormData}
         />
       ) : (
-        <RegisterCandidateInputs handleChange={handleChange} />
+        <RegisterCandidateInputs
+          handleChange={handleChange}
+          registerFormData={registerFormData}
+        />
       )}
       <Button className="flex items-center gap-2.5 font-sans bg-white lg:bg-primary-900 lg:hover:bg-primary-700 border border-gray-200 px-4 py-2 text-base text-gray-900 lg:text-white font-medium">
         <span>Continue</span>
