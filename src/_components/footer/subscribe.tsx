@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import AppInput from "@/components/ui/app-input";
+import Button from "@/components/ui/app-button";
 import { useState } from "react";
 
 export default function Subscribe() {
@@ -22,17 +22,18 @@ export default function Subscribe() {
         className="flex flex-col gap-5 lg:flex-row lg:gap-2 self-center col-span-2 lg:col-span-1"
         onSubmit={handleSubmit}
       >
-        <Input
+        <AppInput
           placeholder="Email"
-          className="font-semibold placeholder:text-gray-1 lg:placeholder:text-gray-600 rounded-lg bg-white bg-opacity-25 lg:bg-opacity-100 border border-gray-1 lg:border-2 lg:border-gray-300 px-1 py-1.5 lg:py-2 lg:pr-14 lg:pl-3"
+          containerClassName="self-stretch h-full"
+          className="!w-full self-stretch flex-1 font-semibold placeholder:text-gray-1 lg:placeholder:text-gray-600 rounded-lg bg-white bg-opacity-25 lg:bg-opacity-100 border border-gray-1 lg:border-2 lg:border-gray-300 px-1 py-1.5 lg:py-2 lg:pr-14 lg:pl-3"
           name="Mail"
           value={mail}
-          onChange={(e) => {
-            setMail(e.target.value);
-          }}
+          onChange={(e) => setMail(e.target.value)}
         />
+
         <Button
           type="submit"
+          text="Subscribe"
           className="px-2.5 rounded-2xl lg:px-4 py-2 lg:rounded-lg border-2 border-gray-300 bg-white text-secondary lg:text-gray-800 mb-5 lg:mb-0  btn"
         >
           Subscribe
