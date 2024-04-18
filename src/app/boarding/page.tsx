@@ -3,6 +3,7 @@ import Header from "@/_components/header/header";
 import Intro from "./_components/intro";
 import StepNavigator from "./_components/steps-navigator";
 import LocationForm from "./tabs/location-form";
+import ContactForm from "./tabs/contact-form";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Intro />
         {/* <StepNavigator /> */}
         <LocationForm />
+        <ContactForm />
       </main>
     </>
   );
