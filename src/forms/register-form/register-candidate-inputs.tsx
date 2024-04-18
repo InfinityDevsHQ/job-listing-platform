@@ -15,7 +15,7 @@ export default function RegisterCandidateInputs({
     <>
       <AppInput
         variant={"primary"}
-        type="email"
+        type="text"
         name="username"
         value={registerFormData.username}
         onChange={handleChange}
