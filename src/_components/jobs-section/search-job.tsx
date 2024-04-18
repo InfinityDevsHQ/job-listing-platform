@@ -1,36 +1,38 @@
+import Image from "next/image";
+
+import { Button } from "@/components/ui/button";
 import AppInput from "@/components/ui/app-input";
 import { Search } from "lucide-react";
+
+import MagnifyingGlassIcon from "@/components/svgs/magnifying-glass";
+
 export default function SearchJobs() {
   return (
-    <div className="flex w-full flex-col gap-5 bg-primary p-5 lg:p-hight rounded-20">
-      <h2 className="text-xl lg:text-3xl font-bold font-roboto text-white">
-        Find your dream job here
-      </h2>
-      <p className="text-xs lg:text-xl font-light font-roboto text-white">
-        Explore the latest job openings and apply for the best job opportunities
-        available today!
-      </p>
-      <AppInput
-        placeholder="Search"
-        containerClassName="lg:hidden"
-        className="focus:outline-none  focus-visible:ring-0 focus-visible:ring-offset-0 group-focus:outline-black border-none lg:text-xl  placeholder:text-base lg:placeholder:text-xl placeholder:font-normal placeholder:text-gray"
-      />
-      {/* Replace with button */}
-      <div className="lg:hidden bg-white text-gray-800  px-2.5 lg:px-5 py-0 text-sm font-roboto font-bold">
-        For Companies
-      </div>
-
-      <div className="w-full hidden lg:flex items-center  bg-white p-1 rounded-10 group">
+    <div className="grid grid-cols-3 items-center lg:gap-8 p-4 lg:p-8 rounded-md overflow-hidden bg-cover" style={{background : "url('/assets/images/home/homePage_hero_section_bg.png')"}}>
+      <div className="cols-span-3 lg:col-span-2 flex flex-col  gap-4 lg:gap-8">
+        <h2 className="text-lg lg:text-3xl font-bold text-white">
+          Find your dream job here
+        </h2>
+        <p className="text-sm lg:text-base text-white max-w-lg">
+          Explore the latest job openings and apply for the best job opportunities
+          available today!
+        </p>
         <AppInput
+          variant={"primary"}
+          type="text"
+          name="search"
+          defaultValue={''}
           placeholder="Search"
-          leadingIcon={<Search size={12} className="text-gray-dark ml-2" />}
-          className="focus:outline-none  focus-visible:ring-0 focus-visible:ring-offset-0 group-focus:outline-black border-none lg:text-xl  placeholder:text-base lg:placeholder:text-xl placeholder:font-normal placeholder:text-gray"
+          leadingIcon={<MagnifyingGlassIcon />}
         />
-        {/* Replace with button */}
-        <div className="bg-secondary  px-2.5 lg:px-5 py-0 text-sm font-roboto font-bold">
-          For Companies
-        </div>
       </div>
+      <Image 
+        alt="homePage_hero_section_vector.png"
+        src={"/assets/images/home/homePage_hero_section_vector.png"}
+        width={245}
+        height={195}
+        className="h-48 mx-auto" 
+      />
     </div>
   );
 }
