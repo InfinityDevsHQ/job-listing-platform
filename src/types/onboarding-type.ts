@@ -1,5 +1,5 @@
 type OnBoardingData = {
-  email: string;
+  country: string;
   password: string;
   imgUrl: string;
   employmentType: string;

@@ -1,7 +1,14 @@
 import Image from "next/image";
 import BoardingHeader from "../_components/boarding-header";
 import LocationFormInputs from "./location-form/location-form-inputs";
-export default function LocationForm() {
+type LocationFormProps = {
+  onBoardingData: OnBoardingData;
+  handleChange: () => void;
+};
+export default function LocationForm({
+  onBoardingData,
+  handleChange,
+}: LocationFormProps) {
   // Replace Icons Later
   // Also add dropdowns later
   return (
@@ -16,7 +23,10 @@ export default function LocationForm() {
       </div>
       <div className="flex justify-center flex-col gap-4 w-full col-span-2 lg:col-span-1">
         <BoardingHeader title="1. Location" />
-        <LocationFormInputs />
+        <LocationFormInputs
+          onBoardingData={onBoardingData}
+          handleChange={handleChange}
+        />
       </div>
     </div>
   );

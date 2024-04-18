@@ -5,9 +5,9 @@ type OnBoardingState = {
   setOnBoardingData: (data: Partial<OnBoardingData>) => void;
 };
 
-export const useOnBoardingStore = create<OnBoardingState>((set) => ({
+const useOnBoardingStore = create<OnBoardingState>((set) => ({
   onBoardingData: {
-    email: "",
+    country: "",
     password: "",
     imgUrl: "",
     employmentType: "",
@@ -21,3 +21,4 @@ export const useOnBoardingStore = create<OnBoardingState>((set) => ({
   setOnBoardingData: (data) =>
     set((state) => ({ onBoardingData: { ...state.onBoardingData, ...data } })),
 }));
+export default useOnBoardingStore;
