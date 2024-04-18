@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
 
 const config = {
   content: [
@@ -18,17 +18,22 @@ const config = {
       },
     },
     extend: {
-
       fontSize: {
-        xxs: ['10px', {
-          lineHeight: '16px',
-        }],
+        xxs: [
+          "10px",
+          {
+            lineHeight: "16px",
+          },
+        ],
       },
       colors: {
         primary: colors.blue,
         secondary: colors.green,
         danger: colors.red,
         neutral: colors.neutral,
+        "mute-1": "#263238",
+        "mute-2": "#EBEBEB",
+        "mute-3": "#70777f",
       },
       keyframes: {
         "accordion-down": {
@@ -45,7 +50,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)'],
+        sans: ["var(--font-geist-sans)"],
       },
     },
   },
