@@ -4,8 +4,8 @@ import {
   SelectItem,
   SelectValue,
   SelectTrigger,
+  SelectGroup,
 } from "@/components/ui/select";
-import { SelectGroup } from "@radix-ui/react-select";
 export default function DropDown({
   options,
   select,

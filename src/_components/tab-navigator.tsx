@@ -9,7 +9,7 @@ type TabsNavigatorProps = {
 };
 export default function TabNavigator({ tabs }: TabsNavigatorProps) {
   return (
-    <div className="flex self-center p-1 rounded-md bg-primary-100">
+    <div className="flex self-center p-1 rounded-md bg-primary-50">
       {tabs.map(({ tabText, clickHandler, active }, index) => (
         <Button
           key={index}

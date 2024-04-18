@@ -5,5 +5,5 @@ type DropdownData = {
 type DropdownProps = {
   options: DropdownData[];
   select: string | number;
-  setSelect: (value: string | number) => void;
+  setSelect: (value: number | string) => void;
 };

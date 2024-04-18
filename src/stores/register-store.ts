@@ -1,8 +1,21 @@
-import { create } from "zustand";
+import { create, SetState } from "zustand";
+
+type RegisterData = {
+  tab: "Candidate" | "Company";
+  username: string;
+  email: string;
+  passwordOne: string;
+  passwordTwo: string;
+  company: string;
+  contactName: string;
+  workMail: string;
+  phoneNumber: string;
+  city: string;
+};
 
 type SetFormDataState = {
   registerData: RegisterData;
-  setRegisterData: RegisterDataSetter;
+  setRegisterData: SetState<RegisterData>;
 };
 
 const useRegisterStore = create<SetFormDataState>((set) => ({
@@ -19,25 +32,9 @@ const useRegisterStore = create<SetFormDataState>((set) => ({
     city: "",
   },
   setRegisterData: (data) =>
-    set((state) => {
-      // Determine which fields to include based on tab value
-      let newData: Partial<RegisterData> = {};
-
-      newData = {
-        email: data.email || "",
-        passwordOne: data.passwordOne || "",
-        passwordTwo: data.passwordTwo || "",
-        company: "",
-        contactName: "",
-        workMail: "",
-        phoneNumber: "",
-        city: "",
-      };
-
-      return {
-        registerData: { ...state.registerData, ...newData },
-      };
-    }),
+    set((state) => ({
+      registerData: { ...state.registerData, ...data },
+    })),
 }));
 
 export default useRegisterStore;

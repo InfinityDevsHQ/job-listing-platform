@@ -13,6 +13,14 @@ type EmployProps = {
   employees: DropdownData[];
   countries: DropdownData[];
   languages: DropdownData[];
+  selectEmploy: string | number;
+  setSelectEmploy: (value: string | number) => void;
+  selectCountry: string;
+  setSelectCountry: (value: string) => void;
+  selectLanguage: string;
+  setSelectLanguage: (value: string) => void;
+  handleChange: (value: unknown) => void;
+  registerFormData: RegisterData;
 };
 export default function RegisterCompanyInputs({
   employees,
@@ -26,7 +34,7 @@ export default function RegisterCompanyInputs({
   setSelectLanguage,
   handleChange,
   registerFormData,
-}) {
+}: EmployProps) {
   return (
     <>
       <AppInput

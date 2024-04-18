@@ -1,17 +1,8 @@
 "use client";
 import Poster from "@/_components/poster";
-import PageHeader from "@/_components/page-header";
-import VectorText from "@/_components/vector-text";
-import AppsAuth from "@/_components/apps-auth";
-import { Button } from "@/components/ui/button";
-import RegisterCompanyInputs from "./_components/register-company-inputs";
 import { useState } from "react";
 import useRegisterStore from "@/stores/register-store";
-import RegisterCandidateInputs from "./_components/register-candidate-inputs";
-import CompanyArrow from "@/components/svgs/company-arrow";
-import LoginRegisterToggler from "@/_components/login-register-toggler";
 import FormsHeader from "@/_components/forms-header";
-import TabNavigator from "@/_components/tab-navigator";
 import RegisterForm from "@/forms/register-form/register-form";
 // For testing, update Later with api
 const EmployOptions = [
@@ -40,10 +31,12 @@ const Languages = [
 ];
 
 export default function Register() {
-  const [opened, setOpened] = useState("Candidate");
-  const [employs, setEmploys] = useState(EmployOptions[0].value);
+  const [opened, setOpened] = useState<"Candidate" | "Company">("Candidate");
+  const [employs, setEmploys] = useState<number | string>(
+    EmployOptions[0].value
+  );
   const [country, setCountry] = useState(Countries[0].value);
-  const [language, setLanguage] = useState(Languages[0].value);
+  const [language, setLanguage] = useState<string>(Languages[0].value);
 
   const { registerData, setRegisterData } = useRegisterStore();
   function handleChange(event) {
@@ -59,7 +52,7 @@ export default function Register() {
           setOpened={setOpened}
           handleChange={handleChange}
           employOptions={EmployOptions}
-          employees={employs}
+          employs={employs}
           setEmploys={setEmploys}
           countries={Countries}
           country={country}

@@ -1,15 +1,14 @@
 import Link from "next/link";
-
 import CompanyEye from "@/components/svgs/company-eye";
 import CompanyLock from "@/components/svgs/company-lock";
 import CompanyMail from "@/components/svgs/coompany-mail";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
 import AppInput from "@/components/ui/app-input";
+import { ChangeEvent, FormEvent } from "react";
 
 type LoginInputsProps = {
   loginData: LoginFormData;
-  setLoginData: SetLoginDataState;
+  setLoginData: (data: unknown) => void;
   openInputs: "EmailPassword" | "PasswordLess";
 };
 export default function LoginInputs({
@@ -17,11 +16,17 @@ export default function LoginInputs({
   setLoginData,
   openInputs,
 }: LoginInputsProps) {
-  const handleChange = (event) => {
-    const { name, value, checked } = event.target;
-    const newValue = event.target.type === "checkbox" ? checked : value;
-    setLoginData({ ...loginData, [name]: newValue });
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement> | FormEvent<HTMLFormElement>
+  ) => {
+    if (event.target) {
+      const target = event.target as HTMLInputElement;
+      const { name, value, checked, type } = target;
+      const newValue = type === "checkbox" ? checked : value;
+      setLoginData({ ...loginData, [name]: newValue });
+    }
   };
+
   return (
     <>
       <AppInput

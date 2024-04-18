@@ -5,14 +5,12 @@ import LoginInputs from "./login-inputs";
 import AppsAuth from "@/_components/apps-auth";
 import { Button } from "@/components/ui/button";
 import CompanyArrow from "@/components/svgs/company-arrow";
-import { LoginData } from "@/types/types";
 import TabNavigator from "@/_components/tab-navigator";
 type LoginFormProps = {
   setOpen: (value: "EmailPassword" | "PasswordLess") => void;
   open: "EmailPassword" | "PasswordLess";
-  loginData: LoginData;
-  openInputs: "EmailPassword" | "PasswordLess";
-  setLoginData: SetLoginDataState;
+  loginData: LoginFormData;
+  setLoginData: (data: unknown) => void;
 };
 export default function LoginForm({
   open,

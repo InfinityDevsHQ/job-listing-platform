@@ -8,7 +8,19 @@ import { Button } from "@/components/ui/button";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
 type RegisterFormProps = {
+  employOptions: DropdownData[];
+  countries: DropdownData[];
+  languages: DropdownData[];
   opened: "Company" | "Candidate";
+  setOpened: (value: "Company" | "Candidate") => void;
+  handleChange: (event: unknown) => void;
+  employs: number | string;
+  setEmploys: (value: string | number) => void;
+  country: string;
+  setCountry: (value: string) => void;
+  language: string;
+  setLanguage: (value: string) => void;
+  registerFormData: RegisterData;
 };
 export default function RegisterForm({
   opened,
@@ -24,7 +36,7 @@ export default function RegisterForm({
   language,
   setLanguage,
   registerFormData,
-}) {
+}: RegisterFormProps) {
   console.log(registerFormData);
   const Tabs = [
     {
