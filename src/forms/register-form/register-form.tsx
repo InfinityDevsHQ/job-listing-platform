@@ -4,7 +4,7 @@ import AppsAuth from "@/_components/apps-auth";
 import TabNavigator from "@/_components/tab-navigator";
 import RegisterCandidateInputs from "./register-candidate-inputs";
 import RegisterCompanyInputs from "./register-company-inputs";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/app-button";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
 type RegisterFormProps = {

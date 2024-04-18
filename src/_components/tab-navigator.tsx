@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 type Tabs = {
   tabText: string;
   clickHandler: () => void;
@@ -11,7 +10,7 @@ export default function TabNavigator({ tabs }: TabsNavigatorProps) {
   return (
     <div className="flex self-center p-1 rounded-md bg-primary-50">
       {tabs.map(({ tabText, clickHandler, active }, index) => (
-        <Button
+        <div
           key={index}
           className={`px-3 py-1.5 text-sm font-medium leading-5 ${
             active
@@ -22,7 +21,7 @@ export default function TabNavigator({ tabs }: TabsNavigatorProps) {
           onClick={clickHandler}
         >
           {tabText}
-        </Button>
+        </div>
       ))}
     </div>
   );

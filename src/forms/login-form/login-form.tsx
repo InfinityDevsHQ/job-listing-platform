@@ -3,7 +3,7 @@ import VectorText from "@/_components/vector-text";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
 import LoginInputs from "./login-inputs";
 import AppsAuth from "@/_components/apps-auth";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/app-button";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import TabNavigator from "@/_components/tab-navigator";
 type LoginFormProps = {

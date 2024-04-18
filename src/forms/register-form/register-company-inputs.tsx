@@ -1,4 +1,3 @@
-import { Input } from "@/components/ui/input";
 import CompanyMail from "@/components/svgs/coompany-mail";
 import DropDown from "@/_components/dropdown";
 import CompanyIcon from "@/components/svgs/company-icon";

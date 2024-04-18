@@ -2,7 +2,7 @@ import CompanyEye from "@/components/svgs/company-eye";
 import CompanyLock from "@/components/svgs/company-lock";
 import CompanyMail from "@/components/svgs/coompany-mail";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
+import AppInput from "@/components/ui/app-input";
 import Link from "next/link";
 export default function LoginInputs({ loginData, setLoginData, openInputs }) {
   const handleChange = (event) => {
@@ -12,17 +12,14 @@ export default function LoginInputs({ loginData, setLoginData, openInputs }) {
   };
   return (
     <>
-      <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
-        <CompanyMail width={14} height={11} />
-        <Input
-          className="w-full border-none placeholder:text-gray-400 !text-black"
-          placeholder="Email"
-          name="email"
-          type="email"
-          value={loginData.email}
-          onChange={(e) => handleChange(e)}
-        />
-      </div>
+      <AppInput
+        placeholder="Email"
+        name="email"
+        type="email"
+        value={loginData.email}
+        onChange={(e) => handleChange(e)}
+        leadingIcon={<CompanyMail width={14} height={11} />}
+      />
 
       {openInputs === "EmailPassword" && (
         <>
