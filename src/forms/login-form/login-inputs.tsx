@@ -36,18 +36,16 @@ export default function LoginInputs({
 
       {openInputs === "EmailPassword" && (
         <>
-          <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border border-gray-300">
-            <CompanyLock width={14} height={15} />
-            <Input
-              className="w-full border-none placeholder:text-gray-400 !text-black"
-              placeholder="Password"
-              name="password"
-              type="password"
-              value={loginData.password}
-              onChange={(e) => handleChange(e)}
-            />
-            <CompanyEye width={16} height={13} />
-          </div>
+          <AppInput
+            variant={"primary"}
+            placeholder="Email"
+            name="password"
+            type="password"
+            value={loginData.password}
+            onChange={(e) => handleChange(e)}
+            leadingIcon={<CompanyLock width={14} height={15} />}
+            trailingIcon={<CompanyEye width={16} height={13} />}
+          />
           <div className="flex items-center gap-2">
             <Checkbox
               className="bg-white data-[state=checked]:bg-white"
