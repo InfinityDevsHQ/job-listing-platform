@@ -1,4 +1,4 @@
-import Pill from "./pill";
+import Pill from "../../../../components/ui/pill";
 type CollaborationTypeProps = {
   collaborationType: string;
   setCollaborationType: (value: string) => void;

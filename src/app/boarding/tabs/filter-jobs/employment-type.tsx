@@ -1,4 +1,4 @@
-import Pill from "./pill";
+import Pill from "../../../../components/ui/pill";
 type EmploymentTypeProps = {
   employmentType: string;
   setEmploymentType: (value: string) => void;
