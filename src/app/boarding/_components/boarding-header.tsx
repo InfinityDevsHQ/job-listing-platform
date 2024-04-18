@@ -17,7 +17,9 @@ export default function BoardingHeader({
         title={title}
       />
       {description && (
-        <p className="font-sans new-gray text-sm lg:text-base">{description}</p>
+        <p className="font-sans text-mute-3 text-sm lg:text-base">
+          {description}
+        </p>
       )}
     </>
   );

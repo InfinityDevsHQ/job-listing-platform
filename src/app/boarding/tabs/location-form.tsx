@@ -8,7 +8,7 @@ export default function LocationForm() {
     <div className="grid grid-cols-2 w-full">
       <div className="hidden lg:flex items-center justify-center col-span-2 lg:col-span-1">
         <Image
-          src={"/assets/location_poster.png"}
+          src={"/assets/boarding/location_poster.png"}
           alt="Location Poster"
           width={580}
           height={580}

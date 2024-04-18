@@ -1,15 +1,25 @@
 import CompanyCheck from "@/components/svgs/company-check";
+import { ReactNode } from "react";
 
 type PillProps = {
-  text: string;
-  active?: boolean;
-  setValue: (value: string) => void;
+  text?: string;
+  active: boolean;
+  children?: ReactNode;
+  setValue: (value: string | boolean) => void;
 };
-export default function Pill({ text, active, setValue }: PillProps) {
+export default function Pill({ text, active, children, setValue }: PillProps) {
   return (
     <div
       role="button"
-      onClick={() => setValue(text)}
+      onClick={() => {
+        if (text && children) {
+          setValue(!active);
+        } else if (text) {
+          setValue(`${text}`);
+        } else if (children) {
+          setValue(!active);
+        }
+      }}
       className={`flex items-center gap-0.5 lg:gap-1 p-1 lg:p-2 rounded-full shadow-sm w-max ${
         active ? "bg-primary-900" : "bg-white"
       } `}
@@ -23,12 +33,14 @@ export default function Pill({ text, active, setValue }: PillProps) {
           <CompanyCheck />
         </span>
       </span>
+      {text && children && <>{children}</>}
+      {children && children}
       <span
         className={`text-xxs lg:text-base font-sans ${
           active ? "text-white" : "text-mute-1"
         }`}
       >
-        {text}
+        {text && text}
       </span>
     </div>
   );
