@@ -27,6 +27,7 @@ const config = {
       colors: {
         primary: colors.blue,
         secondary: colors.green,
+        danger: colors.red,
         neutral: colors.neutral,
       },
       keyframes: {
