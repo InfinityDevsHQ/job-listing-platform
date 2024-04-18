@@ -1,7 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 export default function FormsHeader() {
   return (
-    <div className="mb-16 mt-10 lg:mb-37 lg:ml-10">
+    <Link href={"#"} className="inline-block mb-16 mt-10 lg:mb-37 lg:ml-10">
       <Image
         src={"/assets/logo_white_vertical.png"}
         className="lg:hidden"
@@ -16,6 +17,6 @@ export default function FormsHeader() {
         width={208}
         height={50}
       />
-    </div>
+    </Link>
   );
 }
