@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import AppInput from "@/components/ui/app-input";
 import { Search } from "lucide-react";
 export default function SearchJobs() {
   return (
@@ -11,22 +10,26 @@ export default function SearchJobs() {
         Explore the latest job openings and apply for the best job opportunities
         available today!
       </p>
-      <Input
-        className="lg:hidden focus:outline-none  focus-visible:ring-0 focus-visible:ring-offset-0 group-focus:outline-black border-none lg:text-xl  placeholder:text-base lg:placeholder:text-xl placeholder:font-normal placeholder:text-gray"
+      <AppInput
         placeholder="Search"
+        containerClassName="lg:hidden"
+        className="focus:outline-none  focus-visible:ring-0 focus-visible:ring-offset-0 group-focus:outline-black border-none lg:text-xl  placeholder:text-base lg:placeholder:text-xl placeholder:font-normal placeholder:text-gray"
       />
-      <Button className="lg:hidden bg-white text-gray-800  px-2.5 lg:px-5 py-0 text-sm font-roboto font-bold">
+      {/* Replace with button */}
+      <div className="lg:hidden bg-white text-gray-800  px-2.5 lg:px-5 py-0 text-sm font-roboto font-bold">
         For Companies
-      </Button>
+      </div>
+
       <div className="w-full hidden lg:flex items-center  bg-white p-1 rounded-10 group">
-        <Search className="text-gray-dark ml-2" />
-        <Input
-          className="focus:outline-none  focus-visible:ring-0 focus-visible:ring-offset-0 group-focus:outline-black border-none lg:text-xl  placeholder:text-base lg:placeholder:text-xl placeholder:font-normal placeholder:text-gray"
+        <AppInput
           placeholder="Search"
+          leadingIcon={<Search size={12} className="text-gray-dark ml-2" />}
+          className="focus:outline-none  focus-visible:ring-0 focus-visible:ring-offset-0 group-focus:outline-black border-none lg:text-xl  placeholder:text-base lg:placeholder:text-xl placeholder:font-normal placeholder:text-gray"
         />
-        <Button className="bg-secondary  px-2.5 lg:px-5 py-0 text-sm font-roboto font-bold">
+        {/* Replace with button */}
+        <div className="bg-secondary  px-2.5 lg:px-5 py-0 text-sm font-roboto font-bold">
           For Companies
-        </Button>
+        </div>
       </div>
     </div>
   );
