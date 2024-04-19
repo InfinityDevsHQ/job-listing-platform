@@ -1,6 +1,8 @@
 "use client";
+import Button from "@/components/ui/app-button";
 import Pill from "@/components/ui/pill";
 import useFilterJobsDataStore from "@/stores/filter-jobs-form-data-store";
+import { filterJobsFormSchema } from "@/types/schemas/filter-job-form-schema";
 export default function FilterJobsForm() {
   const { filterJobsData, setFilterJobsData } = useFilterJobsDataStore();
   const EmploymentTypes = [
@@ -35,8 +37,17 @@ export default function FilterJobsForm() {
       active: filterJobsData.collaborationType === "Hybrid",
     },
   ];
+  function handleSubmit(e) {
+    e.preventDefault();
+    const validate = filterJobsFormSchema.safeParse(filterJobsData);
+    if (validate.success) {
+      console.log("Validated:", validate.data);
+    } else {
+      console.warn("Validation Failed", validate.error.errors);
+    }
+  }
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <>
         <h3 className="text-mute text-base lg:text-lg font-bold lg:font-semibold font-sans">
           Employment Type
@@ -77,6 +88,7 @@ export default function FilterJobsForm() {
           ))}
         </div>
       </>
+      <Button text="Submit" />
     </form>
   );
 }
