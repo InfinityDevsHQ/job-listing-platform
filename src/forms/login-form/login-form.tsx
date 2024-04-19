@@ -82,6 +82,7 @@ export default function LoginForm({
               name="password"
               type="password"
               value={loginData.password}
+              min={8}
               onChange={(e) => handleChange(e)}
               leadingIcon={<CompanyLock width={14} height={15} />}
               trailingIcon={<CompanyEye width={16} height={13} />}

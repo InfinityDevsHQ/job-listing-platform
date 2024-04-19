@@ -16,6 +16,7 @@ import TabNavigator from "@/_components/tab-navigator";
 import Button from "@/components/ui/app-button";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
+import { registerFormDataSchema } from "@/types/schemas/registerformschema";
 type RegisterFormProps = {
   employOptions: DropdownData[];
   countries: DropdownData[];
@@ -59,8 +60,17 @@ export default function RegisterForm({
       active: opened === "Candidate",
     },
   ];
+  function handleSubmit(e) {
+    e.preventDefault();
+    const validationResult = registerFormDataSchema.safeParse(registerFormData);
+    if (validationResult.success) {
+      console.log("Form data is valid:", validationResult.data);
+    } else {
+      console.error("Form data is invalid:", validationResult.error.errors);
+    }
+  }
   return (
-    <form className="flex flex-col gap-8 px-16">
+    <form className="flex flex-col gap-8 px-16" onSubmit={handleSubmit}>
       <PageHeader title="Create your Account" />
       <VectorText text="Select Method to Login" />
       <AppsAuth google linkedin github auth="register" />

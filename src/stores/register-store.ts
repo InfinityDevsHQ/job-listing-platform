@@ -1,21 +1,8 @@
-import { create, SetState } from "zustand";
-
-type RegisterData = {
-  tab: "Candidate" | "Company";
-  username: string;
-  email: string;
-  passwordOne: string;
-  passwordTwo: string;
-  company: string;
-  contactName: string;
-  workMail: string;
-  phoneNumber: string;
-  city: string;
-};
+import { create } from "zustand";
 
 type SetFormDataState = {
   registerData: RegisterData;
-  setRegisterData: SetState<RegisterData>;
+  setRegisterData: (value: RegisterData) => void;
 };
 
 const useRegisterStore = create<SetFormDataState>((set) => ({
