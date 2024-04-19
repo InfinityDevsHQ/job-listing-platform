@@ -7,10 +7,7 @@ import UploadCV from "./tabs/upload-cv";
 import FilterJobs from "./tabs/filter-jobs";
 import { useState } from "react";
 import Finish from "./tabs/finish";
-import useOnBoardingStore from "@/stores/onbording-store";
 export default function Home() {
-  const { onBoardingData, setOnBoardingData } = useOnBoardingStore();
-  console.log(onBoardingData);
   const [termsAgreed, setTermsAgreed] = useState(false);
 
   return (
