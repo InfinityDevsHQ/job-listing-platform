@@ -4,6 +4,8 @@ import CompanyLock from "@/components/svgs/company-lock";
 import CompanyProfileOne from "@/components/svgs/company-profile-one";
 import CompanyMail from "@/components/svgs/coompany-mail";
 import AppInput from "@/components/ui/app-input";
+import Button from "@/components/ui/app-button";
+import CompanyArrow from "@/components/svgs/company-arrow";
 import useRegisterCandidateStore from "@/stores/register-candidate-store";
 import { registerCandidateFormSchema } from "@/types/schemas/register-candidate-form-schema";
 export default function RegisterCandidateForm() {
@@ -63,6 +65,14 @@ export default function RegisterCandidateForm() {
         placeholder="Password"
         leadingIcon={<CompanyLock width={14} height={15} />}
         trailingIcon={<CompanyEye width={16} height={13} />}
+      />
+      <Button
+        text="Continue"
+        variant={"primary"}
+        className="!max-w-full justify-center"
+        trailingIcon={
+          <CompanyArrow width={16} height={16} fill="white" className="pt-1" />
+        }
       />
     </form>
   );

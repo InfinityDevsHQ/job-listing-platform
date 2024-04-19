@@ -38,14 +38,6 @@ export default function RegisterForm({ opened, setOpened }: RegisterFormProps) {
       ) : (
         <RegisterCandidateForm />
       )}
-      <Button
-        text="Continue"
-        variant={"primary"}
-        className="!max-w-full justify-center"
-        trailingIcon={
-          <CompanyArrow width={16} height={16} fill="white" className="pt-1" />
-        }
-      />
 
       <LoginRegisterToggler currentPage="register" />
     </div>

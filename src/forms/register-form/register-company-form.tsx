@@ -1,5 +1,6 @@
 "use client";
 import DropDown from "@/_components/dropdown";
+import Button from "@/components/ui/app-button";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import CompanyCity from "@/components/svgs/company-city";
 import CompanyCommunity from "@/components/svgs/company-community";
@@ -10,6 +11,7 @@ import CompanyProfileOne from "@/components/svgs/company-profile-one";
 import CompanyMail from "@/components/svgs/coompany-mail";
 import AppInput from "@/components/ui/app-input";
 import useRegisterCompanyStore from "@/stores/register-company-stor";
+import { registerCompanyFormSchema } from "@/types/schemas/register-company-form-schema";
 import { useState } from "react";
 const EmployOptions = [
   {
@@ -48,8 +50,17 @@ export default function RegisterCompanyForm() {
     const { name, value } = e.target;
     setRegisterCompanyData({ ...registerCompanyData, [name]: value });
   }
+  function handleSubmit(e) {
+    e.preventDefault();
+    const validate = registerCompanyFormSchema.safeParse(registerCompanyData);
+    if (validate.success) {
+      console.log("Form Validated:", validate.data);
+    } else {
+      console.warn("Form Validation Failed:", validate.error.errors);
+    }
+  }
   return (
-    <form className="flex flex-col gap-8">
+    <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
       <AppInput
         variant={"primary"}
         placeholder="Company"
@@ -115,6 +126,14 @@ export default function RegisterCompanyForm() {
           setSelect={setLanguage}
         />
       </div>
+      <Button
+        text="Continue"
+        variant={"primary"}
+        className="!max-w-full justify-center"
+        trailingIcon={
+          <CompanyArrow width={16} height={16} fill="white" className="pt-1" />
+        }
+      />
     </form>
   );
 }
