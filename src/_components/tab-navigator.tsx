@@ -17,7 +17,7 @@ export default function TabNavigator({ tabs }: TabsNavigatorProps) {
               ? "bg-primary-900 text-gray-50 hover:bg-primary-900"
               : "bg-transparent text-gray-950 hover:bg-transparent"
           }`}
-          type="button"
+          role="button"
           onClick={clickHandler}
         >
           {tabText}
