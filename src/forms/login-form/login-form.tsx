@@ -12,7 +12,7 @@ import AppsAuth from "@/_components/apps-auth";
 import CompanyMail from "@/components/svgs/coompany-mail";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import TabNavigator from "@/_components/tab-navigator";
-import { loginFormSchema } from "@/types/login-data";
+import { loginFormSchema } from "@/types/schemas/loginformschema";
 type LoginFormProps = {
   setOpen: (value: "EmailPassword" | "PasswordLess") => void;
   open: "EmailPassword" | "PasswordLess";

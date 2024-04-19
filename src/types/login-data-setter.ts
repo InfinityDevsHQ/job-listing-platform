@@ -1,5 +1,4 @@
-import { LoginFormData } from "./login-data";
-export type SetLoginDataState = {
+type SetLoginDataState = {
   loginData: LoginFormData;
-  setLoginData: (data: Partial<FormDataState>) => void;
+  setLoginData: (data: Partial<LoginFormData>) => void;
 };
