@@ -1,12 +1,8 @@
 import Image from "next/image";
 import BoardingHeader from "../_components/boarding-header";
-import Link from "next/link";
-import Pill from "@/components/ui/pill";
-type FinishProps = {
-  termsAgreed: boolean;
-  setTermsAgreed: (value: boolean) => void;
-};
-export default function Finish({ termsAgreed, setTermsAgreed }: FinishProps) {
+import TermsAndConditionsForm from "@/forms/onBoarding/terms-and-conditions-form";
+
+export default function Finish() {
   return (
     <div className="grid grid-cols-2 w-full">
       <div className="hidden lg:flex items-center justify-center col-span-2 lg:col-span-1">
@@ -27,21 +23,7 @@ export default function Finish({ termsAgreed, setTermsAgreed }: FinishProps) {
           &quot;Finish&quot;, you&apos;re all set for a new frontier of job
           opportunities.
         </p>
-        <h3 className="mt-4 lg:mt-8 text-mute-1 text-base lg:text-lg font-bold lg:font-semibold font-sans">
-          Terms And Conditions
-        </h3>
-        <Pill active={termsAgreed} setValue={setTermsAgreed}>
-          <p
-            className={`text-xxs lg:text-base font-sans ${
-              termsAgreed ? "text-white" : "text-mute-1"
-            }`}
-          >
-            <span>I agree to</span>{" "}
-            <Link href={"/tos"} className="underline">
-              Terms and Conditions
-            </Link>
-          </p>
-        </Pill>
+        <TermsAndConditionsForm />
       </div>
     </div>
   );

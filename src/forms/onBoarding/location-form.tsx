@@ -1,3 +1,4 @@
+"use client";
 import AppInput from "@/components/ui/app-input";
 import CompanyGlobe from "@/components/svgs/company-globe";
 import CompanyEye from "@/components/svgs/company-eye";

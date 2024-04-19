@@ -1,3 +1,4 @@
+"use client";
 import Button from "@/components/ui/app-button";
 import Pill from "@/components/ui/pill";
 import useFilterJobsDataStore from "@/stores/filter-jobs-form-data-store";

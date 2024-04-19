@@ -1,3 +1,4 @@
+"use client";
 import CompanyGithubSecond from "@/components/svgs/company-github-second";
 import CompanyPhone from "@/components/svgs/company-phone";
 import CompanyTwitter from "@/components/svgs/company-twitter";
