@@ -5,9 +5,10 @@ import CompanyEye from "@/components/svgs/company-eye";
 import DropDown from "@/_components/dropdown";
 import CompanyDictionary from "@/components/svgs/company-dictionary";
 import { useState } from "react";
-import CompanyCheck from "@/components/svgs/company-check";
+import { locationFormSchema } from "@/types/schemas/location-form-schema";
 import CompanyCity from "@/components/svgs/company-city";
 import useLocationFormData from "@/stores/location-form-store";
+import CompanyClock from "@/components/svgs/company-clock";
 const Languages = [
   {
     value: "en",
@@ -29,8 +30,17 @@ export default function LocationForm() {
     const { name, value } = e.target;
     setLocationFormData({ ...locationFormData, [name]: value });
   }
+  function handleSubmit(e) {
+    e.preventDefault();
+    const validate = locationFormSchema.safeParse(locationFormData);
+    if (validate.success) {
+      console.log("DatA Validated", validate.data);
+    } else {
+      console.warn("Invalid data type", validate.error.errors);
+    }
+  }
   return (
-    <form className="flex flex-col gap-4 lg:gap-8">
+    <form className="flex flex-col gap-4 lg:gap-8" onSubmit={handleSubmit}>
       <DropDown
         options={Languages}
         select={language}
@@ -41,7 +51,7 @@ export default function LocationForm() {
         options={TimeZones}
         select={timeZone}
         setSelect={setTimeZone}
-        leadingIcon={<CompanyCheck />}
+        leadingIcon={<CompanyClock width={16} height={16} />}
       />
       <AppInput
         variant={"primary"}
