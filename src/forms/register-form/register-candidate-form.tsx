@@ -5,7 +5,7 @@ import CompanyProfileOne from "@/components/svgs/company-profile-one";
 import CompanyMail from "@/components/svgs/coompany-mail";
 import AppInput from "@/components/ui/app-input";
 import useRegisterCandidateStore from "@/stores/register-candidate-store";
-
+import { registerCandidateFormSchema } from "@/types/schemas/register-candidate-form-schema";
 export default function RegisterCandidateForm() {
   const { registerCandidateData, setRegisterCandidateData } =
     useRegisterCandidateStore();
@@ -13,8 +13,19 @@ export default function RegisterCandidateForm() {
     const { name, value } = e.target;
     setRegisterCandidateData({ ...registerCandidateData, [name]: value });
   }
+  function handleSubmit(e) {
+    e.preventDefault();
+    const validate = registerCandidateFormSchema.safeParse(
+      registerCandidateData
+    );
+    if (validate.success) {
+      console.log("Validated data:", validate.data);
+    } else {
+      console.warn("Validated data:", validate.error.errors);
+    }
+  }
   return (
-    <form className="flex flex-col gap-8">
+    <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
       <AppInput
         variant={"primary"}
         type="text"
