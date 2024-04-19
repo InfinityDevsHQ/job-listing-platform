@@ -28,12 +28,7 @@ export default function Home() {
         {/* <StepNavigator /> */}
         <LocationPage />
         <Finish termsAgreed={termsAgreed} setTermsAgreed={setTermsAgreed} />
-        <FilterJobs
-          employmentType={employmentType}
-          setEmploymentType={setEmploymentType}
-          collaborationType={collaborationType}
-          setCollaborationType={setCollaborationType}
-        />
+        <FilterJobs />
         <UploadCV />
         <ContactForm />
       </main>

@@ -1,39 +1,38 @@
+"use client";
 import Pill from "@/components/ui/pill";
-export default function FilterJobsForm({
-  employmentType,
-  setEmploymentType,
-  setCollaborationType,
-}: FilterJobsProps) {
+import useFilterJobsDataStore from "@/stores/filter-jobs-form-data-store";
+export default function FilterJobsForm() {
+  const { filterJobsData, setFilterJobsData } = useFilterJobsDataStore();
   const EmploymentTypes = [
     {
       text: "Full time",
-      active: employmentType === "Full time",
+      active: filterJobsData.employmentType === "Full time",
     },
     {
       text: "Part-Time",
-      active: employmentType === "Part-Time",
+      active: filterJobsData.employmentType === "Part-Time",
     },
     {
       text: "Freelance",
-      active: employmentType === "Freelance",
+      active: filterJobsData.employmentType === "Freelance",
     },
     {
       text: "Volunteer",
-      active: employmentType === "Volunteer",
+      active: filterJobsData.employmentType === "Volunteer",
     },
   ];
   const CollaborationTypes = [
     {
       text: "On Site",
-      active: collaborationType === "On Site",
+      active: filterJobsData.collaborationType === "On Site",
     },
     {
       text: "Remote",
-      active: collaborationType === "Remote",
+      active: filterJobsData.collaborationType === "Remote",
     },
     {
       text: "Hybrid",
-      active: collaborationType === "Hybrid",
+      active: filterJobsData.collaborationType === "Hybrid",
     },
   ];
   return (
@@ -48,7 +47,12 @@ export default function FilterJobsForm({
               key={index}
               text={text}
               active={active}
-              setValue={setEmploymentType}
+              setValue={() =>
+                setFilterJobsData({
+                  ...filterJobsData,
+                  employmentType: text,
+                })
+              }
             />
           ))}
         </div>
@@ -63,7 +67,12 @@ export default function FilterJobsForm({
               key={index}
               text={text}
               active={active}
-              setValue={setCollaborationType}
+              setValue={() =>
+                setFilterJobsData({
+                  ...filterJobsData,
+                  collaborationType: text,
+                })
+              }
             />
           ))}
         </div>
