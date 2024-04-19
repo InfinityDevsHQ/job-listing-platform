@@ -1,13 +1,9 @@
-import AppInput from "@/components/ui/app-input";
-import CompanyGlobe from "@/components/svgs/company-globe";
-import CompanyEye from "@/components/svgs/company-eye";
-import CompanyPhone from "@/components/svgs/company-phone";
-import CompanyLinkedin from "@/components/svgs/company-linedin";
-import CompanyTwitter from "@/components/svgs/company-twitter";
-import CompanyGithub from "@/components/svgs/company-github";
 import CompanyGithubSecond from "@/components/svgs/company-github-second";
+import CompanyPhone from "@/components/svgs/company-phone";
+import CompanyTwitter from "@/components/svgs/company-twitter";
+import AppInput from "@/components/ui/app-input";
 
-export default function ContactFormInputs() {
+export default function ContactForm() {
   return (
     <>
       <div className="flex flex-col gap-4 lg:gap-8">
