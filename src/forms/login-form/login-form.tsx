@@ -6,13 +6,13 @@ import AppInput from "@/components/ui/app-input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ChangeEvent, FormEvent } from "react";
 import Link from "next/link";
-import LoginInputs from "./login-inputs";
-import CompanyLock from "@/components/svgs/company-lock";
 import CompanyEye from "@/components/svgs/company-eye";
+import CompanyLock from "@/components/svgs/company-lock";
 import AppsAuth from "@/_components/apps-auth";
 import CompanyMail from "@/components/svgs/coompany-mail";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import TabNavigator from "@/_components/tab-navigator";
+import { loginFormSchema } from "@/types/login-data";
 type LoginFormProps = {
   setOpen: (value: "EmailPassword" | "PasswordLess") => void;
   open: "EmailPassword" | "PasswordLess";
@@ -47,8 +47,17 @@ export default function LoginForm({
       setLoginData({ ...loginData, [name]: newValue });
     }
   };
+  function handleSubmit(e) {
+    e.preventDefault();
+    const validationResult = loginFormSchema.safeParse(loginData);
+    if (validationResult.success) {
+      console.log("Form data is valid:", validationResult.data);
+    } else {
+      console.error("Form data is invalid:", validationResult.error.errors);
+    }
+  }
   return (
-    <form className="flex flex-col gap-8 px-16">
+    <form className="flex flex-col gap-8 px-16" onSubmit={handleSubmit}>
       <PageHeader title="Login to your Account" />
       <VectorText text="Select Method to Login" />
       <AppsAuth google github linkedin auth="login" />
@@ -106,6 +115,7 @@ export default function LoginForm({
       <Button
         variant={"primary"}
         text="Login"
+        type="submit"
         trailingIcon={
           <CompanyArrow width={16} height={16} fill="white" className="pt-1" />
         }

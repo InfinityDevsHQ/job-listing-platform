@@ -6,7 +6,7 @@ type PosterProps = {
 };
 export default function Poster({ imgUrl, heading, text }: PosterProps) {
   return (
-    <div className="relative h-screen overflow-hidden hidden lg:flex justify-center items-center bg-primary-900/90">
+    <div className="relative min-h-screen overflow-hidden hidden lg:flex justify-center items-center bg-primary-900/90">
       <Image
         src={"/assets/forms/poster_bg-1.png"}
         alt="Background"
