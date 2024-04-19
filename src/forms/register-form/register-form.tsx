@@ -77,10 +77,15 @@ export default function RegisterForm({
           registerFormData={registerFormData}
         />
       )}
-      <Button className="flex items-center gap-2.5 font-sans bg-white lg:bg-primary-900 lg:hover:bg-primary-700 border border-gray-200 px-4 py-2 text-base text-gray-900 lg:text-white font-medium">
-        <span>Continue</span>
-        <CompanyArrow width={16} height={16} fill="white" className="pt-1" />
-      </Button>
+      <Button
+        text="Continue"
+        variant={"primary"}
+        className="!max-w-full justify-center"
+        trailingIcon={
+          <CompanyArrow width={16} height={16} fill="white" className="pt-1" />
+        }
+      />
+
       <LoginRegisterToggler currentPage="register" />
     </form>
   );
