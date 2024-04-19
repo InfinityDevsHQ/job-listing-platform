@@ -3,6 +3,7 @@ import CompanyPhone from "@/components/svgs/company-phone";
 import CompanyTwitter from "@/components/svgs/company-twitter";
 import AppInput from "@/components/ui/app-input";
 import useOnBoardingContactData from "@/stores/on-boarding-contact-from-store";
+import { onBoardingContactFormSchema } from "@/types/schemas/onboarding-contact-form-schema";
 
 export default function ContactForm() {
   const { onBoardingContactData, setOnBoardingContactData } =
@@ -11,8 +12,17 @@ export default function ContactForm() {
     const { name, value } = e.target;
     setOnBoardingContactData({ ...onBoardingContactData, [name]: value });
   }
+  function handleSubmit(e) {
+    e.preventDefault();
+    const validate = onBoardingContactFormSchema.safeParse(
+      onBoardingContactData
+    );
+    validate.success
+      ? console.log("Validated", validate.data)
+      : console.warn("Failed to validate", validate.error.errors);
+  }
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <div className="flex flex-col gap-4 lg:gap-8">
         <AppInput
           variant={"primary"}
@@ -53,6 +63,6 @@ export default function ContactForm() {
           leadingIcon={<CompanyGithubSecond width={16} height={16} />}
         />
       </div>
-    </>
+    </form>
   );
 }
