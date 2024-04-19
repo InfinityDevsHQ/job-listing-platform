@@ -97,19 +97,18 @@ export default function RegisterCompanyForm() {
         onChange={handleChange}
         value={registerCompanyData.workMail}
       />
-
-      <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
-        <CompanyCommunity />
-        <DropDown
-          options={EmployOptions}
-          select={employs}
-          setSelect={setEmploys}
-        />
-      </div>
-      <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
-        <CompanyGlobe />
-        <DropDown options={Countries} select={country} setSelect={setCountry} />
-      </div>
+      <DropDown
+        options={EmployOptions}
+        select={employs}
+        setSelect={setEmploys}
+        leadingIcon={<CompanyCommunity />}
+      />
+      <DropDown
+        options={Countries}
+        select={country}
+        setSelect={setCountry}
+        leadingIcon={<CompanyGlobe />}
+      />
       <AppInput
         placeholder="City"
         type="text"
@@ -118,14 +117,12 @@ export default function RegisterCompanyForm() {
         onChange={handleChange}
         value={registerCompanyData.city}
       />
-      <div className="px-3 py-2 flex items-center gap-2.5 bg-white w-full border-gray-300">
-        <CompanyDictionary />
-        <DropDown
-          options={Languages}
-          select={language}
-          setSelect={setLanguage}
-        />
-      </div>
+      <DropDown
+        leadingIcon={<CompanyDictionary />}
+        options={Languages}
+        select={language}
+        setSelect={setLanguage}
+      />
       <Button
         text="Continue"
         variant={"primary"}
