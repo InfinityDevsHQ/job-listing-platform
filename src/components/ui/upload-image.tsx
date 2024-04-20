@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
@@ -11,53 +10,59 @@ type File = {
   preview: string; // Add preview property for image URL
 };
 
-export default function UploadImage() {
-  const [files, setFiles] = useState<File[]>([]);
+type UploadImageProps = {
+  setImgUrl: (value: string) => void;
+};
+
+export default function UploadImage({ setImgUrl }: UploadImageProps) {
+  const [file, setFile] = useState<File | null>(null);
 
   const { getRootProps, getInputProps } = useDropzone<File>({
     accept: "image/*", // Allow only images for upload
     maxFiles: 1,
     onDrop: (acceptedFiles) => {
-      setFiles(
-        acceptedFiles.map((file) => ({
-          ...file,
-          preview: URL.createObjectURL(file),
-        }))
-      );
+      if (acceptedFiles.length > 0) {
+        const newFile = acceptedFiles[0];
+        setFile({
+          ...newFile,
+          preview: URL.createObjectURL(newFile),
+        });
+        setImgUrl(URL.createObjectURL(newFile));
+      }
     },
   });
 
+  const removeFile = () => {
+    URL.revokeObjectURL(file!.preview);
+    setFile(null);
+    setImgUrl(""); // Clear the image URL
+  };
+
   return (
-    // Replace rounded with 20px
     <div
       {...getRootProps()}
       className="flex items-center new-gray justify-center rounded-2xl w-full h-full bg-white border border-dashed border-black p-12"
     >
       <input {...getInputProps()} />
-      {files.length === 0 && (
+      {file === null && (
         <div className="flex items-center flex-col gap-11">
           <span>
             <CompanyCloud />
           </span>
-          <p className="lg:text-base font-sans ">
+          <p className="lg:text-base font-sans">
             <span className="font-bold">Click to Upload</span> or drag and drop
           </p>
         </div>
       )}
-      {files.length > 0 && (
-        <ul>
-          {files.map((file) => (
-            <li key={file.name}>
-              <Image
-                src={file.preview}
-                alt={file.name}
-                width={0}
-                height={0}
-                className="h-full w-full"
-              />
-            </li>
-          ))}
-        </ul>
+      {file && (
+        <div className="relative w-full h-full">
+          <Image
+            src={file.preview}
+            alt={file.name || "Image"}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
       )}
     </div>
   );

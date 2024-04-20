@@ -1,6 +1,7 @@
 import Image from "next/image";
 import BoardingHeader from "../_components/boarding-header";
 import UploadImage from "@/components/ui/upload-image";
+import CVForm from "@/forms/onBoarding/cv-form";
 export default function UploadCV() {
   // Also add dropdowns later
   return (
@@ -18,7 +19,7 @@ export default function UploadCV() {
           title="2. Upload CV"
           description="Drop your CV here and kick back. Our AI scans, analyzes, and fills out your profile for you. Welcome to next level."
         />
-        <UploadImage />
+        <CVForm />
       </div>
     </div>
   );

@@ -1,13 +1,8 @@
 import Image from "next/image";
 import BoardingHeader from "../_components/boarding-header";
-import FilterJobsSelect from "./filter-jobs/filter-jobs-select";
+import FilterJobsForm from "@/forms/onBoarding/filter-jobs-form";
 
-export default function FilterJobs({
-  employmentType,
-  setEmploymentType,
-  collaborationType,
-  setCollaborationType,
-}: FilterJobsProps) {
+export default function FilterJobs() {
   return (
     <div className="grid grid-cols-2 w-full">
       <div className="hidden lg:flex items-center justify-center col-span-2 lg:col-span-1 w-full">
@@ -23,12 +18,7 @@ export default function FilterJobs({
           title="3. Filter Jobs"
           description="Set your preferences and we'll find the best jobs for you."
         />
-        <FilterJobsSelect
-          employmentType={employmentType}
-          setEmploymentType={setEmploymentType}
-          collaborationType={collaborationType}
-          setCollaborationType={setCollaborationType}
-        />
+        <FilterJobsForm />
       </div>
     </div>
   );

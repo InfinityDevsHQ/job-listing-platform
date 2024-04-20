@@ -1,8 +1,7 @@
 import Image from "next/image";
 import BoardingHeader from "../_components/boarding-header";
-import ContactFormInputs from "./contact-form/contact-form-inputs";
-export default function ContactForm() {
-  // Also add dropdowns later
+import ContactForm from "@/forms/onBoarding/contact-form";
+export default function ContactPage() {
   return (
     <div className="grid grid-cols-2 w-full">
       <div className="hidden lg:flex items-center justify-center col-span-2 lg:col-span-1 w-full">
@@ -18,7 +17,7 @@ export default function ContactForm() {
           title="4. Contact"
           description="Share you contact info, get noticed by employers!"
         />
-        <ContactFormInputs />
+        <ContactForm />
       </div>
     </div>
   );
