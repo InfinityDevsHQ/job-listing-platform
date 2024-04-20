@@ -22,11 +22,11 @@ const inputVariants = cva(
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof inputVariants> {
-  leadingIcon?: React.ReactNode;
-  trailingIcon?: React.ReactNode;
-  helpText?: string;
-  containerClassName?: string;
-}
+      leadingIcon?: React.ReactNode;
+      trailingIcon?: React.ReactNode;
+      helpText?: string;
+      containerClassName?: string;
+    }
 
 const AppInput = React.forwardRef<HTMLInputElement, InputProps>(
   (
@@ -52,14 +52,14 @@ const AppInput = React.forwardRef<HTMLInputElement, InputProps>(
         />
         {leadingIcon && (
           <span
-            className={`absolute top-3.5 mt-px left-2 peer-focus:!text-${variant}-900 transition-all duration-300`}
+            className={`absolute top-1/2 -translate-y-1/2 left-2 peer-focus:!text-${variant}-900 transition-all duration-300`}
           >
             {leadingIcon}
           </span>
         )}
         {trailingIcon && (
           <span
-            className={`absolute top-3.5 mt-px right-2 text-neutral-300 transition-all duration-300`}
+            className={`absolute top-1/2 -translate-y-1/2 right-2 text-neutral-300 transition-all duration-300`}
           >
             {trailingIcon}
           </span>

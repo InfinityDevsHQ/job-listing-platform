@@ -1,52 +1,70 @@
+import Image from "next/image";
+
 import CompanyBookmark from "@/components/svgs/company-bookmark";
 import CompanyFlame from "@/components/svgs/company-flame";
 import { Button } from "@/components/ui/button";
-import { Plane } from "lucide-react";
+
 type JobCardHeaderProps = {
   jobTitle: string;
   company: string;
   urgent?: boolean;
+  bookmarked?: boolean;
 };
+
 export default function JobCardHeader({
   jobTitle,
   company,
   urgent = false,
+  bookmarked = false,
 }: JobCardHeaderProps) {
   return (
     <>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-5">
-          <span className="flex-center p-3 rounded-full bg-third">
-            <CompanyFlame fill="#FF652E" />
+          <span className="flex-center h-10 w-10 rounded-full bg-orange-100">
+            <Image
+              alt="logo"
+              src={"/assets/icons/fire.svg"}
+              width={16}
+              height={18}
+            />
           </span>
           <div>
-            <h3 className="flex items-center gap-3.9 text-base lg:text-xl lg:leading-8 tracking-weak font-semibold text-neutral-900">
+            <h3 className="flex items-center gap-4 text-base font-semibold text-neutral-900">
               {jobTitle}
               {urgent && (
-                <span className="hidden lg:block  bg-greenish font-medium  px-2 py-1 text-white text-10 leading-3 rounded-5 font-sans">
+                <span className="hidden lg:block bg-green-500 font-bold px-2 py-1 text-white text-xxs rounded-md">
                   Urgent
                 </span>
               )}
             </h3>
-            <p className="text-neutral-500 text-mid lg:text-sm leading-3.5 lg:leading-5 font-medium">
+            <p className="text-gray-500 text-xs lg:text-sm font-semibold lg:font-normal">
               {company}
               {urgent && (
-                <span className="lg:hidden ml-3.9 bg-greenish font-normal px-1.3  py-1 text-white text-mid leading-3.5 rounded-5">
+                <span className="block lg:hidden bg-green-500 font-bold px-2 py-1 text-white text-xxs rounded-md">
                   Urgent
                 </span>
               )}
             </p>
           </div>
         </div>
-        <Button
-          type="button"
-          aria-label="Save Job"
-          className="flex-center bg-transparent hover:bg-transparent w-30 h-30 border border-neutral-300"
-        >
-          <span className="px-2.8">
-            <CompanyBookmark />
-          </span>
-        </Button>
+        <button type="button">
+          {bookmarked ? 
+            <Image
+              alt="bookmarked"
+              src={"/assets/icons/bookmarked.svg"}
+              width={30}
+              height={30}
+            /> 
+            : 
+            <Image
+              alt="bookmark"
+              src={"/assets/icons/bookmark.svg"}
+              width={30}
+              height={30}
+            />
+          }
+        </button>
       </div>
     </>
   );

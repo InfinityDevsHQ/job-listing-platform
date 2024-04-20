@@ -60,8 +60,8 @@ export default function Jobs() {
     },
   ];
   return (
-    <section className="grid grid-cols-3 gap-8 px-2 lg:px-10 pt-10 lg:bg-neutral-200">
-      <div className="col-span-3 lg:col-span-2 flex flex-col gap-5">
+    <section className="grid grid-cols-3 gap-8 p-4 lg:p-16">
+      <div className="col-span-3 lg:col-span-2 flex flex-col gap-4 lg:gap-8">
         <SearchJobs />
         <div className="flex items-center justify-between">
           <div className="flex gap-5 lg:gap-4 items-center">

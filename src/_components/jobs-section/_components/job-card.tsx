@@ -27,7 +27,7 @@ export default function JobCard({
   date,
 }: JobCardProps) {
   return (
-    <div className="flex flex-col gap-8 p-8 border border-neutral-200">
+    <div className="flex flex-col gap-8 p-4 lg:p-8 bg-white rounded-md border border-gray-200">
       <JobCardHeader jobTitle={jobTitle} company={company} urgent={true} />
       <JobCardDetails
         jobType={jobType}
