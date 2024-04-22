@@ -534,8 +534,22 @@ export interface Language {
 	name: string;
 	icon: string;
 }
+export type VariantProps = {
+	variant?: "default" | "primary" | "secondary" | "outline-primary" | "outline-secondary" | "ghost" | "link";
+	size?: "default" | "full";
+};
 
-//DislikeButton.tsx
+// Button.tsx
+export interface ButtonProps
+	extends React.ButtonHTMLAttributes<HTMLButtonElement>, 
+	VariantProps {
+		type?: "button" | "submit" | "reset" | undefined;
+		text: string;
+		leadingIcon?: React.ReactNode;
+		trailingIcon?: React.ReactNode;
+}
+
+//DislikeButton.tsxs
 export interface DislikeButtonProps {
 	isDisliked?: boolean;
 	onToggle?: (disliked: boolean) => void;
