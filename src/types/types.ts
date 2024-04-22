@@ -1,5 +1,36 @@
 import { AddJobListingData, GeneratedJobDetailData } from "./zodTypes";
 
+// Common Components
+// button.tsx
+export type ButtonVariantProps = {
+	variant?: "default" | "primary" | "secondary" | "outline-primary" | "outline-secondary" | "ghost" | "link";
+	size?: "default" | "full";
+};
+
+export interface ButtonProps
+	extends React.ButtonHTMLAttributes<HTMLButtonElement>, 
+	ButtonVariantProps {
+		type?: "button" | "submit" | "reset" | undefined;
+		text: string;
+		leadingIcon?: React.ReactNode;
+		trailingIcon?: React.ReactNode;
+}
+
+// input.tsx
+export type InputVariantProps = {
+	variant?: "default" | "primary" | "secondary" | "danger";
+};
+
+export interface InputProps
+	extends React.InputHTMLAttributes<HTMLInputElement>, 
+	InputVariantProps {
+		type?: string;
+		leadingIcon?: React.ReactNode;
+		trailingIcon?: React.ReactNode;
+		helpText?: string;
+		containerClassName?: string;
+}
+
 // Home.tsx
 export interface Job {
 	language: "string";
@@ -533,20 +564,6 @@ export interface ProfileDropdownProps {
 export interface Language {
 	name: string;
 	icon: string;
-}
-export type VariantProps = {
-	variant?: "default" | "primary" | "secondary" | "outline-primary" | "outline-secondary" | "ghost" | "link";
-	size?: "default" | "full";
-};
-
-// Button.tsx
-export interface ButtonProps
-	extends React.ButtonHTMLAttributes<HTMLButtonElement>, 
-	VariantProps {
-		type?: "button" | "submit" | "reset" | undefined;
-		text: string;
-		leadingIcon?: React.ReactNode;
-		trailingIcon?: React.ReactNode;
 }
 
 //DislikeButton.tsxs
