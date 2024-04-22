@@ -5,7 +5,7 @@ type SetFormDataState = {
   setRegisterCandidateData: (value: RegisterCandidateFormData) => void;
 };
 
-const useCVFormData = create<SetFormDataState>((set) => ({
+const useRegisterFormData = create<SetFormDataState>((set) => ({
   registerCandidateData: {
     username: "",
     email: "",
@@ -18,4 +18,4 @@ const useCVFormData = create<SetFormDataState>((set) => ({
     })),
 }));
 
-export default useCVFormData;
+export default useRegisterFormData;

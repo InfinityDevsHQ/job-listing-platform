@@ -1,21 +1,18 @@
 import { create } from "zustand";
 
 type SetFormDataState = {
-  registerCandidateData: RegisterCandidateFormData;
-  setRegisterCandidateData: (value: RegisterCandidateFormData) => void;
+  cvFormData: CVFormData;
+  setCVFormData: (value: CVFormData) => void;
 };
 
-const useRegisterCandidateStore = create<SetFormDataState>((set) => ({
-  registerCandidateData: {
-    username: "",
-    email: "",
-    passwordOne: "",
-    passwordTwo: "",
+const useCVFormData = create<SetFormDataState>((set) => ({
+  cvFormData: {
+    imgUrl: "",
   },
-  setRegisterCandidateData: (data) =>
+  setCVFormData: (data) =>
     set((state) => ({
-      registerCandidateData: { ...state.registerCandidateData, ...data },
+      cvFormData: { ...state.cvFormData, ...data },
     })),
 }));
 
-export default useRegisterCandidateStore;
+export default useCVFormData;
