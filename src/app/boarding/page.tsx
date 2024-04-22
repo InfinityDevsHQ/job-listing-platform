@@ -8,8 +8,7 @@ import Finish from "./tabs/finish";
 export default function Home() {
   return (
     <>
-      <Header />
-      <main className="flex flex-col items-center justify-between p-4">
+      <div className="flex flex-col items-center justify-between p-4">
         <Intro />
         {/* <StepNavigator /> */}
         <LocationPage />
@@ -17,7 +16,7 @@ export default function Home() {
         <FilterJobs />
         <UploadCV />
         <ContactPage />
-      </main>
+      </div>
     </>
   );
 }
