@@ -22,7 +22,7 @@ export default function RegisterCandidateForm() {
   });
   function handleChange(e) {
     const { name, value } = e.target;
-    setErrors({ ...errors, [name]: "" });
+    setErrors({ ...errors, [name]: "", confirm: "" });
     setRegisterCandidateData({ ...registerCandidateData, [name]: value });
   }
   function handleSubmit(e) {
