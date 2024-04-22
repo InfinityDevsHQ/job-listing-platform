@@ -4,7 +4,7 @@ import VectorText from "@/_components/vector-text";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
 import Input from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { ChangeEvent, FormEvent } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Link from "next/link";
 import CompanyEye from "@/components/svgs/company-eye";
 import CompanyLock from "@/components/svgs/company-lock";
@@ -13,6 +13,7 @@ import CompanyMail from "@/components/svgs/coompany-mail";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import TabNavigator from "@/_components/tab-navigator";
 import { loginFormSchema } from "@/types/schemas/loginformschema";
+import { ZodIssue } from "zod";
 type LoginFormProps = {
   setOpen: (value: "EmailPassword" | "PasswordLess") => void;
   open: "EmailPassword" | "PasswordLess";
@@ -25,6 +26,12 @@ export default function LoginForm({
   loginData,
   setLoginData,
 }: LoginFormProps) {
+  // for tracking and displaying zod validation error
+  const [errors, setErrors] = useState<{ [key: string]: string }>({
+    email: "",
+    password: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
   const Tabs = [
     {
       tabText: "Email / Password",
@@ -44,18 +51,34 @@ export default function LoginForm({
       const target = event.target as HTMLInputElement;
       const { name, value, checked, type } = target;
       const newValue = type === "checkbox" ? checked : value;
+      setErrors({ ...errors, [name]: "" });
       setLoginData({ ...loginData, [name]: newValue });
     }
   };
-  function handleSubmit(e) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const validationResult = loginFormSchema.safeParse(loginData);
     if (validationResult.success) {
-      console.log("Form data is valid:", validationResult.data);
     } else {
-      console.error("Form data is invalid:", validationResult.error.errors);
+      const validationErrors = validationResult.error.errors;
+      const formattedErrors: { [key: string]: string } = {};
+      validationErrors.forEach((error: ZodIssue) => {
+        if (error.path.length > 0) {
+          formattedErrors[error.path[0]] = error.message;
+        }
+      });
+      const updatedErrors =
+        open === "EmailPassword"
+          ? { ...errors, ...formattedErrors }
+          : { ...errors, email: formattedErrors.email || "" };
+      setErrors(updatedErrors);
     }
+    if (!errors.password && errors.email) {
+      // Form Submission logic
+    }
+    console.log(errors);
   }
+
   return (
     <form className="flex flex-col gap-8 px-16" onSubmit={handleSubmit}>
       <PageHeader title="Login to your Account" />
@@ -70,6 +93,7 @@ export default function LoginForm({
           name="email"
           type="email"
           value={loginData.email}
+          helpText={errors.email && errors.email}
           onChange={(e) => handleChange(e)}
           leadingIcon={<CompanyMail width={16} height={16} />}
         />
@@ -78,10 +102,12 @@ export default function LoginForm({
           <>
             <Input
               variant={"primary"}
-              placeholder="Email"
+              placeholder="Password"
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
+              onTrailingClick={() => setShowPassword(!showPassword)}
               value={loginData.password}
+              helpText={errors.password && errors.password}
               min={8}
               onChange={(e) => handleChange(e)}
               leadingIcon={<CompanyLock width={14} height={15} />}

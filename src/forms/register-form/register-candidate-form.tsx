@@ -8,11 +8,21 @@ import Button from "@/components/ui/button";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import useRegisterCandidateStore from "@/stores/register-candidate-store";
 import { registerCandidateFormSchema } from "@/types/schemas/register-candidate-form-schema";
+import { useState } from "react";
+import { ZodIssue } from "zod";
 export default function RegisterCandidateForm() {
   const { registerCandidateData, setRegisterCandidateData } =
     useRegisterCandidateStore();
+  const [errors, setErrors] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    confirm: "",
+  });
   function handleChange(e) {
     const { name, value } = e.target;
+    setErrors({ ...errors, [name]: "" });
     setRegisterCandidateData({ ...registerCandidateData, [name]: value });
   }
   function handleSubmit(e) {
@@ -21,9 +31,16 @@ export default function RegisterCandidateForm() {
       registerCandidateData
     );
     if (validate.success) {
-      console.log("Validated data:", validate.data);
     } else {
-      console.warn("Validated data:", validate.error.errors);
+      const validationErrors = validate.error.errors;
+      const formattedErrors: { [key: string]: string } = {};
+      validationErrors.forEach((error: ZodIssue) => {
+        if (error.path.length > 0) {
+          formattedErrors[error.path[0]] = error.message;
+        }
+      });
+      console.log("I am here", formattedErrors);
+      setErrors({ ...errors, ...formattedErrors });
     }
   }
   return (
@@ -35,6 +52,7 @@ export default function RegisterCandidateForm() {
         value={registerCandidateData.username}
         onChange={handleChange}
         placeholder="Username"
+        helpText={errors.username && errors.username}
         leadingIcon={<CompanyProfileOne />}
       />
       <Input
@@ -42,15 +60,17 @@ export default function RegisterCandidateForm() {
         type="email"
         name="email"
         value={registerCandidateData.email}
+        helpText={errors.email && errors.email}
         onChange={handleChange}
         placeholder="Email"
         leadingIcon={<CompanyMail width={14} height={11} />}
       />
       <Input
         variant={"primary"}
-        name="passwordOne"
+        name="password"
         type="password"
-        value={registerCandidateData.passwordOne}
+        value={registerCandidateData.password}
+        helpText={errors.password && errors.password}
         onChange={handleChange}
         placeholder="Password"
         leadingIcon={<CompanyLock width={14} height={15} />}
@@ -58,9 +78,13 @@ export default function RegisterCandidateForm() {
       />
       <Input
         variant={"primary"}
-        name="passwordTwo"
+        name="confirmPassword"
         type="password"
-        value={registerCandidateData.passwordTwo}
+        value={registerCandidateData.confirmPassword}
+        helpText={
+          (errors.confirmPassword && errors.confirmPassword) ||
+          (errors.confirm && errors.confirm)
+        }
         onChange={handleChange}
         placeholder="Password"
         leadingIcon={<CompanyLock width={14} height={15} />}
@@ -70,6 +94,7 @@ export default function RegisterCandidateForm() {
         text="Continue"
         variant={"primary"}
         className="!max-w-full justify-center"
+        type="submit"
         trailingIcon={
           <CompanyArrow width={16} height={16} fill="white" className="pt-1" />
         }

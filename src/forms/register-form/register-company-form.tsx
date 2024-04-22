@@ -13,6 +13,7 @@ import Input from "@/components/ui/input";
 import useRegisterCompanyStore from "@/stores/register-company-stor";
 import { registerCompanyFormSchema } from "@/types/schemas/register-company-form-schema";
 import { useState } from "react";
+import { ZodIssue } from "zod";
 const EmployOptions = [
   {
     value: 200,
@@ -43,20 +44,34 @@ export default function RegisterCompanyForm() {
   );
   const [country, setCountry] = useState(Countries[0].value);
   const [language, setLanguage] = useState<string>(Languages[0].value);
-
+  const [errors, setErrors] = useState({
+    passwordTwo: "",
+    company: "",
+    contactName: "",
+    workMail: "",
+    phoneNumber: "",
+    city: "",
+  });
   const { registerCompanyData, setRegisterCompanyData } =
     useRegisterCompanyStore();
   function handleChange(e) {
     const { name, value } = e.target;
+    setErrors({ ...errors, [name]: "" });
     setRegisterCompanyData({ ...registerCompanyData, [name]: value });
   }
   function handleSubmit(e) {
     e.preventDefault();
     const validate = registerCompanyFormSchema.safeParse(registerCompanyData);
     if (validate.success) {
-      console.log("Form Validated:", validate.data);
     } else {
-      console.warn("Form Validation Failed:", validate.error.errors);
+      const validationErrors = validate.error.errors;
+      const formattedErrors: { [key: string]: string } = {};
+      validationErrors.forEach((error: ZodIssue) => {
+        if (error.path.length > 0) {
+          formattedErrors[error.path[0]] = error.message;
+        }
+      });
+      setErrors({ ...errors, ...formattedErrors });
     }
   }
   return (
@@ -65,6 +80,7 @@ export default function RegisterCompanyForm() {
         variant={"primary"}
         placeholder="Company"
         name="company"
+        helpText={errors.company}
         type="text"
         leadingIcon={<CompanyIcon />}
         onChange={handleChange}
@@ -73,6 +89,7 @@ export default function RegisterCompanyForm() {
       <Input
         variant={"primary"}
         placeholder="Contact Name"
+        helpText={errors.contactName}
         name="contactName"
         type="text"
         leadingIcon={<CompanyProfileOne />}
@@ -82,6 +99,7 @@ export default function RegisterCompanyForm() {
       <Input
         variant={"primary"}
         placeholder="Work Mail"
+        helpText={errors.workMail}
         name="workMail"
         type="text"
         leadingIcon={<CompanyMail width={14} height={11} />}
@@ -91,6 +109,7 @@ export default function RegisterCompanyForm() {
       <Input
         variant={"primary"}
         placeholder="Phone Number"
+        helpText={errors.phoneNumber}
         name="phoneNumber"
         type="text"
         leadingIcon={<CompanyArrow width={15} height={15} />}
@@ -113,6 +132,7 @@ export default function RegisterCompanyForm() {
         placeholder="City"
         type="text"
         name="city"
+        helpText={errors.city}
         leadingIcon={<CompanyCity />}
         onChange={handleChange}
         value={registerCompanyData.city}
@@ -127,6 +147,7 @@ export default function RegisterCompanyForm() {
         text="Continue"
         variant={"primary"}
         className="!max-w-full justify-center"
+        type="submit"
         trailingIcon={
           <CompanyArrow width={16} height={16} fill="white" className="pt-1" />
         }
