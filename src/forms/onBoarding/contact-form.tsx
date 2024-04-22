@@ -5,12 +5,21 @@ import CompanyTwitter from "@/components/svgs/company-twitter";
 import Input from "@/components/ui/input";
 import useOnBoardingContactData from "@/stores/on-boarding-contact-from-store";
 import { onBoardingContactFormSchema } from "@/types/schemas/onboarding-contact-form-schema";
+import { useState } from "react";
+import { ZodIssue } from "zod";
 
 export default function ContactForm() {
   const { onBoardingContactData, setOnBoardingContactData } =
     useOnBoardingContactData();
+  const [errors, setErrors] = useState({
+    phoneNumber: "",
+    linkedin: "",
+    twitter: "",
+    github: "",
+  });
   function handleChange(e) {
     const { name, value } = e.target;
+    setErrors({ ...errors, [name]: "" });
     setOnBoardingContactData({ ...onBoardingContactData, [name]: value });
   }
   function handleSubmit(e) {
@@ -18,9 +27,20 @@ export default function ContactForm() {
     const validate = onBoardingContactFormSchema.safeParse(
       onBoardingContactData
     );
-    validate.success
-      ? console.log("Validated", validate.data)
-      : console.warn("Failed to validate", validate.error.errors);
+    if (validate.success) {
+      console.log("DatA Validated", validate.data);
+    } else {
+      console.warn("Invalid data type", validate.error.errors);
+      const validationErrors = validate.error.errors;
+      const formattedErrors: { [key: string]: string } = {};
+      validationErrors.forEach((error: ZodIssue) => {
+        if (error.path.length > 0) {
+          formattedErrors[error.path[0]] = error.message;
+        }
+      });
+      setErrors({ ...errors, ...formattedErrors });
+      console.log(formattedErrors);
+    }
   }
   return (
     <form onSubmit={handleSubmit}>
@@ -29,6 +49,7 @@ export default function ContactForm() {
           variant={"primary"}
           name="phoneNumber"
           value={onBoardingContactData.phoneNumber}
+          helpText={errors.phoneNumber}
           type="text"
           placeholder="Phone Number"
           onChange={handleChange}
@@ -41,6 +62,7 @@ export default function ContactForm() {
           variant={"primary"}
           name="linkedin"
           value={onBoardingContactData.linkedin}
+          helpText={errors.linkedin}
           onChange={handleChange}
           type="text"
           placeholder="Linkedin"
@@ -49,6 +71,7 @@ export default function ContactForm() {
           variant={"primary"}
           name="twitter"
           value={onBoardingContactData.twitter}
+          helpText={errors.twitter}
           onChange={handleChange}
           type="text"
           placeholder="X"
@@ -58,12 +81,14 @@ export default function ContactForm() {
           variant={"primary"}
           name="github"
           value={onBoardingContactData.github}
+          helpText={errors.github}
           onChange={handleChange}
           type="text"
           placeholder="github"
           leadingIcon={<CompanyGithubSecond width={16} height={16} />}
         />
       </div>
+      <button>Sub</button>
     </form>
   );
 }
