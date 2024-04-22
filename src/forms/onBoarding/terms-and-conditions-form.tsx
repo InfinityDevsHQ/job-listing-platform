@@ -29,6 +29,7 @@ export default function TermsAndConditionsForm() {
         setValue={() =>
           setTermsData({ ...termsData, termsAgreed: !termsData.termsAgreed })
         }
+        helpText={errors && errors}
       >
         <p
           className={`text-xxs lg:text-base font-sans ${
@@ -41,7 +42,6 @@ export default function TermsAndConditionsForm() {
           </Link>
         </p>
       </Pill>
-      {errors && <HelpText text={errors} />}
       <button type="submit">HHHH</button>
     </form>
   );

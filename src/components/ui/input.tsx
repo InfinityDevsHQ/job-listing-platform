@@ -37,7 +37,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     return (
-      <>
+      <div className="flex flex-col gap-1">
         <div className={`group relative w-full ${containerClassName}`}>
           <input
             type={type}
@@ -64,7 +64,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         {helpText && <HelpText text={helpText} />}
-      </>
+      </div>
     );
   }
 );

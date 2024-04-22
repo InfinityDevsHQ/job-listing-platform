@@ -7,8 +7,8 @@ export default function FilterJobs() {
     <div className="grid grid-cols-2 w-full">
       <div className="hidden lg:flex items-center justify-center col-span-2 lg:col-span-1 w-full">
         <Image
-          src={"/assets/boarding/cv_poster.png"}
-          alt="Location Poster"
+          src={"/assets/boarding/filter-job_poster.png"}
+          alt="Filter jobs Poster"
           width={580}
           height={580}
         />
