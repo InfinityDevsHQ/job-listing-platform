@@ -13,7 +13,7 @@ const inputVariants = cva(
         primary: "focus:border-primary-900 peer-focus:!text-primary-900",
         secondary: "focus:border-secondary-900 peer-focus:!text-secondary-900",
         danger:
-          "!border-red-700 bg-danger/40 focus:border-red-900 peer-focus:!text-danger-900",
+          "!border-red-500 bg-danger/40 focus:border-red-900 peer-focus:!text-danger-900",
       },
     },
     defaultVariants: {
