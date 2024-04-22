@@ -40,50 +40,60 @@ export interface SectionHeaderProps {
 
 // Home.tsx
 export interface Job {
-	language: "string";
-	title: "string";
-	slug: "string";
-	external_company_id: 0;
-	city: "string";
-	country: "string";
-	employment_type: "string";
-	work_location_type: "string";
-	remuneration_from: 0;
-	remuneration_to: 0;
-	remuneration_currency: "string";
-	short_description: "string";
-	job_requirements: "string";
-	welcomed_skills: "string";
-	skill_tags: ["string"];
-	description: "string";
-	is_hot: false;
-	is_external: false;
-	external_link: "string";
-	external_company_logo: string | null;
-	external_company_name: string | null;
-	external_company_website: string | null;
-	external_company_industry: string | null;
-	external_company_size: string | null;
-	id_parent_job_translation: 0;
+	language?: string;
+	title?: string;
+	slug?: string;
+	external_company_id?: 0;
+	city?: string;
+	country?: string;
+	employment_type?: string;
+	work_location_type?: string;
+	remuneration_from?: 0;
+	remuneration_to?: 0;
+	remuneration_currency?: string;
+	short_description?: string;
+	job_requirements?: string;
+	welcomed_skills?: string;
+	skill_tags?: [string];
+	description?: string;
+	is_hot?: boolean;
+	is_external?: boolean;
+	external_link?: string;
+	external_company_logo?: string | null;
+	external_company_name?: string | null;
+	external_company_website?: string | null;
+	external_company_industry?: string | null;
+	external_company_size?: string | null;
+	id_parent_job_translation?: 0;
 	parent_job?: Job;
-	parent_language: "string";
+	parent_language?: string;
 	id: number;
-	category: {
+	category?: {
 		id: 0;
-		name: "string";
+		name?: string;
 	};
-	latitude: 0;
-	longitude: 0;
-	is_added_to_qdrant: true;
-	geo_resolve_tries: 0;
-	is_dummy: true;
-	created: "string";
-	updated: "string";
-	viewed: number;
-	applicants: number;
+	latitude?: 0;
+	longitude?: 0;
+	is_added_to_qdrant?: boolean;
+	geo_resolve_tries?: 0;
+	is_dummy?: boolean;
+	created?: string;
+	updated?: string;
+	viewed?: number;
+	applicants?: number;
 }
 
-// job-card.tsx 
+
+// job_list.tsx 
+export interface JobListProps {
+	jobs: Job[]
+}
+// job_card.tsx 
+export interface JobProps {
+	job: Job
+}
+
+// JobCard.tsx 
 export interface JobCardProps {
 	id: number;
 	title: string;
@@ -463,6 +473,18 @@ export interface Company {
 	website: string;
 }
 
+// company-card.tsx
+export interface CompanyCardProps {
+	companyName: string;
+	companyLogo: string;
+	companyDescription: string;
+}
+
+// companies-list.tsx 
+export interface CompaniesListProps {
+	companies: CompanyCardProps[]
+}
+
 export interface Country {
 	default_language: string;
 	flag_icon: string;
@@ -537,13 +559,6 @@ export interface GoogleData {
 	name: string;
 	picture: string;
 	sub: string;
-}
-
-//CompanyCard.tsx
-export interface CompanyCardProps {
-	companyName: string;
-	companyLogo: string;
-	companyDescription: string;
 }
 
 //Navigation.tsx
