@@ -18,6 +18,7 @@ export default function RegisterCandidateForm() {
     email: "",
     password: "",
     confirmPassword: "",
+    confirm: "",
   });
   function handleChange(e) {
     const { name, value } = e.target;
@@ -30,10 +31,7 @@ export default function RegisterCandidateForm() {
       registerCandidateData
     );
     if (validate.success) {
-      // Reset Errors if it succeed
-      setErrors({ username: "", email: "", password: "", confirmPassword: "" });
     } else {
-      console.error("Form data is invalid:", validate.error.errors);
       const validationErrors = validate.error.errors;
       const formattedErrors: { [key: string]: string } = {};
       validationErrors.forEach((error: ZodIssue) => {
@@ -41,6 +39,7 @@ export default function RegisterCandidateForm() {
           formattedErrors[error.path[0]] = error.message;
         }
       });
+      console.log("I am here", formattedErrors);
       setErrors({ ...errors, ...formattedErrors });
     }
   }
@@ -82,7 +81,10 @@ export default function RegisterCandidateForm() {
         name="confirmPassword"
         type="password"
         value={registerCandidateData.confirmPassword}
-        helpText={errors.confirmPassword && errors.confirmPassword}
+        helpText={
+          (errors.confirmPassword && errors.confirmPassword) ||
+          (errors.confirm && errors.confirm)
+        }
         onChange={handleChange}
         placeholder="Password"
         leadingIcon={<CompanyLock width={14} height={15} />}

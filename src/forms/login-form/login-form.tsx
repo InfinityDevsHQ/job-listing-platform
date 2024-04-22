@@ -59,10 +59,7 @@ export default function LoginForm({
     e.preventDefault();
     const validationResult = loginFormSchema.safeParse(loginData);
     if (validationResult.success) {
-      console.log("Form data is valid:", validationResult.data);
-      setErrors({ email: "", password: "" });
     } else {
-      console.error("Form data is invalid:", validationResult.error.errors);
       const validationErrors = validationResult.error.errors;
       const formattedErrors: { [key: string]: string } = {};
       validationErrors.forEach((error: ZodIssue) => {
