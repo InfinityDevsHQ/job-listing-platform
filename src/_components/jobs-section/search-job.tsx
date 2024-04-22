@@ -1,8 +1,6 @@
 import Image from "next/image";
 
-import { Button } from "@/components/ui/button";
 import AppInput from "@/components/ui/app-input";
-import { Search } from "lucide-react";
 
 import MagnifyingGlassIcon from "@/components/svgs/magnifying-glass";
 

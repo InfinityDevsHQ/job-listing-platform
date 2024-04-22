@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import CompanyBookmark from "@/components/svgs/company-bookmark";
 import CompanyFlame from "@/components/svgs/company-flame";
-import { Button } from "@/components/ui/button";
 
 type JobCardHeaderProps = {
   jobTitle: string;

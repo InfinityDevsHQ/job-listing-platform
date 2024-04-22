@@ -2,7 +2,7 @@ import PageHeader from "@/_components/page-header";
 import VectorText from "@/_components/vector-text";
 import AppsAuth from "@/_components/apps-auth";
 import TabNavigator from "@/_components/tab-navigator";
-import Button from "@/components/ui/app-button";
+import Button from "@/components/ui/button";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
 import { registerFormDataSchema } from "@/types/schemas/registerformschema";

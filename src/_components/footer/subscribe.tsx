@@ -1,6 +1,6 @@
 "use client";
 import AppInput from "@/components/ui/app-input";
-import Button from "@/components/ui/app-button";
+import Button from "@/components/ui/button";
 import { useState } from "react";
 
 export default function Subscribe() {
@@ -30,14 +30,12 @@ export default function Subscribe() {
           value={mail}
           onChange={(e) => setMail(e.target.value)}
         />
-
         <Button
           type="submit"
           text="Subscribe"
-          className="px-2.5 rounded-2xl lg:px-4 py-2 lg:rounded-lg border-2 border-gray-300 bg-white text-secondary lg:text-gray-800 mb-5 lg:mb-0  btn"
-        >
-          Subscribe
-        </Button>
+          variant={"primary"}
+          onClick={() => {}}
+        />  
       </form>
       <span className="border-b border-neutral-50 col-span-2 mb-8" />
     </>

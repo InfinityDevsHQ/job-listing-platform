@@ -1,6 +1,6 @@
 "use client";
 import DropDown from "@/_components/dropdown";
-import Button from "@/components/ui/app-button";
+import Button from "@/components/ui/button";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import CompanyCity from "@/components/svgs/company-city";
 import CompanyCommunity from "@/components/svgs/company-community";

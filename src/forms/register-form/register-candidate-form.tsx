@@ -4,7 +4,7 @@ import CompanyLock from "@/components/svgs/company-lock";
 import CompanyProfileOne from "@/components/svgs/company-profile-one";
 import CompanyMail from "@/components/svgs/coompany-mail";
 import AppInput from "@/components/ui/app-input";
-import Button from "@/components/ui/app-button";
+import Button from "@/components/ui/button";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import useRegisterCandidateStore from "@/stores/register-candidate-store";
 import { registerCandidateFormSchema } from "@/types/schemas/register-candidate-form-schema";

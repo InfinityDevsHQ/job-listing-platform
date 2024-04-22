@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation"
 
 import AppNavigation from "./app-navigation";
-import Button from "@/components/ui/app-button";
+import Button from "@/components/ui/button";
 
 import LockIcon from "@/components/svgs/lock";
 import ArrowRightIcon from "@/components/svgs/arrow-right";

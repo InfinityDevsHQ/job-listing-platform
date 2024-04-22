@@ -1,5 +1,5 @@
 import PageHeader from "@/_components/page-header";
-import Button from "@/components/ui/app-button";
+import Button from "@/components/ui/button";
 import VectorText from "@/_components/vector-text";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
 import AppInput from "@/components/ui/app-input";

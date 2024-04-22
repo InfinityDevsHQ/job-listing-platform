@@ -1,5 +1,5 @@
 "use client";
-import Button from "@/components/ui/app-button";
+import Button from "@/components/ui/button";
 import Pill from "@/components/ui/pill";
 import useFilterJobsDataStore from "@/stores/filter-jobs-form-data-store";
 import { filterJobsFormSchema } from "@/types/schemas/filter-job-form-schema";
