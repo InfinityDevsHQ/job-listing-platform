@@ -54,27 +54,33 @@ export default function LoginForm({
       setLoginData({ ...loginData, [name]: newValue });
     }
   };
-  function handleSubmit(e) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const validationResult = loginFormSchema.safeParse(loginData);
     if (validationResult.success) {
       console.log("Form data is valid:", validationResult.data);
+      setErrors({ email: "", password: "" });
     } else {
       console.error("Form data is invalid:", validationResult.error.errors);
       const validationErrors = validationResult.error.errors;
       const formattedErrors: { [key: string]: string } = {};
       validationErrors.forEach((error: ZodIssue) => {
-        if (error.code === "too_small" && open !== "PasswordLess") {
-          console.log(error.code, open);
-          if (error.path.length > 0) {
-            formattedErrors[error.path[0]] = error.message;
-          }
+        if (error.path.length > 0) {
+          formattedErrors[error.path[0]] = error.message;
         }
       });
-      setErrors(formattedErrors);
+      const updatedErrors =
+        open === "EmailPassword"
+          ? { ...errors, ...formattedErrors }
+          : { ...errors, email: formattedErrors.email || "" };
+      setErrors(updatedErrors);
     }
-    console.log(errors.password);
+    if (!errors.password && errors.email) {
+      // Form Submission logic
+    }
+    console.log(errors);
   }
+
   return (
     <form className="flex flex-col gap-8 px-16" onSubmit={handleSubmit}>
       <PageHeader title="Login to your Account" />
