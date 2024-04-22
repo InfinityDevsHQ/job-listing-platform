@@ -2,7 +2,7 @@
 import UploadImage from "@/components/ui/upload-image";
 import { useState } from "react";
 import useCVFormData from "@/stores/cv-form-data-store";
-import { uploadCVDataSchema } from "@/types/zodTypes";
+// import { uploadCVDataSchema } from "@/types/zodTypes";
 import { ZodIssue } from "zod";
 export default function CVForm() {
   const { cvFormData, setCVFormData } = useCVFormData();

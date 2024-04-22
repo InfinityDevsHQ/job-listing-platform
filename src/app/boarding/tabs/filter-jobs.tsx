@@ -13,7 +13,7 @@ export default function FilterJobs() {
           height={580}
         />
       </div>
-      <div className="flex justify-center flex-col gap-4 w-full col-span-2 lg:col-span-1">
+      <div className="flex justify-center flex-col gap-4 lg:gap-8 w-full col-span-2 lg:col-span-1">
         <BoardingHeader
           title="3. Filter Jobs"
           description="Set your preferences and we'll find the best jobs for you."

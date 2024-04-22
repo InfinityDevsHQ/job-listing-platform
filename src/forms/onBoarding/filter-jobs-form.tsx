@@ -3,8 +3,14 @@ import Button from "@/components/ui/button";
 import Pill from "@/components/ui/pill";
 import useFilterJobsDataStore from "@/stores/filter-jobs-form-data-store";
 import { filterJobsFormSchema } from "@/types/schemas/filter-job-form-schema";
+import { useState } from "react";
+import { ZodIssue } from "zod";
 export default function FilterJobsForm() {
   const { filterJobsData, setFilterJobsData } = useFilterJobsDataStore();
+  const [errors, setErrors] = useState({
+    employmentType: "",
+    collaborationType: "",
+  });
   const EmploymentTypes = [
     {
       text: "Full time",
@@ -41,13 +47,20 @@ export default function FilterJobsForm() {
     e.preventDefault();
     const validate = filterJobsFormSchema.safeParse(filterJobsData);
     if (validate.success) {
-      console.log("Validated:", validate.data);
     } else {
       console.warn("Validation Failed", validate.error.errors);
+      const validationErrors = validate.error.errors;
+      const formattedErrors: { [key: string]: string } = {};
+      validationErrors.forEach((error: ZodIssue) => {
+        if (error.path.length > 0) {
+          formattedErrors[error.path[0]] = error.message;
+        }
+      });
+      setErrors({ ...errors, ...formattedErrors });
     }
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 lg:gap-8">
       <>
         <h3 className="text-mute text-base lg:text-lg font-bold lg:font-semibold font-sans">
           Employment Type
@@ -58,12 +71,13 @@ export default function FilterJobsForm() {
               key={index}
               text={text}
               active={active}
-              setValue={() =>
+              setValue={() => {
+                setErrors({ ...errors, employmentType: "" });
                 setFilterJobsData({
                   ...filterJobsData,
                   employmentType: text,
-                })
-              }
+                });
+              }}
             />
           ))}
         </div>
@@ -78,17 +92,17 @@ export default function FilterJobsForm() {
               key={index}
               text={text}
               active={active}
-              setValue={() =>
+              setValue={() => {
+                setErrors({ ...errors, collaborationType: "" });
                 setFilterJobsData({
                   ...filterJobsData,
                   collaborationType: text,
-                })
-              }
+                });
+              }}
             />
           ))}
         </div>
       </>
-      <Button text="Submit" />
     </form>
   );
 }
