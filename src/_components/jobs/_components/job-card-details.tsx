@@ -1,29 +1,9 @@
 import Image from "next/image";
 
-import CompanyApplied from "@/components/svgs/company-applied";
-import CompanyCalender from "@/components/svgs/company-calender";
-import CompanyClock from "@/components/svgs/company-clock";
-import CompanyDollar from "@/components/svgs/company-dollar";
-import CompanyExperience from "@/components/svgs/company-experience";
-import CompanyLocation from "@/components/svgs/company-location";
+import { JobProps } from '@/types/types'
 
-type JobCardDetailsProps = {
-  jobType: string;
-  experienceRequired: string;
-  location: string;
-  salary: string;
-  applications: number;
-  date: string;
-};
 
-export default function JobCardDetails({
-  jobType,
-  experienceRequired,
-  location,
-  salary,
-  applications,
-  date,
-}: JobCardDetailsProps) {
+export default function JobCardDetails({ job }: JobProps) {
   return (
     <>
       <div className="w-full flex flex-col lg:flex-row gap-4">
@@ -35,7 +15,7 @@ export default function JobCardDetails({
               width={14}
               height={12}
             />
-            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">{jobType}</span>
+            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">Full Time</span>
           </span>
           <span className="flex items-center gap-2.5">
             <Image
@@ -44,7 +24,7 @@ export default function JobCardDetails({
               width={14}
               height={12}
             />
-            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">{experienceRequired}</span>
+            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">1-2 Year</span>
           </span>
           <span className="flex items-center gap-2.5">
             <Image
@@ -53,7 +33,7 @@ export default function JobCardDetails({
               width={11}
               height={12}
             />
-            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">{location}</span>
+            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">NY, USA</span>
           </span>
           <span className="flex items-center gap-2.5">
             <Image
@@ -62,7 +42,7 @@ export default function JobCardDetails({
               width={14}
               height={12}
             />
-            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">{salary}</span>
+            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">$30k-60k /Month</span>
           </span>
           <span className="flex items-center gap-2.5">
             <Image
@@ -71,7 +51,7 @@ export default function JobCardDetails({
               width={18}
               height={12}
             />
-            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">{applications} Applied</span>
+            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">49 Applied</span>
           </span>
           <span className="flex items-center gap-2.5">
             <Image
@@ -80,7 +60,7 @@ export default function JobCardDetails({
               width={13}
               height={12}
             />
-            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">{date}</span>
+            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">23 Mar 2023</span>
           </span>
         </div>
       </div>
