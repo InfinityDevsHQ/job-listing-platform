@@ -1,10 +1,10 @@
 "use client";
+import HelpText from "@/components/ui/help-text";
 import Pill from "@/components/ui/pill";
 import useTermsAndConditionsData from "@/stores/terms-and-conditions-data-store";
 import { termsAndConditionsFormSchema } from "@/types/schemas/terms-and-conditions-schema";
 import Link from "next/link";
 import { useState } from "react";
-import { ZodIssue } from "zod";
 
 export default function TermsAndConditionsForm() {
   const { termsData, setTermsData } = useTermsAndConditionsData();
@@ -14,6 +14,7 @@ export default function TermsAndConditionsForm() {
     const validate = termsAndConditionsFormSchema.safeParse(termsData);
     if (validate.success) {
       console.log("DatA Validated", validate.data);
+      setErrors("");
     } else {
       setErrors("Please Agree to the terns abd conditions");
     }
@@ -40,6 +41,7 @@ export default function TermsAndConditionsForm() {
           </Link>
         </p>
       </Pill>
+      {errors && <HelpText text={errors} />}
       <button type="submit">HHHH</button>
     </form>
   );

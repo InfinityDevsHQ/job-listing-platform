@@ -88,7 +88,6 @@ export default function ContactForm() {
           leadingIcon={<CompanyGithubSecond width={16} height={16} />}
         />
       </div>
-      <button>Sub</button>
     </form>
   );
 }

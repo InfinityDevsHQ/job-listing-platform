@@ -1,5 +1,6 @@
 "use client";
 import Button from "@/components/ui/button";
+import HelpText from "@/components/ui/help-text";
 import Pill from "@/components/ui/pill";
 import useFilterJobsDataStore from "@/stores/filter-jobs-form-data-store";
 import { filterJobsFormSchema } from "@/types/schemas/filter-job-form-schema";
@@ -81,6 +82,7 @@ export default function FilterJobsForm() {
             />
           ))}
         </div>
+        {errors.employmentType && <HelpText text={errors.employmentType} />}
       </>
       <>
         <h3 className="text-mute text-base lg:text-lg font-bold lg:font-semibold font-sans">
@@ -102,6 +104,9 @@ export default function FilterJobsForm() {
             />
           ))}
         </div>
+        {errors.collaborationType && (
+          <HelpText text={errors.collaborationType} />
+        )}
       </>
     </form>
   );
