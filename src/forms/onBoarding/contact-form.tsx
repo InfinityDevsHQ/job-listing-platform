@@ -2,7 +2,7 @@
 import CompanyGithubSecond from "@/components/svgs/company-github-second";
 import CompanyPhone from "@/components/svgs/company-phone";
 import CompanyTwitter from "@/components/svgs/company-twitter";
-import AppInput from "@/components/ui/app-input";
+import Input from "@/components/ui/input";
 import useOnBoardingContactData from "@/stores/on-boarding-contact-from-store";
 import { onBoardingContactFormSchema } from "@/types/schemas/onboarding-contact-form-schema";
 
@@ -25,7 +25,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="flex flex-col gap-4 lg:gap-8">
-        <AppInput
+        <Input
           variant={"primary"}
           name="phoneNumber"
           value={onBoardingContactData.phoneNumber}
@@ -37,7 +37,7 @@ export default function ContactForm() {
         <h3 className="text-mute text-base lg:text-lg font-bold lg:font-semibold font-sans">
           Social Networks
         </h3>
-        <AppInput
+        <Input
           variant={"primary"}
           name="linkedin"
           value={onBoardingContactData.linkedin}
@@ -45,7 +45,7 @@ export default function ContactForm() {
           type="text"
           placeholder="Linkedin"
         />
-        <AppInput
+        <Input
           variant={"primary"}
           name="twitter"
           value={onBoardingContactData.twitter}
@@ -54,7 +54,7 @@ export default function ContactForm() {
           placeholder="X"
           leadingIcon={<CompanyTwitter width={16} height={16} />}
         />
-        <AppInput
+        <Input
           variant={"primary"}
           name="github"
           value={onBoardingContactData.github}

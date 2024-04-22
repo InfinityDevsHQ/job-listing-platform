@@ -1,5 +1,5 @@
 "use client";
-import AppInput from "@/components/ui/app-input";
+import Input from "@/components/ui/input";
 import Button from "@/components/ui/button";
 import { useState } from "react";
 
@@ -22,7 +22,7 @@ export default function Subscribe() {
         className="flex flex-col gap-5 lg:flex-row lg:gap-2 self-center col-span-2 lg:col-span-1"
         onSubmit={handleSubmit}
       >
-        <AppInput
+        <Input
           placeholder="Email"
           containerClassName="self-stretch h-full"
           className="!w-full self-stretch flex-1 font-semibold placeholder:text-gray-1 lg:placeholder:text-gray-600 rounded-lg bg-white bg-opacity-25 lg:bg-opacity-100 border border-gray-1 lg:border-2 lg:border-gray-300 px-1 py-1.5 lg:py-2 lg:pr-14 lg:pl-3"

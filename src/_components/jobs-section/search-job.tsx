@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import AppInput from "@/components/ui/app-input";
+import Input from "@/components/ui/input";
 
 import MagnifyingGlassIcon from "@/components/svgs/magnifying-glass";
 
@@ -15,7 +15,7 @@ export default function SearchJobs() {
           Explore the latest job openings and apply for the best job opportunities
           available today!
         </p>
-        <AppInput
+        <Input
           variant={"primary"}
           type="text"
           name="search"

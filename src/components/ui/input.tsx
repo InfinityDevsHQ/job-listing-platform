@@ -1,25 +1,66 @@
-import * as React from "react"
+import * as React from "react";
+import { cn } from "@/lib/utils";
+import { cva, type VariantProps } from "class-variance-authority";
+import { InputProps } from '@/types/types'
 
-import { cn } from "@/lib/utils"
-
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+const inputVariants = cva(
+  "p-2 pl-7 h-10 w-full peer border-2 border-gray-300 rounded-md bg-white text-black placeholder-gray-400 outline-none transition-all duration-300",
+  {
+    variants: {
+      variant: {
+        default: "",
+        primary: "focus:border-primary-900 peer-focus:!text-primary-900",
+        secondary: "focus:border-secondary-900 peer-focus:!text-secondary-900",
+        danger: "focus:border-red-900 peer-focus:!text-danger-900",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+);
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+  (
+    {
+      className,
+      containerClassName,
+      type = "text",
+      variant,
+      leadingIcon,
+      trailingIcon,
+      helpText,
+      ...props
+    },
+    ref
+  ) => {
     return (
-      <input
-        type={type}
-        className={cn(
-          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-          className
+      <div className={`group relative w-full ${containerClassName}`}>
+        <input
+          type={type}
+          className={cn(inputVariants({ variant, className }))}
+          ref={ref}
+          {...props}
+        />
+        {leadingIcon && (
+          <span
+            className={`absolute top-1/2 -translate-y-1/2 left-2 peer-focus:!text-${variant}-900 transition-all duration-300`}
+          >
+            {leadingIcon}
+          </span>
         )}
-        ref={ref}
-        {...props}
-      />
-    )
+        {trailingIcon && (
+          <span
+            className={`absolute top-1/2 -translate-y-1/2 right-2 text-neutral-300 transition-all duration-300`}
+          >
+            {trailingIcon}
+          </span>
+        )}
+      </div>
+    );
   }
-)
-Input.displayName = "Input"
+);
 
-export { Input }
+Input.displayName = "Input";
+
+export default Input;

@@ -2,7 +2,7 @@ import PageHeader from "@/_components/page-header";
 import Button from "@/components/ui/button";
 import VectorText from "@/_components/vector-text";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
-import AppInput from "@/components/ui/app-input";
+import Input from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ChangeEvent, FormEvent } from "react";
 import Link from "next/link";
@@ -64,7 +64,7 @@ export default function LoginForm({
       <VectorText text="or" />
       <TabNavigator tabs={Tabs} />
       <>
-        <AppInput
+        <Input
           variant={"primary"}
           placeholder="Email"
           name="email"
@@ -76,7 +76,7 @@ export default function LoginForm({
 
         {open === "EmailPassword" && (
           <>
-            <AppInput
+            <Input
               variant={"primary"}
               placeholder="Email"
               name="password"

@@ -9,7 +9,7 @@ import CompanyGlobe from "@/components/svgs/company-globe";
 import CompanyIcon from "@/components/svgs/company-icon";
 import CompanyProfileOne from "@/components/svgs/company-profile-one";
 import CompanyMail from "@/components/svgs/coompany-mail";
-import AppInput from "@/components/ui/app-input";
+import Input from "@/components/ui/input";
 import useRegisterCompanyStore from "@/stores/register-company-stor";
 import { registerCompanyFormSchema } from "@/types/schemas/register-company-form-schema";
 import { useState } from "react";
@@ -61,7 +61,7 @@ export default function RegisterCompanyForm() {
   }
   return (
     <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
-      <AppInput
+      <Input
         variant={"primary"}
         placeholder="Company"
         name="company"
@@ -70,7 +70,7 @@ export default function RegisterCompanyForm() {
         onChange={handleChange}
         value={registerCompanyData.company}
       />
-      <AppInput
+      <Input
         variant={"primary"}
         placeholder="Contact Name"
         name="contactName"
@@ -79,7 +79,7 @@ export default function RegisterCompanyForm() {
         onChange={handleChange}
         value={registerCompanyData.contactName}
       />
-      <AppInput
+      <Input
         variant={"primary"}
         placeholder="Work Mail"
         name="workMail"
@@ -88,7 +88,7 @@ export default function RegisterCompanyForm() {
         onChange={handleChange}
         value={registerCompanyData.workMail}
       />
-      <AppInput
+      <Input
         variant={"primary"}
         placeholder="Phone Number"
         name="phoneNumber"
@@ -109,7 +109,7 @@ export default function RegisterCompanyForm() {
         setSelect={setCountry}
         leadingIcon={<CompanyGlobe />}
       />
-      <AppInput
+      <Input
         placeholder="City"
         type="text"
         name="city"

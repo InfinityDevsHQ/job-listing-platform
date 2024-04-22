@@ -1,5 +1,5 @@
 "use client";
-import AppInput from "@/components/ui/app-input";
+import Input from "@/components/ui/input";
 import CompanyGlobe from "@/components/svgs/company-globe";
 import CompanyEye from "@/components/svgs/company-eye";
 import DropDown from "@/_components/dropdown";
@@ -53,7 +53,7 @@ export default function LocationForm() {
         setSelect={setTimeZone}
         leadingIcon={<CompanyClock width={16} height={16} />}
       />
-      <AppInput
+      <Input
         variant={"primary"}
         name="country"
         value={locationFormData.country}
@@ -68,7 +68,7 @@ export default function LocationForm() {
         setSelect={setCity}
         leadingIcon={<CompanyCity />}
       />
-      <AppInput
+      <Input
         variant={"primary"}
         name="password"
         type="password"

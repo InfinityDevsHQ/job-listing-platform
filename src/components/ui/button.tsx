@@ -31,7 +31,7 @@ const buttonVariants = cva(
 )
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, type, variant, size, text, leadingIcon, trailingIcon, ...props }, ref) => {
+  ({ className, type = "button", variant, size, text, leadingIcon, trailingIcon, ...props }, ref) => {
     return (
       <button
         className={cn(buttonVariants({ variant , size, className }))}

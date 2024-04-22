@@ -3,7 +3,7 @@ import CompanyEye from "@/components/svgs/company-eye";
 import CompanyLock from "@/components/svgs/company-lock";
 import CompanyProfileOne from "@/components/svgs/company-profile-one";
 import CompanyMail from "@/components/svgs/coompany-mail";
-import AppInput from "@/components/ui/app-input";
+import Input from "@/components/ui/input";
 import Button from "@/components/ui/button";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import useRegisterCandidateStore from "@/stores/register-candidate-store";
@@ -28,7 +28,7 @@ export default function RegisterCandidateForm() {
   }
   return (
     <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
-      <AppInput
+      <Input
         variant={"primary"}
         type="text"
         name="username"
@@ -37,7 +37,7 @@ export default function RegisterCandidateForm() {
         placeholder="Username"
         leadingIcon={<CompanyProfileOne />}
       />
-      <AppInput
+      <Input
         variant={"primary"}
         type="email"
         name="email"
@@ -46,7 +46,7 @@ export default function RegisterCandidateForm() {
         placeholder="Email"
         leadingIcon={<CompanyMail width={14} height={11} />}
       />
-      <AppInput
+      <Input
         variant={"primary"}
         name="passwordOne"
         type="password"
@@ -56,7 +56,7 @@ export default function RegisterCandidateForm() {
         leadingIcon={<CompanyLock width={14} height={15} />}
         trailingIcon={<CompanyEye width={16} height={13} />}
       />
-      <AppInput
+      <Input
         variant={"primary"}
         name="passwordTwo"
         type="password"
