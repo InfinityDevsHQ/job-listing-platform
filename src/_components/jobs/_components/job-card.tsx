@@ -1,6 +1,9 @@
 import JobCardHeader from "./job-card-header";
 import JobCardDetails from "./job-card-details";
 import Tags from "./tags";
+
+import { JobCardProps } from '@/types/typesss'
+
 type JobCardProps = {
   jobTitle: string;
   company: string;
@@ -27,7 +30,7 @@ export default function JobCard({
   date,
 }: JobCardProps) {
   return (
-    <div className="flex flex-col gap-8 p-4 lg:p-8 bg-white rounded-md border border-gray-200">
+    <div className="flex flex-col gap-4 lg:gap-8 p-4 lg:p-8 bg-white rounded-md border border-gray-200">
       <JobCardHeader jobTitle={jobTitle} company={company} urgent={true} />
       <JobCardDetails
         jobType={jobType}
@@ -38,7 +41,7 @@ export default function JobCard({
         date={date}
       />
       {description && (
-        <p className="text-xs lg:text-sm text-neutral-600 leading-4 lg:leading-5 font-normal font-sans">
+        <p className="text-xs lg:text-sm text-neutral-600">
           {description}
         </p>
       )}

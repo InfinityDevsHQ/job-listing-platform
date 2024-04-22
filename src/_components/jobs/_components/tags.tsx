@@ -4,6 +4,7 @@ type Tags = {
   sql?: boolean;
   git?: boolean;
 };
+
 export default function Tags({ python, django, sql, git }: Tags) {
   return (
     <div className="flex items-center gap-4">

@@ -4,7 +4,7 @@ import JobCard from "./_components/job-card";
 import SearchJobs from "./search-job";
 import CompanyFlame from "@/components/svgs/company-flame";
 
-export default function Jobs() {
+export default function Jobs({jobs:}) {
   const jobs = [
     {
       title: "Senior Frontend Developer",
