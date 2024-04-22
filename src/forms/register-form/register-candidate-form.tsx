@@ -10,9 +10,11 @@ import useRegisterCandidateStore from "@/stores/register-candidate-store";
 import { registerCandidateFormSchema } from "@/types/schemas/register-candidate-form-schema";
 import { useState } from "react";
 import { ZodIssue } from "zod";
+import useTogglePasswordDisplay from "@/hooks/use-toggle-password-display";
 export default function RegisterCandidateForm() {
   const { registerCandidateData, setRegisterCandidateData } =
     useRegisterCandidateStore();
+  const [showPassword, togglePasswordVisibility] = useTogglePasswordDisplay();
   const [errors, setErrors] = useState({
     username: "",
     email: "",
@@ -68,18 +70,20 @@ export default function RegisterCandidateForm() {
       <Input
         variant={"primary"}
         name="password"
-        type="password"
+        type={showPassword ? "text" : "password"}
         value={registerCandidateData.password}
         helpText={errors.password && errors.password}
         onChange={handleChange}
         placeholder="Password"
+        onTrailingClick={togglePasswordVisibility}
         leadingIcon={<CompanyLock width={14} height={15} />}
         trailingIcon={<CompanyEye width={16} height={13} />}
       />
       <Input
         variant={"primary"}
         name="confirmPassword"
-        type="password"
+        type={showPassword ? "text" : "password"}
+        onTrailingClick={togglePasswordVisibility}
         value={registerCandidateData.confirmPassword}
         helpText={
           (errors.confirmPassword && errors.confirmPassword) ||

@@ -14,6 +14,7 @@ import CompanyArrow from "@/components/svgs/company-arrow";
 import TabNavigator from "@/_components/tab-navigator";
 import { loginFormSchema } from "@/types/schemas/loginformschema";
 import { ZodIssue } from "zod";
+import useTogglePasswordDisplay from "@/hooks/use-toggle-password-display";
 type LoginFormProps = {
   setOpen: (value: "EmailPassword" | "PasswordLess") => void;
   open: "EmailPassword" | "PasswordLess";
@@ -31,7 +32,8 @@ export default function LoginForm({
     email: "",
     password: "",
   });
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, togglePasswordVisibility] =
+    useTogglePasswordDisplay(false);
   const Tabs = [
     {
       tabText: "Email / Password",
@@ -105,7 +107,7 @@ export default function LoginForm({
               placeholder="Password"
               name="password"
               type={showPassword ? "text" : "password"}
-              onTrailingClick={() => setShowPassword(!showPassword)}
+              onTrailingClick={togglePasswordVisibility}
               value={loginData.password}
               helpText={errors.password && errors.password}
               min={8}
