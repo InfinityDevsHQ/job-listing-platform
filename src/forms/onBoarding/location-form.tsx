@@ -9,6 +9,7 @@ import { locationFormSchema } from "@/types/schemas/location-form-schema";
 import CompanyCity from "@/components/svgs/company-city";
 import useLocationFormData from "@/stores/location-form-store";
 import CompanyClock from "@/components/svgs/company-clock";
+import { ZodIssue } from "zod";
 const Languages = [
   {
     value: "en",
@@ -22,7 +23,7 @@ const Languages = [
 const TimeZones = [{ value: "au", text: "Australia" }];
 const Cities = [{ value: "sidney", text: "Sidney, Australia" }];
 export default function LocationForm() {
-  const [language, setLanguage] = useState(Languages[0].value);
+  const [preferLanguage, setPreferLanguage] = useState(Languages[0].value);
   const [timeZone, setTimeZone] = useState(TimeZones[0].value);
   const [errors, setErrors] = useState({
     country: "",
@@ -32,7 +33,14 @@ export default function LocationForm() {
   const { locationFormData, setLocationFormData } = useLocationFormData();
   function handleChange(e) {
     const { name, value } = e.target;
-    setLocationFormData({ ...locationFormData, [name]: value });
+    setErrors({ ...errors, [name]: "" });
+    setLocationFormData({
+      ...locationFormData,
+      [name]: value,
+      preferLanguage,
+      timeZone,
+      city,
+    });
   }
   function handleSubmit(e) {
     e.preventDefault();
@@ -41,14 +49,23 @@ export default function LocationForm() {
       console.log("DatA Validated", validate.data);
     } else {
       console.warn("Invalid data type", validate.error.errors);
+      const validationErrors = validate.error.errors;
+      const formattedErrors: { [key: string]: string } = {};
+      validationErrors.forEach((error: ZodIssue) => {
+        if (error.path.length > 0) {
+          formattedErrors[error.path[0]] = error.message;
+        }
+      });
+      setErrors({ ...errors, ...formattedErrors });
+      console.log(formattedErrors);
     }
   }
   return (
     <form className="flex flex-col gap-4 lg:gap-8" onSubmit={handleSubmit}>
       <DropDown
         options={Languages}
-        select={language}
-        setSelect={setLanguage}
+        select={preferLanguage}
+        setSelect={setPreferLanguage}
         leadingIcon={<CompanyDictionary />}
       />
       <DropDown
@@ -61,6 +78,7 @@ export default function LocationForm() {
         variant={"primary"}
         name="country"
         value={locationFormData.country}
+        helpText={errors.country}
         onChange={handleChange}
         type="text"
         placeholder="Country"
@@ -77,10 +95,12 @@ export default function LocationForm() {
         name="password"
         type="password"
         value={locationFormData.password}
+        helpText={errors.password}
         onChange={handleChange}
         placeholder="Password"
         leadingIcon={<CompanyEye width={16} height={16} />}
       />
+      <button type="submit">Go</button>
     </form>
   );
 }

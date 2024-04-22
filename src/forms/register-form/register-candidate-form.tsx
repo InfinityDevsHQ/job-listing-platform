@@ -41,7 +41,6 @@ export default function RegisterCandidateForm() {
           formattedErrors[error.path[0]] = error.message;
         }
       });
-      console.log("I am here", formattedErrors);
       setErrors({ ...errors, ...formattedErrors });
     }
   }
