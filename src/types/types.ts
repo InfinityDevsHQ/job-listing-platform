@@ -31,6 +31,13 @@ export interface InputProps
 		containerClassName?: string;
 }
 
+// section-headers.tsx 
+export interface SectionHeaderProps {
+	leadingIcon?: React.ReactNode;
+	heading?: string;
+	helpText?: string;
+}
+
 // Home.tsx
 export interface Job {
 	language: "string";
@@ -76,7 +83,7 @@ export interface Job {
 	applicants: number;
 }
 
-/*JobCardP.tsx*/
+// job-card.tsx 
 export interface JobCardProps {
 	id: number;
 	title: string;
