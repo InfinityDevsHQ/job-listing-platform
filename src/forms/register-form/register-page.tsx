@@ -11,7 +11,7 @@ type RegisterFormProps = {
   opened: "Company" | "Candidate";
   setOpened: (value: "Company" | "Candidate") => void;
 };
-export default function RegisterForm({ opened, setOpened }: RegisterFormProps) {
+export default function RegisterPage({ opened, setOpened }: RegisterFormProps) {
   const Tabs = [
     {
       tabText: "Company",

@@ -2,7 +2,7 @@
 import Poster from "@/_components/poster";
 import { useState } from "react";
 import FormsHeader from "@/_components/forms-header";
-import RegisterForm from "@/forms/register-form/register-form";
+import RegisterPage from "@/forms/register-form/register-page";
 
 export default function Register() {
   const [opened, setOpened] = useState<"Candidate" | "Company">("Candidate");
@@ -11,7 +11,7 @@ export default function Register() {
     <main className="grid grid-cols-2 lg:h-screen overflow-hidden">
       <div className="overflow-auto col-span-2 lg:col-span-1 flex-center lg:block flex-col px-3.9 lg:px-0 bg-primary-900 lg:bg-primary-50">
         <FormsHeader />
-        <RegisterForm opened={opened} setOpened={setOpened} />
+        <RegisterPage opened={opened} setOpened={setOpened} />
       </div>
       <Poster
         imgUrl="/assets/login_poster.png"
