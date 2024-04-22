@@ -24,6 +24,10 @@ const Cities = [{ value: "sidney", text: "Sidney, Australia" }];
 export default function LocationForm() {
   const [language, setLanguage] = useState(Languages[0].value);
   const [timeZone, setTimeZone] = useState(TimeZones[0].value);
+  const [errors, setErrors] = useState({
+    country: "",
+    password: "",
+  });
   const [city, setCity] = useState(Cities[0].value);
   const { locationFormData, setLocationFormData } = useLocationFormData();
   function handleChange(e) {
