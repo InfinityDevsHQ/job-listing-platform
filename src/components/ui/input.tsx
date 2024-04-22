@@ -12,7 +12,8 @@ const inputVariants = cva(
         default: "",
         primary: "focus:border-primary-900 peer-focus:!text-primary-900",
         secondary: "focus:border-secondary-900 peer-focus:!text-secondary-900",
-        danger: "focus:border-red-900 peer-focus:!text-danger-900",
+        danger:
+          "!border-red-700 bg-danger/40 focus:border-red-900 peer-focus:!text-danger-900",
       },
     },
     defaultVariants: {
@@ -36,18 +37,27 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+    // Determine the variant based on the value of helpText
+    const computedVariant = helpText ? "danger" : variant || "default";
+
     return (
       <div className="flex flex-col gap-1">
-        <div className={`group relative w-full ${containerClassName}`}>
+        <div
+          className={`group relative w-full ${
+            containerClassName ? containerClassName : ""
+          }`}
+        >
           <input
             type={type}
-            className={cn(inputVariants({ variant, className }))}
+            className={cn(
+              inputVariants({ variant: computedVariant, className })
+            )}
             ref={ref}
             {...props}
           />
           {leadingIcon && (
             <span
-              className={`absolute top-1/2 -translate-y-1/2 left-2 peer-focus:!text-${variant}-900 transition-all duration-300`}
+              className={`absolute top-1/2 -translate-y-1/2 left-2 peer-focus:!text-${computedVariant}-900 transition-all duration-300`}
             >
               {leadingIcon}
             </span>
@@ -56,8 +66,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <span
               onClick={onTrailingClick && onTrailingClick}
               className={`absolute top-1/2 -translate-y-1/2 right-2 text-neutral-300 transition-all duration-300 ${
-                onTrailingClick ? "cursor-pointer" : ""
-              } `}
+                computedVariant === "danger"
+                  ? "peer-focus:!text-danger-900"
+                  : ""
+              } ${onTrailingClick ? "cursor-pointer" : ""}`}
             >
               {trailingIcon}
             </span>
