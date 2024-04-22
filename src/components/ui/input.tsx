@@ -2,6 +2,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { InputProps } from "@/types/types";
+import HelpText from "./help-text";
 
 const inputVariants = cva(
   "p-2 pl-7 h-10 w-full peer border-2 border-gray-300 rounded-md bg-white text-black placeholder-gray-400 outline-none transition-all duration-300",
@@ -62,7 +63,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </span>
           )}
         </div>
-        {helpText && <p className={`text-red-700 ${props}`}>{helpText}</p>}
+        {helpText && <HelpText text={helpText} />}
       </>
     );
   }
