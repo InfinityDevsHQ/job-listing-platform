@@ -5,14 +5,14 @@ export const registerCandidateFormSchema = z
       .string()
       .min(2, { message: "Username must be at least 2 characters long" }),
     email: z.string().email({ message: "Email must be valid" }),
-    passwordOne: z
+    password: z
       .string()
       .min(6, { message: "Password must be at least 6 characters long" }),
-    passwordTwo: z
+    confirmPassword: z
       .string()
       .min(6, { message: "Password must be at least 6 characters long" }),
   })
-  .refine((data) => data.passwordOne === data.passwordTwo, {
+  .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't match",
     path: ["confirm"],
   });

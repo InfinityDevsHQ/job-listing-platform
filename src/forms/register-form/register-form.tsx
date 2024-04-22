@@ -5,7 +5,6 @@ import TabNavigator from "@/_components/tab-navigator";
 import Button from "@/components/ui/button";
 import CompanyArrow from "@/components/svgs/company-arrow";
 import LoginRegisterToggler from "@/_components/login-register-toggler";
-import { registerFormDataSchema } from "@/types/schemas/registerformschema";
 import RegisterCompanyForm from "./register-company-form";
 import RegisterCandidateForm from "./register-candidate-form";
 type RegisterFormProps = {

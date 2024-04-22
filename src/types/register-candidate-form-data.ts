@@ -1,6 +1,6 @@
 type RegisterCandidateFormData = {
   username: string;
   email: string;
-  passwordOne: string;
-  passwordTwo: string;
+  password: string;
+  confirmPassword: string;
 };

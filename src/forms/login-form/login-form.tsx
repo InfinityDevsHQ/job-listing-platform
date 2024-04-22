@@ -51,6 +51,7 @@ export default function LoginForm({
       const target = event.target as HTMLInputElement;
       const { name, value, checked, type } = target;
       const newValue = type === "checkbox" ? checked : value;
+      setErrors({ ...errors, [name]: "" });
       setLoginData({ ...loginData, [name]: newValue });
     }
   };
