@@ -2,34 +2,26 @@ import CompanyArrow from "@/components/svgs/company-arrow";
 import CompanyPhone from "@/components/svgs/company-phone";
 import Image from "next/image";
 import Link from "next/link";
-type CompanyCardProps = {
-  imgUrl: string;
-  companyName: string;
-  description: string;
-  className?: string;
-};
-export default function CompanyCard({
-  imgUrl,
-  companyName,
-  description,
-  className,
-}: CompanyCardProps) {
+
+import { CompanyCardProps } from "@/types/types"
+
+
+export default function CompanyCard({companyName, companyLogo, companyDescription}: CompanyCardProps) {
   return (
     <div
-      className={`flex flex-col gap-3.9 lg:gap-8  p-3.9 lg:p-8
-      bg-white  lg:border border-neutral-200 ${className}`}
+      className={`flex flex-col gap-3.9 lg:gap-8  p-3.9 lg:p-8 bg-white lg:border border-neutral-200`}
     >
       <header className="flex items-center gap-5">
         <span className="inline-block p-5 rounded-100 bg-gray-2">
           <Image
-            src={imgUrl}
+            src={companyLogo}
             alt={`${companyName} logo`}
             width={30}
             height={30}
             className="lg:hidden"
           />
           <Image
-            src={imgUrl}
+            src={companyLogo}
             alt={`${companyName} logo`}
             width={56}
             height={56}
@@ -41,7 +33,7 @@ export default function CompanyCard({
         </h3>
       </header>
       <p className="text-xs leading-3.5 font-normal font-roboto">
-        {description}
+        {companyDescription}
       </p>
       <div className="flex justify-between lg:hidden">
         <Link
