@@ -3,6 +3,7 @@ import Button from "@/components/ui/button";
 import Input from "@/components/ui/input";
 import React from "react";
 import usePostJobDataStore from "@/stores/job-post-form-data-store";
+import TextArea from "@/components/ui/text-area";
 export default function PostJobForm() {
   const { postJobData, setPostJobData } = usePostJobDataStore();
   function handleChange(e) {
@@ -122,15 +123,27 @@ export default function PostJobForm() {
                             {label}
                           </label>
                         )}
-                        <Input
-                          type={type}
-                          value={value}
-                          placeholder={placeholder}
-                          helpText={helpText}
-                          className="max-w-full flex-1"
-                          containerClassName="flex-1"
-                          onChange={handleChange}
-                        />
+                        {placeholder === "Description" ? (
+                          <TextArea
+                            type={type}
+                            value={value}
+                            placeholder={placeholder}
+                            helpText={helpText}
+                            className="max-w-full flex-1"
+                            containerClassName="flex-1"
+                            onChange={handleChange}
+                          />
+                        ) : (
+                          <Input
+                            type={type}
+                            value={value}
+                            placeholder={placeholder}
+                            helpText={helpText}
+                            className="max-w-full flex-1"
+                            containerClassName="flex-1"
+                            onChange={handleChange}
+                          />
+                        )}
                       </React.Fragment>
                     )
                   )}
