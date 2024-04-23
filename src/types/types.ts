@@ -171,6 +171,11 @@ export type InfoBadgeProps = {
   desc?: string; 
 };
 
+// info-list.tsx 
+export type InfoListProps = {
+	list?: string[] | null;
+};
+
 // userStore.ts
 export interface UserData {
   email: string;
