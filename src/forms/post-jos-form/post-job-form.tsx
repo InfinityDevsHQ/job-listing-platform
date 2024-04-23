@@ -1,12 +1,15 @@
+"use client";
 import Button from "@/components/ui/button";
 import Input from "@/components/ui/input";
 import React from "react";
+import usePostJobDataStore from "@/stores/job-post-form-data-store";
 export default function PostJobForm() {
+  const { postJobData, setPostJobData } = usePostJobDataStore();
   const INPUTS = [
     {
       label: "Job Title",
       type: "text",
-      value: "",
+      value: postJobData.jobTitle,
       name: "jobTitle",
       placeholder: "Title",
       helpText: "",
@@ -14,7 +17,7 @@ export default function PostJobForm() {
     {
       label: "City",
       type: "text",
-      value: "",
+      value: postJobData.city,
       name: "city",
       placeholder: "City",
       helpText: "",
@@ -22,7 +25,7 @@ export default function PostJobForm() {
     {
       label: "Employment",
       type: "text",
-      value: "",
+      value: postJobData.employment,
       name: "employment",
       placeholder: "Employment",
       helpText: "",
@@ -30,7 +33,7 @@ export default function PostJobForm() {
     {
       label: "County",
       type: "text",
-      value: "",
+      value: postJobData.country,
       name: "county",
       placeholder: "Germany",
       helpText: "",
@@ -38,7 +41,7 @@ export default function PostJobForm() {
     {
       label: "Language",
       type: "text",
-      value: "",
+      value: postJobData.language,
       name: "language",
       placeholder: "Language",
       helpText: "",
@@ -47,7 +50,7 @@ export default function PostJobForm() {
       label: "Remuneration Range",
       group: "remunerationRangeGroup",
       type: "text",
-      value: "",
+      value: postJobData.remunerationRageStart,
       name: "remunerationRageStart",
       placeholder: "From",
       helpText: "",
@@ -55,7 +58,7 @@ export default function PostJobForm() {
     {
       type: "text",
       group: "remunerationRangeGroup",
-      value: "",
+      value: postJobData.remunerationRageEnd,
       name: "remunerationRageEnd",
       placeholder: "To",
       helpText: "",
@@ -63,7 +66,7 @@ export default function PostJobForm() {
     {
       label: "Currency",
       type: "text",
-      value: "",
+      value: postJobData.currency,
       name: "currency",
       placeholder: "EUR",
       helpText: "",
@@ -72,7 +75,7 @@ export default function PostJobForm() {
       label:
         "Describe, in your own words, the requirements, and responsibilities for the job role",
       type: "text",
-      value: "",
+      value: postJobData.description,
       name: "description",
       placeholder: "Description",
       helpText: "",
