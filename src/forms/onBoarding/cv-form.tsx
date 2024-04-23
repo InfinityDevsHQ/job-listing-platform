@@ -4,6 +4,7 @@ import { useState } from "react";
 import useCVFormData from "@/stores/cv-form-data-store";
 // import { uploadCVDataSchema } from "@/types/zodTypes";
 import { ZodIssue } from "zod";
+import Pagination from "@/components/ui/pagination";
 export default function CVForm() {
   const { cvFormData, setCVFormData } = useCVFormData();
   const [imgUrl, setImgUrl] = useState("");
@@ -27,6 +28,7 @@ export default function CVForm() {
   return (
     <form className="h-full">
       <UploadImage setImgUrl={setImgUrl} />
+      <Pagination />
     </form>
   );
 }

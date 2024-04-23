@@ -1,5 +1,6 @@
 "use client";
 import Input from "@/components/ui/input";
+import { useQueryParams } from "@/hooks/useQueryParams";
 import CompanyGlobe from "@/components/svgs/company-globe";
 import CompanyEye from "@/components/svgs/company-eye";
 import DropDown from "@/_components/dropdown";
@@ -10,6 +11,7 @@ import CompanyCity from "@/components/svgs/company-city";
 import useLocationFormData from "@/stores/location-form-store";
 import CompanyClock from "@/components/svgs/company-clock";
 import { ZodIssue } from "zod";
+import Pagination from "@/components/ui/pagination";
 const Languages = [
   {
     value: "en",
@@ -31,6 +33,7 @@ export default function LocationForm() {
   });
   const [city, setCity] = useState(Cities[0].value);
   const { locationFormData, setLocationFormData } = useLocationFormData();
+  const addQueryParams = useQueryParams();
   function handleChange(e) {
     const { name, value } = e.target;
     setErrors({ ...errors, [name]: "" });
@@ -47,6 +50,7 @@ export default function LocationForm() {
     const validate = locationFormSchema.safeParse(locationFormData);
     if (validate.success) {
       console.log("DatA Validated", validate.data);
+      addQueryParams("step", "filter-jobs");
     } else {
       console.warn("Invalid data type", validate.error.errors);
       const validationErrors = validate.error.errors;
@@ -100,7 +104,7 @@ export default function LocationForm() {
         placeholder="Password"
         leadingIcon={<CompanyEye width={16} height={16} />}
       />
-      <button type="submit">Go</button>
+      <Pagination previous={false} handleNext={handleSubmit} />
     </form>
   );
 }
