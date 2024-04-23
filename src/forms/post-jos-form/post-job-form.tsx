@@ -5,6 +5,12 @@ import React from "react";
 import usePostJobDataStore from "@/stores/job-post-form-data-store";
 export default function PostJobForm() {
   const { postJobData, setPostJobData } = usePostJobDataStore();
+  function handleChange(e) {
+    console.log("hello ");
+    const { name, value } = e.target;
+    setPostJobData({ ...postJobData, [name]: value });
+    console.log(postJobData);
+  }
   const INPUTS = [
     {
       label: "Job Title",
@@ -123,6 +129,7 @@ export default function PostJobForm() {
                           helpText={helpText}
                           className="max-w-full flex-1"
                           containerClassName="flex-1"
+                          onChange={handleChange}
                         />
                       </React.Fragment>
                     )
@@ -148,6 +155,7 @@ export default function PostJobForm() {
                     value={value}
                     placeholder={placeholder}
                     helpText={helpText}
+                    onChange={handleChange}
                     className="max-w-full flex-1"
                     containerClassName="flex-1"
                   />
