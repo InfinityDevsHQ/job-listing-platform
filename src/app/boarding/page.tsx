@@ -10,6 +10,7 @@ import FilterJobsForm from "@/forms/onBoarding/filter-jobs-form";
 import ContactForm from "@/forms/onBoarding/contact-form";
 import TermsAndConditionsForm from "@/forms/onBoarding/terms-and-conditions-form";
 import FormsSlider from "./_components/forms-slider";
+import Pagination from "@/components/ui/pagination";
 export default function Home() {
   const Tabs = [
     {
@@ -61,6 +62,7 @@ export default function Home() {
         <Intro />
         {/* <StepNavigator /> */}
         <FormsSlider />
+        <Pagination />
       </div>
     </>
   );
