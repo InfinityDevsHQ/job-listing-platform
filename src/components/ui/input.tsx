@@ -5,7 +5,7 @@ import { InputProps } from "@/types/types";
 import HelpText from "./help-text";
 
 const inputVariants = cva(
-  "p-2 pl-7 h-10 w-full peer border-2 border-gray-300 rounded-md bg-white text-black placeholder-gray-400 outline-none transition-all duration-300",
+  "p-2 h-10 w-full peer border-2 border-gray-300 rounded-md bg-white text-black placeholder-gray-400 outline-none transition-all duration-300",
   {
     variants: {
       variant: {
@@ -37,30 +37,34 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
-    // Determine the variant based on the value of helpText
     const computedVariant = helpText ? "danger" : variant || "default";
-
+    const computedClassName = `${className} ${leadingIcon ? "pl-7" : "pl-2"}`;
     return (
       <div
         className={`flex flex-col gap-1 ${
           containerClassName ? containerClassName : ""
         }`}
       >
-        <div className={`group relative w-full `}>
+        <div className={`group relative w-full`}>
           <input
             type={type}
             className={cn(
-              inputVariants({ variant: computedVariant, className })
+              inputVariants({
+                variant: computedVariant,
+                className: computedClassName,
+              })
             )}
             ref={ref}
             {...props}
           />
           {leadingIcon && (
-            <span
-              className={`absolute top-1/2 -translate-y-1/2 left-2 peer-focus:!text-${computedVariant}-900 transition-all duration-300`}
-            >
-              {leadingIcon}
-            </span>
+            <>
+              <span
+                className={`absolute top-1/2 -translate-y-1/2 left-2 peer-focus:!text-${computedVariant}-900 transition-all duration-300`}
+              >
+                {leadingIcon}
+              </span>
+            </>
           )}
           {trailingIcon && (
             <span
