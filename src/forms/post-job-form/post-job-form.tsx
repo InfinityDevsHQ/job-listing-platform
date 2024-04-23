@@ -41,7 +41,7 @@ export default function PostJobForm() {
       label: "County",
       type: "text",
       value: postJobData.country,
-      name: "county",
+      name: "country",
       placeholder: "Germany",
       helpText: "",
     },
