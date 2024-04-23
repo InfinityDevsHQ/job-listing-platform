@@ -5,7 +5,7 @@ import CompaniesList from "@/_components/companies/companies-list";
 import SectionHeader from "@/components/ui/section-header";
 import FireIcon from "@/components/svgs/fire";
 import useJobListingsData from "@/stores/job-listings-store";
-import JobCard from "@/_components/jobs/_components/job-card";
+import useJobListingsById from "@/stores/job-listing-pass-slug-data-store";
 export default function Home() {
   const jobs = [
     {
@@ -79,8 +79,9 @@ export default function Home() {
     `,
     },
   ];
-  const { data } = useJobListingsData();
-  console.log(data);
+  const { allJobs } = useJobListingsData();
+  const { searchedJob } = useJobListingsById();
+  console.log(searchedJob);
   return (
     <div className="grid grid-cols-3 gap-8 p-4 lg:p-16">
       <div className="col-span-3 lg:col-span-2 flex flex-col gap-4 lg:gap-8">
@@ -90,7 +91,7 @@ export default function Home() {
           heading="Latest Hot Offers"
           helpText={`12,054 Jobs`}
         />
-        <JobsList jobs={data} />
+        <JobsList jobs={allJobs} />
       </div>
       <div className="flex flex-col gap-5 col-span-3 lg:col-span-1">
         <SectionHeader

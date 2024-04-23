@@ -1,17 +1,17 @@
 import { create } from "zustand";
 
 type JobListings = {
-  allJobs: any[];
+  searchedJob: any[];
 };
 
-const useJobListingsData = create<JobListings>((set) => ({
-  allJobs: [],
+const useJobListingsById = create<JobListings>((set) => ({
+  searchedJob: [],
 }));
-
+const jobListingId: number = 1;
 async function fetchDataAndUpdateStore() {
   try {
     const response = await fetch(
-      "http://devel.clickjob.ai:8001/api/v1/pgsql/job-listings/all?skip=0&limit=10&allow_for_translated_jobs=false",
+      `http://devel.clickjob.ai:8001/api/v1/pgsql/job-listings/${jobListingId}`,
       {
         method: "GET",
         headers: {
@@ -19,11 +19,11 @@ async function fetchDataAndUpdateStore() {
         },
       }
     );
-    const allJobs = await response.json();
-    useJobListingsData.setState({ allJobs });
+    const searchedJob = await response.json();
+    useJobListingsById.setState({ searchedJob });
   } catch (error) {
     console.error("Error fetching job listings", error);
   }
 }
 fetchDataAndUpdateStore();
-export default useJobListingsData;
+export default useJobListingsById;

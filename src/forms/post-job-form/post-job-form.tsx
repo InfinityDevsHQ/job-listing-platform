@@ -4,8 +4,10 @@ import Input from "@/components/ui/input";
 import React from "react";
 import usePostJobDataStore from "@/stores/job-post-form-data-store";
 import TextArea from "@/components/ui/text-area";
+import { useRouter } from "next/navigation";
 export default function PostJobForm() {
   const { postJobData, setPostJobData } = usePostJobDataStore();
+  const router = useRouter();
   function handleChange(e) {
     console.log("hello ");
     const { name, value } = e.target;
@@ -89,9 +91,15 @@ export default function PostJobForm() {
     },
   ];
   const renderedGroups = new Set();
-
+  function handleSubmit(e) {
+    e.preventDefault();
+    router.push("/job-post-success");
+  }
   return (
-    <form className="flex flex-col gap-4 lg:gap-8 p-4 lg:p-8 bg-gray-50 border border-gray-200 rounded-md">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-4 lg:gap-8 p-4 lg:p-8 bg-gray-50 border border-gray-200 rounded-md"
+    >
       <div className="flex flex-col gap-4 lg:gap-8 rounded-custom-20">
         <h3 className="font-sans font-bold text-base text-gray-700">
           Post a job listing
@@ -185,10 +193,20 @@ export default function PostJobForm() {
             We will use this information to develop a detailed job description,
             requirements list, and set of necessary skills.
           </p>
-          <Button type="submit" text="Analyze" className="hidden lg:flex" />
+          <Button
+            type="submit"
+            text="Analyze"
+            className="hidden lg:flex"
+            variant="primary"
+          />
         </div>
       </div>
-      <Button type="submit" text="Analyze" className="lg:hidden" />
+      <Button
+        type="submit"
+        text="Analyze"
+        className="lg:hidden"
+        variant="primary"
+      />
     </form>
   );
 }
