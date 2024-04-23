@@ -1,20 +1,20 @@
-import CompanyCard from '@/_components/companies/company-card'
+import CompanyCard from "@/_components/companies/company-card";
 
-import { CompaniesListProps } from '@/types/types'
+import { CompaniesListProps } from "@/types/types";
 
-const CompaniesList = ({companies}: CompaniesListProps) => {
-  return (
-    <div className="flex flex-col">
-      {companies?.map((company, index) => (
-            <CompanyCard
-              key={index}
-              companyName={company?.name}
-              companyLogo={company.logo_url}
-              companyDescription={company.description}
-            />
-          ))}
-    </div>
-  );
-}
+const CompaniesList = ({ companies }: CompaniesListProps) => {
+	return (
+		<div className="flex lg:flex-col gap-4 lg:gap-8">
+			{companies?.map((company, index) => (
+				<CompanyCard
+					key={index}
+					companyLogo={company.companyLogo}
+					companyName={company.companyName}
+					companyDescription={company.companyDescription}
+				/>
+			))}
+		</div>
+	);
+};
 
-export default CompaniesList
+export default CompaniesList;
