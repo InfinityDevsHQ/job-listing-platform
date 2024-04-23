@@ -129,6 +129,7 @@ export default function PostJobForm() {
                             value={value}
                             placeholder={placeholder}
                             helpText={helpText}
+                            name={name}
                             className="max-w-full flex-1"
                             containerClassName="flex-1"
                             onChange={handleChange}
@@ -136,6 +137,7 @@ export default function PostJobForm() {
                         ) : (
                           <Input
                             type={type}
+                            name={name}
                             value={value}
                             placeholder={placeholder}
                             helpText={helpText}
@@ -167,8 +169,9 @@ export default function PostJobForm() {
                     type={type}
                     value={value}
                     placeholder={placeholder}
+                    name={name}
                     helpText={helpText}
-                    onChange={handleChange}
+                    onChange={(e) => handleChange(e)}
                     className="max-w-full flex-1"
                     containerClassName="flex-1"
                   />
