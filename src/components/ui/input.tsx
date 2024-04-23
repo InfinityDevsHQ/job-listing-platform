@@ -41,12 +41,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const computedVariant = helpText ? "danger" : variant || "default";
 
     return (
-      <div className="flex flex-col gap-1">
-        <div
-          className={`group relative w-full ${
-            containerClassName ? containerClassName : ""
-          }`}
-        >
+      <div
+        className={`flex flex-col gap-1 ${
+          containerClassName ? containerClassName : ""
+        }`}
+      >
+        <div className={`group relative w-full `}>
           <input
             type={type}
             className={cn(
