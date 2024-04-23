@@ -5,10 +5,12 @@ import useCVFormData from "@/stores/cv-form-data-store";
 // import { uploadCVDataSchema } from "@/types/zodTypes";
 import { ZodIssue } from "zod";
 import Pagination from "@/components/ui/pagination";
+import { useQueryParams } from "@/hooks/useQueryParams";
 export default function CVForm() {
   const { cvFormData, setCVFormData } = useCVFormData();
   const [imgUrl, setImgUrl] = useState("");
   const [errors, setErrors] = useState({ imgUrl: "" });
+  const addQueryParams = useQueryParams();
   console.log(imgUrl);
   function handleSubmit(e) {
     e.preventDefault();
@@ -26,9 +28,12 @@ export default function CVForm() {
     }
   }
   return (
-    <form className="h-full">
+    <form className="h-full py-8 flex flex-col gap-4 lg:gap-8">
       <UploadImage setImgUrl={setImgUrl} />
-      <Pagination />
+      <Pagination
+        handleBack={() => addQueryParams("step", "location")}
+        handleNext={() => addQueryParams("step", "filter-jobs")}
+      />
     </form>
   );
 }

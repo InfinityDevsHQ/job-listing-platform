@@ -50,7 +50,7 @@ export default function LocationForm() {
     const validate = locationFormSchema.safeParse(locationFormData);
     if (validate.success) {
       console.log("DatA Validated", validate.data);
-      addQueryParams("step", "filter-jobs");
+      addQueryParams("step", "upload-cv");
     } else {
       console.warn("Invalid data type", validate.error.errors);
       const validationErrors = validate.error.errors;

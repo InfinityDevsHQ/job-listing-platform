@@ -11,8 +11,8 @@ export default function FormsSlider() {
   switch (step) {
     case "location":
       return <LocationPage />;
-    // case "upload-cv":
-    //   return <UploadCV />;
+    case "upload-cv":
+      return <UploadCV />;
     case "filter-jobs":
       return <FilterJobs />;
     case "contact":

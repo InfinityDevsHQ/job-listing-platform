@@ -114,7 +114,7 @@ export default function FilterJobsForm() {
       <Pagination
         skip
         handleNext={handleSubmit}
-        handleBack={() => addQueryParams("step", "location")}
+        handleBack={() => addQueryParams("step", "upload-cv")}
       />
     </form>
   );
