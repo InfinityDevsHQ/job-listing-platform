@@ -152,6 +152,13 @@ export interface ExpandedJobCardProps {
   };
 }
 
+// badge.tsx 
+export type BadgeProps = {
+	text?: string;
+	color?: string;
+  bgColor?: string;
+};
+
 // userStore.ts
 export interface UserData {
   email: string;
