@@ -7,8 +7,8 @@ import Badges from "@/components/ui/badges";
 
 export default function JobCard({ job }: JobProps) {
 	const badges = [
-		{ text: "Python" },
-		{ text: "Django" },
+		{ text: "Python", color: "#ffffff", bgColor: "#000000" },
+		{ text: "Django", color: "#000000", bgColor: "#ffffff" },
 		{ text: "Sql" },
 		{ text: "Git" },
 	];

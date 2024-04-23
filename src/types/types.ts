@@ -159,6 +159,18 @@ export type BadgeProps = {
   bgColor?: string;
 };
 
+// info-section.tsx 
+export type InfoSectionProps = {
+	heading?: string;
+  children?: React.ReactNode;
+};
+
+// info-badge.tsx 
+export type InfoBadgeProps = {
+	heading?: string;
+  desc?: string; 
+};
+
 // userStore.ts
 export interface UserData {
   email: string;
