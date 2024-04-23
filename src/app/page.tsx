@@ -65,20 +65,20 @@ export default function Home() {
 	];
 	const companies = [
 		{
-			companyLogo: "/assets/webglobe.png",
+			companyLogo: "/assets/images/companies/company_web_globe.png",
 			companyName: "Webglobe",
 			companyDescription: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, odio quaerat labore deleniti sapiente iste! Consequuntur sunt tempore expedita quidem unde. Corporis ipsum ducimus voluptas asperiores fugit maxime, adipisci minus.
     `,
 		},
 		{
-			companyLogo: "/assets/webglobe.png",
+			companyLogo: "/assets/images/companies/company_web_globe.png",
 			companyName: "Webglobe 2",
 			companyDescription: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, odio quaerat labore deleniti sapiente iste! Consequuntur sunt tempore expedita quidem unde. Corporis ipsum ducimus voluptas asperiores fugit maxime, adipisci minus.
     `,
 		},
 	];
 	return (
-		<div className="grid grid-cols-3 gap-8 p-4 lg:p-16 border border-red-500">
+		<div className="grid grid-cols-3 gap-8 p-4 lg:p-16">
 			<div className="col-span-3 lg:col-span-2 flex flex-col gap-4 lg:gap-8">
 				<Hero />
 				<SectionHeader
