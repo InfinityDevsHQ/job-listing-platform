@@ -9,6 +9,7 @@ import CVForm from "@/forms/onBoarding/cv-form";
 import FilterJobsForm from "@/forms/onBoarding/filter-jobs-form";
 import ContactForm from "@/forms/onBoarding/contact-form";
 import TermsAndConditionsForm from "@/forms/onBoarding/terms-and-conditions-form";
+import FormsSlider from "./_components/forms-slider";
 export default function Home() {
   const Tabs = [
     {
@@ -59,12 +60,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-between p-4">
         <Intro />
         {/* <StepNavigator /> */}
-
-        <LocationPage />
-        <Finish />
-        <FilterJobs />
-        <UploadCV />
-        <ContactPage />
+        <FormsSlider />
       </div>
     </>
   );
