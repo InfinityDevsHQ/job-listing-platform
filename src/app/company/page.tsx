@@ -1,5 +1,7 @@
 'use client';
 import JobCard from '@/_components/jobs/_components/job-card';
+import CompanyCommunity from '@/components/svgs/company-community';
+import CompanyDictionary from '@/components/svgs/company-dictionary';
 import CompanyInsta from '@/components/svgs/company-insta';
 import CompanyLinkedin from '@/components/svgs/company-linedin';
 import CompanyLocation from '@/components/svgs/company-location';
@@ -52,6 +54,52 @@ export default function Company() {
           </div>
           {/* BIO */}
           <p className="hidden text-xl text-gray-500 lg:block">Silicon Valley</p>
+          {/* Fields of company */}
+          <div className="flex w-full flex-col gap-4 border-gray-200 text-gray-500 lg:flex-row lg:gap-0 lg:divide-x-2">
+            <div className="flex flex-1 justify-between lg:pr-6">
+              <div className="flex items-center gap-2">
+                <p className="font-bold lg:text-xl">Field of Company</p>
+              </div>
+              <p className="lg:text-xl">Education</p>
+            </div>
+            <div className="flex flex-1 justify-between lg:pl-6">
+              <div className="flex items-center gap-2">
+                <CompanyCommunity />
+                <p className="font-bold lg:text-xl">Size f Company</p>
+              </div>
+              <p className="lg:text-xl">0-100 Employees</p>
+            </div>
+          </div>
+          <span className="border border-gray-200" />
+          {/* Language */}
+          <div className="flex items-center gap-2">
+            <CompanyDictionary width={18} height={14} />
+            <SectionHeading text="Languages" />
+          </div>
+          <div className="flex w-full flex-col gap-4 border-gray-200 text-gray-500 lg:flex-row lg:gap-0 lg:divide-x-2">
+            <div className="flex flex-1 justify-between lg:pr-6">
+              <div className="flex items-center gap-2">
+                <p className="lg:text-xl">English</p>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-primary-900" />
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-primary-900" />
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-primary-900" />
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-gray-200" />
+              </div>
+            </div>
+            <div className="flex flex-1 justify-between lg:pl-6">
+              <div className="flex items-center gap-2">
+                <p className="lg:text-xl">Czech</p>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-primary-900" />
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-primary-900" />
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-primary-900" />
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-gray-200" />
+              </div>
+            </div>
+          </div>
           <span className="border border-gray-200" />
           {/* ABOUT */}
           <>
