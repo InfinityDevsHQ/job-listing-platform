@@ -1,20 +1,21 @@
-import { SectionHeaderProps } from "@/types/types";
-
+import { SectionHeaderProps } from '@/types/types';
 
 const SectionHeader = ({ leadingIcon, heading, helpText }: SectionHeaderProps) => {
-    return (
-      <div className="w-full flex items-center justify-between">
-        {(leadingIcon || heading) && <div className="flex gap-5 lg:gap-4 items-center">
+  return (
+    <div className="flex w-full items-center justify-between">
+      {(leadingIcon || heading) && (
+        <div className="flex items-center gap-4">
           {leadingIcon && leadingIcon}
-          {heading && <h4 className="leading-6  text-neutral-900 text-18 lg:text-2xl font-semibold lg:font-bold lg:text-neutral-950">
-            {heading}
-          </h4>}
-        </div>}
-        {helpText && <p className="text-base text-mid lg:text-16 leading-3.9 font-medium text-neutral-600  lg:font-sans">
-          {helpText}
-        </p>}
-      </div>
-    );
-}
+          {heading && (
+            <h4 className=" font-semibold text-neutral-900 lg:text-3xl lg:text-neutral-950">
+              {heading}
+            </h4>
+          )}
+        </div>
+      )}
+      {helpText && <p className="text-sm text-neutral-600 lg:text-base">{helpText}</p>}
+    </div>
+  );
+};
 
-export default SectionHeader
+export default SectionHeader;
