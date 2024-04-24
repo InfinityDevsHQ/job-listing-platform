@@ -1,15 +1,13 @@
-import JobCard from "./_components/job-card";
-import { JobListProps } from "@/types/types";
+'use client';
+import { JobListProps } from '@/types/types';
+import JobCard from './_components/job-card';
 
-export default function Jobs({jobs}: JobListProps) {
+const JobsList = ({ jobs }: JobListProps) => {
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
-      {jobs?.map((job, index) => (
-        <JobCard
-          key={index}
-          job={job}
-        />
-      ))}
+      {jobs?.map((job, index) => <JobCard key={index} job={job} />)}
     </div>
   );
-}
+};
+
+export default JobsList;
