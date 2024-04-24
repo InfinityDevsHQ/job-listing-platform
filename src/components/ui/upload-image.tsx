@@ -1,7 +1,8 @@
-import Image from "next/image";
-import React, { useState } from "react";
-import { useDropzone } from "react-dropzone";
-import CompanyCloud from "../svgs/company-cloud";
+import Image from 'next/image';
+import { useState } from 'react';
+import { useDropzone } from 'react-dropzone';
+import CompanyCloud from '../svgs/company-cloud';
+import HelpText from './help-text';
 
 type File = {
   name: string;
@@ -12,13 +13,13 @@ type File = {
 
 type UploadImageProps = {
   setImgUrl: (value: string) => void;
+  helpText?: string;
 };
 
-export default function UploadImage({ setImgUrl }: UploadImageProps) {
+export default function UploadImage({ setImgUrl, helpText }: UploadImageProps) {
   const [file, setFile] = useState<File | null>(null);
-
   const { getRootProps, getInputProps } = useDropzone<File>({
-    accept: "image/*", // Allow only images for upload
+    accept: 'image/*', // Allow only images for upload
     maxFiles: 1,
     onDrop: (acceptedFiles) => {
       if (acceptedFiles.length > 0) {
@@ -35,35 +36,33 @@ export default function UploadImage({ setImgUrl }: UploadImageProps) {
   const removeFile = () => {
     URL.revokeObjectURL(file!.preview);
     setFile(null);
-    setImgUrl(""); // Clear the image URL
+    setImgUrl(''); // Clear the image URL
   };
 
   return (
-    <div
-      {...getRootProps()}
-      className="flex items-center new-gray justify-center rounded-2xl w-full h-full bg-white border border-dashed border-black p-12"
-    >
-      <input {...getInputProps()} />
-      {file === null && (
-        <div className="flex items-center flex-col gap-11">
-          <span>
-            <CompanyCloud />
-          </span>
-          <p className="lg:text-base font-sans">
-            <span className="font-bold">Click to Upload</span> or drag and drop
-          </p>
-        </div>
-      )}
-      {file && (
-        <div className="relative w-full h-full">
-          <Image
-            src={file.preview}
-            alt={file.name || "Image"}
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      )}
+    <div className="flex h-full flex-col gap-1">
+      <div
+        {...getRootProps()}
+        className="new-gray flex h-full w-full items-center justify-center rounded-2xl border border-dashed border-black bg-white p-12"
+      >
+        <input {...getInputProps()} />
+        {file === null && (
+          <div className="flex flex-col items-center gap-11">
+            <span>
+              <CompanyCloud />
+            </span>
+            <p className="font-sans lg:text-base">
+              <span className="font-bold">Click to Upload</span> or drag and drop
+            </p>
+          </div>
+        )}
+        {file && (
+          <div className="relative h-full w-full">
+            <Image src={file.preview} alt={file.name || 'Image'} layout="fill" objectFit="cover" />
+          </div>
+        )}
+      </div>
+      {helpText && <HelpText text={helpText} />}
     </div>
   );
 }
