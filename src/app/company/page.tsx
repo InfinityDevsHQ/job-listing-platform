@@ -22,29 +22,46 @@ export default function Company() {
           alt="profile"
           width={150}
           height={150}
-          className="absolute left-8 top-96 rounded-full"
+          className="absolute left-8 top-96 hidden rounded-full lg:inline-block"
         />
       </header>
-      <div className="grid grid-cols-3 lg:gap-8">
-        <div className="col-span-2 flex flex-col gap-4 lg:gap-8">
+      <div className="grid lg:grid-cols-3 lg:gap-8">
+        <div className="flex flex-col gap-4 lg:col-span-2 lg:gap-8">
           {/* NAMES */}
-          <div className="mt-14 flex lg:gap-8">
-            <h4 className="font-sans font-bold text-black lg:text-4xl">Company Name</h4>
-            <Button text="Follow" />
-            <Button text="Get Emails About New Jobs" variant={'primary'} />
+          <div className="mt-14 flex items-center gap-4 lg:gap-8">
+            <Image
+              src={'/assets/company/profile.png'}
+              alt="profile"
+              width={102}
+              height={102}
+              className="rounded-full lg:hidden "
+            />
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2 lg:gap-4">
+                <h4 className="text-base font-bold text-black lg:text-4xl">Company Name</h4>
+                <Button text="Follow" />
+              </div>
+              <p className="text-sm text-gray-500 lg:hidden">Silicon Valley</p>
+              <Button text="Get Emails About New Jobs" variant={'primary'} className="lg:hidden" />
+            </div>
+            <Button
+              text="Get Emails About New Jobs"
+              variant={'primary'}
+              className="hidden lg:flex"
+            />
           </div>
           {/* BIO */}
-          <p className="font-sans text-gray-500 lg:text-xl">Silicon Valley</p>
+          <p className="hidden text-xl text-gray-500 lg:block">Silicon Valley</p>
           <span className="border border-gray-200" />
           {/* ABOUT */}
           <>
             <SectionHeading text="About" />
-            <p className="font-sans text-base text-gray-500">
+            <p className="text-base text-gray-500">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere fugiat in totam nisi!
               Tempore reprehenderit quibusdam quasi voluptas. Laboriosam nesciunt libero quod
               commodi facilis rerum recusandae veritatis. Placeat, quos dolorum?
             </p>
-            <p className="font-sans text-base text-gray-500">
+            <p className="text-base text-gray-500">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere fugiat in totam nisi!
               Tempore reprehenderit quibusdam quasi voluptas. Laboriosam nesciunt libero quod
               commodi facilis rerum recusandae veritatis. Placeat, quos dolorum? Lorem ipsum dolor,
@@ -66,7 +83,7 @@ export default function Company() {
               height={150}
             />
             <h5 className="font-semibold text-gray-500 lg:text-base">John Doe</h5>
-            <p className="font-sans text-xs text-gray-500">CEO</p>
+            <p className="text-xs text-gray-500">CEO</p>
             <div className="flex items-center gap-2.5">
               <CompanyLinkedin black width={11} height={12} />
               <CompanyInsta width={11} height={12} />
@@ -76,7 +93,8 @@ export default function Company() {
           <SectionHeading text="Job Opportunities" />
           {allJobs?.map((job, index) => <JobCard key={index} job={job} />)}
         </div>
-        <div className="flex flex-col gap-8">
+
+        <div className="hidden flex-col gap-8 lg:flex">
           <div className="flex flex-col gap-8 rounded-md border border-gray-200 p-8">
             <h6 className="font-bold text-gray-700 lg:text-xl">Job Openings</h6>
             <p className="font-bold text-gray-700 lg:text-4xl">200+</p>
