@@ -1,70 +1,12 @@
 "use client";
-import Hero from "@/components/ui/hero";
-import JobsList from "@/_components/jobs/jobs-list";
 import CompaniesList from "@/_components/companies/companies-list";
-import SectionHeader from "@/components/ui/section-header";
+import JobsList from "@/_components/jobs/jobs-list";
 import FireIcon from "@/components/svgs/fire";
-import useJobListingsData from "@/stores/job-listings-store";
+import Hero from "@/components/ui/hero";
+import SectionHeader from "@/components/ui/section-header";
 import useJobListingsById from "@/stores/job-listing-pass-slug-data-store";
+import useJobListingsData from "@/stores/job-listings-store";
 export default function Home() {
-  const jobs = [
-    {
-      id: 1,
-      title: "Senior Frontend Developer",
-      external_company_name: "Semrush",
-      is_hot: true,
-      employment_type: "Full time",
-      experienceRequired: "1-2 Year",
-      location: "NY, USA",
-      salary: "$30k-60k/Month",
-      applications: 567,
-      datePosted: "23 Mar 2023",
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid dolorum quae, magnam reprehenderit voluptatem quos accusantium necessitatibus, quia nemo, minima illo ipsa laboriosam voluptatum magni eveniet excepturi? Minus, vel consequuntur!",
-    },
-    {
-      id: 2,
-      title: "Software Engineer",
-      external_company_name: "Google",
-      is_hot: false,
-      employment_type: "Full time",
-      experienceRequired: "3-5 Years",
-      location: "Mountain View, CA, USA",
-      salary: "$100k-150k/Year",
-      applications: 5067,
-      datePosted: "23 Mar 2023",
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid dolorum quae, magnam reprehenderit voluptatem quos accusantium necessitatibus, quia nemo, minima illo ipsa laboriosam voluptatum magni eveniet excepturi? Minus, vel consequuntur!",
-    },
-    {
-      id: 3,
-      title: "Data Scientist",
-      external_company_name: "Microsoft",
-      is_hot: true,
-      employment_type: "Contract",
-      experienceRequired: "2-4 Years",
-      location: "Seattle, WA, USA",
-      salary: "$80k-120k/Year",
-      applications: 1567,
-      datePosted: "23 Mar 2023",
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid dolorum quae, magnam reprehenderit voluptatem quos accusantium necessitatibus, quia nemo, minima illo ipsa laboriosam voluptatum magni eveniet excepturi? Minus, vel consequuntur!",
-    },
-    {
-      id: 4,
-      title: "UX/UI Designer",
-      external_company_name: "Apple",
-      is_hot: false,
-      employment_type: "Part time",
-      experienceRequired: "1-3 Years",
-      location: "Cupertino, CA, USA",
-      salary: "$60k-90k/Year",
-      applications: 5670,
-      datePosted: "23 Mar 2023",
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid dolorum quae, magnam reprehenderit voluptatem quos accusantium necessitatibus, quia nemo, minima illo ipsa laboriosam voluptatum magni eveniet excepturi? Minus, vel consequuntur!",
-    },
-  ];
   const companies = [
     {
       companyLogo: "/assets/images/companies/company_web_globe.png",
