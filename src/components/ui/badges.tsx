@@ -11,6 +11,7 @@ const Badges = ({ badges }: BadgesProps) => {
 		<div className="flex items-center gap-2.5">
 			{badges?.map((badge, index) => (
 				<Badge
+					key={index}
 					text={badge?.text}
 					color={badge?.color}
 					bgColor={badge?.bgColor}
