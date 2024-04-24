@@ -6,7 +6,7 @@ export default function JobCardDetails({ job }: JobProps) {
   return (
     <>
       <div className="flex w-full flex-col gap-4 lg:flex-row">
-        <div className="flex w-full flex-wrap items-center gap-3 divide-x-2 divide-gray-200 lg:justify-between lg:gap-4">
+        <div className="flex w-full flex-wrap items-center gap-5 divide-gray-200 lg:justify-between lg:gap-4 lg:divide-x-2">
           <span className="flex items-center gap-2.5">
             <Image alt="timer" src={'/assets/icons/timer.svg'} width={14} height={12} />
             <span className="text-xxs font-semibold capitalize text-gray-950 lg:text-sm lg:font-normal">
@@ -14,7 +14,7 @@ export default function JobCardDetails({ job }: JobProps) {
             </span>
           </span>
           {(job?.city || job?.country) && (
-            <span className="flex items-center gap-2.5 pl-4">
+            <span className="flex items-center lg:pl-7">
               <Image
                 alt="map-marker-alt"
                 src={'/assets/icons/map-marker-alt.svg'}
