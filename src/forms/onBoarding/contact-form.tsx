@@ -3,6 +3,8 @@ import CompanyGithubSecond from "@/components/svgs/company-github-second";
 import CompanyPhone from "@/components/svgs/company-phone";
 import CompanyTwitter from "@/components/svgs/company-twitter";
 import Input from "@/components/ui/input";
+import Pagination from "@/components/ui/pagination";
+import { useQueryParams } from "@/hooks/useQueryParams";
 import useOnBoardingContactData from "@/stores/on-boarding-contact-from-store";
 import { onBoardingContactFormSchema } from "@/types/schemas/onboarding-contact-form-schema";
 import { useState } from "react";
@@ -11,6 +13,7 @@ import { ZodIssue } from "zod";
 export default function ContactForm() {
   const { onBoardingContactData, setOnBoardingContactData } =
     useOnBoardingContactData();
+  const addQueryParams = useQueryParams();
   const [errors, setErrors] = useState({
     phoneNumber: "",
     linkedin: "",
@@ -29,6 +32,7 @@ export default function ContactForm() {
     );
     if (validate.success) {
       console.log("DatA Validated", validate.data);
+      addQueryParams("step", "terms-and-conditions");
     } else {
       console.warn("Invalid data type", validate.error.errors);
       const validationErrors = validate.error.errors;
@@ -86,6 +90,11 @@ export default function ContactForm() {
           type="text"
           placeholder="github"
           leadingIcon={<CompanyGithubSecond width={16} height={16} />}
+        />
+        <Pagination
+          handleBack={() => addQueryParams("step", "filter-jobs")}
+          skip
+          handleNext={handleSubmit}
         />
       </div>
     </form>

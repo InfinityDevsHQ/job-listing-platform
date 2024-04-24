@@ -1,7 +1,6 @@
 import Image from "next/image";
 
-import { JobProps } from '@/types/types'
-
+import { JobProps } from "@/types/types";
 
 export default function JobCardDetails({ job }: JobProps) {
   return (
@@ -15,7 +14,9 @@ export default function JobCardDetails({ job }: JobProps) {
               width={14}
               height={12}
             />
-            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">Full Time</span>
+            <span className="capitalize text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">
+              {job.employment_type}
+            </span>
           </span>
           <span className="flex items-center gap-2.5">
             <Image
@@ -24,7 +25,9 @@ export default function JobCardDetails({ job }: JobProps) {
               width={14}
               height={12}
             />
-            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">1-2 Year</span>
+            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">
+              1-2 Year
+            </span>
           </span>
           <span className="flex items-center gap-2.5">
             <Image
@@ -33,7 +36,9 @@ export default function JobCardDetails({ job }: JobProps) {
               width={11}
               height={12}
             />
-            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">NY, USA</span>
+            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">
+              NY, USA
+            </span>
           </span>
           <span className="flex items-center gap-2.5">
             <Image
@@ -42,7 +47,9 @@ export default function JobCardDetails({ job }: JobProps) {
               width={14}
               height={12}
             />
-            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">$30k-60k /Month</span>
+            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">
+              $30k-60k /Month
+            </span>
           </span>
           <span className="flex items-center gap-2.5">
             <Image
@@ -51,7 +58,9 @@ export default function JobCardDetails({ job }: JobProps) {
               width={18}
               height={12}
             />
-            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">49 Applied</span>
+            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">
+              49 Applied
+            </span>
           </span>
           <span className="flex items-center gap-2.5">
             <Image
@@ -60,7 +69,9 @@ export default function JobCardDetails({ job }: JobProps) {
               width={13}
               height={12}
             />
-            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">23 Mar 2023</span>
+            <span className="text-xxs lg:text-sm font-semibold lg:font-normal text-gray-950">
+              23 Mar 2023
+            </span>
           </span>
         </div>
       </div>

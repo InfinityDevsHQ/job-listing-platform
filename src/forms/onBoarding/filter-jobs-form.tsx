@@ -1,13 +1,15 @@
 "use client";
-import Button from "@/components/ui/button";
 import HelpText from "@/components/ui/help-text";
+import Pagination from "@/components/ui/pagination";
 import Pill from "@/components/ui/pill";
+import { useQueryParams } from "@/hooks/useQueryParams";
 import useFilterJobsDataStore from "@/stores/filter-jobs-form-data-store";
 import { filterJobsFormSchema } from "@/types/schemas/filter-job-form-schema";
 import { useState } from "react";
 import { ZodIssue } from "zod";
 export default function FilterJobsForm() {
   const { filterJobsData, setFilterJobsData } = useFilterJobsDataStore();
+  const addQueryParams = useQueryParams();
   const [errors, setErrors] = useState({
     employmentType: "",
     collaborationType: "",
@@ -48,6 +50,7 @@ export default function FilterJobsForm() {
     e.preventDefault();
     const validate = filterJobsFormSchema.safeParse(filterJobsData);
     if (validate.success) {
+      addQueryParams("step", "contact");
     } else {
       console.warn("Validation Failed", validate.error.errors);
       const validationErrors = validate.error.errors;
@@ -108,6 +111,11 @@ export default function FilterJobsForm() {
           <HelpText text={errors.collaborationType} />
         )}
       </>
+      <Pagination
+        skip
+        handleNext={handleSubmit}
+        handleBack={() => addQueryParams("step", "upload-cv")}
+      />
     </form>
   );
 }

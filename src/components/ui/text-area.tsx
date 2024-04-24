@@ -22,7 +22,7 @@ const inputVariants = cva(
   }
 );
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+const TextArea = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       className,
@@ -46,7 +46,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         }`}
       >
         <div className={`group relative w-full`}>
-          <input
+          <TextArea
             type={type}
             className={cn(
               inputVariants({
@@ -85,6 +85,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Input.displayName = "Input";
+TextArea.displayName = "TextArea";
 
-export default Input;
+export default TextArea;

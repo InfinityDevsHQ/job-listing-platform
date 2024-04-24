@@ -35,6 +35,13 @@ const config = {
         "mute-2": "#EBEBEB",
         "mute-3": "#70777f",
       },
+      borderRadius: {
+        "custom-20": "20px",
+      },
+      width: {
+        81: "21.25rem", //340px
+        82: "22.5rem", //360px
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

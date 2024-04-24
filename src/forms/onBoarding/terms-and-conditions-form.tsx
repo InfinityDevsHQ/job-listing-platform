@@ -1,6 +1,7 @@
 "use client";
-import HelpText from "@/components/ui/help-text";
+import Pagination from "@/components/ui/pagination";
 import Pill from "@/components/ui/pill";
+import { useQueryParams } from "@/hooks/useQueryParams";
 import useTermsAndConditionsData from "@/stores/terms-and-conditions-data-store";
 import { termsAndConditionsFormSchema } from "@/types/schemas/terms-and-conditions-schema";
 import Link from "next/link";
@@ -9,6 +10,7 @@ import { useState } from "react";
 export default function TermsAndConditionsForm() {
   const { termsData, setTermsData } = useTermsAndConditionsData();
   const [errors, setErrors] = useState("");
+  const addQueryParams = useQueryParams();
   function handleSubmit(e) {
     e.preventDefault();
     const validate = termsAndConditionsFormSchema.safeParse(termsData);
@@ -42,7 +44,7 @@ export default function TermsAndConditionsForm() {
           </Link>
         </p>
       </Pill>
-      <button type="submit">HHHH</button>
+      <Pagination handleBack={() => addQueryParams("step", "contact")} />
     </form>
   );
 }
