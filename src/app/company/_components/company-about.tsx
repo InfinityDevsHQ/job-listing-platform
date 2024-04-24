@@ -1,8 +1,12 @@
+import CompanyTeam from './company-team';
+import CompanyTechnologies from './company-technologies';
 import SectionHeading from './section-heading';
-
-export default function CompanyAbout() {
+type CompanyAboutProps = {
+  className?: string;
+};
+export default function CompanyAbout({ className }: CompanyAboutProps) {
   return (
-    <>
+    <div className={`flex flex-col gap-4 lg:gap-7 ${className}`}>
       <SectionHeading text="About" />
       <p className="text-base text-gray-500">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere fugiat in totam nisi!
@@ -17,6 +21,8 @@ export default function CompanyAbout() {
         numquam voluptatibus maxime velit atque quis, impedit tempore autem dolores? Officiis qui
         quos distinctio sequi!
       </p>
-    </>
+      <CompanyTechnologies />
+      <CompanyTeam />
+    </div>
   );
 }
