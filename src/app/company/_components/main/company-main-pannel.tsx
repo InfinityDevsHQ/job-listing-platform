@@ -1,12 +1,15 @@
 'use client';
 import JobsList from '@/_components/jobs/jobs-list';
 import TabsNavigator from '@/_components/tabs-navigator';
+import Button from '@/components/ui/button';
+import Input from '@/components/ui/input';
 import useJobListingsData from '@/stores/job-listings-store';
 import { TabsNavigatorData } from '@/types/tabs-navigator-data';
 import { useState } from 'react';
 import CompanyAbout from '../company-about';
 import CompanyInfo from '../company-info';
 import CompanyLanguages from '../company-languages';
+import CompanyLink from '../company-link';
 import SectionHeading from '../section-heading';
 
 export default function CompanyMainPanel() {
@@ -38,9 +41,33 @@ export default function CompanyMainPanel() {
       <span className="border border-gray-200" />
       <CompanyLanguages />
       <span className="border border-gray-200" />
-      <TabsNavigator data={Tabs} className="self-center bg-primary-50" />
+      <TabsNavigator data={Tabs} className="self-center bg-primary-50 lg:hidden" />
       <CompanyAbout className="hidden lg:flex" />
       {page === 'about' && <CompanyAbout />}
+      {page === 'contact' && (
+        <div className="flex flex-col gap-4 lg:hidden">
+          <div className="flex flex-col gap-4">
+            <h5 className="font-bold text-gray-700 lg:text-xl">Contacts</h5>
+            <CompanyLink heading="Location" description="Berlin, Germany" />
+            <CompanyLink heading="Website" description="123 Maple Street, Springfield, 62704 USA" />
+            <CompanyLink heading="Email" description="company@company.com" />
+          </div>
+          <span className="border border-gray-200" />
+          <div className="flex flex-col gap-4">
+            <h5 className="font-bold text-gray-700 lg:text-xl">
+              Did&apos;t choose from current offers?
+            </h5>
+            <p className="text-gray-500 lg:text-base">
+              Leave us your email and we will keep you informed about new offers from Company.
+              According to our rules.
+            </p>
+            <div className="flex items-center gap-2.5">
+              <Input placeholder="Email" type="email" />
+              <Button text="Subscribe" variant="primary" className="self-end" />
+            </div>
+          </div>
+        </div>
+      )}
       <div className="hidden flex-col gap-7 lg:flex">
         <SectionHeading text="Job Opportunities" />
         <JobsList jobs={allJobs} />
