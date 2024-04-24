@@ -1,0 +1,27 @@
+import { cn } from '@/lib/utils';
+import { NavigationItem } from '@/types/types';
+import Link from 'next/link';
+
+const Navigation = () => {
+  const links: NavigationItem[] = [
+    { text: 'About Us', href: '#' },
+    { text: 'Personal Data Policy', href: '#' },
+    { text: 'Cookies Policy', href: '#' },
+    { text: 'Terms and conditions', href: '#' },
+    { text: 'Contact Us', href: '#' },
+  ];
+
+  return (
+    <ul className="flex flex-col items-center gap-8 text-base text-neutral-50 lg:flex-row lg:divide-x">
+      {links.map((link, index) => (
+        <li key={index} className={cn('lg:pl-8', { 'lg:pl-0': index == 0 })}>
+          <Link href={link.href} className=" ">
+            {link.text}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+export default Navigation;

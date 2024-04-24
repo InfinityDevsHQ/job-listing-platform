@@ -176,6 +176,25 @@ export type InfoListProps = {
 	list?: string[] | null;
 };
 
+// divider.tsx
+export type DividerProps = {
+  variant?: "default" | "light";
+  size?: 2 | 4;
+};
+
+// copyrights.tsx
+export type socialLinkProps = {
+  platform: string;
+  href: string;
+  icon: React.ReactNode;
+};
+
+// navigation.tsx
+export type NavigationItem = {
+  text: string;
+  href: string;
+};
+
 // userStore.ts
 export interface UserData {
   email: string;
