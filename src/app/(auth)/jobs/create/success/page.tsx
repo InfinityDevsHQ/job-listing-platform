@@ -1,8 +1,8 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function JobPostSuccess() {
   return (
-    <div className="flex items-center justify-center relative bg-white mt-4 lg:mt-8">
+    <div className="relative mt-4 flex items-center justify-center bg-white lg:mt-8">
       <Image
         src="/assets/party.png"
         width={1684}
@@ -28,10 +28,10 @@ export default function JobPostSuccess() {
             className="lg:hidden"
           />
         </div>
-        <h3 className="font-sans font-bold text-xl lg:text-6xl text-gray-700 text-center">
+        <h3 className="text-center font-sans text-xl font-bold text-gray-700 lg:text-6xl">
           Congratulations!
         </h3>
-        <p className="text-center font-sans text-gray-500 text-sm lg:text-3xl">
+        <p className="text-center font-sans text-sm text-gray-500 lg:text-3xl">
           You Have Successfully Posted Job
         </p>
       </div>
