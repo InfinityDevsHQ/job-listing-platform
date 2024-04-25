@@ -3,7 +3,6 @@ import { InputProps } from '@/types/types';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
 import HelpText from './help-text';
-
 const inputVariants = cva(
   'p-2 h-10 w-full peer border-2 border-gray-300 rounded-md bg-white text-black placeholder-gray-400 outline-none transition-all duration-300',
   {

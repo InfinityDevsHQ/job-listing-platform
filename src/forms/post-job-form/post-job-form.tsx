@@ -1,7 +1,8 @@
 'use client';
-import Button from '@/components/svgs/ui/button';
-import Input from '@/components/svgs/ui/input';
-import TextArea from '@/components/svgs/ui/text-area';
+import SyncIcon from '@/components/svgs/sync';
+import Button from '@/components/ui/button';
+import Input from '@/components/ui/input';
+import TextArea from '@/components/ui/text-area';
 import usePostJobDataStore from '@/stores/job-post-form-data-store';
 import { postJobFormSchema } from '@/types/schemas/post-job-form-data-schema';
 import Image from 'next/image';
@@ -177,9 +178,16 @@ export default function PostJobForm() {
             text="Analyze"
             variant="primary"
             size="full"
-            className="lg:hidden"
+            leadingIcon={<SyncIcon />}
+            className="justify-center lg:hidden"
           />
-          <Button type="submit" text="Analyze" variant="primary" className="hidden lg:flex" />
+          <Button
+            type="submit"
+            text="Analyze"
+            variant="primary"
+            className="hidden items-center lg:flex"
+            leadingIcon={<SyncIcon />}
+          />
         </div>
       </div>
     </form>
