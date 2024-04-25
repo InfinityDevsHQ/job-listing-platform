@@ -1,4 +1,4 @@
-import Autoplay from 'embla-carousel-autoplay';
+import CartIcon from '@/components/svgs/cart-icon';
 import CompanyEye from '@/components/svgs/company-eye';
 import CompanyLocation from '@/components/svgs/company-location';
 import Button from '@/components/ui/button';
@@ -10,7 +10,7 @@ type CandidateCardProps = {
 };
 export default function CandidateCard({ candidateData }: CandidateCardProps) {
   return (
-    <div className="border border-gray-200 bg-gray-50 p-4">
+    <div className="rounded-md border border-gray-200 bg-gray-50 p-4">
       <div className="flex flex-col gap-4 ">
         <header className="flex gap-4">
           <div className="flex items-center justify-center">
@@ -36,12 +36,20 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             text="View Profile"
             leadingIcon={<CompanyEye width={16} height={16} />}
             size="full"
+            className="bg-white"
           />
-          <Button text="Resume" leadingIcon={<CompanyEye width={16} height={16} />} size="full" />
+          <Button
+            text="Resume"
+            leadingIcon={<CompanyEye width={16} height={16} />}
+            size="full"
+            className="bg-white"
+          />
         </div>
         <div className="flex flex-col gap-4">
           <h4 className="text-base font-bold text-gray-700">About</h4>
-          <p className="text-base text-gray-500">{candidateData.about}</p>
+          <p className="max-h-12 overflow-hidden text-ellipsis text-base text-gray-500">
+            {candidateData.about}
+          </p>
         </div>
         {candidateData.skillSet?.length > 0 && (
           <Carousel
@@ -49,11 +57,6 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             opts={{
               loop: true,
             }}
-            plugins={[
-              Autoplay({
-                delay: 2000,
-              }),
-            ]}
           >
             {/* <CarouselPrevious text={''} className="relative left-0 translate-x-0 translate-y-0" /> */}
             <CarouselContent>
@@ -71,7 +74,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
           </Carousel>
         )}
 
-        <Button text="Add to Cart" size="full" variant="primary" />
+        <Button text="Add to Cart" size="full" variant="primary" trailingIcon={<CartIcon />} />
       </div>
     </div>
   );
