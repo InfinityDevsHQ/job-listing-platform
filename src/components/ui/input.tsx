@@ -5,7 +5,7 @@ import * as React from 'react';
 import HelpText from './help-text';
 
 const inputVariants = cva(
-  'p-2 h-10 w-full peer border-2 border-gray-300 rounded-md bg-white text-black placeholder-gray-400 outline-none transition-all duration-300',
+  'p-2 h-10 w-full peer border border-gray-300 rounded-md bg-white text-black placeholder-gray-400 outline-none transition-all duration-300',
   {
     variants: {
       variant: {
@@ -55,7 +55,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {leadingIcon && (
             <>
               <span
-                className={`absolute left-2 top-1/2 -translate-y-1/2 peer-focus:!text-${computedVariant}-900 transition-all duration-300`}
+                className={`absolute left-2 top-1/2 flex h-4 w-4 -translate-y-1/2 items-center justify-center peer-focus:!text-${computedVariant}-900 transition-all duration-300`}
               >
                 {leadingIcon}
               </span>

@@ -1,59 +1,51 @@
-import PageHeader from "@/_components/page-header";
-import Button from "@/components/ui/button";
-import VectorText from "@/_components/vector-text";
-import LoginRegisterToggler from "@/_components/login-register-toggler";
-import Input from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { ChangeEvent, FormEvent, useState } from "react";
-import Link from "next/link";
-import CompanyEye from "@/components/svgs/company-eye";
-import CompanyLock from "@/components/svgs/company-lock";
-import AppsAuth from "@/_components/apps-auth";
-import CompanyMail from "@/components/svgs/coompany-mail";
-import CompanyArrow from "@/components/svgs/company-arrow";
-import TabNavigator from "@/_components/tab-navigator";
-import { loginFormSchema } from "@/types/schemas/loginformschema";
-import { ZodIssue } from "zod";
-import useTogglePasswordDisplay from "@/hooks/use-toggle-password-display";
+import AppsAuth from '@/_components/apps-auth';
+import LoginRegisterToggler from '@/_components/login-register-toggler';
+import PageHeader from '@/_components/page-header';
+import TabNavigator from '@/_components/tab-navigator';
+import VectorText from '@/_components/vector-text';
+import CompanyEye from '@/components/svgs/company-eye';
+import CompanyLock from '@/components/svgs/company-lock';
+import CompanyMail from '@/components/svgs/coompany-mail';
+import Button from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import Input from '@/components/ui/input';
+import useTogglePasswordDisplay from '@/hooks/use-toggle-password-display';
+import { loginFormSchema } from '@/types/schemas/loginformschema';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { ZodIssue } from 'zod';
 type LoginFormProps = {
-  setOpen: (value: "EmailPassword" | "PasswordLess") => void;
-  open: "EmailPassword" | "PasswordLess";
+  setOpen: (value: 'EmailPassword' | 'PasswordLess') => void;
+  open: 'EmailPassword' | 'PasswordLess';
   loginData: LoginFormData;
   setLoginData: (data: unknown) => void;
 };
-export default function LoginForm({
-  open,
-  setOpen,
-  loginData,
-  setLoginData,
-}: LoginFormProps) {
+export default function LoginForm({ open, setOpen, loginData, setLoginData }: LoginFormProps) {
   // for tracking and displaying zod validation error
   const [errors, setErrors] = useState<{ [key: string]: string }>({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
-  const [showPassword, togglePasswordVisibility] =
-    useTogglePasswordDisplay(false);
+  const [showPassword, togglePasswordVisibility] = useTogglePasswordDisplay(false);
   const Tabs = [
     {
-      tabText: "Email / Password",
-      clickHandler: () => setOpen("EmailPassword"),
-      active: open === "EmailPassword",
+      tabText: 'Email / Password',
+      clickHandler: () => setOpen('EmailPassword'),
+      active: open === 'EmailPassword',
     },
     {
-      tabText: "Password Less",
-      clickHandler: () => setOpen("PasswordLess"),
-      active: open === "PasswordLess",
+      tabText: 'Password Less',
+      clickHandler: () => setOpen('PasswordLess'),
+      active: open === 'PasswordLess',
     },
   ];
-  const handleChange = (
-    event: ChangeEvent<HTMLInputElement> | FormEvent<HTMLFormElement>
-  ) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement> | FormEvent<HTMLFormElement>) => {
     if (event.target) {
       const target = event.target as HTMLInputElement;
       const { name, value, checked, type } = target;
-      const newValue = type === "checkbox" ? checked : value;
-      setErrors({ ...errors, [name]: "" });
+      const newValue = type === 'checkbox' ? checked : value;
+      setErrors({ ...errors, [name]: '' });
       setLoginData({ ...loginData, [name]: newValue });
     }
   };
@@ -70,9 +62,9 @@ export default function LoginForm({
         }
       });
       const updatedErrors =
-        open === "EmailPassword"
+        open === 'EmailPassword'
           ? { ...errors, ...formattedErrors }
-          : { ...errors, email: formattedErrors.email || "" };
+          : { ...errors, email: formattedErrors.email || '' };
       setErrors(updatedErrors);
     }
     if (!errors.password && errors.email) {
@@ -82,15 +74,18 @@ export default function LoginForm({
   }
 
   return (
-    <form className="flex flex-col gap-8 px-16" onSubmit={handleSubmit}>
+    <form
+      className="col-span-2 flex flex-col gap-4 pt-8 lg:col-span-1 lg:max-h-screen lg:gap-8 lg:overflow-y-auto lg:px-8"
+      onSubmit={handleSubmit}
+    >
       <PageHeader title="Login to your Account" />
       <VectorText text="Select Method to Login" />
       <AppsAuth google github linkedin auth="login" />
-      <VectorText text="or" />
+      <VectorText text="OR" />
       <TabNavigator tabs={Tabs} />
       <>
         <Input
-          variant={"primary"}
+          variant={'primary'}
           placeholder="Email"
           name="email"
           type="email"
@@ -100,13 +95,13 @@ export default function LoginForm({
           leadingIcon={<CompanyMail width={16} height={16} />}
         />
 
-        {open === "EmailPassword" && (
+        {open === 'EmailPassword' && (
           <>
             <Input
-              variant={"primary"}
+              variant={'primary'}
               placeholder="Password"
               name="password"
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               onTrailingClick={togglePasswordVisibility}
               value={loginData.password}
               helpText={errors.password && errors.password}
@@ -115,25 +110,27 @@ export default function LoginForm({
               leadingIcon={<CompanyLock width={14} height={15} />}
               trailingIcon={<CompanyEye width={16} height={13} />}
             />
-            <div className="flex items-center gap-2">
-              <Checkbox
-                className="bg-white data-[state=checked]:bg-white"
-                id="reminder"
-                name="remember"
-                checked={loginData.remember}
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <Checkbox
+                  className="bg-white data-[state=checked]:bg-white"
+                  id="reminder"
+                  name="remember"
+                  checked={loginData.remember}
+                  value={`${loginData.remember}`}
+                  onChange={(e) => handleChange(e)}
+                />
+                <label htmlFor="reminder" className="text-neutral-50 lg:text-gray-800">
+                  Remember Me
+                </label>
+              </div>
+              {/* <AppCheckbox
                 value={`${loginData.remember}`}
                 onChange={(e) => handleChange(e)}
-              />
-              <label
-                htmlFor="reminder"
-                className="font-sans font-medium text-base leading-6 text-neutral-50 lg:text-black"
-              >
-                Remember Me
-              </label>
-              <Link
-                href={"#"}
-                className="ml-auto px-4 py-2 font-sans text-neutral-50 lg:text-gray-800 text-16 leading-6 font-medium"
-              >
+                checked={loginData.remember}
+                label="Remember Me"
+              /> */}
+              <Link href={'#'} className="text-neutral-50 lg:text-gray-800">
                 Forgot Password?
               </Link>
             </div>
@@ -142,12 +139,10 @@ export default function LoginForm({
       </>
 
       <Button
-        variant={"primary"}
+        variant={'primary'}
         text="Login"
         type="submit"
-        trailingIcon={
-          <CompanyArrow width={16} height={16} fill="white" className="pt-1" />
-        }
+        trailingIcon={<ArrowRight className="h-5 w-5" />}
         className="!max-w-full justify-center"
       />
       <LoginRegisterToggler currentPage="login" />
