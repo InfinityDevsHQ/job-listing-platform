@@ -9,7 +9,7 @@ type Tabs = {
   href: string;
 };
 
-const AppNavigation = () => {
+const Navbar = () => {
   const pathname = usePathname();
 
   const tabs: Tabs[] = [
@@ -40,4 +40,4 @@ const AppNavigation = () => {
   );
 };
 
-export default AppNavigation;
+export default Navbar;

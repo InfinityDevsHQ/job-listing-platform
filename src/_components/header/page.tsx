@@ -3,17 +3,25 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
+import Navbar from '@/_components/header/_components/navbar';
 import Button from '@/components/ui/button';
-import AppNavigation from './app-navigation';
 
 import ArrowRightIcon from '@/components/svgs/arrow-right';
 import LockIcon from '@/components/svgs/lock';
 import { ChevronsUpDown } from 'lucide-react';
 
-export default function Header() {
+const Header = () => {
   const router = useRouter();
+  const pathname = usePathname();
+
+  const noHeaderRoutes = ['/login', '/register'];
+
+  if (noHeaderRoutes?.includes(pathname)) {
+    return <></>;
+  }
+
   return (
     <>
       <header className="flex w-full items-center justify-between bg-white px-4 py-2 lg:px-16 lg:py-8">
@@ -34,7 +42,7 @@ export default function Header() {
           />
         </Link>
         <div className="flex items-center gap-4">
-          <AppNavigation />
+          <Navbar />
 
           <div className="hidden gap-4 lg:flex">
             <Button
@@ -59,4 +67,6 @@ export default function Header() {
       </header>
     </>
   );
-}
+};
+
+export default Header;
