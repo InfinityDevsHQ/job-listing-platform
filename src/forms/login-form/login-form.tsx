@@ -43,12 +43,12 @@ export default function LoginForm({ open, setOpen, loginData, setLoginData }: Lo
   const handleChange = (event: ChangeEvent<HTMLInputElement> | FormEvent<HTMLFormElement>) => {
     if (event.target) {
       const target = event.target as HTMLInputElement;
-      const { name, value, checked, type } = target;
-      const newValue = type === 'checkbox' ? checked : value;
+      const { name, value } = target;
+      setLoginData({ ...loginData, [name]: value });
       setErrors({ ...errors, [name]: '' });
-      setLoginData({ ...loginData, [name]: newValue });
     }
   };
+  console.log('Remember Me:', loginData.remember);
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const validationResult = loginFormSchema.safeParse(loginData);
@@ -115,21 +115,14 @@ export default function LoginForm({ open, setOpen, loginData, setLoginData }: Lo
                 <Checkbox
                   className="bg-white data-[state=checked]:bg-white"
                   id="reminder"
-                  name="remember"
                   checked={loginData.remember}
-                  value={`${loginData.remember}`}
-                  onChange={(e) => handleChange(e)}
+                  onClick={() => setLoginData({ ...loginData, remember: !loginData.remember })}
+                  name="remember"
                 />
                 <label htmlFor="reminder" className="text-neutral-50 lg:text-gray-800">
                   Remember Me
                 </label>
               </div>
-              {/* <AppCheckbox
-                value={`${loginData.remember}`}
-                onChange={(e) => handleChange(e)}
-                checked={loginData.remember}
-                label="Remember Me"
-              /> */}
               <Link href={'#'} className="text-neutral-50 lg:text-gray-800">
                 Forgot Password?
               </Link>
