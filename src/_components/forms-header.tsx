@@ -1,21 +1,21 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 export default function FormsHeader() {
   return (
-    <Link href={"#"} className="inline-block mb-16 mt-10 lg:mb-37 lg:ml-10">
+    <Link href={'/'} className="flex items-center justify-center">
       <Image
-        src={"/assets/logo_white_vertical.png"}
-        className="lg:hidden"
-        alt="Logo"
-        width={77}
-        height={58}
+        alt="logo"
+        src={'/assets/images/common/logo_clickJob_primary.svg'}
+        width={226}
+        height={50}
+        className="hidden lg:block"
       />
       <Image
-        src={"/assets/logo.png"}
-        className="hidden lg:inline-block"
-        alt="Logo"
-        width={208}
-        height={50}
+        alt="logo"
+        src={'/assets/images/common/logo_clickJob_primary.svg'}
+        width={118}
+        height={30}
+        className="block lg:hidden"
       />
     </Link>
   );

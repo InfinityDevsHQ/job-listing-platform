@@ -1,37 +1,39 @@
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
 type PosterProps = {
   imgUrl: string;
-  heading: string;
-  text: string;
+  heading?: string;
+  text?: string;
 };
-export default function Poster({ imgUrl, heading, text }: PosterProps) {
+const Poster = ({ imgUrl, heading, text }: PosterProps) => {
   return (
-    <div className="relative min-h-screen overflow-hidden hidden lg:flex justify-center items-center bg-primary-900/90">
-      <Image
-        src={"/assets/forms/poster_bg-1.png"}
-        alt="Background"
-        className="absolute top-0 left-0 -z-10"
-        width={753}
-        height={450}
-      />
-      <Image
-        src={"/assets/forms/poster_bg-2.png"}
-        alt="Background"
-        className="absolute bottom-0 right-0 -z-10"
-        width={1029}
-        height={615}
-      />
-      <div className="flex flex-col gap-10">
-        <div className="flex-center">
-          <Image src={imgUrl} alt="poster" width={500} height={500} />
-        </div>
-        <div className="flex-center flex-col gap-5 text-white px-14">
-          <h3 className="text-32 font-bold leading-40">{heading}</h3>
-          <p className="text-16 text-center font-sans font-normal leading-6">
-            {text}
-          </p>
-        </div>
+    <div
+      className="relative hidden h-screen items-center justify-center lg:flex"
+      style={{
+        background: "url('/assets/images/auth/auth_background.png') 100% 100%",
+      }}
+    >
+      <div className="flex flex-col items-center justify-center gap-10">
+        <Link href={'/'} className="flex items-center justify-center">
+          <Image
+            alt="logo"
+            src={'/assets/images/common/logo_clickJob_white.svg'}
+            width={226}
+            height={50}
+            className="hidden lg:block"
+          />
+          <Image
+            alt="logo"
+            src={'/assets/images/common/logo_clickJob_white.svg'}
+            width={118}
+            height={30}
+            className="block lg:hidden"
+          />
+        </Link>
+        <Image src={imgUrl} alt="poster" width={434} height={335} />
       </div>
     </div>
   );
-}
+};
+
+export default Poster;

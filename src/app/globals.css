@@ -49,3 +49,24 @@
 .custom-select input {
   padding-left: 20px !important;
 }
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+/* For WebKit browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 6px; /* Adjust as needed */
+}
+
+::-webkit-scrollbar-track {
+  background: #e5e7eb; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db; /* Thumb color */
+}
