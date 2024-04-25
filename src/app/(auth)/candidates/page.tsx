@@ -8,6 +8,7 @@ export default function Candidates() {
       profession: 'UI Designer',
       location: 'Dubai, UAE',
       candidateImgUrl: '/assets/candidates/candidate.png',
+      skillSet: ['Python', 'Django', 'Sql', 'Git', 'Jquery', 'Zero'],
       about:
         'Hello, I’m Youssef Ahmed, a UI designer with a passion for creating visually stunning and intuitive user interfaces that elevate user experiences.',
     },
