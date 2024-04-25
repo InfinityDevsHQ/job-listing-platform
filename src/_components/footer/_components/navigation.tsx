@@ -1,9 +1,8 @@
 import { cn } from '@/lib/utils';
-import { NavigationItem } from '@/types/types';
 import Link from 'next/link';
 
 const Navigation = () => {
-  const links: NavigationItem[] = [
+  const links: { text: string; href: string }[] = [
     { text: 'About Us', href: '#' },
     { text: 'Personal Data Policy', href: '#' },
     { text: 'Cookies Policy', href: '#' },

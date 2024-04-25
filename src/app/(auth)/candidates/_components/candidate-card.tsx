@@ -48,7 +48,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
           <h4 className="text-base font-bold text-gray-700">About</h4>
           <p className="text-base text-gray-500">{candidateData.about}</p>
         </div>
-        {candidateData.skillSet?.length > 0 && (
+        {candidateData?.skillSet?.length && (
           <Carousel className="flex w-full">
             <CarouselPrevious text={''} className="relative left-0 translate-x-0 translate-y-0" />
             <CarouselContent>

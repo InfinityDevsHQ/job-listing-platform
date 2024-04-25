@@ -1,5 +1,5 @@
-export const TermsAndConditions = () => {
-  return (
-    <div>Terms And Conditions</div>
-  )
-}
+const TermsAndConditions = () => {
+  return <div>TermsAndConditions</div>;
+};
+
+export default TermsAndConditions;

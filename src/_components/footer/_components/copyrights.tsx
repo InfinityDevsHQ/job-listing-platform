@@ -6,10 +6,8 @@ import YoutubeIcon from '@/components/svgs/youtube';
 
 import Link from 'next/link';
 
-import { socialLinkProps } from '@/types/types';
-
 const Copyright = () => {
-  const socialLinks: socialLinkProps[] = [
+  const socialLinks: { platform: string; href: string; icon: JSX.Element }[] = [
     { platform: 'Facebook', href: '#', icon: <FacebookIcon /> },
     { platform: 'Instagram', href: '#', icon: <InstagramIcon /> },
     { platform: 'Twitter', href: '#', icon: <TwitterIcon /> },

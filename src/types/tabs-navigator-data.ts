@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { MouseEventHandler, ReactElement } from 'react';
 
 export type TabsNavigatorData = {
   key?: string | number;
@@ -6,5 +6,5 @@ export type TabsNavigatorData = {
   tabName: string;
   active?: boolean;
   tabIcon?: ReactElement;
-  handleClick?: (value?: string | number) => void;
+  handleClick?: MouseEventHandler<HTMLButtonElement>;
 };
