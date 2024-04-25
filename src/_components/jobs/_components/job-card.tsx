@@ -18,11 +18,11 @@ export default function JobCard({ job }: JobProps) {
         <JobCardHeader job={job} />
         <JobCardDetails job={job} />
       </div>
-      {isOpened && (
+      {isOpened && job?.id && (
         <Link
           className="flex cursor-default flex-col gap-4 duration-500 animate-in fade-in fade-out lg:gap-8"
           onClick={() => setIsOpened(!isOpened)}
-          href={`/jobs/${job?.id}`}
+          href={`/jobs/${job.id}`}
         >
           {job?.description && (
             <p className="text-xs text-neutral-600 lg:text-sm">{job?.description}</p>

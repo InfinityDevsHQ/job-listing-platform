@@ -5,7 +5,7 @@
 @layer base {
   body,
   html {
-    @apply font-sans;
+    @apply font-sans font-normal;
   }
 
   body {
@@ -25,13 +25,13 @@
   letter-spacing: -0.0075em;
 }
 .section-description {
-  @apply lg:text-xl text-sm font-normal lg:leading-8;
+  @apply text-sm font-normal lg:text-xl lg:leading-8;
 }
 .btn {
-  @apply text-sm lg:text-base lg:font-sans font-bold lg:font-medium;
+  @apply text-sm font-bold lg:font-sans lg:text-base lg:font-medium;
 }
 .tag {
-  @apply px-2 py-1 rounded-md font-sans font-medium;
+  @apply rounded-md px-2 py-1 font-sans font-medium;
 }
 .new-gray {
   color: #70777f;
@@ -44,4 +44,8 @@
 }
 .bg-new-gray {
   background-color: #70777f;
+}
+
+.custom-select input {
+  padding-left: 20px !important;
 }

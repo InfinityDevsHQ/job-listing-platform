@@ -1,10 +1,10 @@
-export default function CompanyYoutube({ width, height }: SvgProps) {
+export default function YoutubeIcon({ width, height }: SvgProps) {
   return (
     <svg
-      width={`${width || "27"}`}
-      height={`${height || "27"}`}
-      viewBox={`0 0 ${width || "27"} ${height || "27"}`}
-      fill={"fillCurrent"}
+      width={`${width || '34'}`}
+      height={`${height || '25'}`}
+      viewBox={`0 0 ${'34'} ${'25'}`}
+      fill={'fillCurrent'}
       className="fill-current"
       xmlns="http://www.w3.org/2000/svg"
     >
