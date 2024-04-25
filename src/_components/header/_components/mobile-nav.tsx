@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function MobileNav() {
+const MobileNav = () => {
   return (
     <div className="flex items-center gap-3 lg:hidden">
       <button className="relative">
@@ -16,4 +16,6 @@ export default function MobileNav() {
       </button>
     </div>
   );
-}
+};
+
+export default MobileNav;

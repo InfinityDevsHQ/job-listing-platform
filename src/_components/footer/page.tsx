@@ -1,3 +1,4 @@
+'use client';
 import Copyright from '@/_components/footer/_components/copyrights';
 import Navigation from '@/_components/footer/_components/navigation';
 import Subscribe from '@/_components/footer/_components/subscribe';
@@ -5,8 +6,17 @@ import Divider from '@/components/ui/divider';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Footer = () => {
+  const pathname = usePathname();
+
+  const noFooterRoutes = ['/login', '/register'];
+
+  if (noFooterRoutes?.includes(pathname)) {
+    return <></>;
+  }
+
   return (
     <footer className="flex w-full flex-col gap-4 bg-primary-900 p-8 lg:gap-8">
       <Link href={'/'}>
