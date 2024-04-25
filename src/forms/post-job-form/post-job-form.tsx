@@ -1,9 +1,10 @@
 'use client';
-import Button from '@/components/ui/button';
-import Input from '@/components/ui/input';
-import TextArea from '@/components/ui/text-area';
+import Button from '@/components/svgs/ui/button';
+import Input from '@/components/svgs/ui/input';
+import TextArea from '@/components/svgs/ui/text-area';
 import usePostJobDataStore from '@/stores/job-post-form-data-store';
 import { postJobFormSchema } from '@/types/schemas/post-job-form-data-schema';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { ZodIssue } from 'zod';
@@ -50,14 +51,19 @@ export default function PostJobForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-4 rounded-md border border-gray-200 bg-gray-50 p-4 lg:gap-8 lg:p-8"
+      className="flex flex-col gap-4  rounded-md border border-gray-200 bg-gray-50 p-4 lg:gap-8 lg:p-8"
     >
-      <div className="flex flex-col gap-4 rounded-custom-20 lg:gap-8">
-        <h3 className="font-sans text-base font-bold text-gray-700">Post a job listing</h3>
-        <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-8">
-          <label htmlFor={'jobTitle'} className="font-sans text-sm font-bold text-gray-700 lg:w-80">
-            Job Title
-          </label>
+      <div className="grid grid-cols-2 gap-4 lg:gap-8">
+        <div className="hidden items-center justify-center  lg:flex">
+          <Image
+            src={'/assets/boarding/location_poster.png'}
+            alt="Location Poster"
+            width={580}
+            height={580}
+          />
+        </div>
+        <div className="col-span-2 flex flex-col gap-4 rounded-custom-20 lg:col-span-1 lg:gap-8">
+          <h3 className="font-sans text-base font-bold text-gray-700">Post a job listing</h3>
           <Input
             type="text"
             id="jobTitle"
@@ -69,11 +75,6 @@ export default function PostJobForm() {
             containerClassName="flex-1"
             onChange={handleChange}
           />
-        </div>
-        <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-8">
-          <label htmlFor={'city'} className="font-sans text-sm font-bold text-gray-700 lg:w-80">
-            City
-          </label>
           <Input
             type="text"
             id="city"
@@ -85,14 +86,6 @@ export default function PostJobForm() {
             containerClassName="flex-1"
             onChange={handleChange}
           />
-        </div>
-        <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-8">
-          <label
-            htmlFor={'employment'}
-            className="font-sans text-sm font-bold text-gray-700 lg:w-80"
-          >
-            Employment
-          </label>
           <Input
             type="text"
             id="employment"
@@ -104,11 +97,6 @@ export default function PostJobForm() {
             containerClassName="flex-1"
             onChange={handleChange}
           />
-        </div>
-        <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-8">
-          <label htmlFor={'country'} className="font-sans text-sm font-bold text-gray-700 lg:w-80">
-            Country
-          </label>
           <Input
             type="text"
             id="country"
@@ -120,11 +108,6 @@ export default function PostJobForm() {
             containerClassName="flex-1"
             onChange={handleChange}
           />
-        </div>
-        <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-8">
-          <label htmlFor={'language'} className="font-sans text-sm font-bold text-gray-700 lg:w-80">
-            Language
-          </label>
           <Input
             type="text"
             id="language"
@@ -136,38 +119,31 @@ export default function PostJobForm() {
             containerClassName="flex-1"
             onChange={handleChange}
           />
-        </div>
-        <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-8">
-          <label className="font-sans text-sm font-bold text-gray-700 lg:w-80">
-            Remuneration Rage Start
-          </label>
-          <Input
-            type="text"
-            id="remunerationRageStart"
-            name={'remunerationRageStart'}
-            value={postJobData.remunerationRageStart}
-            placeholder={'From'}
-            helpText={errors.remunerationRageStart && errors.remunerationRageStart}
-            className="max-w-full flex-1"
-            containerClassName="flex-1"
-            onChange={handleChange}
-          />
-          <Input
-            type="text"
-            id="remunerationRageEnd"
-            name={'remunerationRageEnd'}
-            value={postJobData.remunerationRageEnd}
-            placeholder={'To'}
-            helpText={errors.remunerationRageEnd && errors.remunerationRageEnd}
-            className="max-w-full flex-1"
-            containerClassName="flex-1"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-8">
-          <label htmlFor={'currency'} className="font-sans text-sm font-bold text-gray-700 lg:w-80">
-            Currency
-          </label>
+          <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-8">
+            <Input
+              type="text"
+              id="remunerationRageStart"
+              name={'remunerationRageStart'}
+              value={postJobData.remunerationRageStart}
+              placeholder={'From'}
+              helpText={errors.remunerationRageStart && errors.remunerationRageStart}
+              className="max-w-full flex-1"
+              containerClassName="flex-1"
+              onChange={handleChange}
+            />
+            <Input
+              type="text"
+              id="remunerationRageEnd"
+              name={'remunerationRageEnd'}
+              value={postJobData.remunerationRageEnd}
+              placeholder={'To'}
+              helpText={errors.remunerationRageEnd && errors.remunerationRageEnd}
+              className="max-w-full flex-1"
+              containerClassName="flex-1"
+              onChange={handleChange}
+            />
+          </div>
+
           <Input
             type="text"
             id="currency"
@@ -179,14 +155,6 @@ export default function PostJobForm() {
             containerClassName="flex-1"
             onChange={handleChange}
           />
-        </div>
-        <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-8">
-          <label
-            htmlFor={'description'}
-            className="font-sans text-sm font-bold text-gray-700 lg:w-80"
-          >
-            Describe, in your own words, the requirements, and responsibilities for the job role
-          </label>
           <TextArea
             type="text"
             id="description"
@@ -199,16 +167,21 @@ export default function PostJobForm() {
             onChange={handleChange}
           />
         </div>
-
-        <div className="flex items-center justify-between">
+        <div className="col-span-2 flex flex-col items-center justify-between gap-2 lg:flex-row">
           <p className="font-sans text-sm text-gray-500">
             We will use this information to develop a detailed job description, requirements list,
             and set of necessary skills.
           </p>
-          <Button type="submit" text="Analyze" className="hidden lg:flex" variant="primary" />
+          <Button
+            type="submit"
+            text="Analyze"
+            variant="primary"
+            size="full"
+            className="lg:hidden"
+          />
+          <Button type="submit" text="Analyze" variant="primary" className="hidden lg:flex" />
         </div>
       </div>
-      <Button type="submit" text="Analyze" className="lg:hidden" variant="primary" />
     </form>
   );
 }
