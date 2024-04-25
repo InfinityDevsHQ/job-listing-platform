@@ -102,7 +102,11 @@ const JobDetails = ({ params }: JobDetailsSlug) => {
             </InfoSection>
 
             <InfoSection heading="Required skills">
-              <Badges badges={searchedJob?.skill_tags} />
+              <Badges
+                badges={searchedJob?.skill_tags?.map((tag) => ({
+                  text: tag,
+                }))}
+              />
             </InfoSection>
             <Button
               text="Apply"
