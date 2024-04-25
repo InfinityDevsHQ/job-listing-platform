@@ -1,5 +1,5 @@
-import CompanyInsta from '@/components/svgs/company-insta';
 import CompanyLinkedin from '@/components/svgs/company-linedin';
+import InstagramIcon from '@/components/svgs/instagram';
 import Image from 'next/image';
 import SectionHeading from './section-heading';
 export default function CompanyTeam() {
@@ -17,8 +17,8 @@ export default function CompanyTeam() {
         <h5 className="font-semibold text-gray-500 lg:text-base">John Doe</h5>
         <p className="text-xs text-gray-500">CEO</p>
         <div className="flex items-center gap-2.5">
-          <CompanyLinkedin black width={11} height={12} />
-          <CompanyInsta width={11} height={12} />
+          <CompanyLinkedin black />
+          <InstagramIcon />
         </div>
       </div>
     </>
