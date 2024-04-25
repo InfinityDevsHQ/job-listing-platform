@@ -43,7 +43,11 @@ export default function CompanyMainPanel() {
       <span className="border border-gray-200" />
       <TabsNavigator data={Tabs} className="self-center bg-primary-50 lg:hidden" />
       <CompanyAbout className="hidden lg:flex" />
-      {page === 'about' && <CompanyAbout />}
+      {page === 'about' && (
+        <div className="lg:hidden">
+          <CompanyAbout />
+        </div>
+      )}
       {page === 'contact' && (
         <div className="flex flex-col gap-4 lg:hidden">
           <div className="flex flex-col gap-4">
