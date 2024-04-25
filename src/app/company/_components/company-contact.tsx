@@ -1,4 +1,5 @@
 import CompanyLink from './company-link';
+import CompanyNews from './company-news';
 export default function CompanyContacts() {
   return (
     <div className="flex flex-col gap-8 rounded-md border border-gray-200 p-8">
@@ -12,7 +13,7 @@ export default function CompanyContacts() {
         description="123 Maple Street, Springfield, 62704 USA"
       />
       <CompanyLink className="hidden lg:flex" heading="Email" description="company@company.com" />
-      <h5 className="font-bold text-gray-700 lg:text-xl">News from the company</h5>
+      <CompanyNews />
       <h5 className="font-bold text-gray-700 lg:text-xl">What does it look like for us?</h5>
       <div className="flex"></div>
     </div>
