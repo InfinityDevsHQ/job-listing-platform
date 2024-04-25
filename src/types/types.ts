@@ -10,7 +10,8 @@ export type ButtonVariantProps = {
     | "outline-primary"
     | "outline-secondary"
     | "ghost"
-    | "link";
+    | "link"
+    | "white-primary";
   size?: "default" | "full";
 };
 
