@@ -7,6 +7,7 @@ import useJobListingsData from '@/stores/job-listings-store';
 import { TabsNavigatorData } from '@/types/tabs-navigator-data';
 import { useState } from 'react';
 import CompanyAbout from '../company-about';
+import CompanyBenefits from '../company-bebefits';
 import CompanyInfo from '../company-info';
 import CompanyLanguages from '../company-languages';
 import CompanyLink from '../company-link';
@@ -38,6 +39,8 @@ export default function CompanyMainPanel() {
   return (
     <div className="flex flex-col gap-4 lg:col-span-2 lg:gap-8">
       <CompanyInfo />
+      <span className="border border-gray-200" />
+      <CompanyBenefits />
       <span className="border border-gray-200" />
       <CompanyLanguages />
       <span className="border border-gray-200" />
