@@ -111,17 +111,25 @@ export default function LoginForm({ open, setOpen, loginData, setLoginData }: Lo
               trailingIcon={<CompanyEye width={16} height={13} />}
             />
             <div className="flex items-center justify-between gap-2">
-              <Checkbox
-                className="bg-white data-[state=checked]:bg-white"
-                id="reminder"
-                name="remember"
-                checked={loginData.remember}
+              <div className="flex items-center gap-2">
+                <Checkbox
+                  className="bg-white data-[state=checked]:bg-white"
+                  id="reminder"
+                  name="remember"
+                  checked={loginData.remember}
+                  value={`${loginData.remember}`}
+                  onChange={(e) => handleChange(e)}
+                />
+                <label htmlFor="reminder" className="text-neutral-50 lg:text-gray-800">
+                  Remember Me
+                </label>
+              </div>
+              {/* <AppCheckbox
                 value={`${loginData.remember}`}
                 onChange={(e) => handleChange(e)}
-              />
-              <label htmlFor="reminder" className="text-neutral-50 lg:text-gray-800">
-                Remember Me
-              </label>
+                checked={loginData.remember}
+                label="Remember Me"
+              /> */}
               <Link href={'#'} className="text-neutral-50 lg:text-gray-800">
                 Forgot Password?
               </Link>
