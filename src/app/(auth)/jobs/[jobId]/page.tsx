@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import Jobs from '@/_components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
 import Badges from '@/components/ui/badges';
@@ -8,8 +6,13 @@ import InfoBadge from '@/components/ui/info-badge';
 import InfoSection from '@/components/ui/info-section';
 import SectionHeader from '@/components/ui/section-header';
 import { ArrowRight, ThumbsDown, ThumbsUp } from 'lucide-react';
-
-const JobDetails = () => {
+import JobHeader from '../_components/job-header';
+import JobRequirements from '../_components/job-requirements';
+type JobDetailsSlug = {
+  params: { jobId: number | string };
+};
+const JobDetails = ({ params }: JobDetailsSlug) => {
+  console.log('Type of:', typeof params);
   const jobs = [
     {
       id: 1,
@@ -94,91 +97,19 @@ const JobDetails = () => {
     <div className="flex flex-col gap-4 p-4 lg:gap-8 lg:p-8">
       <div className="flex flex-col gap-4 rounded-md border border-gray-200 bg-white p-4 lg:gap-8 lg:p-8">
         {/* Header */}
-        <div className="flex items-start justify-between">
-          <div className="flex items-center gap-5">
-            <span className="flex-center h-11 w-11 rounded-full bg-orange-100 lg:h-24 lg:w-24">
-              <Image
-                alt="logo"
-                src={'/assets/icons/fire.svg'}
-                width={35}
-                height={40}
-                className="hidden lg:block"
-              />
-              <Image
-                alt="logo"
-                src={'/assets/icons/fire.svg'}
-                width={16}
-                height={18}
-                className="block lg:hidden"
-              />
-            </span>
-            <div>
-              <h3 className="flex items-center gap-4 text-base font-bold text-gray-700 lg:text-4xl">
-                {job?.title}
-                {job?.is_hot && (
-                  <span className="hidden max-w-max rounded-md bg-green-500 px-2 py-1 text-xxs font-bold text-white lg:block">
-                    Urgent
-                  </span>
-                )}
-              </h3>
-              <p className="flex items-center gap-4 text-xs font-semibold text-gray-500 lg:text-lg lg:font-normal">
-                {job?.external_company_name}
-                {job?.is_hot && (
-                  <span className="block max-w-max rounded-md bg-green-500 px-2 py-1 text-xxs font-bold text-white lg:hidden">
-                    Urgent
-                  </span>
-                )}
-              </p>
-            </div>
-          </div>
-          <button type="button">
-            <Image alt="bookmarked" src={'/assets/icons/bookmarked.svg'} width={30} height={30} />
-            {/* <Image
-							alt="bookmark"
-							src={"/assets/icons/bookmark.svg"}
-							width={30}
-							height={30}
-						/> */}
-          </button>
-        </div>
+        <h1 className="text-7xl">{params.jobId}</h1>
+        <JobHeader
+          title={`${job.title}`}
+          external_company_name={job.external_company_name}
+          is_hot={job.is_hot}
+        />
         <div className="flex h-full flex-col gap-4 lg:flex-row lg:gap-8">
           {/* Job Desc */}
           <div className="order-2 flex w-full flex-col gap-4 lg:order-1 lg:gap-8">
             <InfoSection heading="About">
-              <p className="text-xs text-gray-500 lg:text-base">
-                Seeking a skilled Senior Python Developer proficient in Django and FastAPI. Join our
-                team to contribute your expertise in Python development to create innovative
-                solutions. Apply now to showcase your advanced skills in Python programming and web
-                framework experience.
-              </p>
+              <p className="text-xs text-gray-500 lg:text-base">{job.description}</p>
             </InfoSection>
-            <InfoSection heading="Job requirements">
-              <ul className="ml-6 list-image-[url('/assets/images/jobs/send.png')]">
-                <li className="mb-4 pl-4 text-xs text-gray-500 lg:text-base">
-                  Proficient in Python programming language with a strong understanding of Django
-                  and FastAPI frameworks.
-                </li>
-                <li className="mb-4 pl-4 text-xs text-gray-500 lg:text-base">
-                  Experience in developing and maintaining scalable web applications using Python.
-                </li>
-                <li className="mb-4 pl-4 text-xs text-gray-500 lg:text-base">
-                  Ability to mentor and provide technical guidance to junior developers in Python
-                  and related frameworks.
-                </li>
-                <li className="mb-4 pl-4 text-xs text-gray-500 lg:text-base">
-                  Strong problem-solving skills and the ability to troubleshoot and debug complex
-                  issues in Python applications.
-                </li>
-                <li className="mb-4 pl-4 text-xs text-gray-500 lg:text-base">
-                  Familiarity with software development best practices, including code reviews,
-                  testing, and documentation.
-                </li>
-                <li className="mb-4 pl-4 text-xs text-gray-500 lg:text-base">
-                  Excellent communication skills and the ability to collaborate effectively with
-                  cross-functional teams.
-                </li>
-              </ul>
-            </InfoSection>
+            <JobRequirements />
             <InfoSection heading="Responsibilities">
               <p className="text-xs text-gray-500 lg:text-base">
                 We are seeking a highly skilled Senior Python Developer with expertise in Django and
@@ -197,33 +128,7 @@ const JobDetails = () => {
                 now to join our team and make a significant impact with your expertise.
               </p>
             </InfoSection>
-            <InfoSection heading="Welcomed skills">
-              <ul className="ml-6 list-image-[url('/assets/images/jobs/send.png')] indent-4">
-                <li className="mb-4 text-xs text-gray-500 lg:text-base">
-                  Proficient in Python programming language with a strong understanding of Django
-                  and FastAPI frameworks.
-                </li>
-                <li className="mb-4 text-xs text-gray-500 lg:text-base">
-                  Experience in developing and maintaining scalable web applications using Python.
-                </li>
-                <li className="mb-4 text-xs text-gray-500 lg:text-base">
-                  Ability to mentor and provide technical guidance to junior developers in Python
-                  and related frameworks.
-                </li>
-                <li className="mb-4 text-xs text-gray-500 lg:text-base">
-                  Strong problem-solving skills and the ability to troubleshoot and debug complex
-                  issues in Python applications.
-                </li>
-                <li className="mb-4 text-xs text-gray-500 lg:text-base">
-                  Familiarity with software development best practices, including code reviews,
-                  testing, and documentation.
-                </li>
-                <li className="mb-4 text-xs text-gray-500 lg:text-base">
-                  Excellent communication skills and the ability to collaborate effectively with
-                  cross-functional teams.
-                </li>
-              </ul>
-            </InfoSection>
+
             <InfoSection heading="Required skills">
               <Badges badges={job?.badges} />
             </InfoSection>
@@ -236,10 +141,18 @@ const JobDetails = () => {
             <div className="flex items-center justify-center gap-4 rounded-md border border-gray-200 px-5 py-2 lg:hidden lg:max-w-lg lg:justify-between lg:px-8">
               <span>Do you like this job offer?</span>
               <div className="flex items-center gap-4 ">
-                <button className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+                <button
+                  aria-label="Like"
+                  type="button"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200"
+                >
                   <ThumbsUp className="h-5 w-5 text-gray-500" />
                 </button>
-                <button className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+                <button
+                  aria-label="Unlike"
+                  type="button"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200"
+                >
                   <ThumbsDown className="h-5 w-5 text-gray-500" />
                 </button>
               </div>
@@ -258,10 +171,18 @@ const JobDetails = () => {
             <div className="hidden items-center justify-center gap-4 rounded-md border border-gray-200 px-5 py-2 lg:flex lg:max-w-lg lg:justify-between lg:px-8">
               <span className="text-gray-950">Do you like this job offer?</span>
               <div className="flex items-center gap-4">
-                <button className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200">
+                <button
+                  aria-label="Like"
+                  type="button"
+                  className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200"
+                >
                   <ThumbsUp className="h-4 w-4 text-gray-500" />
                 </button>
-                <button className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200">
+                <button
+                  aria-label="Unlike"
+                  type="button"
+                  className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200"
+                >
                   <ThumbsDown className="h-4 w-4 text-gray-500" />
                 </button>
               </div>
