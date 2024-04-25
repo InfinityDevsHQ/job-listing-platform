@@ -1,29 +1,30 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 type JobListings = {
-  searchedJob: any[];
+  searchedJob: JobData;
 };
 
 const useJobListingsById = create<JobListings>((set) => ({
   searchedJob: [],
 }));
-const jobListingId: number = 1;
-async function fetchDataAndUpdateStore() {
+
+export async function fetchDataAndUpdateStore(searchId: number) {
+  console.log('fetching...', searchId);
   try {
     const response = await fetch(
-      `http://devel.clickjob.ai:8001/api/v1/pgsql/job-listings/${jobListingId}`,
+      `http://devel.clickjob.ai:8001/api/v1/pgsql/job-listings/${searchId}`,
       {
-        method: "GET",
+        method: 'GET',
         headers: {
-          Accept: "application/json",
+          Accept: 'application/json',
         },
       }
     );
     const searchedJob = await response.json();
     useJobListingsById.setState({ searchedJob });
+    console.log(searchedJob);
   } catch (error) {
-    console.error("Error fetching job listings", error);
+    console.error('Error fetching job listings', error);
   }
 }
-fetchDataAndUpdateStore();
 export default useJobListingsById;
