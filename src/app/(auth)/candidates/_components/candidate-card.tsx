@@ -1,13 +1,8 @@
+import Autoplay from 'embla-carousel-autoplay';
 import CompanyEye from '@/components/svgs/company-eye';
 import CompanyLocation from '@/components/svgs/company-location';
 import Button from '@/components/ui/button';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Image from 'next/image';
 
 type CandidateCardProps = {
@@ -49,8 +44,18 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
           <p className="text-base text-gray-500">{candidateData.about}</p>
         </div>
         {candidateData.skillSet?.length > 0 && (
-          <Carousel className="flex w-full">
-            <CarouselPrevious text={''} className="relative left-0 translate-x-0 translate-y-0" />
+          <Carousel
+            className="flex w-full"
+            opts={{
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 2000,
+              }),
+            ]}
+          >
+            {/* <CarouselPrevious text={''} className="relative left-0 translate-x-0 translate-y-0" /> */}
             <CarouselContent>
               {candidateData.skillSet?.map((skill, index) => (
                 <CarouselItem key={index} className="basis-1/4">
@@ -62,7 +67,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselNext text={''} className="relative left-0 translate-x-0 translate-y-0" />
+            {/* <CarouselNext text={''} className="relative left-0 translate-x-0 translate-y-0" /> */}
           </Carousel>
         )}
 

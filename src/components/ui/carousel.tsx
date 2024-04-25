@@ -1,5 +1,6 @@
 'use client';
 
+import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import * as React from 'react';
@@ -48,6 +49,7 @@ const Carousel = React.forwardRef<
       ...opts,
       axis: orientation === 'horizontal' ? 'x' : 'y',
     },
+    [Autoplay()],
     plugins
   );
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
