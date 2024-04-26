@@ -22,7 +22,7 @@ const ContactCard = () => {
           <span className="hidden self-end text-xxs text-gray-500 lg:inline-block">02:16 PM</span>
         </div>
       </header>
-      <p className="max-h-6 text-xs text-gray-500">
+      <p className="h-12 overflow-hidden text-xs text-gray-500">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat exercitationem libero
         possimus quasi mollitia repudiandae voluptatem esse cumque labore doloribus recusandae
         ducimus, deserunt amet laboriosam, veniam reiciendis sed culpa totam!
