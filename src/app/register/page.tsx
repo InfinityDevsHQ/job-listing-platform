@@ -1,15 +1,15 @@
-"use client";
-import Poster from "@/_components/poster";
-import { useState } from "react";
-import FormsHeader from "@/_components/forms-header";
-import RegisterPage from "@/forms/register-form/register-page";
+'use client';
+import FormsHeader from '@/_components/forms-header';
+import Poster from '@/_components/poster';
+import RegisterPage from '@/forms/register-form/register-page';
+import { useState } from 'react';
 
-export default function Register() {
-  const [opened, setOpened] = useState<"Candidate" | "Company">("Candidate");
+const Register = () => {
+  const [opened, setOpened] = useState<'Candidate' | 'Company'>('Candidate');
 
   return (
-    <div className="grid grid-cols-2 lg:h-screen overflow-hidden">
-      <div className="overflow-auto col-span-2 lg:col-span-1 flex-center lg:block flex-col px-3.9 lg:px-0 bg-primary-900 lg:bg-primary-50">
+    <div className="grid grid-cols-2 overflow-hidden lg:h-screen">
+      <div className="flex-center px-3.9 col-span-2 flex-col overflow-auto bg-primary-900 lg:col-span-1 lg:block lg:bg-primary-50 lg:px-0">
         <FormsHeader />
         <RegisterPage opened={opened} setOpened={setOpened} />
       </div>
@@ -23,4 +23,5 @@ export default function Register() {
       />
     </div>
   );
-}
+};
+export default Register;

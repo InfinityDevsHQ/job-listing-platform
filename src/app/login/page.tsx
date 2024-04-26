@@ -10,7 +10,12 @@ const Login = () => {
   const [open, setOpen] = useState<'EmailPassword' | 'PasswordLess'>('EmailPassword');
   return (
     <div className="grid grid-cols-2 overflow-hidden lg:h-screen">
-      <LoginForm loginData={loginData} setLoginData={setLoginData} open={open} setOpen={setOpen} />
+      <LoginForm
+        loginData={loginData}
+        setLoginData={() => setLoginData}
+        open={open}
+        setOpen={setOpen}
+      />
       <Poster imgUrl="/assets/images/auth/login_vector.png" heading="Login to your Account" />
     </div>
   );

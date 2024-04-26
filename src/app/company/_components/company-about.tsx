@@ -4,7 +4,7 @@ import SectionHeading from './section-heading';
 type CompanyAboutProps = {
   className?: string;
 };
-export default function CompanyAbout({ className }: CompanyAboutProps) {
+const CompanyAbout = ({ className }: CompanyAboutProps) => {
   return (
     <div className={`flex flex-col gap-4 lg:gap-7 ${className}`}>
       <SectionHeading text="About" />
@@ -25,4 +25,5 @@ export default function CompanyAbout({ className }: CompanyAboutProps) {
       <CompanyTeam />
     </div>
   );
-}
+};
+export default CompanyAbout;

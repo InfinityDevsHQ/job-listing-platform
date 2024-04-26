@@ -1,6 +1,6 @@
 import CompanyLink from './company-link';
 import CompanyNews from './company-news';
-export default function CompanyContacts() {
+const CompanyContact = () => {
   return (
     <div className="flex flex-col gap-8 rounded-md border border-gray-200 p-8">
       <h6 className="font-bold text-gray-700 lg:text-xl">Job Openings</h6>
@@ -18,4 +18,5 @@ export default function CompanyContacts() {
       <div className="flex"></div>
     </div>
   );
-}
+};
+export default CompanyContact;
