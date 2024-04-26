@@ -1,24 +1,24 @@
-import { AddJobListingData, GeneratedJobDetailData } from "./zodTypes";
+import { AddJobListingData, GeneratedJobDetailData } from './zodTypes';
 
 // Common Components
 // button.tsx
 export type ButtonVariantProps = {
   variant?:
-    | "default"
-    | "primary"
-    | "secondary"
-    | "outline-primary"
-    | "outline-secondary"
-    | "ghost"
-    | "link"
-    | "white-primary";
-  size?: "default" | "full";
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'outline-primary'
+    | 'outline-secondary'
+    | 'ghost'
+    | 'link'
+    | 'white-primary';
+  size?: 'default' | 'full';
 };
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     ButtonVariantProps {
-  type?: "button" | "submit" | "reset" | undefined;
+  type?: 'button' | 'submit' | 'reset' | undefined;
   text: string;
   leadingIcon?: React.ReactNode;
   trailingIcon?: React.ReactNode;
@@ -26,12 +26,10 @@ export interface ButtonProps
 
 // input.tsx
 export type InputVariantProps = {
-  variant?: "default" | "primary" | "secondary" | "danger";
+  variant?: 'default' | 'primary' | 'secondary' | 'danger';
 };
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement>,
-    InputVariantProps {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>, InputVariantProps {
   type?: string;
   leadingIcon?: React.ReactNode;
   trailingIcon?: React.ReactNode;
@@ -40,69 +38,68 @@ export interface InputProps
   onTrailingClick?: () => void;
 }
 
-// section-headers.tsx 
+// section-headers.tsx
 export interface SectionHeaderProps {
-	leadingIcon?: React.ReactNode;
-	heading?: string;
-	helpText?: string;
+  leadingIcon?: React.ReactNode;
+  heading?: string;
+  helpText?: string;
 }
 
 // Home.tsx
 export interface Job {
-	language?: string;
-	title?: string;
-	slug?: string;
-	external_company_id?: 0;
-	city?: string;
-	country?: string;
-	employment_type?: string;
-	work_location_type?: string;
-	remuneration_from?: 0;
-	remuneration_to?: 0;
-	remuneration_currency?: string;
-	short_description?: string;
-	job_requirements?: string;
-	welcomed_skills?: string;
-	skill_tags?: [string];
-	description?: string;
-	is_hot?: boolean;
-	is_external?: boolean;
-	external_link?: string;
-	external_company_logo?: string | null;
-	external_company_name?: string | null;
-	external_company_website?: string | null;
-	external_company_industry?: string | null;
-	external_company_size?: string | null;
-	id_parent_job_translation?: 0;
-	parent_job?: Job;
-	parent_language?: string;
-	id: number;
-	category?: {
-		id: 0;
-		name?: string;
-	};
-	latitude?: 0;
-	longitude?: 0;
-	is_added_to_qdrant?: boolean;
-	geo_resolve_tries?: 0;
-	is_dummy?: boolean;
-	created?: string;
-	updated?: string;
-	viewed?: number;
-	applicants?: number;
+  language?: string;
+  title?: string;
+  slug?: string;
+  external_company_id?: 0;
+  city?: string;
+  country?: string;
+  employment_type?: string;
+  work_location_type?: string;
+  remuneration_from?: 0;
+  remuneration_to?: 0;
+  remuneration_currency?: string;
+  short_description?: string;
+  job_requirements?: string;
+  welcomed_skills?: string;
+  skill_tags?: [string];
+  description?: string;
+  is_hot?: boolean;
+  is_external?: boolean;
+  external_link?: string;
+  external_company_logo?: string | null;
+  external_company_name?: string | null;
+  external_company_website?: string | null;
+  external_company_industry?: string | null;
+  external_company_size?: string | null;
+  id_parent_job_translation?: 0;
+  parent_job?: Job;
+  parent_language?: string;
+  id: number;
+  category?: {
+    id: 0;
+    name?: string;
+  };
+  latitude?: 0;
+  longitude?: 0;
+  is_added_to_qdrant?: boolean;
+  geo_resolve_tries?: 0;
+  is_dummy?: boolean;
+  created?: string;
+  updated?: string;
+  viewed?: number;
+  applicants?: number;
 }
 
-
-// job_list.tsx 
+// job_list.tsx
 export interface JobListProps {
-	jobs: Job[]
+  jobs: Job[];
 }
-// job_card.tsx 
+// job_card.tsx
 export interface JobProps {
-	job: Job
+  job: Job;
 }
 
-// JobCard.tsx 
+// JobCard.tsx
 export interface JobCardProps {
   id: number;
   title: string;
@@ -111,7 +108,7 @@ export interface JobCardProps {
   employment_type: string;
   category: {
     id: 0 | number;
-    name: "string" | string;
+    name: 'string' | string;
   };
   created: string;
   updated: string;
@@ -153,28 +150,28 @@ export interface ExpandedJobCardProps {
   };
 }
 
-// badge.tsx 
+// badge.tsx
 export type BadgeProps = {
-	text?: string;
-	color?: string;
+  text?: string;
+  color?: string;
   bgColor?: string;
 };
 
-// info-section.tsx 
+// info-section.tsx
 export type InfoSectionProps = {
-	heading?: string;
+  heading?: string;
   children?: React.ReactNode;
 };
 
-// info-badge.tsx 
+// info-badge.tsx
 export type InfoBadgeProps = {
-	heading?: string;
-  desc?: string; 
+  heading?: string;
+  desc?: string;
 };
 
-// info-list.tsx 
+// info-list.tsx
 export type InfoListProps = {
-	list?: string[] | null;
+  list?: string[] | null;
 };
 
 // userStore.ts
@@ -307,10 +304,7 @@ export interface UserStore {
   resetSteps: () => void;
   setPostJobLanguage: (value: string) => void;
   setCV: (cv: File | null, isCVUploaded: boolean, server: boolean) => void;
-  setOnboardingData: (
-    key: string,
-    value: boolean | File | null | string
-  ) => void;
+  setOnboardingData: (key: string, value: boolean | File | null | string) => void;
   updateUser: (values: Partial<UserProfile>) => void;
   resetCVdata: () => void;
   setSocialRegistration: () => void;
@@ -441,7 +435,7 @@ export interface TailoredUsersJobsResponse {
     applicants: number;
     category: {
       id: 0 | number;
-      name: "string" | string;
+      name: 'string' | string;
     };
     city: string;
     external_company_id: number;
@@ -511,14 +505,14 @@ export interface Company {
 
 // company-card.tsx
 export interface CompanyCardProps {
-	companyName: string;
-	companyLogo: string;
-	companyDescription: string;
+  companyName: string;
+  companyLogo: string;
+  companyDescription: string;
 }
 
-// companies-list.tsx 
+// companies-list.tsx
 export interface CompaniesListProps {
-	companies: CompanyCardProps[]
+  companies: CompanyCardProps[];
 }
 
 export interface Country {
@@ -553,9 +547,7 @@ export interface AppState {
   state: string;
 }
 
-export type AppAction =
-  | { type: "append"; payload: string }
-  | { type: "reset"; payload: string };
+export type AppAction = { type: 'append'; payload: string } | { type: 'reset'; payload: string };
 
 //Dropdown.tsx
 export interface DropDownProps {
@@ -743,7 +735,7 @@ export interface ProfileCardPublicProps {
       created: string;
       cv_filepath: string;
       cv_url: string;
-    }
+    },
   ];
 }
 
@@ -781,18 +773,11 @@ export interface ScrollableWordsProps {
 
 export type AppendTextReducerAction = AppAction;
 
-export type AppendTextReducer = (
-  state: string,
-  action: AppendTextReducerAction
-) => string;
+export type AppendTextReducer = (state: string, action: AppendTextReducerAction) => string;
 
-export type SetCurrentServiceIndexFunction = React.Dispatch<
-  React.SetStateAction<number>
->;
+export type SetCurrentServiceIndexFunction = React.Dispatch<React.SetStateAction<number>>;
 
-export type SetReceivedTextFunction = React.Dispatch<
-  React.SetStateAction<string>
->;
+export type SetReceivedTextFunction = React.Dispatch<React.SetStateAction<string>>;
 
 export type StateSetter<T> = React.Dispatch<React.SetStateAction<T>>;
 
@@ -833,7 +818,6 @@ type  AllowedKeys =
 */
 
 export type KeyValueObject = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   key: any;
   value: string | string[];
 };

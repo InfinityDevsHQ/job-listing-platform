@@ -51,7 +51,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             {candidateData.about}
           </p>
         </div>
-        {candidateData.skillSet?.length > 0 && (
+        {candidateData.skillSet?.length && (
           <Carousel
             className="flex w-full"
             opts={{

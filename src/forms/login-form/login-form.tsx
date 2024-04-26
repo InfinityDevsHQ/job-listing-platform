@@ -75,7 +75,7 @@ export default function LoginForm({ open, setOpen, loginData, setLoginData }: Lo
 
   return (
     <form
-      className="col-span-2 flex flex-col gap-4 pt-8 lg:col-span-1 lg:max-h-screen lg:gap-8 lg:overflow-y-auto lg:px-8"
+      className="col-span-2 flex flex-col gap-4 px-4 pt-8 lg:col-span-1 lg:max-h-screen lg:gap-8 lg:overflow-y-auto lg:px-8"
       onSubmit={handleSubmit}
     >
       <PageHeader title="Login to your Account" />

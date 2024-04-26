@@ -1,62 +1,59 @@
-"use client";
-import DropDown from "@/_components/dropdown";
-import Button from "@/components/ui/button";
-import CompanyArrow from "@/components/svgs/company-arrow";
-import CompanyCity from "@/components/svgs/company-city";
-import CompanyCommunity from "@/components/svgs/company-community";
-import CompanyDictionary from "@/components/svgs/company-dictionary";
-import CompanyGlobe from "@/components/svgs/company-globe";
-import CompanyIcon from "@/components/svgs/company-icon";
-import CompanyProfileOne from "@/components/svgs/company-profile-one";
-import CompanyMail from "@/components/svgs/coompany-mail";
-import Input from "@/components/ui/input";
-import useRegisterCompanyStore from "@/stores/register-company-stor";
-import { registerCompanyFormSchema } from "@/types/schemas/register-company-form-schema";
-import { useState } from "react";
-import { ZodIssue } from "zod";
+'use client';
+import DropDown from '@/_components/dropdown';
+import CompanyArrow from '@/components/svgs/company-arrow';
+import CompanyCity from '@/components/svgs/company-city';
+import CompanyCommunity from '@/components/svgs/company-community';
+import CompanyDictionary from '@/components/svgs/company-dictionary';
+import CompanyGlobe from '@/components/svgs/company-globe';
+import CompanyIcon from '@/components/svgs/company-icon';
+import CompanyProfileOne from '@/components/svgs/company-profile-one';
+import CompanyMail from '@/components/svgs/coompany-mail';
+import Button from '@/components/ui/button';
+import Input from '@/components/ui/input';
+import useRegisterCompanyStore from '@/stores/register-company-stor';
+import { registerCompanyFormSchema } from '@/types/schemas/register-company-form-schema';
+import { useState } from 'react';
+import { ZodIssue } from 'zod';
 const EmployOptions = [
   {
     value: 200,
-    text: "200",
+    text: '200',
   },
   {
     value: 500,
-    text: "500",
+    text: '500',
   },
 ];
 const Countries = [
-  { value: "Pakistan", text: "Pakistan" },
-  { value: "Australia", text: "Australia" },
+  { value: 'Pakistan', text: 'Pakistan' },
+  { value: 'Australia', text: 'Australia' },
 ];
 const Languages = [
   {
-    value: "en",
-    text: "English",
+    value: 'en',
+    text: 'English',
   },
   {
-    value: "ur",
-    text: "Urdu",
+    value: 'ur',
+    text: 'Urdu',
   },
 ];
 export default function RegisterCompanyForm() {
-  const [employs, setEmploys] = useState<number | string>(
-    EmployOptions[0].value
-  );
+  const [employs, setEmploys] = useState<number | string>(EmployOptions[0].value);
   const [country, setCountry] = useState(Countries[0].value);
   const [language, setLanguage] = useState<string>(Languages[0].value);
   const [errors, setErrors] = useState({
-    passwordTwo: "",
-    company: "",
-    contactName: "",
-    workMail: "",
-    phoneNumber: "",
-    city: "",
+    passwordTwo: '',
+    company: '',
+    contactName: '',
+    workMail: '',
+    phoneNumber: '',
+    city: '',
   });
-  const { registerCompanyData, setRegisterCompanyData } =
-    useRegisterCompanyStore();
+  const { registerCompanyData, setRegisterCompanyData } = useRegisterCompanyStore();
   function handleChange(e) {
     const { name, value } = e.target;
-    setErrors({ ...errors, [name]: "" });
+    setErrors({ ...errors, [name]: '' });
     setRegisterCompanyData({ ...registerCompanyData, [name]: value });
   }
   function handleSubmit(e) {
@@ -75,9 +72,9 @@ export default function RegisterCompanyForm() {
     }
   }
   return (
-    <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
+    <form className="flex h-96 flex-col gap-8" onSubmit={handleSubmit}>
       <Input
-        variant={"primary"}
+        variant={'primary'}
         placeholder="Company"
         name="company"
         helpText={errors.company}
@@ -87,7 +84,7 @@ export default function RegisterCompanyForm() {
         value={registerCompanyData.company}
       />
       <Input
-        variant={"primary"}
+        variant={'primary'}
         placeholder="Contact Name"
         helpText={errors.contactName}
         name="contactName"
@@ -97,7 +94,7 @@ export default function RegisterCompanyForm() {
         value={registerCompanyData.contactName}
       />
       <Input
-        variant={"primary"}
+        variant={'primary'}
         placeholder="Work Mail"
         helpText={errors.workMail}
         name="workMail"
@@ -107,7 +104,7 @@ export default function RegisterCompanyForm() {
         value={registerCompanyData.workMail}
       />
       <Input
-        variant={"primary"}
+        variant={'primary'}
         placeholder="Phone Number"
         helpText={errors.phoneNumber}
         name="phoneNumber"
@@ -145,12 +142,10 @@ export default function RegisterCompanyForm() {
       />
       <Button
         text="Continue"
-        variant={"primary"}
+        variant={'primary'}
         className="!max-w-full justify-center"
         type="submit"
-        trailingIcon={
-          <CompanyArrow width={16} height={16} fill="white" className="pt-1" />
-        }
+        trailingIcon={<CompanyArrow width={16} height={16} fill="white" className="pt-1" />}
       />
     </form>
   );
