@@ -2,7 +2,6 @@ import { cn } from '@/lib/utils';
 import { InputProps } from '@/types/types';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import HelpText from './help-text';
 
 const inputVariants = cva(
   'p-2 h-10 w-full peer border border-gray-300 rounded-md bg-white text-black placeholder-gray-400 outline-none transition-all duration-300',
@@ -22,59 +21,42 @@ const inputVariants = cva(
 );
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      className,
-      containerClassName,
-      type = 'text',
-      variant,
-      leadingIcon,
-      trailingIcon,
-      onTrailingClick,
-      helpText,
-      ...props
-    },
-    ref
-  ) => {
-    const computedVariant = helpText ? 'danger' : variant || 'default';
-    const computedClassName = `${className} ${leadingIcon ? 'pl-7' : 'pl-2'}`;
+  ({ type, variant, leadingIcon, trailingIcon, onClickTrailing, ...props }, ref) => {
     return (
-      <div
-        className={`flex flex-col gap-1 lg:flex-1 ${containerClassName ? containerClassName : ''}`}
-      >
-        <div className={`group relative w-full`}>
-          <input
-            type={type}
-            className={cn(
-              inputVariants({
-                variant: computedVariant,
-                className: computedClassName,
-              })
-            )}
-            ref={ref}
-            {...props}
-          />
-          {leadingIcon && (
-            <>
-              <span
-                className={`absolute left-2 top-1/2 flex h-4 w-4 -translate-y-1/2 items-center justify-center peer-focus:!text-${computedVariant}-900 transition-all duration-300`}
-              >
-                {leadingIcon}
-              </span>
-            </>
-          )}
-          {trailingIcon && (
+      <div className="group relative w-full">
+        <input
+          type={type}
+          className={cn(inputVariants({ variant }), {
+            'pl-7': leadingIcon,
+          })}
+          ref={ref}
+          {...props}
+        />
+        {leadingIcon && (
+          <>
             <span
-              onClick={onTrailingClick && onTrailingClick}
-              className={`absolute right-2 top-1/2 -translate-y-1/2 text-neutral-300 transition-all duration-300 ${
-                computedVariant === 'danger' ? 'peer-focus:!text-danger-900' : ''
-              } ${onTrailingClick ? 'cursor-pointer' : ''}`}
+              className={cn(
+                'absolute left-2 top-1/2 flex h-4 w-4 -translate-y-1/2 items-center justify-center transition-all duration-300',
+                variant && `peer-focus:!text-${variant}-900`
+              )}
             >
-              {trailingIcon}
+              {leadingIcon}
             </span>
-          )}
-        </div>
-        {helpText && <HelpText text={helpText} />}
+          </>
+        )}
+        {trailingIcon && (
+          <span
+            onClick={onClickTrailing && onClickTrailing}
+            className={cn(
+              'absolute right-2 top-1/2 -translate-y-1/2 text-neutral-300 transition-all duration-300',
+              {
+                'cursor-pointer': onClickTrailing,
+              }
+            )}
+          >
+            {trailingIcon}
+          </span>
+        )}
       </div>
     );
   }

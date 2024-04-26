@@ -33,9 +33,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>,
   type?: string;
   leadingIcon?: React.ReactNode;
   trailingIcon?: React.ReactNode;
-  helpText?: string;
-  containerClassName?: string;
-  onTrailingClick?: () => void;
+  onClickTrailing?: () => void;
 }
 
 // section-headers.tsx
