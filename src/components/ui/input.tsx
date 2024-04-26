@@ -39,7 +39,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const computedVariant = helpText ? 'danger' : variant || 'default';
     const computedClassName = `${className} ${leadingIcon ? 'pl-7' : 'pl-2'}`;
     return (
-      <div className={`flex flex-1 flex-col gap-1 ${containerClassName ? containerClassName : ''}`}>
+      <div
+        className={`flex flex-col gap-1 lg:flex-1 ${containerClassName ? containerClassName : ''}`}
+      >
         <div className={`group relative w-full`}>
           <input
             type={type}
