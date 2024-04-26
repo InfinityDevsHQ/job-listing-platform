@@ -23,12 +23,13 @@ const Languages = [
     text: 'Urdu',
   },
 ];
+const TimeZones = [{ value: 'au', text: 'Australia' }];
 const Cities = [{ value: 'sidney', text: 'Sidney, Australia' }];
 export default function LocationForm() {
   const [preferLanguage, setPreferLanguage] = useState(Languages[0].value);
   const { allCountries } = useCountriesData();
   console.log(allCountries);
-  const [timeZone, setTimeZone] = useState();
+  const [timeZone, setTimeZone] = useState(TimeZones[0].value);
   const [errors, setErrors] = useState({
     country: '',
     password: '',
@@ -43,8 +44,8 @@ export default function LocationForm() {
       ...locationFormData,
       [name]: value,
       preferLanguage,
-      timeZone,
       city,
+      timeZone,
     });
   }
   function handleSubmit(e) {
@@ -77,7 +78,7 @@ export default function LocationForm() {
       <DropDown
         options={TimeZones}
         select={timeZone}
-        setSelect={setTimeZone}
+        setSelect={() => setTimeZone()}
         leadingIcon={<CompanyClock width={16} height={16} />}
       />
       <Input

@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
 type DropdownData = {
   text: string;
@@ -7,6 +7,6 @@ type DropdownData = {
 export type DropdownProps = {
   options: DropdownData[];
   select: string | number;
-  setSelect: (value: number | string) => void;
+  setSelect: (value?: number | string) => void;
   leadingIcon: ReactElement;
 };
