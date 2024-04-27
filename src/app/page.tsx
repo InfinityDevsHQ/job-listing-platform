@@ -5,6 +5,7 @@ import FireIcon from '@/components/svgs/fire';
 import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
 import useJobListingsData from '@/stores/job-listings-store';
+
 export default function Home() {
   const companies = [
     {
@@ -20,7 +21,9 @@ export default function Home() {
     `,
     },
   ];
+
   const { allJobs } = useJobListingsData();
+
   return (
     <div className="grid grid-cols-3 gap-8 p-4 lg:p-16">
       <div className="col-span-3 flex flex-col gap-4 lg:col-span-2 lg:gap-8">
