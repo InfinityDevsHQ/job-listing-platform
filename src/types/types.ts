@@ -207,6 +207,15 @@ export interface Resume {
   created: string;
 }
 
+export type UserSettings = {
+  dark_mode: boolean;
+  email_notifications_enabled: boolean;
+  jobsearch_filter: unknown | null; // You can replace 'any' with the specific type for your jobsearch_filter if known
+  notification_frequency: 'immediate' | 'daily' | 'weekly'; // Adjusted to include possible values based on common notification frequencies
+  id: number;
+  candidate_id: number;
+};
+
 export interface CandidateData {
   skill_tags?: string[] | null;
   ai_skill_tags?: string[];
@@ -348,6 +357,13 @@ export type User = {
   is_investor: boolean;
   is_banned: boolean;
 };
+export type CandidateRawData = {
+  raw_txt_cv: string;
+  truncated_txt_cv: string;
+  id: number;
+  candidate_id: number;
+};
+
 export type MissingCandidates = {
   id: number;
   country: string;
