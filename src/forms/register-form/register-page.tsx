@@ -3,8 +3,9 @@ import LoginRegisterToggler from '@/_components/login-register-toggler';
 import PageHeader from '@/_components/page-header';
 import TabNavigator from '@/_components/tab-navigator';
 import VectorText from '@/_components/vector-text';
-import RegisterCandidateForm from './register-candidate-form';
-import RegisterCompanyForm from './register-company-form';
+// import RegisterCandidateForm from './register-candidate-form';
+import RegisterCandidateForm from '@/forms/register';
+
 type RegisterFormProps = {
   opened: 'Company' | 'Candidate';
   setOpened: (value: 'Company' | 'Candidate') => void;
@@ -30,8 +31,8 @@ export default function RegisterPage({ opened, setOpened }: RegisterFormProps) {
       <AppsAuth google linkedin github auth="register" />
       <VectorText text="OR" />
       <TabNavigator tabs={tabs} />
-      {opened === 'Company' ? <RegisterCompanyForm /> : <RegisterCandidateForm />}
-
+      {/* {opened === 'Company' ? <RegisterCompanyForm /> : <RegisterCandidateForm />} */}
+      <RegisterCandidateForm />
       <LoginRegisterToggler currentPage="register" />
     </div>
   );
