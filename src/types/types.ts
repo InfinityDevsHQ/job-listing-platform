@@ -455,6 +455,14 @@ export interface PostJobWorkerInputData {
   user_id?: number;
   is_dummy?: boolean;
 }
+export type InboxMessage = {
+  id: number;
+  user_id: number;
+  content: string;
+  created: string; // Should be a valid date string, e.g., "2024-04-27T23:49:31.027Z"
+  seen_at: string; // Should be a valid date string, e.g., "2024-04-27T23:49:31.027Z"
+  read: boolean;
+};
 
 export interface PostJobWorkerResponse {
   id: string;
