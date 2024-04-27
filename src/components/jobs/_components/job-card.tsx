@@ -1,10 +1,10 @@
 'use client';
-import JobCardDetails from '@/_components/jobs/_components/job-card-details';
-import JobCardHeader from '@/_components/jobs/_components/job-card-header';
 import Badges from '@/components/ui/badges';
 import { JobProps } from '@/types/types';
 import Link from 'next/link';
 import { useState } from 'react';
+import JobCardDetails from './job-card-details';
+import JobCardHeader from './job-card-header';
 
 export default function JobCard({ job }: JobProps) {
   const [isOpened, setIsOpened] = useState(false);

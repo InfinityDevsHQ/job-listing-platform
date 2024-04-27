@@ -1,5 +1,5 @@
 'use client';
-import DropDown from '@/_components/dropdown';
+import DropDown from '@/components/dropdown';
 import CompanyArrow from '@/components/svgs/company-arrow';
 import CompanyCity from '@/components/svgs/company-city';
 import CompanyCommunity from '@/components/svgs/company-community';

@@ -1,20 +1,20 @@
-import Image from "next/image";
-import BoardingHeader from "../_components/boarding-header";
-import LocationForm from "@/forms/onBoarding/location-form";
+import LocationForm from '@/components/forms/onBoarding/location-form';
+import Image from 'next/image';
+import BoardingHeader from '../_components/boarding-header';
 
 export default function LocationPage() {
   // Also add dropdowns later
   return (
-    <div className="grid grid-cols-2 w-full">
-      <div className="hidden lg:flex items-center justify-center col-span-2 lg:col-span-1">
+    <div className="grid w-full grid-cols-2">
+      <div className="col-span-2 hidden items-center justify-center lg:col-span-1 lg:flex">
         <Image
-          src={"/assets/boarding/location_poster.png"}
+          src={'/assets/boarding/location_poster.png'}
           alt="Location Poster"
           width={580}
           height={580}
         />
       </div>
-      <div className="flex justify-center flex-col gap-4 w-full col-span-2 lg:col-span-1">
+      <div className="col-span-2 flex w-full flex-col justify-center gap-4 lg:col-span-1">
         <BoardingHeader title="1. Location" />
         <LocationForm />
       </div>

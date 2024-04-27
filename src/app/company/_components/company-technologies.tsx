@@ -1,4 +1,4 @@
-import Tags from '@/_components/tags';
+import Tags from '@/components/tags';
 import SectionHeading from './section-heading';
 export default function CompanyTechnologies() {
   return (

@@ -1,4 +1,4 @@
-import PostJobForm from '@/forms/post-job-form/post-job-form';
+import PostJobForm from '@/components/forms/post-job-form/post-job-form';
 import AdvancedPromotion from './_components/advanced-promotion';
 
 export default function PostJob() {

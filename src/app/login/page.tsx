@@ -1,6 +1,6 @@
 'use client';
-import Poster from '@/_components/poster';
-import LoginForm from '@/forms/login-form/login-form';
+import LoginForm from '@/components/forms/login-form/login-form';
+import Poster from '@/components/poster';
 import useLoginData from '@/stores/login-store';
 import { useState } from 'react';
 

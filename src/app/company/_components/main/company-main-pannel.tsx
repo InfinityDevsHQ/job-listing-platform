@@ -1,6 +1,6 @@
 'use client';
 import JobsList from '@/_components/jobs/jobs-list';
-import TabsNavigator from '@/_components/tabs-navigator';
+import TabsNavigator from '@/components/tabs-navigator';
 import Button from '@/components/ui/button';
 import Input from '@/components/ui/input';
 import useJobListingsData from '@/stores/job-listings-store';

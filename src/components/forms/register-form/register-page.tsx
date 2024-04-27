@@ -1,8 +1,8 @@
-import AppsAuth from '@/_components/apps-auth';
-import LoginRegisterToggler from '@/_components/login-register-toggler';
-import PageHeader from '@/_components/page-header';
-import TabNavigator from '@/_components/tab-navigator';
-import VectorText from '@/_components/vector-text';
+import AppsAuth from '@/components/apps-auth';
+import LoginRegisterToggler from '@/components/login-register-toggler';
+import PageHeader from '@/components/page-header';
+import TabNavigator from '@/components/tab-navigator';
+import VectorText from '@/components/vector-text';
 // import RegisterCandidateForm from './register-candidate-form';
 import RegisterCandidateForm from '@/forms/register';
 
