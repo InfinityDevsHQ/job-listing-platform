@@ -7,7 +7,7 @@ const LANGUAGES_URLS = {
 };
 
 // TODO: make query params dynamic and easier to use in future
-export default async function getCountries(): Promise<[]> {
+export default async function getLanguages(): Promise<[]> {
   const data = await DataService.get<[]>(`${LANGUAGES_URLS.allLanguages}`, {
     skip: '0',
     limit: '10',
