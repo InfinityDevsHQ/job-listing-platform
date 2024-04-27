@@ -1,27 +1,26 @@
-import Image from "next/image";
-import BoardingHeader from "../_components/boarding-header";
-import TermsAndConditionsForm from "@/forms/onBoarding/terms-and-conditions-form";
+import TermsAndConditionsForm from '@/components/forms/onBoarding/terms-and-conditions-form';
+import Image from 'next/image';
+import BoardingHeader from '../_components/boarding-header';
 
 export default function Finish() {
   return (
-    <div className="grid grid-cols-2 w-full">
-      <div className="hidden lg:flex items-center justify-center col-span-2 lg:col-span-1">
+    <div className="grid w-full grid-cols-2">
+      <div className="col-span-2 hidden items-center justify-center lg:col-span-1 lg:flex">
         <Image
-          src={"/assets/boarding/location_poster.png"}
+          src={'/assets/boarding/location_poster.png'}
           alt="Location Poster"
           width={580}
           height={580}
         />
       </div>
-      <div className="flex justify-center flex-col gap-4 w-full col-span-2 lg:col-span-1">
+      <div className="col-span-2 flex w-full flex-col justify-center gap-4 lg:col-span-1">
         <BoardingHeader title="5. Finish" />
-        <p className="mt-4 lg:mt-8 font-sans font-bold text-sm lg:text-xl text-mute-3">
+        <p className="mt-4 font-sans text-sm font-bold text-mute-3 lg:mt-8 lg:text-xl">
           Let&apos;s make some career magic happen!
         </p>
-        <p className="mt-4 lg:mt-8 font-sans new-gray text-sm lg:text-base">
-          Please take a moment to review our terms of use. Once you click
-          &quot;Finish&quot;, you&apos;re all set for a new frontier of job
-          opportunities.
+        <p className="new-gray mt-4 font-sans text-sm lg:mt-8 lg:text-base">
+          Please take a moment to review our terms of use. Once you click &quot;Finish&quot;,
+          you&apos;re all set for a new frontier of job opportunities.
         </p>
         <TermsAndConditionsForm />
       </div>

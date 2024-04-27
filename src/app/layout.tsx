@@ -2,8 +2,8 @@ import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
 import './globals.css';
 
-import Footer from '@/_components/footer/page';
-import Header from '@/_components/header/page';
+import Footer from '@/components/footer/page';
+import Header from '@/components/header/page';
 
 // Get meta data from relevant persons
 export const metadata: Metadata = {

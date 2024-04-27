@@ -28,8 +28,9 @@ export default function Companies() {
       <div className="flex items-center justify-center">
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-8">
           {COMPANIES.map((company, index) => (
+            // TODO: Id is hard coded for now, will make it dynamic
             <Link
-              href={'/company'}
+              href={'/companies/123'}
               key={index}
               className="flex  flex-col items-center justify-center gap-4  border border-gray-200 bg-white p-4 lg:gap-8"
             >

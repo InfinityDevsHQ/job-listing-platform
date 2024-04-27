@@ -947,3 +947,9 @@ export interface recommendations {
   overall_assessment: { text: string } | null;
   career_achievements: { text: string } | null;
 }
+
+export type GenericResponse = {
+  code: number;
+  result: any;
+  meta: any;
+};

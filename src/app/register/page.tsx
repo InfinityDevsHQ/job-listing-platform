@@ -1,12 +1,12 @@
 'use client';
-import AppsAuth from '@/_components/apps-auth';
-import LoginRegisterToggler from '@/_components/login-register-toggler';
-import PageHeader from '@/_components/page-header';
-import Poster from '@/_components/poster';
-import VectorText from '@/_components/vector-text';
+import AppsAuth from '@/components/apps-auth';
+import RegisterCandidateForm from '@/components/forms/register/candidate';
+import RegisterCompanyForm from '@/components/forms/register/company';
+import LoginRegisterToggler from '@/components/login-register-toggler';
+import PageHeader from '@/components/page-header';
+import Poster from '@/components/poster';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import RegisterCandidateForm from '@/forms/register/candidate';
-import RegisterCompanyForm from '@/forms/register/company';
+import VectorText from '@/components/vector-text';
 
 export default function Register() {
   return (
