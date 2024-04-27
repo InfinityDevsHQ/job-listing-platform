@@ -11,8 +11,6 @@ import useTogglePasswordDisplay from '@/hooks/use-toggle-password-display';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import { GET as getJobs } from '@/api/job-listings/route';
-
 import * as z from 'zod';
 
 const formSchema = z
@@ -43,11 +41,7 @@ export default function RegisterCandidateForm() {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    getJobs()
-      .then((res) => {
-        console.log('res', res);
-      })
-      .catch((err) => console.log(err));
+    console.log(values);
   }
 
   return (

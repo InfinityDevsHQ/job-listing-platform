@@ -12,7 +12,7 @@ import {
 
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import { InfoIcon } from 'lucide-react';
+import { CornerDownRightIcon } from 'lucide-react';
 
 const Form = FormProvider;
 
@@ -147,10 +147,10 @@ const FormMessage = React.forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={cn('text-destructive flex items-center gap-1 text-xs', className)}
+      className={cn('text-destructive flex items-center gap-1 text-xs text-red-500', className)}
       {...props}
     >
-      <InfoIcon className="h-3 w-3" />
+      <CornerDownRightIcon className="-mt-1 h-3 w-3" />
       <span>{body}</span>
     </p>
   );
