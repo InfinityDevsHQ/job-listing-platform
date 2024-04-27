@@ -12,12 +12,13 @@ interface OptionProp {
   icon?: React.ReactNode;
 }
 
+// TODO: change them temporary
 interface SelectProps {
   leadingIcon?: React.ReactNode;
-  options: OptionProp[];
-  selectedValue: OptionProp;
-  onChange: (value: string) => void;
-  placeholder: string;
+  options?: OptionProp[];
+  selectedValue?: OptionProp;
+  onChange?: (value: string) => void;
+  placeholder?: string;
 }
 
 export default function AppSelect({
