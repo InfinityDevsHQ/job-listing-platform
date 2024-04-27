@@ -1,5 +1,5 @@
 'use client';
-import Jobs from '@/_components/jobs/jobs-list';
+import Jobs from '@/components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
 import SectionHeader from '@/components/ui/section-header';
 import useJobListingsById, {

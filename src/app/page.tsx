@@ -1,6 +1,6 @@
 'use client';
-import CompaniesList from '@/_components/companies/companies-list';
-import JobsList from '@/_components/jobs/jobs-list';
+import CompaniesList from '@/components/companies/companies-list';
+import JobsList from '@/components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
 import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';

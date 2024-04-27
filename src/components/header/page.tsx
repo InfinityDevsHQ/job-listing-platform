@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import { usePathname, useRouter } from 'next/navigation';
 
-import Navbar from '@/_components/header/_components/navbar';
+import Navbar from '@/components/header/_components/navbar';
 import Button from '@/components/ui/button';
 
 import ArrowRightIcon from '@/components/svgs/arrow-right';

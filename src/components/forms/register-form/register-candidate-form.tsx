@@ -1,37 +1,34 @@
-"use client";
-import CompanyEye from "@/components/svgs/company-eye";
-import CompanyLock from "@/components/svgs/company-lock";
-import CompanyProfileOne from "@/components/svgs/company-profile-one";
-import CompanyMail from "@/components/svgs/coompany-mail";
-import Input from "@/components/ui/input";
-import Button from "@/components/ui/button";
-import CompanyArrow from "@/components/svgs/company-arrow";
-import useRegisterCandidateStore from "@/stores/register-candidate-store";
-import { registerCandidateFormSchema } from "@/types/schemas/register-candidate-form-schema";
-import { useState } from "react";
-import { ZodIssue } from "zod";
-import useTogglePasswordDisplay from "@/hooks/use-toggle-password-display";
+'use client';
+import CompanyEye from '@/components/svgs/company-eye';
+import CompanyLock from '@/components/svgs/company-lock';
+import CompanyProfileOne from '@/components/svgs/company-profile-one';
+import CompanyMail from '@/components/svgs/coompany-mail';
+import Input from '@/components/ui/input';
+import Button from '@/components/ui/button';
+import CompanyArrow from '@/components/svgs/company-arrow';
+import useRegisterCandidateStore from '@/stores/register-candidate-store';
+import { registerCandidateFormSchema } from '@/types/schemas/register-candidate-form-schema';
+import { useState } from 'react';
+import { ZodIssue } from 'zod';
+import useTogglePasswordDisplay from '@/hooks/use-toggle-password-display';
 export default function RegisterCandidateForm() {
-  const { registerCandidateData, setRegisterCandidateData } =
-    useRegisterCandidateStore();
+  const { registerCandidateData, setRegisterCandidateData } = useRegisterCandidateStore();
   const [showPassword, togglePasswordVisibility] = useTogglePasswordDisplay();
   const [errors, setErrors] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    confirm: "",
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    confirm: '',
   });
   function handleChange(e) {
     const { name, value } = e.target;
-    setErrors({ ...errors, [name]: "", confirm: "" });
+    setErrors({ ...errors, [name]: '', confirm: '' });
     setRegisterCandidateData({ ...registerCandidateData, [name]: value });
   }
   function handleSubmit(e) {
     e.preventDefault();
-    const validate = registerCandidateFormSchema.safeParse(
-      registerCandidateData
-    );
+    const validate = registerCandidateFormSchema.safeParse(registerCandidateData);
     if (validate.success) {
     } else {
       const validationErrors = validate.error.errors;
@@ -47,7 +44,7 @@ export default function RegisterCandidateForm() {
   return (
     <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
       <Input
-        variant={"primary"}
+        variant={'primary'}
         type="text"
         name="username"
         value={registerCandidateData.username}
@@ -57,7 +54,7 @@ export default function RegisterCandidateForm() {
         leadingIcon={<CompanyProfileOne />}
       />
       <Input
-        variant={"primary"}
+        variant={'primary'}
         type="email"
         name="email"
         value={registerCandidateData.email}
@@ -67,9 +64,9 @@ export default function RegisterCandidateForm() {
         leadingIcon={<CompanyMail width={14} height={11} />}
       />
       <Input
-        variant={"primary"}
+        variant={'primary'}
         name="password"
-        type={showPassword ? "text" : "password"}
+        type={showPassword ? 'text' : 'password'}
         value={registerCandidateData.password}
         helpText={errors.password && errors.password}
         onChange={handleChange}
@@ -79,14 +76,13 @@ export default function RegisterCandidateForm() {
         trailingIcon={<CompanyEye width={16} height={13} />}
       />
       <Input
-        variant={"primary"}
+        variant={'primary'}
         name="confirmPassword"
-        type={showPassword ? "text" : "password"}
+        type={showPassword ? 'text' : 'password'}
         onTrailingClick={togglePasswordVisibility}
         value={registerCandidateData.confirmPassword}
         helpText={
-          (errors.confirmPassword && errors.confirmPassword) ||
-          (errors.confirm && errors.confirm)
+          (errors.confirmPassword && errors.confirmPassword) || (errors.confirm && errors.confirm)
         }
         onChange={handleChange}
         placeholder="Password"
@@ -95,12 +91,10 @@ export default function RegisterCandidateForm() {
       />
       <Button
         text="Continue"
-        variant={"primary"}
+        variant={'primary'}
         className="!max-w-full justify-center"
         type="submit"
-        trailingIcon={
-          <CompanyArrow width={16} height={16} fill="white" className="pt-1" />
-        }
+        trailingIcon={<CompanyArrow width={16} height={16} fill="white" className="pt-1" />}
       />
     </form>
   );
