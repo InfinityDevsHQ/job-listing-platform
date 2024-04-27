@@ -1,21 +1,22 @@
 import Badges from '@/components/ui/badges';
 import Button from '@/components/ui/button';
 import InfoSection from '@/components/ui/info-section';
+import { Job } from '@/types/types';
 import { ArrowRight } from 'lucide-react';
 import JobFeedback from './job-feedback';
 import JobHeader from './job-header';
 import JobInfo from './job-info';
 import JobRequirements from './job-requirements';
 type SearchedJobProps = {
-  searchedJob: JobData;
+  searchedJob: Job;
 };
 const SearchedJob = ({ searchedJob }: SearchedJobProps) => {
   return (
     <div className="flex flex-col gap-4 rounded-md border border-gray-200 bg-white p-4 lg:gap-8 lg:p-8">
       <JobHeader
         title={`${searchedJob.title ? searchedJob.title : ''}`}
-        external_company_name={searchedJob.external_company_name}
-        is_hot={searchedJob.is_hot}
+        external_company_name={searchedJob.external_company_name || ''}
+        is_hot={!!searchedJob.is_hot}
       />
       <div className="flex h-full flex-col gap-4 lg:flex-row lg:gap-8">
         <div className="order-2 flex w-full flex-col gap-4 lg:order-1 lg:gap-8">

@@ -1,10 +1,8 @@
-'use client';
 import CompaniesList from '@/components/companies/companies-list';
 import JobsList from '@/components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
 import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
-import useJobListingsData from '@/stores/job-listings-store';
 
 export default function Home() {
   const companies = [
@@ -22,8 +20,6 @@ export default function Home() {
     },
   ];
 
-  const { allJobs } = useJobListingsData();
-
   return (
     <div className="grid grid-cols-3 gap-8 p-4 lg:p-16">
       <div className="col-span-3 flex flex-col gap-4 lg:col-span-2 lg:gap-8">
@@ -31,9 +27,9 @@ export default function Home() {
         <SectionHeader
           leadingIcon={<FireIcon className="h-5 w-4 text-red-900 lg:h-7 lg:w-6" />}
           heading="Latest Hot Offers"
-          helpText={`${allJobs?.length} JOBS`}
+          helpText={`JOBS`}
         />
-        <JobsList jobs={allJobs} />
+        <JobsList />
       </div>
       <div className="col-span-3 flex flex-col gap-5 lg:col-span-1">
         <SectionHeader
