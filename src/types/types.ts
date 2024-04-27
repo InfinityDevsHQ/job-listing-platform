@@ -316,6 +316,43 @@ export interface stepsType {
   isDone: boolean;
 }
 
+//Users
+export type User = {
+  email: string;
+  name: string;
+  company_id: null | number;
+  phone_number: string;
+  country: string;
+  city: string;
+  timezone: string;
+  profile_picture: string;
+  selected_country: string;
+  online_status: 'Online' | 'Offline';
+  ai_tokens_query_limit: number;
+  ai_tokens_consumed: number;
+  is_recruiter: boolean;
+  is_onboarded: boolean;
+  is_social_login: boolean;
+  last_active: string; // Should be a valid date string, e.g., "2024-04-24T20:29:20.106046"
+  id: number;
+  uid: string;
+  latitude: number;
+  longitude: number;
+  geo_resolve_tries: number;
+  language: string | null;
+  prefered_language: string;
+  is_active: boolean;
+  is_staff: boolean;
+  is_admin: boolean;
+  is_superuser: boolean;
+  is_investor: boolean;
+  is_banned: boolean;
+};
+export type MissingCandidates = {
+  id: number;
+  country: string;
+  city: string;
+};
 //AIPoweredAccordionItem.tsx
 
 export interface AccordionProps {
