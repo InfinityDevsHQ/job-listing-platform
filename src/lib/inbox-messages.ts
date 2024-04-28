@@ -16,12 +16,7 @@ export async function getReadInboxMessageByMessageId(
     return {} as InboxMessage;
   }
   const data = await DataService.get<InboxMessage>(
-    `${INBOX_MESSAGES_URLS.singleInboxMessage}/${messageId}`,
-    {
-      skip: '0',
-      limit: '10',
-      allow_for_translated_jobs: 'false',
-    }
+    `${INBOX_MESSAGES_URLS.singleInboxMessage}/${messageId}`
   );
   return data;
 }
@@ -31,12 +26,7 @@ export async function getReadInboxMessageByUserId(user_id: string | number): Pro
     return {} as InboxMessage;
   }
   const data = await DataService.get<InboxMessage>(
-    `${INBOX_MESSAGES_URLS.readUserMessage}/${user_id}`,
-    {
-      skip: '0',
-      limit: '10',
-      allow_for_translated_jobs: 'false',
-    }
+    `${INBOX_MESSAGES_URLS.readUserMessage}/${user_id}`
   );
   return data;
 }

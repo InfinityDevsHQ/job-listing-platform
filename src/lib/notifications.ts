@@ -16,12 +16,7 @@ export async function getReadInboxMessageByMessageId(
     return {} as Notification;
   }
   const data = await DataService.get<Notification>(
-    `${NOTIFICATIONS_URLS.notificationByNotificationId}/${notificationId}`,
-    {
-      skip: '0',
-      limit: '10',
-      allow_for_translated_jobs: 'false',
-    }
+    `${NOTIFICATIONS_URLS.notificationByNotificationId}/${notificationId}`
   );
   return data;
 }
@@ -31,12 +26,7 @@ export async function getReadInboxMessageByUserId(user_id: string | number): Pro
     return {} as Notification;
   }
   const data = await DataService.get<Notification>(
-    `${NOTIFICATIONS_URLS.notificationByUserId}/${user_id}`,
-    {
-      skip: '0',
-      limit: '10',
-      allow_for_translated_jobs: 'false',
-    }
+    `${NOTIFICATIONS_URLS.notificationByUserId}/${user_id}`
   );
   return data;
 }

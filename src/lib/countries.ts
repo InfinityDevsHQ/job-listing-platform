@@ -10,11 +10,7 @@ const COUNTRIES_URLS = {
 
 // TODO: make query params dynamic and easier to use in future
 export async function getCountries(): Promise<Country[]> {
-  const data = await DataService.get<Country[]>(`${COUNTRIES_URLS.allCountries}`, {
-    skip: '0',
-    limit: '10',
-    allow_for_translated_jobs: 'false',
-  });
+  const data = await DataService.get<Country[]>(`${COUNTRIES_URLS.allCountries}`);
   return data;
 }
 
@@ -23,10 +19,6 @@ export async function getJobById(countryId: string): Promise<Country> {
     // can return 404 heres
     return {} as Country;
   }
-  const data = await DataService.get<Country>(`${COUNTRIES_URLS.singleCountry}/${countryId}`, {
-    skip: '0',
-    limit: '10',
-    allow_for_translated_jobs: 'false',
-  });
+  const data = await DataService.get<Country>(`${COUNTRIES_URLS.singleCountry}/${countryId}`);
   return data;
 }

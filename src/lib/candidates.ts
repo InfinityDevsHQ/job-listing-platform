@@ -30,11 +30,7 @@ export async function getCandidateByCandidateId(candidateId: string): Promise<{}
     // can return 404 heres
     return {} as {};
   }
-  const data = await DataService.get<{}>(`${CANDIDATES_URLS.singleCandidate}/${candidateId}`, {
-    skip: '0',
-    limit: '10',
-    allow_for_translated_jobs: 'false',
-  });
+  const data = await DataService.get<{}>(`${CANDIDATES_URLS.singleCandidate}/${candidateId}`);
   return data;
 }
 
@@ -46,12 +42,7 @@ export async function getCandidateSettingsByCandidateId(
     return {} as UserSettings;
   }
   const data = await DataService.get<UserSettings>(
-    `${CANDIDATES_URLS.singleCandidateSettings}/${candidateId}`,
-    {
-      skip: '0',
-      limit: '10',
-      allow_for_translated_jobs: 'false',
-    }
+    `${CANDIDATES_URLS.singleCandidateSettings}/${candidateId}`
   );
   return data;
 }
@@ -61,14 +52,7 @@ export async function getUserInfoByCandidateId(candidateId: string): Promise<Use
     // can return 404 heres
     return {} as User;
   }
-  const data = await DataService.get<User>(
-    `${CANDIDATES_URLS.singleCandidateInfo}/${candidateId}`,
-    {
-      skip: '0',
-      limit: '10',
-      allow_for_translated_jobs: 'false',
-    }
-  );
+  const data = await DataService.get<User>(`${CANDIDATES_URLS.singleCandidateInfo}/${candidateId}`);
   return data;
 }
 export async function getCandidateRawDataByCandidateId(
@@ -79,12 +63,7 @@ export async function getCandidateRawDataByCandidateId(
     return {} as CandidateRawData;
   }
   const data = await DataService.get<CandidateRawData>(
-    `${CANDIDATES_URLS.singleCandidateRawData}/${candidateId}`,
-    {
-      skip: '0',
-      limit: '10',
-      allow_for_translated_jobs: 'false',
-    }
+    `${CANDIDATES_URLS.singleCandidateRawData}/${candidateId}`
   );
   return data;
 }
@@ -94,12 +73,7 @@ export async function getCandidateRecommendationsByCandidateId(candidateId: stri
     return {} as {};
   }
   const data = await DataService.get<{}>(
-    `${CANDIDATES_URLS.singleCandidateRecommendations}/${candidateId}`,
-    {
-      skip: '0',
-      limit: '10',
-      allow_for_translated_jobs: 'false',
-    }
+    `${CANDIDATES_URLS.singleCandidateRecommendations}/${candidateId}`
   );
   return data;
 }

@@ -9,11 +9,10 @@ const RECRUITER_URLS = {
 };
 
 // TODO: make query params dynamic and easier to use in future
-export async function getJobs(): Promise<Recruiter[]> {
+export async function getRecruiters(): Promise<Recruiter[]> {
   const data = await DataService.get<Recruiter[]>(`${RECRUITER_URLS.allRecruiters}`, {
     skip: '0',
-    limit: '10',
-    allow_for_translated_jobs: 'false',
+    limit: '100',
   });
   return data;
 }
@@ -24,12 +23,7 @@ export async function getJobById(recruiter_id: string): Promise<Recruiter> {
     return {} as Recruiter;
   }
   const data = await DataService.get<Recruiter>(
-    `${RECRUITER_URLS.singleRecruiter}/${recruiter_id}`,
-    {
-      skip: '0',
-      limit: '10',
-      allow_for_translated_jobs: 'false',
-    }
+    `${RECRUITER_URLS.singleRecruiter}/${recruiter_id}`
   );
   return data;
 }
