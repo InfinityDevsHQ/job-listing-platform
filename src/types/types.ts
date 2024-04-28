@@ -357,6 +357,17 @@ export type User = {
   is_investor: boolean;
   is_banned: boolean;
 };
+
+//Recruiters
+export type Recruiter = {
+  user: User;
+  companyId: string | number;
+  phoneNumber: string;
+  calendly_link: string;
+  id: number | string;
+  user_id: number | string;
+};
+
 export type CandidateRawData = {
   raw_txt_cv: string;
   truncated_txt_cv: string;
