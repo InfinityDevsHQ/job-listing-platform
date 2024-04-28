@@ -435,6 +435,11 @@ export type Subscriber = {
   id: number | string;
   email: string;
 };
+export type HealthCheck = {
+  status: string;
+  message: string;
+};
+
 // Params Type
 export interface EntitySlugParams {
   slug: string;
