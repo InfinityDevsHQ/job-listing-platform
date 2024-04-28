@@ -463,7 +463,13 @@ export type InboxMessage = {
   seen_at: string; // Should be a valid date string, e.g., "2024-04-27T23:49:31.027Z"
   read: boolean;
 };
-
+export type Notification = {
+  content: unknown;
+  id: number | string;
+  created: string;
+  seen: string;
+  user_id: number | string;
+};
 export interface PostJobWorkerResponse {
   id: string;
   result: string;
