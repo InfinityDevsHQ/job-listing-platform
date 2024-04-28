@@ -1,14 +1,12 @@
 'use client';
 import SyncIcon from '@/components/svgs/sync';
 import Button from '@/components/ui/button';
-import { Form } from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import TextArea from '@/components/ui/text-area';
-import usePostJobDataStore from '@/stores/job-post-form-data-store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 const postJobFormSchema = z.object({
@@ -43,26 +41,7 @@ export default function PostJobForm() {
   async function onSubmit(values: z.infer<typeof postJobFormSchema>) {
     console.log(values);
   }
-  const { postJobData, setPostJobData } = usePostJobDataStore();
-  const [errors, setErrors] = useState({
-    jobTitle: '',
-    city: '',
-    employment: '',
-    country: '',
-    language: '',
-    remunerationRageStart: '',
-    remunerationRageEnd: '',
-    currency: '',
-    description: '',
-  });
   const router = useRouter();
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setErrors({ ...errors, [name]: '' });
-    setPostJobData({ ...postJobData, [name]: value });
-    console.log(postJobData);
-  }
-
   return (
     <Form {...form}>
       <form
@@ -80,107 +59,115 @@ export default function PostJobForm() {
           </div>
           <div className="col-span-2 flex flex-col gap-4 rounded-custom-20 lg:col-span-1 lg:gap-8">
             <h3 className="font-sans text-base font-bold text-gray-700">Post a job listing</h3>
-            <Input
-              type="text"
-              id="jobTitle"
-              name={'jobTitle'}
-              value={postJobData.jobTitle}
-              placeholder={'Title'}
-              helpText={errors.jobTitle && errors.jobTitle}
-              className="max-w-full flex-1"
-              containerClassName="flex-1"
-              onChange={handleChange}
+            <FormField
+              control={form.control}
+              name="jobTitle"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder={'Title'} className="max-w-full flex-1" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-            <Input
-              type="text"
-              id="city"
-              name={'city'}
-              value={postJobData.city}
-              placeholder={'City'}
-              helpText={errors.city && errors.city}
-              className="max-w-full flex-1"
-              containerClassName="flex-1"
-              onChange={handleChange}
+            <FormField
+              control={form.control}
+              name="city"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder={'City'} className="max-w-full flex-1" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-            <Input
-              type="text"
-              id="employment"
-              name={'employment'}
-              value={postJobData.employment}
-              placeholder={'Employment'}
-              helpText={errors.employment && errors.employment}
-              className="max-w-full flex-1"
-              containerClassName="flex-1"
-              onChange={handleChange}
+            <FormField
+              control={form.control}
+              name="employment"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder={'Employment'} className="max-w-full flex-1" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-            <Input
-              type="text"
-              id="country"
-              name={'country'}
-              value={postJobData.country}
-              placeholder={'Germany'}
-              helpText={errors.country && errors.country}
-              className="max-w-full flex-1"
-              containerClassName="flex-1"
-              onChange={handleChange}
+            <FormField
+              control={form.control}
+              name="country"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder={'Germany'} className="max-w-full flex-1" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-            <Input
-              type="text"
-              id="language"
-              name={'language'}
-              value={postJobData.language}
-              placeholder={'Language'}
-              helpText={errors.language && errors.language}
-              className="max-w-full flex-1"
-              containerClassName="flex-1"
-              onChange={handleChange}
+            <FormField
+              control={form.control}
+              name="language"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder={'Language'} className="max-w-full flex-1" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
             <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-8">
-              <Input
-                type="text"
-                id="remunerationRageStart"
-                name={'remunerationRageStart'}
-                value={postJobData.remunerationRageStart}
-                placeholder={'From'}
-                helpText={errors.remunerationRageStart && errors.remunerationRageStart}
-                className="max-w-full flex-1"
-                containerClassName="flex-1"
-                onChange={handleChange}
+              <FormField
+                control={form.control}
+                name="remunerationRageStart"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder={'From'} className="max-w-full flex-1" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
-              <Input
-                type="text"
-                id="remunerationRageEnd"
-                name={'remunerationRageEnd'}
-                value={postJobData.remunerationRageEnd}
-                placeholder={'To'}
-                helpText={errors.remunerationRageEnd && errors.remunerationRageEnd}
-                className="max-w-full flex-1"
-                containerClassName="flex-1"
-                onChange={handleChange}
+              <FormField
+                control={form.control}
+                name="remunerationRageEnd"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder={'To'} className="max-w-full flex-1" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
             </div>
-
-            <Input
-              type="text"
-              id="currency"
-              name={'currency'}
-              value={postJobData.currency}
-              placeholder={'EUR'}
-              helpText={errors.currency && errors.currency}
-              className="max-w-full flex-1"
-              containerClassName="flex-1"
-              onChange={handleChange}
+            <FormField
+              control={form.control}
+              name="currency"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder={'EUR'} className="max-w-full flex-1" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-            <TextArea
-              type="text"
-              id="description"
-              name={'description'}
-              value={postJobData.description}
-              placeholder={'Description'}
-              helpText={errors.description && errors.description}
-              className="max-w-full flex-1"
-              containerClassName="flex-1"
-              onChange={handleChange}
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <TextArea placeholder={'Description'} className="max-w-full flex-1" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
           </div>
           <div className="col-span-2 flex flex-col items-center justify-between gap-2 lg:flex-row">
@@ -190,10 +177,10 @@ export default function PostJobForm() {
             </p>
             <Button
               type="submit"
-              text="Analyze"
+              text={isLoading ? 'Loading..' : 'Analyze'}
               variant="primary"
               size="full"
-              leadingIcon={<SyncIcon />}
+              leadingIcon={!isLoading && <SyncIcon />}
               className="justify-center lg:hidden"
             />
             <Button
@@ -201,7 +188,7 @@ export default function PostJobForm() {
               text="Analyze"
               variant="primary"
               className="hidden items-center lg:flex"
-              leadingIcon={<SyncIcon />}
+              leadingIcon={!isLoading && <SyncIcon />}
             />
           </div>
         </div>
