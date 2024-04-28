@@ -59,6 +59,9 @@ const config = {
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
       },
+      boxShadow: {
+        theme: '0px 4px 60px 0px #0000000D',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

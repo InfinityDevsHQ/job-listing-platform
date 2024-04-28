@@ -1,4 +1,4 @@
-import { getPromotedCompanies } from '@/lib/compsnies';
+import { getPromotedCompanies } from '@/lib/companies';
 import CompanyCard from './company-card';
 
 const CompaniesList = async () => {
