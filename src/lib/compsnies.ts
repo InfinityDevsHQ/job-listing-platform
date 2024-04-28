@@ -1,10 +1,10 @@
 'use server';
 import { DataService } from './data-service';
-const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
+const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
 const COMPANIES_URLS = {
-  allPromotedCompanies: `${NEURAL_API_BASE_URL}/api/v1/companies/promoted`,
-  singleCompany: `${NEURAL_API_BASE_URL}/api/v1/companies/promoted`,
+  allPromotedCompanies: `${PLATFORM_API_BASE_URL}/api/v1/companies/promoted`,
+  singleCompany: `${PLATFORM_API_BASE_URL}/api/v1/companies/promoted`,
 };
 
 // TODO: make query params dynamic and easier to use in future

@@ -1,11 +1,11 @@
 'use server';
 import { InboxMessage } from '@/types/types';
 import { DataService } from './data-service';
-const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
+const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
 const INBOX_MESSAGES_URLS = {
-  singleInboxMessage: `${NEURAL_API_BASE_URL}/api/v1/inbox`,
-  readUserMessage: `${NEURAL_API_BASE_URL}/api/v1/inbox/user`,
+  singleInboxMessage: `${PLATFORM_API_BASE_URL}/api/v1/inbox`,
+  readUserMessage: `${PLATFORM_API_BASE_URL}/api/v1/inbox/user`,
 };
 
 export async function getReadInboxMessageByMessageId(

@@ -1,14 +1,14 @@
 'use server';
 import { CandidateRawData, User, UserSettings } from '@/types/types';
 import { DataService } from './data-service';
-const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
+const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
 const CANDIDATES_URLS = {
-  singleCandidate: `${NEURAL_API_BASE_URL}/api/v1/candidates/user`,
-  singleCandidateSettings: `${NEURAL_API_BASE_URL}/api/v1/candidates/settings`,
-  singleCandidateInfo: `${NEURAL_API_BASE_URL}/api/v1/candidates/user_info`,
-  singleCandidateRawData: `${NEURAL_API_BASE_URL}/api/v1/candidates/raw_data`,
-  singleCandidateRecommendations: `${NEURAL_API_BASE_URL}/api/v1/candidates/recommendation/{candidate_id}`,
+  singleCandidate: `${PLATFORM_API_BASE_URL}/api/v1/candidates/user`,
+  singleCandidateSettings: `${PLATFORM_API_BASE_URL}/api/v1/candidates/settings`,
+  singleCandidateInfo: `${PLATFORM_API_BASE_URL}/api/v1/candidates/user_info`,
+  singleCandidateRawData: `${PLATFORM_API_BASE_URL}/api/v1/candidates/raw_data`,
+  singleCandidateRecommendations: `${PLATFORM_API_BASE_URL}/api/v1/candidates/recommendation/{candidate_id}`,
 };
 
 // TODO: make query params dynamic and easier to use in future

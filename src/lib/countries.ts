@@ -1,11 +1,11 @@
 'use server';
 import { Country } from '@/types/types';
 import { DataService } from './data-service';
-const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
+const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
 const COUNTRIES_URLS = {
-  allCountries: `${NEURAL_API_BASE_URL}/api/v1/platform/country`,
-  singleCountry: `${NEURAL_API_BASE_URL}/api/v1/platform/country/`,
+  allCountries: `${PLATFORM_API_BASE_URL}/api/v1/platform/country`,
+  singleCountry: `${PLATFORM_API_BASE_URL}/api/v1/platform/country/`,
 };
 
 // TODO: make query params dynamic and easier to use in future

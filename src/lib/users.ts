@@ -1,11 +1,11 @@
 'use server';
 import { MissingCandidates, User } from '@/types/types';
 import { DataService } from './data-service';
-const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
+const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
 const USER_URLS = {
-  singleUser: `${NEURAL_API_BASE_URL}/api/v1/users`,
-  missingCandidates: `${NEURAL_API_BASE_URL}/api/v1/users/missing-coordinates`,
+  singleUser: `${PLATFORM_API_BASE_URL}/api/v1/users`,
+  missingCandidates: `${PLATFORM_API_BASE_URL}/api/v1/users/missing-coordinates`,
 };
 
 // TODO: make query params dynamic and easier to use in future

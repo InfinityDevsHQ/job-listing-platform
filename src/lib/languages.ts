@@ -1,9 +1,9 @@
 'use server';
 import { DataService } from './data-service';
-const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
+const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
 const LANGUAGES_URLS = {
-  allLanguages: `${NEURAL_API_BASE_URL}/api/v1/platform/languages`,
+  allLanguages: `${PLATFORM_API_BASE_URL}/api/v1/platform/languages`,
 };
 
 // TODO: make query params dynamic and easier to use in future

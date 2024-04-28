@@ -1,11 +1,11 @@
 'use server';
 import { Recruiter } from '@/types/types';
 import { DataService } from './data-service';
-const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
+const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
 const RECRUITER_URLS = {
-  allRecruiters: `${NEURAL_API_BASE_URL}/api/v1/recruiters/recruiters/`,
-  singleRecruiter: `${NEURAL_API_BASE_URL}/api/v1/recruiters/recruiters/{recruiter_id}`,
+  allRecruiters: `${PLATFORM_API_BASE_URL}/api/v1/recruiters/recruiters/`,
+  singleRecruiter: `${PLATFORM_API_BASE_URL}/api/v1/recruiters/recruiters/{recruiter_id}`,
 };
 
 // TODO: make query params dynamic and easier to use in future
