@@ -14,7 +14,8 @@ const handleResponseGracefully = async (response: Response) => {
     if (response.status >= 400 && response.status < 500) {
       // Client error
       const responseData = await response.json();
-      errorMessage = responseData.error || responseData.message || errorMessage;
+      errorMessage =
+        responseData.detail || responseData.error || responseData.message || errorMessage;
     } else if (response.status >= 500 && response.status < 600) {
       // Server error
       errorMessage = 'Server error, Something wrong with backend service';
