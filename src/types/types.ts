@@ -431,7 +431,10 @@ export interface ClickedJobResponse {
   job_id: number;
   id: number;
 }
-
+export type Subscriber = {
+  id: number | string;
+  email: string;
+};
 // Params Type
 export interface EntitySlugParams {
   slug: string;
