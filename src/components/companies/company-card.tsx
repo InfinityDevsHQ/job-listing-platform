@@ -1,8 +1,6 @@
-import Image from 'next/image';
-
 import Button from '@/components/ui/button';
-
 import { CompanyCardProps } from '@/types/types';
+import Image from 'next/image';
 
 const CompanyCard = ({ companyName, companyLogo, companyDescription }: CompanyCardProps) => {
   return (
