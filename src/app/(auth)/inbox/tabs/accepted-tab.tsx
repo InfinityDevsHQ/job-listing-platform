@@ -2,8 +2,10 @@ import CompanyEye from '@/components/svgs/company-eye';
 import MagnifyingGlassIcon from '@/components/svgs/magnifying-glass';
 import Input from '@/components/ui/input';
 import ContactCard from '../_components/contact-card';
-
-const AcceptedTab = () => {
+type AcceptedTabProps = {
+  className?: string;
+};
+const AcceptedTab = ({ className }: AcceptedTabProps) => {
   const Notifications = [
     {
       senderName: 'Joe Paul',
@@ -26,13 +28,14 @@ const AcceptedTab = () => {
     },
   ];
   return (
-    <div className="w-82 rounded-md border border-neutral-200  bg-white p-4">
-      <Input
-        placeholder="Search"
-        leadingIcon={<MagnifyingGlassIcon />}
-        className="hidden lg:flex "
-        trailingIcon={<CompanyEye width={16} height={16} />}
-      />
+    <div className={`w-82 rounded-md border border-neutral-200  bg-white p-4 ${className}`}>
+      <div className="hidden lg:block">
+        <Input
+          placeholder="Search"
+          leadingIcon={<MagnifyingGlassIcon />}
+          trailingIcon={<CompanyEye width={16} height={16} />}
+        />
+      </div>
       {Notifications.map((notification, index) => (
         <ContactCard
           key={index}
