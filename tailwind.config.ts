@@ -34,6 +34,10 @@ const config = {
         'mute-1': '#263238',
         'mute-2': '#EBEBEB',
         'mute-3': '#70777f',
+        destructive: {
+          DEFAULT: 'hsl(0 72.22% 50.59%)',
+          foreground: '#FFF',
+        },
       },
       borderRadius: {
         'custom-20': '20px',

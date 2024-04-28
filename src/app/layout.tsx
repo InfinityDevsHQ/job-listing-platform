@@ -4,6 +4,7 @@ import './globals.css';
 
 import Footer from '@/components/footer/page';
 import Header from '@/components/header/page';
+import { Toaster } from '@/components/ui/toaster';
 
 // Get meta data from relevant persons
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
