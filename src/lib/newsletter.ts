@@ -8,7 +8,7 @@ const NEWSLETTER_URLS = {
   subscribersCount: `${PLATFORM_API_BASE_URL}/api/v1/newsletter/subscribers/count`,
 };
 
-export async function getLanguages(): Promise<Subscriber[]> {
+export async function getSubscribers(): Promise<Subscriber[]> {
   const data = await DataService.get<Subscriber[]>(`${NEWSLETTER_URLS.allSubscribers}`);
   return data;
 }
