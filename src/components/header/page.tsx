@@ -15,9 +15,7 @@ import { ChevronsUpDown } from 'lucide-react';
 const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
-
   const noHeaderRoutes = ['/login', '/register'];
-
   if (noHeaderRoutes?.includes(pathname)) {
     return <></>;
   }

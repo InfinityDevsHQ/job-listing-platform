@@ -207,6 +207,15 @@ export interface Resume {
   created: string;
 }
 
+export type UserSettings = {
+  dark_mode: boolean;
+  email_notifications_enabled: boolean;
+  jobsearch_filter: unknown | null; // You can replace 'any' with the specific type for your jobsearch_filter if known
+  notification_frequency: 'immediate' | 'daily' | 'weekly'; // Adjusted to include possible values based on common notification frequencies
+  id: number;
+  candidate_id: number;
+};
+
 export interface CandidateData {
   skill_tags?: string[] | null;
   ai_skill_tags?: string[];
@@ -316,6 +325,61 @@ export interface stepsType {
   isDone: boolean;
 }
 
+//Users
+export type User = {
+  email: string;
+  name: string;
+  company_id: null | number;
+  phone_number: string;
+  country: string;
+  city: string;
+  timezone: string;
+  profile_picture: string;
+  selected_country: string;
+  online_status: 'Online' | 'Offline';
+  ai_tokens_query_limit: number;
+  ai_tokens_consumed: number;
+  is_recruiter: boolean;
+  is_onboarded: boolean;
+  is_social_login: boolean;
+  last_active: string; // Should be a valid date string, e.g., "2024-04-24T20:29:20.106046"
+  id: number;
+  uid: string;
+  latitude: number;
+  longitude: number;
+  geo_resolve_tries: number;
+  language: string | null;
+  prefered_language: string;
+  is_active: boolean;
+  is_staff: boolean;
+  is_admin: boolean;
+  is_superuser: boolean;
+  is_investor: boolean;
+  is_banned: boolean;
+};
+
+//Recruiters
+export type Recruiter = {
+  user: User;
+  companyId: string | number;
+  phoneNumber: string;
+  calendly_link: string;
+  id: number | string;
+  user_id: number | string;
+};
+
+export type CandidateRawData = {
+  raw_txt_cv: string;
+  truncated_txt_cv: string;
+  id: number;
+  candidate_id: number;
+};
+
+export type MissingCandidates = {
+  id: number;
+  country: string;
+  city: string;
+};
 //AIPoweredAccordionItem.tsx
 
 export interface AccordionProps {
@@ -402,7 +466,21 @@ export interface PostJobWorkerInputData {
   user_id?: number;
   is_dummy?: boolean;
 }
-
+export type InboxMessage = {
+  id: number;
+  user_id: number;
+  content: string;
+  created: string; // Should be a valid date string, e.g., "2024-04-27T23:49:31.027Z"
+  seen_at: string; // Should be a valid date string, e.g., "2024-04-27T23:49:31.027Z"
+  read: boolean;
+};
+export type Notification = {
+  content: unknown;
+  id: number | string;
+  created: string;
+  seen: string;
+  user_id: number | string;
+};
 export interface PostJobWorkerResponse {
   id: string;
   result: string;

@@ -3,7 +3,6 @@ import JobsList from '@/components/jobs/jobs-list';
 import TabsNavigator from '@/components/tabs-navigator';
 import Button from '@/components/ui/button';
 import Input from '@/components/ui/input';
-import useJobListingsData from '@/stores/job-listings-store';
 import { TabsNavigatorData } from '@/types/tabs-navigator-data';
 import { useState } from 'react';
 import CompanyAbout from '../company-about';
@@ -14,7 +13,6 @@ import CompanyLink from '../company-link';
 import SectionHeading from '../section-heading';
 
 export default function CompanyMainPanel() {
-  const { allJobs } = useJobListingsData();
   const [page, setPage] = useState('about');
   const Tabs: TabsNavigatorData[] = [
     {
@@ -77,12 +75,12 @@ export default function CompanyMainPanel() {
       )}
       <div className="hidden flex-col gap-7 lg:flex">
         <SectionHeading text="Job Opportunities" />
-        <JobsList jobs={allJobs} />
+        <JobsList />
       </div>
       {page == 'job-openings' && (
         <div className="flex flex-col gap-4">
           <SectionHeading text="Job Opportunities" />
-          <JobsList jobs={allJobs} />
+          <JobsList />
         </div>
       )}
     </div>
