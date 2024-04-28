@@ -1,4 +1,5 @@
 'use server';
+import { Company } from '@/types/types';
 import { DataService } from './data-service';
 const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
@@ -7,19 +8,19 @@ const COMPANIES_URLS = {
   singleCompany: `${PLATFORM_API_BASE_URL}/api/v1/companies/promoted`,
 };
 
-export async function getPromotedCompanies(): Promise<{}> {
-  const data = await DataService.get<{}>(`${COMPANIES_URLS.allPromotedCompanies}`, {
+export async function getPromotedCompanies(): Promise<Company[]> {
+  const data = await DataService.get<Company[]>(`${COMPANIES_URLS.allPromotedCompanies}`, {
     skip: `0`,
     limit: `20`,
     sort_by: 'alphabetical',
   });
   return data;
 }
-export async function getCompanyById(companyId: string | number): Promise<{}> {
+export async function getCompanyById(companyId: string | number): Promise<Company> {
   if (!companyId) {
     // can return 404 heres
-    return {} as {};
+    return {} as Company;
   }
-  const data = await DataService.get<{}>(`${COMPANIES_URLS.singleCompany}/${companyId}`);
+  const data = await DataService.get<Company>(`${COMPANIES_URLS.singleCompany}/${companyId}`);
   return data;
 }
