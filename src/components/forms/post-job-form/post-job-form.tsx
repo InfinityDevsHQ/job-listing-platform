@@ -4,6 +4,8 @@ import Button from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import TextArea from '@/components/ui/text-area';
+import { toast } from '@/hooks/use-toast';
+import { postJobListing } from '@/lib/jobs';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -38,10 +40,38 @@ export default function PostJobForm() {
     },
   });
   const isLoading = form.formState.isSubmitting;
-  async function onSubmit(values: z.infer<typeof postJobFormSchema>) {
-    console.log(values);
-  }
   const router = useRouter();
+  async function onSubmit(values: z.infer<typeof postJobFormSchema>) {
+    const body = {
+      title: values.jobTitle,
+      city: values.city,
+      category: '',
+      country: values.country,
+      employment_type: values.employment,
+      description: values.description,
+      job_requirements: '',
+      welcomed_skills: '',
+      language: values.language,
+      is_dummy: true,
+      short_description: '',
+      skill_tags: [],
+      work_location_type: '',
+      remuneration_from: Number(values.remunerationRageStart),
+      remuneration_to: Number(values.remunerationRageEnd),
+      remuneration_currency: values.currency,
+    };
+    postJobListing(body)
+      .then((data) => {
+        console.log(data);
+        router.push('/jobs/create/success');
+      })
+      .catch((error) => {
+        toast({
+          variant: 'destructive',
+          title: error.message || 'Uh oh! Something went wrong.',
+        });
+      });
+  }
   return (
     <Form {...form}>
       <form
@@ -126,7 +156,12 @@ export default function PostJobForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input {...field} placeholder={'From'} className="max-w-full flex-1" />
+                      <Input
+                        {...field}
+                        type="number"
+                        placeholder={'From'}
+                        className="max-w-full flex-1"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -163,7 +198,11 @@ export default function PostJobForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <TextArea placeholder={'Description'} className="max-w-full flex-1" />
+                    <TextArea
+                      {...field}
+                      placeholder={'Description'}
+                      className="max-w-full flex-1"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
