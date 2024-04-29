@@ -27,7 +27,6 @@ export default function LocationForm() {
       timeZone: '',
       country: '',
       city: '',
-      password: '',
     },
   });
   const isLoading = form.formState.isSubmitting;

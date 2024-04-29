@@ -1,5 +1,5 @@
-import Intro from "./_components/intro";
-import FormsSlider from "./_components/forms-slider";
+import Intro from './_components/intro';
+import FormsSlider from './_components/forms-slider';
 export default function Home() {
   return (
     <>
