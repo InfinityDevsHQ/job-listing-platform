@@ -8,6 +8,7 @@ import ContactPage from '../tabs/contact-page';
 export default function FormsSlider() {
   const searchParams = useSearchParams();
   const step = searchParams.get('step');
+
   switch (step) {
     case 'location':
       return <LocationPage />;

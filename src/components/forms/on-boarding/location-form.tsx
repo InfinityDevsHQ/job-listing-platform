@@ -6,7 +6,6 @@ import Input from '@/components/ui/input';
 import Pagination from '@/components/ui/pagination';
 import { useQueryParams } from '@/hooks/useQueryParams';
 import { zodResolver } from '@hookform/resolvers/zod';
-
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
