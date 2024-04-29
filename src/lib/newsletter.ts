@@ -18,4 +18,4 @@ export async function getSubscribersCount(): Promise<number> {
   return data;
 }
 export const subscribe = (body: SubscribeBody): Promise<SubscribeBody> =>
-  DataService.post<SubscribeBody>(NEWSLETTER_URLS.subscribe);
+  DataService.post<SubscribeBody>(NEWSLETTER_URLS.subscribe, body);
