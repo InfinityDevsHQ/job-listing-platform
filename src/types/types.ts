@@ -460,6 +460,9 @@ export type Subscriber = {
   id: number | string;
   email: string;
 };
+export type SubscribeBody = {
+  email: string;
+};
 export type HealthCheck = {
   status: string;
   message: string;
