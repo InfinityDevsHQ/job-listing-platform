@@ -1,7 +1,7 @@
 'use client';
 import Copyright from '@/components/footer/_components/copyrights';
 import Navigation from '@/components/footer/_components/navigation';
-import Subscribe from '@/components/footer/_components/subscribe';
+import Subscribe from '@/components/forms/subscribe-form/subscribe-form';
 import Divider from '@/components/ui/divider';
 
 import Image from 'next/image';

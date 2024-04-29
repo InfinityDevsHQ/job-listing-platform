@@ -6,7 +6,7 @@ const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 const NEWSLETTER_URLS = {
   allSubscribers: `${PLATFORM_API_BASE_URL}/api/v1/newsletter/subscribers`,
   subscribersCount: `${PLATFORM_API_BASE_URL}/api/v1/newsletter/subscribers/count`,
-  subscribe: `${PLATFORM_API_BASE_URL}//api/v1/newsletter/subscribe`,
+  subscribe: `${PLATFORM_API_BASE_URL}/api/v1/newsletter/subscribe`,
 };
 
 export async function getSubscribers(): Promise<Subscriber[]> {
