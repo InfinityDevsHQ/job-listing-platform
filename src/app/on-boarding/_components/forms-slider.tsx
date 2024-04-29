@@ -1,14 +1,12 @@
-'use client';
-import { useSearchParams } from 'next/navigation';
-import LocationPage from '../tabs/location-page';
-import UploadCV from '../tabs/upload-cv';
+import ContactPage from '../tabs/contact-page';
 import FilterJobs from '../tabs/filter-jobs';
 import Finish from '../tabs/finish';
-import ContactPage from '../tabs/contact-page';
-export default function FormsSlider() {
-  const searchParams = useSearchParams();
-  const step = searchParams.get('step');
-
+import LocationPage from '../tabs/location-page';
+import UploadCV from '../tabs/upload-cv';
+type FormsSliderProps = {
+  step?: string;
+};
+export default function FormsSlider({ step }: FormsSliderProps) {
   switch (step) {
     case 'location':
       return <LocationPage />;

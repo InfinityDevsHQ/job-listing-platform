@@ -8,7 +8,9 @@ import { useQueryParams } from '@/hooks/useQueryParams';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-
+type LocationFormProps = {
+  languages: string[];
+};
 const locationFormSchema = z.object({
   preferLanguage: z.string().min(2, {
     message: 'Must select a language',
@@ -18,7 +20,7 @@ const locationFormSchema = z.object({
   city: z.string().min(2, { message: 'Must select a city' }),
 });
 
-export default function LocationForm() {
+export default function LocationForm({ languages }: LocationFormProps) {
   const form = useForm<z.infer<typeof locationFormSchema>>({
     resolver: zodResolver(locationFormSchema),
     defaultValues: {
@@ -42,7 +44,7 @@ export default function LocationForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <AppSelect {...field}></AppSelect>
+                <AppSelect {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -54,7 +56,7 @@ export default function LocationForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <AppSelect {...field}></AppSelect>
+                <AppSelect {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -83,7 +85,7 @@ export default function LocationForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <AppSelect {...field}></AppSelect>
+                <AppSelect {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
