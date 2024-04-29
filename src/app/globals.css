@@ -81,3 +81,8 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
 }
+/* Fix textarea scrollbar */
+textarea {
+  resize: none;
+  overflow: hidden;
+}
