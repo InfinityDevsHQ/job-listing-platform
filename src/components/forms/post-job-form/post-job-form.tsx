@@ -95,7 +95,7 @@ export default function PostJobForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder={'Title'} className="max-w-full flex-1" />
+                    <Input {...field} placeholder={'Title'} variant="primary" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -107,7 +107,7 @@ export default function PostJobForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder={'City'} className="max-w-full flex-1" />
+                    <Input {...field} placeholder={'City'} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -119,7 +119,7 @@ export default function PostJobForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder={'Employment'} className="max-w-full flex-1" />
+                    <Input {...field} placeholder={'Employment'} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -131,7 +131,7 @@ export default function PostJobForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder={'Germany'} className="max-w-full flex-1" />
+                    <Input {...field} placeholder={'Germany'} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -143,25 +143,20 @@ export default function PostJobForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder={'Language'} className="max-w-full flex-1" />
+                    <Input {...field} placeholder={'Language'} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-8">
+            <div className="flex w-full flex-col gap-2 lg:flex-row lg:items-center lg:gap-8">
               <FormField
                 control={form.control}
                 name="remunerationRageStart"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="flex-1">
                     <FormControl>
-                      <Input
-                        {...field}
-                        type="number"
-                        placeholder={'From'}
-                        className="max-w-full flex-1"
-                      />
+                      <Input {...field} type="number" placeholder={'From'} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -171,9 +166,9 @@ export default function PostJobForm() {
                 control={form.control}
                 name="remunerationRageEnd"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="flex-1">
                     <FormControl>
-                      <Input {...field} placeholder={'To'} className="max-w-full flex-1" />
+                      <Input {...field} type="number" placeholder={'To'} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -186,7 +181,7 @@ export default function PostJobForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder={'EUR'} className="max-w-full flex-1" />
+                    <Input {...field} placeholder={'EUR'} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

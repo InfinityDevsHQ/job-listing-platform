@@ -1,4 +1,4 @@
-import ContactForm from '@/components/forms/onBoarding/contact-form';
+import ContactForm from '@/components/forms/on-boarding/contact-form';
 import Image from 'next/image';
 import BoardingHeader from '../_components/boarding-header';
 export default function ContactPage() {

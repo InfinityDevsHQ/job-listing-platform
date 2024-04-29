@@ -1,4 +1,4 @@
-import CVForm from '@/components/forms/onBoarding/cv-form';
+import CVForm from '@/components/forms/on-boarding/cv-form';
 import Image from 'next/image';
 import BoardingHeader from '../_components/boarding-header';
 export default function UploadCV() {

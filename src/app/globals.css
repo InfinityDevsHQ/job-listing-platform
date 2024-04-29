@@ -70,3 +70,19 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #d1d5db; /* Thumb color */
 }
+/* Hide arrow buttons for number inputs, */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+/* Fix textarea scrollbar */
+textarea {
+  resize: none;
+  overflow: hidden;
+}

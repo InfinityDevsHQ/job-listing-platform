@@ -24,6 +24,7 @@ const Profile = () => {
       router.push('/login');
       return;
     }
+
     getUser()
       .then((user) => {
         setUser(user);
