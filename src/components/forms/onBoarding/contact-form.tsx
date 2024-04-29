@@ -2,98 +2,108 @@
 import CompanyGithubSecond from '@/components/svgs/company-github-second';
 import CompanyPhone from '@/components/svgs/company-phone';
 import TwitterIcon from '@/components/svgs/twitter';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import Pagination from '@/components/ui/pagination';
 import { useQueryParams } from '@/hooks/useQueryParams';
-import useOnBoardingContactData from '@/stores/on-boarding-contact-from-store';
-import { onBoardingContactFormSchema } from '@/types/schemas/onboarding-contact-form-schema';
-import { useState } from 'react';
-import { ZodIssue } from 'zod';
-
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+const onBoardingContactFormSchema = z.object({
+  phoneNumber: z.string().min(6, { message: 'Phone number must be at least 6 characters long' }),
+  linkedin: z.string().url({ message: 'Invalid LinkedIn URL' }),
+  twitter: z.string().url({ message: 'Invalid Twitter URL' }),
+  github: z.string().url({ message: 'Invalid GitHub URL' }),
+});
 export default function ContactForm() {
-  const { onBoardingContactData, setOnBoardingContactData } = useOnBoardingContactData();
-  const addQueryParams = useQueryParams();
-  const [errors, setErrors] = useState({
-    phoneNumber: '',
-    linkedin: '',
-    twitter: '',
-    github: '',
+  const form = useForm<z.infer<typeof onBoardingContactFormSchema>>({
+    resolver: zodResolver(onBoardingContactFormSchema),
+    defaultValues: {
+      phoneNumber: '',
+      linkedin: '',
+      twitter: '',
+      github: '',
+    },
   });
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setErrors({ ...errors, [name]: '' });
-    setOnBoardingContactData({ ...onBoardingContactData, [name]: value });
+  const isLoading = form.formState.isSubmitting;
+  async function onSubmit(values: z.infer<typeof onBoardingContactFormSchema>) {
+    console.log(values);
   }
-  function handleSubmit(e) {
-    e.preventDefault();
-    const validate = onBoardingContactFormSchema.safeParse(onBoardingContactData);
-    if (validate.success) {
-      console.log('DatA Validated', validate.data);
-      addQueryParams('step', 'terms-and-conditions');
-    } else {
-      console.warn('Invalid data type', validate.error.errors);
-      const validationErrors = validate.error.errors;
-      const formattedErrors: { [key: string]: string } = {};
-      validationErrors.forEach((error: ZodIssue) => {
-        if (error.path.length > 0) {
-          formattedErrors[error.path[0]] = error.message;
-        }
-      });
-      setErrors({ ...errors, ...formattedErrors });
-      console.log(formattedErrors);
-    }
-  }
+  const addQueryParams = useQueryParams();
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="flex flex-col gap-4 lg:gap-8">
-        <Input
-          variant={'primary'}
-          name="phoneNumber"
-          value={onBoardingContactData.phoneNumber}
-          helpText={errors.phoneNumber}
-          type="text"
-          placeholder="Phone Number"
-          onChange={handleChange}
-          leadingIcon={<CompanyPhone width={16} height={16} />}
-        />
-        <h3 className="text-mute font-sans text-base font-bold lg:text-lg lg:font-semibold">
-          Social Networks
-        </h3>
-        <Input
-          variant={'primary'}
-          name="linkedin"
-          value={onBoardingContactData.linkedin}
-          helpText={errors.linkedin}
-          onChange={handleChange}
-          type="text"
-          placeholder="Linkedin"
-        />
-        <Input
-          variant={'primary'}
-          name="twitter"
-          value={onBoardingContactData.twitter}
-          helpText={errors.twitter}
-          onChange={handleChange}
-          type="text"
-          placeholder="X"
-          leadingIcon={<TwitterIcon width={16} height={16} />}
-        />
-        <Input
-          variant={'primary'}
-          name="github"
-          value={onBoardingContactData.github}
-          helpText={errors.github}
-          onChange={handleChange}
-          type="text"
-          placeholder="github"
-          leadingIcon={<CompanyGithubSecond width={16} height={16} />}
-        />
-        <Pagination
-          handleBack={() => addQueryParams('step', 'filter-jobs')}
-          skip
-          handleNext={handleSubmit}
-        />
-      </div>
-    </form>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <div className="flex flex-col gap-4 lg:gap-8">
+          <FormField
+            name="phoneNumber"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    {...field}
+                    variant={'primary'}
+                    placeholder="Phone Number"
+                    leadingIcon={<CompanyPhone width={16} height={16} />}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <h3 className="text-mute font-sans text-base font-bold lg:text-lg lg:font-semibold">
+            Social Networks
+          </h3>
+          <FormField
+            name="linkedin"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input {...field} variant={'primary'} placeholder="Linkedin" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            name="twitter"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    {...field}
+                    variant={'primary'}
+                    placeholder="X"
+                    leadingIcon={<TwitterIcon width={16} height={16} />}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            name="github"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    {...field}
+                    variant={'primary'}
+                    placeholder="Github"
+                    leadingIcon={<CompanyGithubSecond width={16} height={16} />}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Pagination handleBack={() => addQueryParams('step', 'filter-jobs')} skip isNextSubmit />
+        </div>
+      </form>
+    </Form>
   );
 }
