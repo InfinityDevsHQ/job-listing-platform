@@ -1,11 +1,12 @@
 'use server';
-import { Job } from '@/types/types';
+import { Job, PostJobWorkerInputData } from '@/types/types';
 import { DataService } from './data-service';
 const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
 
 const JOBS_URLS = {
   allJobs: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listings/all`,
   singleJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listings`,
+  postJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listing`,
 };
 
 // TODO: make query params dynamic and easier to use in future
@@ -30,3 +31,5 @@ export async function getJobById(jobId: string): Promise<Job> {
   });
   return data;
 }
+export const postJobListing = (body: PostJobWorkerInputData): Promise<PostJobWorkerInputData> =>
+  DataService.post<PostJobWorkerInputData>(JOBS_URLS.postJob, body);
