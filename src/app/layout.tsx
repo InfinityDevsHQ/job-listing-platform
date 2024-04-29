@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${GeistSans.variable} mx-auto max-w-screen-2xl`}>
         <Header />
-        <main>{children}</main>
+        <main className="h-full w-full">{children}</main>
         <Footer />
         <Toaster richColors />
       </body>

@@ -1,3 +1,4 @@
+import { MouseEventHandler } from 'react';
 import { AddJobListingData, GeneratedJobDetailData } from './zodTypes';
 
 // Common Components
@@ -33,7 +34,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>,
   type?: string;
   leadingIcon?: React.ReactNode;
   trailingIcon?: React.ReactNode;
-  onClickTrailing?: () => void;
+  onClickTrailing?: () => void | MouseEventHandler<HTMLButtonElement>;
 }
 
 // section-headers.tsx

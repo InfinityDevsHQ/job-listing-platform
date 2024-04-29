@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-export default function useTogglePasswordDisplay() {
+const useTogglePasswordDisplay = () => {
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
   return [showPassword, togglePasswordVisibility];
-}
+};
+
+export default useTogglePasswordDisplay;

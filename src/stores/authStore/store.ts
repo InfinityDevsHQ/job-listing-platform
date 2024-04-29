@@ -7,6 +7,7 @@ const useAuthStore = create<AuthState & AuthAction>()(
   immer((set, get) => ({
     ...authInitialState,
     setUser: (user) => set({ user }),
+    setAccessToken: (token) => set({ accessToken: token }),
     reset: () => set(authInitialState),
   }))
 );

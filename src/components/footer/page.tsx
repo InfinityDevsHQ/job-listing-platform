@@ -40,9 +40,9 @@ const Footer = () => {
         Faucibus eleifend sit leo varius suspendisse.
       </p>
       <Navigation />
-      <Divider variant="light" />
+      <Divider variant="light" mobileVariant="primary" />
       <Subscribe />
-      <Divider variant="light" />
+      <Divider variant="light" mobileVariant="primary" />
       <Copyright />
     </footer>
   );

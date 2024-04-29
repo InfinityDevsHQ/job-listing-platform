@@ -11,7 +11,7 @@ type AppsAuthProps = {
 };
 export default function AppsAuth({ google, github, linkedin, auth }: AppsAuthProps) {
   return (
-    <div className="flex items-center justify-center gap-4">
+    <div className="flex flex-wrap items-center justify-center gap-4">
       {google && (
         <Link href={'#'}>
           <Button variant="white-primary" leadingIcon={<CompanyGoogle />} text="Google" />

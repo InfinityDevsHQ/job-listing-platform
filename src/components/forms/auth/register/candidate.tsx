@@ -1,6 +1,5 @@
 'use client';
 import CompanyArrow from '@/components/svgs/company-arrow';
-import CompanyEye from '@/components/svgs/company-eye';
 import CompanyLock from '@/components/svgs/company-lock';
 import CompanyProfileOne from '@/components/svgs/company-profile-one';
 import CompanyMail from '@/components/svgs/coompany-mail';
@@ -8,11 +7,12 @@ import Button from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import useTogglePasswordDisplay from '@/hooks/use-toggle-password-display';
 import { register } from '@/lib/auth';
 import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import * as z from 'zod';
@@ -31,7 +31,7 @@ const formSchema = z
 
 export default function RegisterCandidateForm() {
   const router = useRouter();
-  const [showPassword, togglePasswordVisibility] = useTogglePasswordDisplay();
+  const [showPassword, setShowPassword] = useState(false);
   const setUser = useAuthStore((state) => state.setUser);
   const { toast } = useToast();
 
@@ -110,10 +110,19 @@ export default function RegisterCandidateForm() {
               <FormControl>
                 <Input
                   {...field}
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Password"
                   leadingIcon={<CompanyLock width={14} height={15} />}
-                  trailingIcon={<CompanyEye width={16} height={13} />}
+                  trailingIcon={
+                    showPassword ? (
+                      <EyeOffIcon className="h-4 w-4" />
+                    ) : (
+                      <EyeIcon className="h-4 w-4" />
+                    )
+                  }
+                  onClickTrailing={() => {
+                    setShowPassword(!showPassword);
+                  }}
                 />
               </FormControl>
               <FormMessage />
@@ -128,10 +137,19 @@ export default function RegisterCandidateForm() {
               <FormControl>
                 <Input
                   {...field}
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Confirm Password"
                   leadingIcon={<CompanyLock width={14} height={15} />}
-                  trailingIcon={<CompanyEye width={16} height={13} />}
+                  trailingIcon={
+                    showPassword ? (
+                      <EyeOffIcon className="h-4 w-4" />
+                    ) : (
+                      <EyeIcon className="h-4 w-4" />
+                    )
+                  }
+                  onClickTrailing={() => {
+                    setShowPassword(!showPassword);
+                  }}
                 />
               </FormControl>
               <FormMessage />
