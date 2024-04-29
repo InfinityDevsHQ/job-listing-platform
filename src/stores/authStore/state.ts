@@ -1,5 +1,6 @@
-import { AuthState, UserProfile } from './type';
+import { User } from '@/types/types';
+import { AuthState } from './type';
 
 export const authInitialState: AuthState = {
-  user: {} as UserProfile,
+  user: {} as User,
 };

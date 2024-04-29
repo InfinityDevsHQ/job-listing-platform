@@ -14,10 +14,8 @@ const USER_URLS = {
   userJobsDisabled: `${PLATFORM_API_BASE_URL}/api/v1/user/jobs/disliked`,
 };
 
-export async function getUser(): Promise<User> {
-  const data = await DataService.get<User>(`${USER_URLS.user}`);
-  return data;
-}
+export const getUser = (): Promise<User> => DataService.get<User>(USER_URLS.user);
+
 export async function getUserProfile(): Promise<{}> {
   const data = await DataService.get<{}>(`${USER_URLS.userProfile}`);
   return data;

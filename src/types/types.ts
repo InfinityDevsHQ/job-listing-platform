@@ -358,6 +358,31 @@ export type User = {
   is_banned: boolean;
 };
 
+// auth.ts
+export interface RegisterResProps {
+  user: User;
+  access_token: string;
+  token_type: string;
+}
+
+export type RegisterBodyProps = {
+  name: string;
+  email: string;
+  is_recruiter: boolean;
+  is_social_login: boolean;
+  password: string;
+};
+
+export type LoginResProps = {
+  access_token: string;
+  token_type: string;
+};
+
+export type LoginBodyProps = {
+  username: string;
+  password: string;
+};
+
 //Recruiters
 export type Recruiter = {
   user: User;

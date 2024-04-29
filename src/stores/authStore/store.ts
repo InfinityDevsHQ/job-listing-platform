@@ -6,7 +6,7 @@ import { AuthAction, AuthState } from './type';
 const useAuthStore = create<AuthState & AuthAction>()(
   immer((set, get) => ({
     ...authInitialState,
-    setUser: (user) => set(() => ({ user: user })),
+    setUser: (user) => set({ user }),
     reset: () => set(authInitialState),
   }))
 );
