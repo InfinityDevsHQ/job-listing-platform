@@ -9,12 +9,20 @@ const JOBS_URLS = {
   postJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listing`,
 };
 
-// TODO: make query params dynamic and easier to use in future
-export async function getJobs(): Promise<Job[]> {
+type GetJobsParams = {
+  skip?: number;
+  limit?: number;
+  allow_for_translated_jobs?: boolean;
+};
+export async function getJobs({
+  skip = 0,
+  limit = 10,
+  allow_for_translated_jobs = false,
+}: GetJobsParams): Promise<Job[]> {
   const data = await DataService.get<Job[]>(`${JOBS_URLS.allJobs}`, {
-    skip: '0',
-    limit: '10',
-    allow_for_translated_jobs: 'false',
+    skip: `${skip}`,
+    limit: `${limit}`,
+    allow_for_translated_jobs: `${allow_for_translated_jobs}`,
   });
   return data;
 }
