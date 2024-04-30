@@ -1,119 +1,93 @@
 'use client';
-import HelpText from '@/components/ui/help-text';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
+import { Label } from '@/components/ui/label';
 import Pagination from '@/components/ui/pagination';
-import Pill from '@/components/ui/pill';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useQueryParams } from '@/hooks/useQueryParams';
-import useFilterJobsDataStore from '@/stores/filter-jobs-form-data-store';
-import { filterJobsFormSchema } from '@/types/schemas/filter-job-form-schema';
-import { useState } from 'react';
-import { ZodIssue } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+const jobFilterSchema = z.object({
+  employment_type: z.string().min(1, { message: 'Please Select an Employment Type' }),
+  work_location_type: z.string().min(1, { message: 'Please Select CCollaboration type' }),
+});
+async function onSubmit(values: z.infer<typeof jobFilterSchema>) {
+  console.log(values);
+}
 export default function FilterJobsForm() {
-  const { filterJobsData, setFilterJobsData } = useFilterJobsDataStore();
   const addQueryParams = useQueryParams();
-  const [errors, setErrors] = useState({
-    employmentType: '',
-    collaborationType: '',
+  const form = useForm({
+    resolver: zodResolver(jobFilterSchema),
+    defaultValues: {
+      employment_type: '',
+      work_location_type: '',
+    },
   });
-  const EmploymentTypes = [
-    {
-      text: 'Full time',
-      active: filterJobsData.employmentType === 'Full time',
-    },
-    {
-      text: 'Part-Time',
-      active: filterJobsData.employmentType === 'Part-Time',
-    },
-    {
-      text: 'Freelance',
-      active: filterJobsData.employmentType === 'Freelance',
-    },
-    {
-      text: 'Volunteer',
-      active: filterJobsData.employmentType === 'Volunteer',
-    },
-  ];
-  const CollaborationTypes = [
-    {
-      text: 'On Site',
-      active: filterJobsData.collaborationType === 'On Site',
-    },
-    {
-      text: 'Remote',
-      active: filterJobsData.collaborationType === 'Remote',
-    },
-    {
-      text: 'Hybrid',
-      active: filterJobsData.collaborationType === 'Hybrid',
-    },
-  ];
-  function handleSubmit(e) {
-    e.preventDefault();
-    const validate = filterJobsFormSchema.safeParse(filterJobsData);
-    if (validate.success) {
-      addQueryParams('step', 'contact');
-    } else {
-      console.warn('Validation Failed', validate.error.errors);
-      const validationErrors = validate.error.errors;
-      const formattedErrors: { [key: string]: string } = {};
-      validationErrors.forEach((error: ZodIssue) => {
-        if (error.path.length > 0) {
-          formattedErrors[error.path[0]] = error.message;
-        }
-      });
-      setErrors({ ...errors, ...formattedErrors });
-    }
-  }
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 lg:gap-8">
-      <>
+    <Form {...form}>
+      <form className="flex flex-col gap-4 lg:gap-8" onSubmit={form.handleSubmit(onSubmit)}>
         <h3 className="text-mute font-sans text-base font-bold lg:text-lg lg:font-semibold">
           Employment Type
         </h3>
-        <div className="flex gap-4 lg:gap-8">
-          {EmploymentTypes.map(({ text, active }, index) => (
-            <Pill
-              key={index}
-              text={text}
-              active={active}
-              setValue={() => {
-                setErrors({ ...errors, employmentType: '' });
-                setFilterJobsData({
-                  ...filterJobsData,
-                  employmentType: text,
-                });
-              }}
-            />
-          ))}
-        </div>
-        {errors.employmentType && <HelpText text={errors.employmentType} />}
-      </>
-      <>
+        <FormField
+          name="employment_type"
+          control={form.control}
+          render={({ field }) => (
+            <FormItem>
+              <FormControl className="flex items-center">
+                <RadioGroup {...field} className="flex gap-4 lg:gap-8" defaultValue="Full-Time">
+                  <div className="flex items-center">
+                    <RadioGroupItem value="Full-Time" id="full" />
+                    <Label htmlFor="full">Full-Time</Label>
+                  </div>
+                  <div className="flex items-center">
+                    <RadioGroupItem value="Part-Time" id="part" />
+                    <Label htmlFor="part">Part-Time</Label>
+                  </div>
+                  <div className="flex items-center">
+                    <RadioGroupItem value="Freelance" id="freelance" />
+                    <Label htmlFor="freelance">Freelance</Label>
+                  </div>
+                  <div className="flex items-center">
+                    <RadioGroupItem value="Volunteer" id="volunteer" />
+                    <Label htmlFor="volunteer">Volunteer</Label>
+                  </div>
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <h3 className="text-mute font-sans text-base font-bold lg:text-lg lg:font-semibold">
           Collaboration Type
         </h3>
-        <div className="flex gap-4 lg:gap-8">
-          {CollaborationTypes.map(({ text, active }, index) => (
-            <Pill
-              key={index}
-              text={text}
-              active={active}
-              setValue={() => {
-                setErrors({ ...errors, collaborationType: '' });
-                setFilterJobsData({
-                  ...filterJobsData,
-                  collaborationType: text,
-                });
-              }}
-            />
-          ))}
-        </div>
-        {errors.collaborationType && <HelpText text={errors.collaborationType} />}
-      </>
-      <Pagination
-        skip
-        handleNext={handleSubmit}
-        handleBack={() => addQueryParams('step', 'upload-cv')}
-      />
-    </form>
+        <FormField
+          name="work_location_type"
+          control={form.control}
+          render={({ field }) => (
+            <FormItem>
+              <FormControl className="f lex items-center">
+                <RadioGroup {...field} className="flex gap-4 lg:gap-8" defaultValue="On-site">
+                  <div className="flex items-center">
+                    <RadioGroupItem value="On-site" id="site" />
+                    <Label htmlFor="site">On-site</Label>
+                  </div>
+                  <div className="flex items-center">
+                    <RadioGroupItem value="Remote" id="remote" />
+                    <Label htmlFor="remote">Remote</Label>
+                  </div>
+                  <div className="flex items-center">
+                    <RadioGroupItem value="Hybrid" id="hybrid" />
+                    <Label htmlFor="hybrid">Hybrid</Label>
+                  </div>
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Pagination skip handleBack={() => addQueryParams('step', 'upload-cv')} isNextSubmit />
+      </form>
+    </Form>
   );
 }
