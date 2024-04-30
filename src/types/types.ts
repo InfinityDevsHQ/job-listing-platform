@@ -174,7 +174,7 @@ export type InfoListProps = {
 };
 
 // userStore.ts
-export interface UserData {
+export type UserData = {
   email: string;
   name: string;
   phone_number: string | null;
@@ -200,8 +200,8 @@ export interface UserData {
   longitude?: number | null;
   geo_resolve_tries?: number;
   language?: string;
-}
-
+};
+export type OnBoarding = {};
 export interface Resume {
   cv_filepath: string;
   cv_url: string;
@@ -993,7 +993,7 @@ export interface CompanyFormData {
 
 //userStore.ts
 
-export interface onboardingData {
+export type OnboardingData = {
   is_terms_agreed: boolean | null;
   country: string;
   full_time: boolean;
@@ -1010,7 +1010,7 @@ export interface onboardingData {
   twitter: string;
   github: string;
   language: string;
-}
+};
 
 //FilterJobs.tsx
 export interface storePushObject {
