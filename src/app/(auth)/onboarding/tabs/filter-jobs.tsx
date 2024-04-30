@@ -1,4 +1,4 @@
-import FilterJobsForm from '@/components/forms/on-boarding/filter-jobs-form';
+import FilterJobsForm from '@/components/forms/onboarding/filter-jobs-form';
 import Image from 'next/image';
 import BoardingHeader from '../_components/boarding-header';
 

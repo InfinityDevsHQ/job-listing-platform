@@ -21,14 +21,14 @@ const Footer = () => {
     <footer className="flex w-full flex-col gap-4 bg-primary-900 p-8 lg:gap-8">
       <Link href={'/'}>
         <Image
-          src={'/assets/images/common/logo_clickJob_white.svg'}
+          src={'/assets/images/common/logo_clickJob_primary_white.svg'}
           alt="Logo"
           className="hidden lg:block"
           width={226}
           height={50}
         />
         <Image
-          src={'/assets/images/common/logo_clickJob_white.svg'}
+          src={'/assets/images/common/logo_clickJob_primary_white.svg'}
           alt="Logo"
           className="mx-auto lg:hidden"
           width={118}
@@ -40,9 +40,9 @@ const Footer = () => {
         Faucibus eleifend sit leo varius suspendisse.
       </p>
       <Navigation />
-      <Divider variant="light" />
+      <Divider variant="light" mobileVariant="primary" />
       <Subscribe />
-      <Divider variant="light" />
+      <Divider variant="light" mobileVariant="primary" />
       <Copyright />
     </footer>
   );

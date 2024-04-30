@@ -1,4 +1,4 @@
-import TermsAndConditionsForm from '@/components/forms/on-boarding/terms-and-conditions-form';
+import TermsAndConditionsForm from '@/components/forms/onboarding/terms-and-conditions-form';
 import Image from 'next/image';
 import BoardingHeader from '../_components/boarding-header';
 

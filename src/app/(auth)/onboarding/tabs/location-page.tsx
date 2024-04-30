@@ -1,4 +1,4 @@
-import LocationForm from '@/components/forms/on-boarding/location-form';
+import LocationForm from '@/components/forms/onboarding/location-form';
 import getLanguages from '@/lib/languages';
 import Image from 'next/image';
 import BoardingHeader from '../_components/boarding-header';

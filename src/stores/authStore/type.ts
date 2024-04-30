@@ -2,9 +2,11 @@ import { User } from '@/types/types';
 
 export type AuthState = {
   user: User;
+  accessToken: string;
 };
 
 export type AuthAction = {
   setUser: (user: AuthState['user']) => void;
+  setAccessToken: (accessToken: string) => void;
   reset: () => void;
 };

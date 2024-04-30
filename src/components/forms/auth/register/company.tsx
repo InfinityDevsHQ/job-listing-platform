@@ -1,16 +1,19 @@
 'use client';
 import CompanyArrow from '@/components/svgs/company-arrow';
-import CompanyEye from '@/components/svgs/company-eye';
 import CompanyLock from '@/components/svgs/company-lock';
 import CompanyProfileOne from '@/components/svgs/company-profile-one';
 import CompanyMail from '@/components/svgs/coompany-mail';
 import Button from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
-import useTogglePasswordDisplay from '@/hooks/use-toggle-password-display';
+import { register } from '@/lib/auth';
+import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-
+import { toast } from 'sonner';
 import * as z from 'zod';
 
 const formSchema = z
@@ -26,7 +29,11 @@ const formSchema = z
   });
 
 export default function RegisterCandidateForm() {
-  const [showPassword, togglePasswordVisibility] = useTogglePasswordDisplay();
+  const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const setUser = useAuthStore((state) => state.setUser);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -39,9 +46,24 @@ export default function RegisterCandidateForm() {
 
   const isLoading = form.formState.isSubmitting;
 
-  // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit({ name, email, password }: z.infer<typeof formSchema>) {
+    const body = {
+      name,
+      email,
+      password,
+      is_recruiter: true,
+      is_social_login: false,
+    };
+    return register(body)
+      .then((data) => {
+        localStorage.setItem('access_token', data.access_token);
+        console.log('data', data);
+        setUser(data?.user);
+        router.push('/profile');
+      })
+      .catch((error) => {
+        toast.error(error.message || 'Uh oh! Something went wrong.');
+      });
   }
 
   return (
@@ -83,10 +105,19 @@ export default function RegisterCandidateForm() {
               <FormControl>
                 <Input
                   {...field}
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Password"
                   leadingIcon={<CompanyLock width={14} height={15} />}
-                  trailingIcon={<CompanyEye width={16} height={13} />}
+                  trailingIcon={
+                    showPassword ? (
+                      <EyeOffIcon className="h-4 w-4" />
+                    ) : (
+                      <EyeIcon className="h-4 w-4" />
+                    )
+                  }
+                  onClickTrailing={() => {
+                    setShowPassword(!showPassword);
+                  }}
                 />
               </FormControl>
               <FormMessage />
@@ -101,25 +132,38 @@ export default function RegisterCandidateForm() {
               <FormControl>
                 <Input
                   {...field}
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Confirm Password"
                   leadingIcon={<CompanyLock width={14} height={15} />}
-                  trailingIcon={<CompanyEye width={16} height={13} />}
+                  trailingIcon={
+                    showPassword ? (
+                      <EyeOffIcon className="h-4 w-4" />
+                    ) : (
+                      <EyeIcon className="h-4 w-4" />
+                    )
+                  }
+                  onClickTrailing={() => {
+                    setShowPassword(!showPassword);
+                  }}
                 />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        {/* <button type="submit">Continue</button> */}
         <Button
-          text="Continue"
-          variant={'primary'}
+          text="Register"
+          variant={'secondary'}
           className="!max-w-full justify-center"
           type="submit"
-          trailingIcon={<CompanyArrow width={16} height={16} fill="white" className="pt-1" />}
+          trailingIcon={
+            isLoading ? (
+              <LoaderCircleIcon className="animate h-5 w-5 animate-spin" />
+            ) : (
+              <CompanyArrow fill="white" className="h-5 w-5 pt-1" />
+            )
+          }
         />
-        {isLoading && 'Loading...'}
       </form>
     </Form>
   );

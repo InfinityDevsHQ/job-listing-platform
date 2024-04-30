@@ -45,17 +45,18 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           </>
         )}
         {trailingIcon && (
-          <span
-            onClick={onClickTrailing && onClickTrailing}
+          <button
+            type="button"
+            onClick={onClickTrailing}
             className={cn(
-              'absolute right-2 top-1/2 -translate-y-1/2 text-neutral-300 transition-all duration-300',
+              'absolute right-2 top-1/2 -translate-y-1/2 text-neutral-400 transition-all duration-300',
               {
                 'cursor-pointer': onClickTrailing,
               }
             )}
           >
             {trailingIcon}
-          </span>
+          </button>
         )}
       </div>
     );

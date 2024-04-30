@@ -1,22 +1,46 @@
 'use client';
-import AppsAuth from '@/components/apps-auth';
-import RegisterCandidateForm from '@/components/forms/register/candidate';
-import RegisterCompanyForm from '@/components/forms/register/company';
-import LoginRegisterToggler from '@/components/login-register-toggler';
-import PageHeader from '@/components/page-header';
+import LoginRegisterToggler from '@/components/forms/auth/_components/login-register-toggler';
+import SocialAuthWidget from '@/components/forms/auth/_components/social-auth-widget';
+import RegisterCandidateForm from '@/components/forms/auth/register/candidate';
+import RegisterCompanyForm from '@/components/forms/auth/register/company';
 import Poster from '@/components/poster';
+import Divider from '@/components/ui/divider';
+import PageHeader from '@/components/ui/page-header';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import VectorText from '@/components/vector-text';
+import { cn } from '@/lib/utils';
+import usePageStore from '@/stores/pageStore/store';
 
-export default function Register() {
+const Register = () => {
+  const [currentUserRole, setCurrentUserRole] = usePageStore((state) => [
+    state.currentUserRole,
+    state.setCurrentUserRole,
+  ]);
   return (
-    <div className="grid h-full grid-cols-2 overflow-hidden bg-primary-900 lg:bg-transparent">
-      <div className="col-span-2 flex flex-col gap-4 px-4 pt-8 lg:col-span-1 lg:max-h-screen lg:gap-8 lg:overflow-y-auto lg:px-8">
+    <div
+      className={cn('grid h-full grid-cols-2 overflow-hidden bg-primary-900 lg:bg-transparent', {
+        'bg-secondary-900': currentUserRole === 'company',
+      })}
+    >
+      <div className="col-span-2 flex max-h-screen flex-col gap-8 overflow-y-auto px-4 pt-8 lg:col-span-1 lg:px-8">
         <PageHeader title="Create your Account" />
-        <VectorText text="Select Method to Login" />
-        <AppsAuth google linkedin github auth="register" />
-        <VectorText text="OR" />
-        <Tabs defaultValue="candidate" className="w-full">
+        <Divider
+          size={2}
+          text="Select Method to Register"
+          mobileVariant={currentUserRole === 'candidate' ? 'primary' : 'secondary'}
+          variant="light"
+        />
+        <SocialAuthWidget google linkedin github auth="register" />
+        <Divider
+          size={2}
+          text="OR"
+          mobileVariant={currentUserRole === 'candidate' ? 'primary' : 'secondary'}
+          variant="light"
+        />
+        <Tabs
+          defaultValue="candidate"
+          onValueChange={(val) => setCurrentUserRole(val)}
+          className="flex w-full flex-col gap-4"
+        >
           <TabsList className="bg-primary-50 lg:bg-transparent">
             <TabsTrigger value="candidate">Candidate</TabsTrigger>
             <TabsTrigger value="company" className="data-[state=active]:bg-secondary-900">
@@ -32,7 +56,20 @@ export default function Register() {
         </Tabs>
         <LoginRegisterToggler currentPage="register" />
       </div>
-      <Poster imgUrl="/assets/images/auth/login_vector.png" />
+      <Poster
+        bgUrl={
+          currentUserRole == 'candidate'
+            ? '/assets/images/auth/auth_candidate_background.png'
+            : '/assets/images/auth/auth_company_background.png'
+        }
+        imgUrl={
+          currentUserRole == 'candidate'
+            ? '/assets/images/auth/register_candidate_vector.svg'
+            : '/assets/images/auth/register_company_vector.svg'
+        }
+      />
     </div>
   );
-}
+};
+
+export default Register;

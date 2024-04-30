@@ -14,7 +14,7 @@ export default function JobCardDetails({ job }: JobProps) {
             </span>
           </span>
           {(job?.city || job?.country) && (
-            <span className="flex items-center lg:pl-7">
+            <span className="flex items-center gap-2.5 lg:pl-7">
               <Image
                 alt="map-marker-alt"
                 src={'/assets/icons/map-marker-alt.svg'}

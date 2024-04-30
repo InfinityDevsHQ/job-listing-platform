@@ -4,7 +4,7 @@ import './globals.css';
 
 import Footer from '@/components/footer/page';
 import Header from '@/components/header/page';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/components/ui/sonner';
 
 // Get meta data from relevant persons
 export const metadata: Metadata = {
@@ -19,11 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${GeistSans.variable} mx-auto max-w-screen-2xl`}>
+      <body className={`${GeistSans.variable} mx-auto h-full max-w-screen-2xl lg:h-auto`}>
         <Header />
-        <main>{children}</main>
+        <main className="h-full w-full">{children}</main>
         <Footer />
-        <Toaster />
+        <Toaster richColors />
       </body>
     </html>
   );
