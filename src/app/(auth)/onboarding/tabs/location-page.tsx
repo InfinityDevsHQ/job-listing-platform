@@ -1,11 +1,13 @@
 import LocationForm from '@/components/forms/onboarding/location-form';
+import { getCountries } from '@/lib/countries';
 import getLanguages from '@/lib/languages';
 import Image from 'next/image';
 import BoardingHeader from '../_components/boarding-header';
 
 export default async function LocationPage() {
   const languages = await getLanguages();
-  console.log(languages);
+  const countries = await getCountries();
+  console.log(countries);
   return (
     <div className="grid w-full grid-cols-2">
       <div className="col-span-2 hidden items-center justify-center lg:col-span-1 lg:flex">

@@ -21,6 +21,7 @@ const locationFormSchema = z.object({
 });
 
 export default function LocationForm({ languages }: LocationFormProps) {
+  console.log('Langueage', languages);
   const form = useForm<z.infer<typeof locationFormSchema>>({
     resolver: zodResolver(locationFormSchema),
     defaultValues: {
@@ -44,7 +45,11 @@ export default function LocationForm({ languages }: LocationFormProps) {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <AppSelect {...field} />
+                <AppSelect
+                  placeholder="Prefred Language"
+                  {...field}
+                  options={languages.map((language) => ({ value: language, label: language }))}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
