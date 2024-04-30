@@ -1,10 +1,10 @@
 import Button from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
-import { toast } from '@/hooks/use-toast';
 import { subscribe } from '@/lib/newsletter';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 const subscribeFormSchema = z.object({
   email: z.string().email({ message: 'Please Enter a valid Email Address' }),
@@ -26,14 +26,7 @@ export default function Subscribe() {
         console.log(data);
       })
       .catch((error) => {
-        console.log(error);
-        toast({
-          variant: 'destructive',
-          title:
-            error.message === 'fetch failed'
-              ? 'Internet Connect is Not Stable'
-              : error.message || 'Something went wrong',
-        });
+        toast.error(error.message || 'Uh oh! Something went wrong.');
       });
   }
   return (

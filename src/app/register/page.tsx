@@ -1,15 +1,15 @@
 'use client';
-import AppsAuth from '@/components/apps-auth';
+import LoginRegisterToggler from '@/components/forms/auth/_components/login-register-toggler';
+import SocialAuthWidget from '@/components/forms/auth/_components/social-auth-widget';
 import RegisterCandidateForm from '@/components/forms/auth/register/candidate';
 import RegisterCompanyForm from '@/components/forms/auth/register/company';
-import LoginRegisterToggler from '@/components/login-register-toggler';
 import PageHeader from '@/components/page-header';
 import Poster from '@/components/poster';
 import Divider from '@/components/ui/divider';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState } from 'react';
 
-export default function Register() {
+const Register = () => {
   const [activeTab, setActiveTab] = useState('candidate');
   return (
     <div className="grid h-full grid-cols-2 overflow-hidden bg-primary-900 lg:bg-transparent">
@@ -21,7 +21,7 @@ export default function Register() {
           mobileVariant="primary"
           variant="light"
         />
-        <AppsAuth google linkedin github auth="register" />
+        <SocialAuthWidget google linkedin github auth="register" />
         <Divider size={2} text="OR" mobileVariant="primary" variant="light" />
         <Tabs
           defaultValue="candidate"
@@ -41,7 +41,7 @@ export default function Register() {
             <RegisterCompanyForm />
           </TabsContent>
         </Tabs>
-        <LoginRegisterToggler currentPage="register" />
+        <LoginRegisterToggler currentPage="register" activeTab={activeTab} />
       </div>
       <Poster
         bgUrl={
@@ -57,4 +57,6 @@ export default function Register() {
       />
     </div>
   );
-}
+};
+
+export default Register;

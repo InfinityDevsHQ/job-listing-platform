@@ -6,9 +6,9 @@ import Button from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { login } from '@/lib/auth';
-import { getUser } from '@/lib/user';
+import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { EyeIcon, EyeOffIcon } from 'lucide-react';
+import { EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -24,7 +24,11 @@ const formSchema = z.object({
 const LoginForm = ({ activeTab }: { activeTab: string }) => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  // const setUser = useAuthStore((state) => state.setUser);
+  const [setUser, setAccessToken, accessToken] = useAuthStore((state) => [
+    state.setUser,
+    state.setAccessToken,
+    state.accessToken,
+  ]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -36,34 +40,26 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
 
   const isLoading = form.formState.isSubmitting;
 
-  // 2. Define a submit handler.
   async function onSubmit({ email, password }: z.infer<typeof formSchema>) {
     const body = {
       username: email,
       password,
     };
-    login(body)
-      .then((data) => {
-        console.log('data', data);
-        localStorage.setItem('access_token', data.access_token);
-        getUser()
-          ?.then((user) => {
-            console.log('user <======> ', user);
-            // if (user.is_recruiter) {
-            //   router.push('/recruiter/dashboard');
-            // } else {
-            //   router.push('/candidate/dashboard');
-            // }
-          })
-          .catch((error) => {
-            console.log('error <======> ', error);
-          });
-        // setUser(data?.user);
-        router.push('/profile');
-      })
-      .catch((error) => {
-        toast.error(error.message || 'Uh oh! Something went wrong.');
-      });
+    return (
+      login(body)
+        .then((data) => {
+          localStorage.setItem('access_token', data.access_token);
+          console.log('data', data.access_token);
+          setAccessToken(data.access_token);
+        })
+        // .then(() => getUser()) Todo: implement cookies for access token
+        .then(() => {
+          router.push('/profile');
+        })
+        .catch((error) => {
+          toast.error(error.message || 'Uh oh! Something went wrong.');
+        })
+    );
   }
 
   return (
@@ -115,13 +111,18 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
           />
         )}
         <Button
-          text="Continue"
+          text="Login"
           variant={'primary'}
           className="!max-w-full justify-center"
           type="submit"
-          trailingIcon={<CompanyArrow width={16} height={16} fill="white" className="pt-1" />}
+          trailingIcon={
+            isLoading ? (
+              <LoaderCircleIcon className="animate h-5 w-5 animate-spin" />
+            ) : (
+              <CompanyArrow fill="white" className="h-5 w-5 pt-1" />
+            )
+          }
         />
-        {isLoading && 'Loading...'}
       </form>
     </Form>
   );

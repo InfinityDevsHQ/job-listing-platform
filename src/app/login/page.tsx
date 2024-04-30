@@ -1,12 +1,12 @@
 'use client';
 import Poster from '@/components/poster';
 
-import AppsAuth from '@/components/apps-auth';
-import LoginRegisterToggler from '@/components/login-register-toggler';
+import LoginRegisterToggler from '@/components/forms/auth/_components/login-register-toggler';
 import PageHeader from '@/components/page-header';
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
+import SocialAuthWidget from '@/components/forms/auth/_components/social-auth-widget';
 import LoginForm from '@/components/forms/auth/login';
 import Divider from '@/components/ui/divider';
 
@@ -16,7 +16,7 @@ const Login = () => {
       <div className="col-span-2 flex max-h-screen flex-col gap-8 overflow-y-auto px-4 pt-8 lg:col-span-1 lg:px-8">
         <PageHeader title="Login to your Account" />
         <Divider size={2} text="Select Method to Login" mobileVariant="primary" variant="light" />
-        <AppsAuth google linkedin github auth="login" />
+        <SocialAuthWidget google linkedin github auth="login" />
         <Divider size={2} text="OR" mobileVariant="primary" variant="light" />
         <Tabs defaultValue="email-password" className="flex w-full flex-col gap-4">
           <TabsList className="bg-primary-50 lg:bg-transparent">
