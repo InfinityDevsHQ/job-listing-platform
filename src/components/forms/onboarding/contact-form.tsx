@@ -6,6 +6,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from '@/component
 import Input from '@/components/ui/input';
 import Pagination from '@/components/ui/pagination';
 import { useQueryParams } from '@/hooks/useQueryParams';
+import useOnboardingStore from '@/stores/onboardingStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -16,6 +17,7 @@ const onBoardingContactFormSchema = z.object({
   github: z.string().url({ message: 'Invalid GitHub URL' }),
 });
 export default function ContactForm() {
+  const { onboardingData, setOnboardingData } = useOnboardingStore();
   const addQueryParams = useQueryParams();
   const form = useForm<z.infer<typeof onBoardingContactFormSchema>>({
     resolver: zodResolver(onBoardingContactFormSchema),
@@ -28,7 +30,14 @@ export default function ContactForm() {
   });
   const isLoading = form.formState.isSubmitting;
   async function onSubmit(values: z.infer<typeof onBoardingContactFormSchema>) {
-    console.log(values);
+    setOnboardingData({
+      ...onboardingData,
+      phone: values.phoneNumber,
+      github: values.github,
+      linkedin: values.linkedin,
+      twitter: values.twitter,
+    });
+    console.log(onboardingData);
     addQueryParams('step', 'terms-and-conditions');
   }
   return (

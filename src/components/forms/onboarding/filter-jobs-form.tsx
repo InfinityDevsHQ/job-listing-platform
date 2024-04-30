@@ -36,7 +36,7 @@ export default function FilterJobsForm() {
       hybrid: values.work_location_type === 'Hybrid' ? true : false,
     });
     console.log(onboardingData);
-    // addQueryParams('step', 'contact');
+    addQueryParams('step', 'contact');
   }
   return (
     <Form {...form}>
