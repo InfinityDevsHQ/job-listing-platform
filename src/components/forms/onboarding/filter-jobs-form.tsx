@@ -4,6 +4,7 @@ import { Label } from '@/components/ui/label';
 import Pagination from '@/components/ui/pagination';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useQueryParams } from '@/hooks/useQueryParams';
+import useOnboardingStore from '@/stores/onboardingStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -13,6 +14,7 @@ const jobFilterSchema = z.object({
 });
 
 export default function FilterJobsForm() {
+  const { onboardingData, setOnboardingData } = useOnboardingStore();
   const addQueryParams = useQueryParams();
   const form = useForm({
     resolver: zodResolver(jobFilterSchema),
@@ -22,7 +24,19 @@ export default function FilterJobsForm() {
     },
   });
   async function onSubmit(values: z.infer<typeof jobFilterSchema>) {
-    addQueryParams('step', 'contact');
+    // Updating Dat in the store
+    setOnboardingData({
+      ...onboardingData,
+      full_time: values.employment_type === 'Full-Time' ? true : false,
+      part_time: values.employment_type === 'Part-Time' ? true : false,
+      freelance: values.employment_type === 'Freelance' ? true : false,
+      volunteer: values.employment_type === 'Volunteer' ? true : false,
+      on_site: values.work_location_type === 'On-site' ? true : false,
+      remote: values.work_location_type === 'Remote' ? true : false,
+      hybrid: values.work_location_type === 'Hybrid' ? true : false,
+    });
+    console.log(onboardingData);
+    // addQueryParams('step', 'contact');
   }
   return (
     <Form {...form}>
