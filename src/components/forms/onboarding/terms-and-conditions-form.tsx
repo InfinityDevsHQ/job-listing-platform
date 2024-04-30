@@ -4,17 +4,19 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from '@/component
 import { Label } from '@/components/ui/label';
 import Pagination from '@/components/ui/pagination';
 import { useQueryParams } from '@/hooks/useQueryParams';
+import useOnboardingStore from '@/stores/onboardingStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 const termsAndConditionsFormSchema = z.object({
   termsAgreed: z.string().refine((value) => value === 'true', {
-    message: 'Please agree to terms to mov forward',
+    message: 'Please agree to terms to move forward',
   }),
 });
 
 export default function TermsAndConditionsForm() {
+  const { onboardingData, setOnboardingData } = useOnboardingStore();
   const addQueryParams = useQueryParams();
   const form = useForm({
     resolver: zodResolver(termsAndConditionsFormSchema),
@@ -23,7 +25,12 @@ export default function TermsAndConditionsForm() {
     },
   });
   async function onSubmit(values: z.infer<typeof termsAndConditionsFormSchema>) {
-    console.log(values);
+    // Updating Store on submitting data
+    setOnboardingData({
+      ...onboardingData,
+      is_terms_agreed: values.termsAgreed === 'true' ? true : false,
+    });
+    console.log(onboardingData);
   }
   return (
     <Form {...form}>

@@ -10,6 +10,7 @@ import useOnboardingStore from '@/stores/onboardingStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+// TODO: Validate Urls more strictly to check if urls contains words like github, linkedin e.t.c
 const onBoardingContactFormSchema = z.object({
   phoneNumber: z.string().min(6, { message: 'Phone number must be at least 6 characters long' }),
   linkedin: z.string().url({ message: 'Invalid LinkedIn URL' }),
@@ -37,7 +38,6 @@ export default function ContactForm() {
       linkedin: values.linkedin,
       twitter: values.twitter,
     });
-    console.log(onboardingData);
     addQueryParams('step', 'terms-and-conditions');
   }
   return (
