@@ -11,9 +11,7 @@ const jobFilterSchema = z.object({
   employment_type: z.string().min(1, { message: 'Please Select an Employment Type' }),
   work_location_type: z.string().min(1, { message: 'Please Select CCollaboration type' }),
 });
-async function onSubmit(values: z.infer<typeof jobFilterSchema>) {
-  console.log(values);
-}
+
 export default function FilterJobsForm() {
   const addQueryParams = useQueryParams();
   const form = useForm({
@@ -23,6 +21,9 @@ export default function FilterJobsForm() {
       work_location_type: '',
     },
   });
+  async function onSubmit(values: z.infer<typeof jobFilterSchema>) {
+    addQueryParams('step', 'contact');
+  }
   return (
     <Form {...form}>
       <form className="flex flex-col gap-4 lg:gap-8" onSubmit={form.handleSubmit(onSubmit)}>
@@ -36,20 +37,44 @@ export default function FilterJobsForm() {
             <FormItem>
               <FormControl className="flex items-center">
                 <RadioGroup {...field} className="flex gap-4 lg:gap-8" defaultValue="Full-Time">
-                  <div className="flex items-center">
-                    <RadioGroupItem value="Full-Time" id="full" />
+                  <div className="flex items-center gap-1">
+                    <RadioGroupItem
+                      value="Full-Time"
+                      id="full"
+                      onClick={(e) =>
+                        field.onChange(field.value === 'Full-Time' ? '' : 'Full-Time')
+                      }
+                    />
                     <Label htmlFor="full">Full-Time</Label>
                   </div>
-                  <div className="flex items-center">
-                    <RadioGroupItem value="Part-Time" id="part" />
+                  <div className="flex items-center gap-1">
+                    <RadioGroupItem
+                      value="Part-Time"
+                      id="part"
+                      onClick={(e) =>
+                        field.onChange(field.value === 'Part-Time' ? '' : 'Part-Time')
+                      }
+                    />
                     <Label htmlFor="part">Part-Time</Label>
                   </div>
-                  <div className="flex items-center">
-                    <RadioGroupItem value="Freelance" id="freelance" />
+                  <div className="flex items-center gap-1">
+                    <RadioGroupItem
+                      value="Freelance"
+                      id="freelance"
+                      onClick={(e) =>
+                        field.onChange(field.value === 'Freelance' ? '' : 'Freelance')
+                      }
+                    />
                     <Label htmlFor="freelance">Freelance</Label>
                   </div>
-                  <div className="flex items-center">
-                    <RadioGroupItem value="Volunteer" id="volunteer" />
+                  <div className="flex items-center gap-1">
+                    <RadioGroupItem
+                      value="Volunteer"
+                      id="volunteer"
+                      onClick={(e) =>
+                        field.onChange(field.value === 'Volunteer' ? '' : 'Volunteer')
+                      }
+                    />
                     <Label htmlFor="volunteer">Volunteer</Label>
                   </div>
                 </RadioGroup>
@@ -66,18 +91,30 @@ export default function FilterJobsForm() {
           control={form.control}
           render={({ field }) => (
             <FormItem>
-              <FormControl className="f lex items-center">
+              <FormControl className="flex items-center">
                 <RadioGroup {...field} className="flex gap-4 lg:gap-8" defaultValue="On-site">
-                  <div className="flex items-center">
-                    <RadioGroupItem value="On-site" id="site" />
+                  <div className="flex items-center gap-1">
+                    <RadioGroupItem
+                      value="On-site"
+                      id="site"
+                      onClick={(e) => field.onChange(field.value === 'On-site' ? '' : 'On-site')}
+                    />
                     <Label htmlFor="site">On-site</Label>
                   </div>
-                  <div className="flex items-center">
-                    <RadioGroupItem value="Remote" id="remote" />
+                  <div className="flex items-center gap-1">
+                    <RadioGroupItem
+                      value="Remote"
+                      id="remote"
+                      onClick={(e) => field.onChange(field.value === 'Remote' ? '' : 'Remote')}
+                    />
                     <Label htmlFor="remote">Remote</Label>
                   </div>
-                  <div className="flex items-center">
-                    <RadioGroupItem value="Hybrid" id="hybrid" />
+                  <div className="flex items-center gap-1">
+                    <RadioGroupItem
+                      value="Hybrid"
+                      id="hybrid"
+                      onClick={(e) => field.onChange(field.value === 'Hybrid' ? '' : 'Hybrid')}
+                    />
                     <Label htmlFor="hybrid">Hybrid</Label>
                   </div>
                 </RadioGroup>
