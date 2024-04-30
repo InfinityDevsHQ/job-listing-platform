@@ -1,5 +1,6 @@
 'use client';
 import Button from '@/components/ui/button';
+import { deleteToken, getToken } from '@/lib/auth-token';
 import { getUser } from '@/lib/user';
 import { cn } from '@/lib/utils';
 import useAuthStore from '@/stores/authStore/store';
@@ -11,19 +12,23 @@ const Profile = () => {
   const router = useRouter();
   const user = useAuthStore((state) => state.user);
 
-  const logout = () => {
-    localStorage.removeItem('access_token');
+  const logout = async () => {
+    await deleteToken();
     router.push('/login');
   };
 
   const setUser = useAuthStore((state) => state.setUser);
 
-  useEffect(() => {
-    const accessToken = localStorage.getItem('access_token');
+  const checkToken = async () => {
+    const accessToken = await getToken();
     if (!accessToken) {
       router.push('/login');
       return;
     }
+  };
+
+  useEffect(() => {
+    checkToken();
 
     getUser()
       .then((user) => {
