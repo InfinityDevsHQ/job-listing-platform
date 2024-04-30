@@ -1,3 +1,5 @@
+import { cookies } from 'next/headers';
+
 const DEFAULT_QUERY_PARAMS: Record<string, string> = {};
 
 // Helper function to construct query parameters
@@ -13,12 +15,10 @@ const getHeaders = () => {
     'Content-Type': 'application/json',
   };
 
-  // Todo: need to handle the case where we pass access token
-  // const accessToken = useAuthStore(state => state.accessToken)
-  // console.log('accessToken ========> ', accessToken);
-  // if (accessToken) {
-  //   headers['Authorization'] = 'Bearer ' + accessToken;
-  // }
+  const accessToken = cookies().get('accessToken')?.value;
+  if (accessToken) {
+    headers['Authorization'] = 'Bearer ' + accessToken;
+  }
 
   return headers;
 };

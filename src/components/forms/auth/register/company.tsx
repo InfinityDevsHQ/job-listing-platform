@@ -7,6 +7,7 @@ import Button from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { register } from '@/lib/auth';
+import { storeToken } from '@/lib/auth-token';
 import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
@@ -55,9 +56,8 @@ export default function RegisterCandidateForm() {
       is_social_login: false,
     };
     return register(body)
-      .then((data) => {
-        localStorage.setItem('access_token', data.access_token);
-        console.log('data', data);
+      .then(async (data) => {
+        await storeToken({ token: data.access_token });
         setUser(data?.user);
         router.push('/profile');
       })

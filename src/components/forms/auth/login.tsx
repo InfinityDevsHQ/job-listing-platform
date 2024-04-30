@@ -6,6 +6,7 @@ import Button from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { login } from '@/lib/auth';
+import { storeToken } from '@/lib/auth-token';
 import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
@@ -47,10 +48,11 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
     };
     return (
       login(body)
-        .then((data) => {
+        .then(async (data) => {
           localStorage.setItem('access_token', data.access_token);
           console.log('data', data.access_token);
           setAccessToken(data.access_token);
+          await storeToken({ token: data.access_token });
         })
         // .then(() => getUser()) Todo: implement cookies for access token
         .then(() => {
