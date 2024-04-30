@@ -7,18 +7,21 @@ type FormsSliderProps = {
   step?: string;
 };
 export default function FormsSlider({ step }: FormsSliderProps) {
-  switch (step) {
-    case 'location':
+  const stepComponents: Record<string, JSX.Element> = {
+    location: <LocationPage />,
+    'upload-cv': <UploadCV />,
+    'filter-jobs': <FilterJobs />,
+    contact: <ContactPage />,
+    'terms-and-conditions': <Finish />,
+  };
+
+  const renderStep = (step: string | undefined) => {
+    if (!step) {
       return <LocationPage />;
-    case 'upload-cv':
-      return <UploadCV />;
-    case 'filter-jobs':
-      return <FilterJobs />;
-    case 'contact':
-      return <ContactPage />;
-    case 'terms-and-conditions':
-      return <Finish />;
-    default:
-      return <LocationPage />;
-  }
+    }
+    return stepComponents[step] || <LocationPage />; // Default to LocationPage
+  };
+
+  // Usage
+  return renderStep(step);
 }

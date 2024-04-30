@@ -5,7 +5,7 @@ const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
 const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 const ONBOARDING_URLS = {
   uploadCVUrl: `${NEURAL_API_BASE_URL}/api/v1/recruiters/recruiters/`,
-  uploadOnBoarding: `${PLATFORM_API_BASE_URL}/user/onboard`,
+  uploadOnBoarding: `${PLATFORM_API_BASE_URL}/api/v1/user/onboard`,
 };
 
 export async function uploadCV(payload: UploadCVPayload): Promise<UploadCVResponse> {

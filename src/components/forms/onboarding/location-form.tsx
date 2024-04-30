@@ -6,6 +6,7 @@ import Input from '@/components/ui/input';
 import Pagination from '@/components/ui/pagination';
 import { useQueryParams } from '@/hooks/useQueryParams';
 import { timezones } from '@/lib/time-zones';
+import useOnboardingStore from '@/stores/onboardingStore/store';
 import { Country } from '@/types/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -24,6 +25,7 @@ const locationFormSchema = z.object({
 });
 
 export default function LocationForm({ languages, countries }: LocationFormProps) {
+  const { onboardingData, setOnboardingData } = useOnboardingStore();
   const addQueryParams = useQueryParams();
   const form = useForm<z.infer<typeof locationFormSchema>>({
     resolver: zodResolver(locationFormSchema),
@@ -36,6 +38,14 @@ export default function LocationForm({ languages, countries }: LocationFormProps
   });
   const isLoading = form.formState.isSubmitting;
   async function onSubmit(values: z.infer<typeof locationFormSchema>) {
+    setOnboardingData({
+      ...onboardingData,
+      language: values.preferLanguage,
+      timezone: values.timeZone,
+      country: values.country,
+      city: values.city,
+    });
+    console.log(onboardingData);
     addQueryParams('step', 'upload-cv');
   }
 

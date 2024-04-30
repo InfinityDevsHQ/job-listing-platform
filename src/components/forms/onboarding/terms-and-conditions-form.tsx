@@ -4,6 +4,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from '@/component
 import { Label } from '@/components/ui/label';
 import Pagination from '@/components/ui/pagination';
 import { useQueryParams } from '@/hooks/useQueryParams';
+import { uploadOnBoardingData } from '@/lib/onboarding';
 import useOnboardingStore from '@/stores/onboardingStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
@@ -30,7 +31,8 @@ export default function TermsAndConditionsForm() {
       ...onboardingData,
       is_terms_agreed: values.termsAgreed === 'true' ? true : false,
     });
-    console.log(onboardingData);
+    const resp = await uploadOnBoardingData(onboardingData);
+    console.log({ resp });
   }
   return (
     <Form {...form}>

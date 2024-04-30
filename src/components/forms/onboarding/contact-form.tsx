@@ -38,6 +38,7 @@ export default function ContactForm() {
       linkedin: values.linkedin,
       twitter: values.twitter,
     });
+    console.log(onboardingData);
     addQueryParams('step', 'terms-and-conditions');
   }
   return (

@@ -27,13 +27,13 @@ export default function FilterJobsForm() {
     // Updating Dat in the store
     setOnboardingData({
       ...onboardingData,
-      full_time: values.employment_type === 'Full-Time' ? true : false,
-      part_time: values.employment_type === 'Part-Time' ? true : false,
-      freelance: values.employment_type === 'Freelance' ? true : false,
-      volunteer: values.employment_type === 'Volunteer' ? true : false,
-      on_site: values.work_location_type === 'On-site' ? true : false,
-      remote: values.work_location_type === 'Remote' ? true : false,
-      hybrid: values.work_location_type === 'Hybrid' ? true : false,
+      full_time: values.employment_type === 'Full-Time',
+      part_time: values.employment_type === 'Part-Time',
+      freelance: values.employment_type === 'Freelance',
+      volunteer: values.employment_type === 'Volunteer',
+      on_site: values.work_location_type === 'On-site',
+      remote: values.work_location_type === 'Remote',
+      hybrid: values.work_location_type === 'Hybrid',
     });
     console.log(onboardingData);
     addQueryParams('step', 'contact');

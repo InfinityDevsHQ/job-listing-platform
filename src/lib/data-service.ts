@@ -4,7 +4,6 @@ const DEFAULT_QUERY_PARAMS: Record<string, string> = {};
 
 // Helper function to construct query parameters
 function constructQueryParams(params?: Record<string, string>): string {
-  // We are setting this cookie in middlewares.
   const queryParams = new URLSearchParams({ ...DEFAULT_QUERY_PARAMS, ...params });
 
   return queryParams.toString();
@@ -17,7 +16,7 @@ const getHeaders = () => {
 
   const accessToken = cookies().get('accessToken')?.value;
   if (accessToken) {
-    headers['Authorization'] = 'Bearer ' + accessToken;
+    headers['Authorization'] = `Bearer ${accessToken}`;
   }
 
   return headers;
