@@ -27,7 +27,7 @@ const Header = () => {
           <Image
             alt="logo"
             src={'/assets/images/common/logo_clickJob_primary.svg'}
-            width={226}
+            width={206}
             height={50}
             className="hidden lg:block"
           />

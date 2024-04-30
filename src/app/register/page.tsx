@@ -3,30 +3,43 @@ import LoginRegisterToggler from '@/components/forms/auth/_components/login-regi
 import SocialAuthWidget from '@/components/forms/auth/_components/social-auth-widget';
 import RegisterCandidateForm from '@/components/forms/auth/register/candidate';
 import RegisterCompanyForm from '@/components/forms/auth/register/company';
-import PageHeader from '@/components/page-header';
 import Poster from '@/components/poster';
 import Divider from '@/components/ui/divider';
+import PageHeader from '@/components/ui/page-header';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { useState } from 'react';
+import { cn } from '@/lib/utils';
+import usePageStore from '@/stores/pageStore/store';
 
 const Register = () => {
-  const [activeTab, setActiveTab] = useState('candidate');
+  const [currentUserRole, setCurrentUserRole] = usePageStore((state) => [
+    state.currentUserRole,
+    state.setCurrentUserRole,
+  ]);
   return (
-    <div className="grid h-full grid-cols-2 overflow-hidden bg-primary-900 lg:bg-transparent">
-      <div className="col-span-2 flex flex-col gap-4 px-4 pt-8 lg:col-span-1 lg:max-h-screen lg:gap-8 lg:overflow-y-auto lg:px-8">
+    <div
+      className={cn('grid h-full grid-cols-2 overflow-hidden bg-primary-900 lg:bg-transparent', {
+        'bg-secondary-900': currentUserRole === 'company',
+      })}
+    >
+      <div className="col-span-2 flex max-h-screen flex-col gap-8 overflow-y-auto px-4 pt-8 lg:col-span-1 lg:px-8">
         <PageHeader title="Create your Account" />
         <Divider
           size={2}
           text="Select Method to Register"
-          mobileVariant="primary"
+          mobileVariant={currentUserRole === 'candidate' ? 'primary' : 'secondary'}
           variant="light"
         />
         <SocialAuthWidget google linkedin github auth="register" />
-        <Divider size={2} text="OR" mobileVariant="primary" variant="light" />
+        <Divider
+          size={2}
+          text="OR"
+          mobileVariant={currentUserRole === 'candidate' ? 'primary' : 'secondary'}
+          variant="light"
+        />
         <Tabs
           defaultValue="candidate"
-          onValueChange={(val) => setActiveTab(val)}
-          className="w-full"
+          onValueChange={(val) => setCurrentUserRole(val)}
+          className="flex w-full flex-col gap-4"
         >
           <TabsList className="bg-primary-50 lg:bg-transparent">
             <TabsTrigger value="candidate">Candidate</TabsTrigger>
@@ -41,16 +54,16 @@ const Register = () => {
             <RegisterCompanyForm />
           </TabsContent>
         </Tabs>
-        <LoginRegisterToggler currentPage="register" activeTab={activeTab} />
+        <LoginRegisterToggler currentPage="register" />
       </div>
       <Poster
         bgUrl={
-          activeTab == 'candidate'
+          currentUserRole == 'candidate'
             ? '/assets/images/auth/auth_candidate_background.png'
             : '/assets/images/auth/auth_company_background.png'
         }
         imgUrl={
-          activeTab == 'candidate'
+          currentUserRole == 'candidate'
             ? '/assets/images/auth/register_candidate_vector.svg'
             : '/assets/images/auth/register_company_vector.svg'
         }

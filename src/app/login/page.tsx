@@ -2,7 +2,7 @@
 import Poster from '@/components/poster';
 
 import LoginRegisterToggler from '@/components/forms/auth/_components/login-register-toggler';
-import PageHeader from '@/components/page-header';
+import PageHeader from '@/components/ui/page-header';
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 

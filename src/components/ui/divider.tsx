@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import usePageStore from '@/stores/pageStore/store';
 type DividerProps = {
   size?: number;
   variant: string;
@@ -7,6 +8,7 @@ type DividerProps = {
 };
 
 const Divider = ({ size, variant, mobileVariant, text }: DividerProps) => {
+  const currentUserRole = usePageStore((state) => state.currentUserRole);
   return (
     <span
       className={cn('relative w-full border-t', {
@@ -14,7 +16,7 @@ const Divider = ({ size, variant, mobileVariant, text }: DividerProps) => {
         'border-t-4': size == 4,
         'lg:border-gray-50': variant == 'primary',
         'lg:border-gray-500': variant == 'light',
-        'border-gray-50': mobileVariant == 'primary',
+        'border-gray-50': mobileVariant == 'primary' || mobileVariant == 'secondary',
         'border-gray-500': mobileVariant == 'light',
       })}
     >
@@ -24,6 +26,7 @@ const Divider = ({ size, variant, mobileVariant, text }: DividerProps) => {
             'lg:bg-primary-900 lg:text-gray-50': variant == 'primary',
             'lg:bg-primary-50 lg:text-gray-500': variant == 'light',
             'bg-primary-900  text-gray-50': mobileVariant == 'primary',
+            'bg-secondary-900  text-gray-50': mobileVariant == 'secondary',
             'bg-primary-50 text-gray-500': mobileVariant == 'light',
           })}
         >

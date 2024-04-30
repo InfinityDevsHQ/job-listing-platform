@@ -1,4 +1,4 @@
-import Logo from './ui/logo';
+import Logo from './logo';
 
 type PageHeaderProps = {
   title: string;
