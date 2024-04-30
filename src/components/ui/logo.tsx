@@ -1,3 +1,4 @@
+'use client';
 import usePageStore from '@/stores/pageStore/store';
 import Image from 'next/image';
 
