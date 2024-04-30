@@ -1,48 +1,56 @@
 'use client';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
+import { Label } from '@/components/ui/label';
 import Pagination from '@/components/ui/pagination';
-import Pill from '@/components/ui/pill';
 import { useQueryParams } from '@/hooks/useQueryParams';
-import useTermsAndConditionsData from '@/stores/terms-and-conditions-data-store';
-import { termsAndConditionsFormSchema } from '@/types/schemas/terms-and-conditions-schema';
+import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+const termsAndConditionsFormSchema = z.object({
+  termsAgreed: z.string().refine((value) => value === 'true', {
+    message: 'Please agree to terms to mov forward',
+  }),
+});
 
 export default function TermsAndConditionsForm() {
-  const { termsData, setTermsData } = useTermsAndConditionsData();
-  const [errors, setErrors] = useState('');
   const addQueryParams = useQueryParams();
-  function handleSubmit(e) {
-    e.preventDefault();
-    const validate = termsAndConditionsFormSchema.safeParse(termsData);
-    if (validate.success) {
-      console.log('DatA Validated', validate.data);
-      setErrors('');
-    } else {
-      setErrors('Please Agree to the terns abd conditions');
-    }
+  const form = useForm({
+    resolver: zodResolver(termsAndConditionsFormSchema),
+    defaultValues: {
+      termsAgreed: 'false',
+    },
+  });
+  async function onSubmit(values: z.infer<typeof termsAndConditionsFormSchema>) {
+    console.log(values);
   }
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 lg:gap-8">
-      <h3 className="mt-4 font-sans text-base font-bold text-mute-1 lg:mt-8 lg:text-lg lg:font-semibold">
-        Terms And Conditions
-      </h3>
-      <Pill
-        active={termsData.termsAgreed}
-        setValue={() => setTermsData({ ...termsData, termsAgreed: !termsData.termsAgreed })}
-        helpText={errors && errors}
-      >
-        <p
-          className={`font-sans text-xxs lg:text-base ${
-            termsData.termsAgreed ? 'text-white' : 'text-mute-1'
-          }`}
-        >
-          <span>I agree to</span>{' '}
-          <Link href={'/tos'} className="underline">
-            Terms and Conditions
-          </Link>
-        </p>
-      </Pill>
-      <Pagination handleBack={() => addQueryParams('step', 'contact')} />
-    </form>
+    <Form {...form}>
+      <form className="flex flex-col gap-4 lg:gap-8" onSubmit={form.handleSubmit(onSubmit)}>
+        <h3 className="mt-4 font-sans text-base font-bold text-mute-1 lg:mt-8 lg:text-lg lg:font-semibold">
+          Terms And Conditions
+        </h3>
+        <FormField
+          name="termsAgreed"
+          control={form.control}
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <div className="flex items-center">
+                  <Checkbox id="terms" {...field} />
+                  <Label htmlFor="terms">
+                    I agree to
+                    <Link href="/tos">Terms and Conditions</Link>
+                  </Label>
+                </div>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Pagination handleBack={() => addQueryParams('step', 'contact')} isNextSubmit />
+      </form>
+    </Form>
   );
 }

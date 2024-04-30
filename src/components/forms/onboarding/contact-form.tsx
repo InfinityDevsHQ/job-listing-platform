@@ -16,6 +16,7 @@ const onBoardingContactFormSchema = z.object({
   github: z.string().url({ message: 'Invalid GitHub URL' }),
 });
 export default function ContactForm() {
+  const addQueryParams = useQueryParams();
   const form = useForm<z.infer<typeof onBoardingContactFormSchema>>({
     resolver: zodResolver(onBoardingContactFormSchema),
     defaultValues: {
@@ -28,8 +29,8 @@ export default function ContactForm() {
   const isLoading = form.formState.isSubmitting;
   async function onSubmit(values: z.infer<typeof onBoardingContactFormSchema>) {
     console.log(values);
+    addQueryParams('step', 'terms-and-conditions');
   }
-  const addQueryParams = useQueryParams();
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
