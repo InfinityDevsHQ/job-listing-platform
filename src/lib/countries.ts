@@ -8,11 +8,8 @@ const COUNTRIES_URLS = {
   singleCountry: `${PLATFORM_API_BASE_URL}/api/v1/platform/country/`,
 };
 
-// TODO: make query params dynamic and easier to use in future
-export async function getCountries(): Promise<Country[]> {
-  const data = await DataService.get<Country[]>(`${COUNTRIES_URLS.allCountries}`);
-  return data;
-}
+export const getCountries = (): Promise<Country[]> =>
+  DataService.get<Country[]>(COUNTRIES_URLS.allCountries);
 
 export async function getCountryById(countryId: string): Promise<Country> {
   if (!countryId) {

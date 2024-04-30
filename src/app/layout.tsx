@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 import Footer from '@/components/footer/page';
-import Header from '@/components/header/page';
+import Header from '@/components/header/top-bar';
 import { Toaster } from '@/components/ui/sonner';
 
 // Get meta data from relevant persons
