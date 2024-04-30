@@ -1,18 +1,12 @@
-import { getPromotedCompanies } from '@/lib/companies';
+import { CompaniesListProps } from '@/types/types';
 import CompanyCard from './company-card';
 
-const CompaniesList = async () => {
-  const companies = await getPromotedCompanies();
+const CompaniesList = async ({ companies }: CompaniesListProps) => {
   return (
     <div className="flex gap-4 lg:flex-col lg:gap-8">
-      {companies?.map((company, index) => (
-        <CompanyCard
-          key={index}
-          companyLogo={company.logo_url}
-          companyName={company.name}
-          companyDescription={company.description}
-        />
-      ))}
+      {companies
+        ?.filter((company, index) => index < 4)
+        ?.map((company, index) => <CompanyCard key={index} {...company} />)}
     </div>
   );
 };

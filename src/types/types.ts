@@ -618,9 +618,9 @@ export interface Company {
 
 // company-card.tsx
 export interface CompanyCardProps {
-  companyName: string;
-  companyLogo: string;
-  companyDescription: string;
+  name: string;
+  logo_url: string;
+  description: string;
 }
 
 // companies-list.tsx
