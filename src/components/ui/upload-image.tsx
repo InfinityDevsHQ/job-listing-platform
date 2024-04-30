@@ -12,11 +12,10 @@ type File = {
 };
 
 type UploadImageProps = {
-  setImgUrl: (value: string) => void;
   helpText?: string;
 };
 
-export default function UploadImage({ setImgUrl, helpText }: UploadImageProps) {
+export default function UploadImage({ helpText }: UploadImageProps) {
   const [file, setFile] = useState<File | null>(null);
   const { getRootProps, getInputProps } = useDropzone<File>({
     accept: 'image/*', // Allow only images for upload

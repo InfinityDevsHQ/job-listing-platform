@@ -14,7 +14,7 @@ export async function getCountries(): Promise<Country[]> {
   return data;
 }
 
-export async function getJobById(countryId: string): Promise<Country> {
+export async function getCountryById(countryId: string): Promise<Country> {
   if (!countryId) {
     // can return 404 heres
     return {} as Country;

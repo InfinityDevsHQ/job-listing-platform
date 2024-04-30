@@ -5,23 +5,26 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from '@/component
 import Input from '@/components/ui/input';
 import Pagination from '@/components/ui/pagination';
 import { useQueryParams } from '@/hooks/useQueryParams';
+import { timezones } from '@/lib/time-zones';
+import { Country } from '@/types/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 type LocationFormProps = {
   languages: string[];
+  countries: Country[];
 };
 const locationFormSchema = z.object({
   preferLanguage: z.string().min(2, {
     message: 'Must select a language',
   }),
   timeZone: z.string().min(2, { message: 'Must select a time zone' }),
-  country: z.string().min(2, { message: 'Country name must be at least 2 characters long' }),
-  city: z.string().min(2, { message: 'Must select a city' }),
+  country: z.string().min(2, { message: 'Must select a country' }),
+  city: z.string().min(2, { message: 'Please Enter a valid city' }),
 });
 
-export default function LocationForm({ languages }: LocationFormProps) {
-  console.log('Langueage', languages);
+export default function LocationForm({ languages, countries }: LocationFormProps) {
+  const addQueryParams = useQueryParams();
   const form = useForm<z.infer<typeof locationFormSchema>>({
     resolver: zodResolver(locationFormSchema),
     defaultValues: {
@@ -33,9 +36,9 @@ export default function LocationForm({ languages }: LocationFormProps) {
   });
   const isLoading = form.formState.isSubmitting;
   async function onSubmit(values: z.infer<typeof locationFormSchema>) {
-    console.log(values);
+    addQueryParams('step', 'upload-cv');
   }
-  const addQueryParams = useQueryParams();
+
   return (
     <Form {...form}>
       <form className="flex flex-col gap-4 lg:gap-8" onSubmit={form.handleSubmit(onSubmit)}>
@@ -46,7 +49,7 @@ export default function LocationForm({ languages }: LocationFormProps) {
             <FormItem>
               <FormControl>
                 <AppSelect
-                  placeholder="Prefred Language"
+                  placeholder="Preferred Language"
                   {...field}
                   options={languages.map((language) => ({ value: language, label: language }))}
                 />
@@ -61,7 +64,14 @@ export default function LocationForm({ languages }: LocationFormProps) {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <AppSelect {...field} />
+                <AppSelect
+                  placeholder="Time Zone"
+                  {...field}
+                  options={timezones.map((time) => ({
+                    value: time,
+                    label: time,
+                  }))}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -73,11 +83,14 @@ export default function LocationForm({ languages }: LocationFormProps) {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input
+                <AppSelect
+                  placeholder="Select Country"
                   {...field}
-                  variant={'primary'}
-                  placeholder="Country"
                   leadingIcon={<CompanyGlobe />}
+                  options={countries.map((country) => ({
+                    label: country.name,
+                    value: country.name,
+                  }))}
                 />
               </FormControl>
               <FormMessage />
@@ -90,7 +103,7 @@ export default function LocationForm({ languages }: LocationFormProps) {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <AppSelect {...field} />
+                <Input {...field} placeholder="City" />
               </FormControl>
               <FormMessage />
             </FormItem>
