@@ -445,9 +445,9 @@ export interface UploadCVPayload {
   cv: File | string;
 }
 
-export interface UploadCVResponse {
+export type UploadCVResponse = {
   message: string;
-}
+};
 
 export interface ClickedJobRequest {
   job_id: number;
