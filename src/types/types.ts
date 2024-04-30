@@ -201,7 +201,6 @@ export type UserData = {
   geo_resolve_tries?: number;
   language?: string;
 };
-export type OnBoarding = {};
 export interface Resume {
   cv_filepath: string;
   cv_url: string;
