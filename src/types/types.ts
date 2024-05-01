@@ -174,6 +174,7 @@ export type InfoBadgeProps = {
 // info-list.tsx
 export type InfoListProps = {
   list?: string[] | null;
+  children?: React.ReactNode;
 };
 
 // userStore.ts
