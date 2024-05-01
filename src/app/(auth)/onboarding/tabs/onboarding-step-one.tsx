@@ -5,9 +5,7 @@ import Image from 'next/image';
 import BoardingHeader from '../_components/boarding-header';
 
 export default async function onboardingStepOne() {
-  const languages = await getLanguages();
-  const countries = await getCountries();
-  console.log(countries);
+  const [languages, countries] = await Promise.all([getLanguages(), getCountries()]);
   return (
     <div className="grid w-full grid-cols-2">
       <div className="col-span-2 hidden items-center justify-center lg:col-span-1 lg:flex">
