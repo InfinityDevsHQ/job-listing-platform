@@ -9,9 +9,10 @@ export default async function onboardingStepOne() {
 
   try {
     const results = await Promise.allSettled(promises);
-    const languages = results[0].status === 'fulfilled' ? results[0].value : [];
-    const countries = results[1].status === 'fulfilled' ? results[1].value : [];
-    console.log(languages);
+    const [languagesResult, countriesResult] = results;
+    const languages = languagesResult.status === 'fulfilled' ? languagesResult.value : [];
+    const countries = countriesResult.status === 'fulfilled' ? countriesResult.value : [];
+
     return (
       <div className="grid w-full grid-cols-2">
         <div className="col-span-2 hidden items-center justify-center lg:col-span-1 lg:flex">
