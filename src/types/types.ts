@@ -285,7 +285,7 @@ export interface UserProfile {
 export interface defaultUserStore {
   user: UserProfile | null;
   accessToken: string | null;
-  data: onboardingData;
+  data: OnboardingData;
   post_job_language: string;
   socialRegistration: boolean;
   cvData: {
