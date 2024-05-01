@@ -44,14 +44,16 @@ const Carousel = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & CarouselProps
 >(({ orientation = 'horizontal', opts, setApi, plugins, className, children, ...props }, ref) => {
-  const [carouselRef, api] = useEmblaCarousel(
-    {
-      ...opts,
-      axis: orientation === 'horizontal' ? 'x' : 'y',
-    },
-    [Autoplay({ delay: 1000 })],
-    plugins
-  );
+  const carouselOpts: Partial<unknown> = {
+    axis: orientation === 'horizontal' ? 'x' : 'y',
+  };
+
+  const carouselPlugins = plugins
+    ? [Autoplay({ delay: 1000 }), ...plugins]
+    : [Autoplay({ delay: 1000 })];
+
+  const [carouselRef, api] = useEmblaCarousel(carouselOpts, carouselPlugins);
+
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
 
@@ -178,12 +180,14 @@ const CarouselItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLD
 CarouselItem.displayName = 'CarouselItem';
 
 const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProps<typeof Button>>(
-  ({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
+  ({ className, variant = 'default', size = 'default', text, ...props }) => {
     const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
     return (
       <Button
-        ref={ref}
+        type="button"
+        text={text}
+        leadingIcon={<ArrowLeft className="h-4 w-4" />}
         variant={variant}
         size={size}
         className={cn(
@@ -196,17 +200,15 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
         disabled={!canScrollPrev}
         onClick={scrollPrev}
         {...props}
-      >
-        <ArrowLeft className="h-4 w-4" />
-        <span className="sr-only">Previous slide</span>
-      </Button>
+      />
     );
   }
 );
+
 CarouselPrevious.displayName = 'CarouselPrevious';
 
 const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<typeof Button>>(
-  ({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
+  ({ className, variant = 'default', size = 'default', ...props }, ref) => {
     const { orientation, scrollNext, canScrollNext } = useCarousel();
 
     return (
