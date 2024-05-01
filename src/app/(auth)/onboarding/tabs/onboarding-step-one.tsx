@@ -1,17 +1,21 @@
 import LocationForm from '@/components/forms/onboarding/location-form';
 import { getCountries } from '@/lib/countries';
 import getLanguages from '@/lib/languages';
+import { Country } from '@/types/types';
 import Image from 'next/image';
 import BoardingHeader from '../_components/boarding-header';
 
 export default async function onboardingStepOne() {
-  const promises = [getLanguages(), getCountries()];
-
+  const FULFILLED = 'fulfilled';
   try {
-    const results = await Promise.allSettled(promises);
-    const [languagesResult, countriesResult] = results;
-    const languages = languagesResult.status === 'fulfilled' ? languagesResult.value : [];
-    const countries = countriesResult.status === 'fulfilled' ? countriesResult.value : [];
+    const [languagesResult, countriesResult] = await Promise.allSettled([
+      getLanguages(),
+      getCountries(),
+    ]);
+
+    console.log(languagesResult);
+    const languages: string[] = languagesResult.status === FULFILLED ? languagesResult.value : [];
+    const countries: Country[] = countriesResult.status === FULFILLED ? countriesResult.value : [];
 
     return (
       <div className="grid w-full grid-cols-2">

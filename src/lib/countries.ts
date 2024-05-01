@@ -8,8 +8,9 @@ const COUNTRIES_URLS = {
   singleCountry: `${PLATFORM_API_BASE_URL}/api/v1/platform/country/`,
 };
 
-export const getCountries = (): Promise<Country[]> =>
-  DataService.get<Country[]>(COUNTRIES_URLS.allCountries);
+export const getCountries = (): Promise<Country[]> => {
+  return DataService.get<Country[]>(COUNTRIES_URLS.allCountries);
+};
 
 export async function getCountryById(countryId: string): Promise<Country> {
   if (!countryId) {
