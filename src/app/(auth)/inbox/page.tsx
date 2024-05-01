@@ -1,6 +1,5 @@
 'use client';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { TabsContent } from '@radix-ui/react-tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ChatPanel from './panels/chat-panel';
 import InboxPanel from './panels/inbox-panel';
 import AcceptedTab from './tabs/accepted-tab';
