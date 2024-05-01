@@ -61,7 +61,7 @@ const Header = () => {
     console.log('deleteToken');
   };
 
-  const handleSelectCountry = async (countryId: number) => {
+  const handleSelectCountry = async (countryId: number, name: string) => {
     console.log('handleSelectCountry ==> countryId ', countryId); // TODO: handle change country selection
   };
 
@@ -158,7 +158,10 @@ const Header = () => {
           </Link>
           <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild>
-              <button className="group relative inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium">
+              <button
+                type="button"
+                className="group relative inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium"
+              >
                 Notifications
                 <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
               </button>
@@ -227,7 +230,10 @@ const Header = () => {
           </DropdownMenu>
           <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild>
-              <button className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium">
+              <button
+                type="button"
+                className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium"
+              >
                 <span>Country</span>
                 <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
               </button>
