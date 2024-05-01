@@ -300,7 +300,7 @@ export interface UserStore {
   user: UserProfile | null;
   accessToken: string | null;
   post_job_language: string;
-  data: onboardingData;
+  data: OnboardingData;
   socialRegistration: boolean;
   cvData: {
     cv: null | File;
