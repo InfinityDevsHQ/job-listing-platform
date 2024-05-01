@@ -4,12 +4,12 @@ import Button from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import TextArea from '@/components/ui/text-area';
-import { toast } from '@/hooks/use-toast';
 import { postJobListing } from '@/lib/jobs';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 const postJobFormSchema = z.object({
   jobTitle: z.string().min(2, { message: 'Job title must be at least 2 characters long' }),
@@ -66,10 +66,7 @@ export default function PostJobForm() {
         router.push('/jobs/create/success');
       })
       .catch((error) => {
-        toast({
-          variant: 'destructive',
-          title: error.message || 'Uh oh! Something went wrong.',
-        });
+        toast.error(error.message || 'Uh oh! Something went wrong');
       });
   }
   return (
