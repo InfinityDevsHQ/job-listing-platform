@@ -1,18 +1,21 @@
-import { InfoListProps } from "@/types/types";
+import { InfoListProps } from '@/types/types';
 
-const InfoList = ({ list }: InfoListProps) => {
-	return (
-		<ul className="list list-disc list-inside">
-			{list?.map((listItem, index) => (
-				<li
-					key={index}
-					className="text-xs lg:text-base text-gray-500"
-				>
-					{listItem}
-				</li>
-			))}
-		</ul>
-	);
+const InfoList = ({ list, children }: InfoListProps) => {
+  return (
+    <ul className="list list-inside list-image-[url('/assets/images/jobs/send.png')] ">
+      {children ? (
+        <>{children}</>
+      ) : (
+        <>
+          {list?.map((listItem, index) => (
+            <li key={index} className="text-xs text-gray-500 lg:text-base">
+              {listItem}
+            </li>
+          ))}
+        </>
+      )}
+    </ul>
+  );
 };
 
 export default InfoList;
