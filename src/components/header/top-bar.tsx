@@ -122,7 +122,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex w-full items-center justify-between bg-white px-4 py-2 lg:px-16 lg:py-4">
+      <header className="flex w-full items-center justify-between overflow-hidden bg-white px-4 py-2 lg:px-16 lg:py-4">
         <Link href={'/'}>
           <Image
             alt="logo"

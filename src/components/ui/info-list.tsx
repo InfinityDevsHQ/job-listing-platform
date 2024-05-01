@@ -8,7 +8,7 @@ const InfoList = ({ list, children }: InfoListProps) => {
       ) : (
         <>
           {list?.map((listItem, index) => (
-            <li key={index} className="text-xs text-gray-500 lg:text-base">
+            <li key={index} className="text-base text-gray-500">
               {listItem}
             </li>
           ))}

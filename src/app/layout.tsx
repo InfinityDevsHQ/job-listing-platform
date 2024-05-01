@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${GeistSans.variable} mx-auto h-full max-w-screen-2xl lg:h-auto`}>
+      <body className={`${GeistSans.variable} mx-auto h-auto max-w-screen-2xl`}>
         <Header />
         <main className="h-full w-full">{children}</main>
         <Footer />
