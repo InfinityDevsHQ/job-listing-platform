@@ -2,7 +2,7 @@ import TermsAndConditionsForm from '@/components/forms/onboarding/terms-and-cond
 import Image from 'next/image';
 import BoardingHeader from '../_components/boarding-header';
 
-export default function Finish() {
+export default function OnboardingStpFive() {
   return (
     <div className="grid w-full grid-cols-2">
       <div className="col-span-2 hidden items-center justify-center lg:col-span-1 lg:flex">

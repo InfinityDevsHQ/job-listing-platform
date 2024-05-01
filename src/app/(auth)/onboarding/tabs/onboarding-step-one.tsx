@@ -4,7 +4,7 @@ import getLanguages from '@/lib/languages';
 import Image from 'next/image';
 import BoardingHeader from '../_components/boarding-header';
 
-export default async function LocationPage() {
+export default async function onboardingStepOne() {
   const languages = await getLanguages();
   const countries = await getCountries();
   console.log(countries);
