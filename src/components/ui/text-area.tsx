@@ -1,8 +1,15 @@
 import { cn } from '@/lib/utils';
-import { InputProps } from '@/types/types';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import HelpText from './help-text';
+
+export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  type?: string;
+  leadingIcon?: React.ReactNode;
+  trailingIcon?: React.ReactNode;
+  onClickTrailing?: () => void;
+  rows?: number;
+  variant?: 'default' | 'primary' | 'secondary' | 'danger';
+}
 const inputVariants = cva(
   'p-2 h-10 w-full peer border-2 border-gray-300 rounded-md bg-white text-black placeholder-gray-400 outline-none transition-all duration-300',
   {
@@ -20,42 +27,35 @@ const inputVariants = cva(
   }
 );
 
-const TextArea = React.forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      className,
-      containerClassName,
-      type = 'text',
-      variant,
-      leadingIcon,
-      trailingIcon,
-      onTrailingClick,
-      helpText,
-      rows,
-      ...props
-    },
-    ref
-  ) => {
-    const computedVariant = helpText ? 'danger' : variant || 'default';
+const TextArea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+  ({
+    className,
+    variant = 'default',
+    leadingIcon,
+    trailingIcon,
+    onClickTrailing,
+    rows,
+    ...props
+  }) => {
     const computedClassName = `${className} ${leadingIcon ? 'pl-7' : 'pl-2'}`;
+
     return (
-      <div className={`flex flex-col gap-1 ${containerClassName ? containerClassName : ''}`}>
+      <div className={`flex flex-col gap-1`}>
         <div className={`group relative w-full`}>
           <textarea
             className={cn(
               inputVariants({
-                variant: computedVariant,
+                variant: variant,
                 className: computedClassName,
               })
             )}
-            ref={ref}
             rows={rows || 3}
             {...props}
           />
           {leadingIcon && (
             <>
               <span
-                className={`absolute left-2 top-1/2 -translate-y-1/2 peer-focus:!text-${computedVariant}-900 transition-all duration-300`}
+                className={`absolute left-2 top-1/2 -translate-y-1/2 peer-focus:!text-${variant}-900 transition-all duration-300`}
               >
                 {leadingIcon}
               </span>
@@ -63,16 +63,12 @@ const TextArea = React.forwardRef<HTMLInputElement, InputProps>(
           )}
           {trailingIcon && (
             <span
-              onClick={onTrailingClick && onTrailingClick}
-              className={`absolute right-2 top-1/2 -translate-y-1/2 text-neutral-300 transition-all duration-300 ${
-                computedVariant === 'danger' ? 'peer-focus:!text-danger-900' : ''
-              } ${onTrailingClick ? 'cursor-pointer' : ''}`}
+              className={`absolute right-2 top-1/2 -translate-y-1/2 text-neutral-300 transition-all duration-300`}
             >
               {trailingIcon}
             </span>
           )}
         </div>
-        {helpText && <HelpText text={helpText} />}
       </div>
     );
   }

@@ -37,6 +37,9 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>,
   onClickTrailing?: () => void | MouseEventHandler<HTMLButtonElement>;
 }
 
+export interface TextAreaProps extends InputProps {
+  rows?: number;
+}
 // section-headers.tsx
 export interface SectionHeaderProps {
   leadingIcon?: React.ReactNode;
