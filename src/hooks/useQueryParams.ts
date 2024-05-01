@@ -1,4 +1,5 @@
-import { useRouter } from "next/navigation";
+'use client';
+import { useRouter } from 'next/navigation';
 
 export const useQueryParams = () => {
   const router = useRouter();
