@@ -2,6 +2,7 @@
 import Button from '@/components/ui/button';
 import { Tabs, TabsList } from '@/components/ui/tabs';
 import { useQueryParams } from '@/hooks/useQueryParams';
+import { useEffect } from 'react';
 type OnboardingStepNavigatorProps = {
   step?: string;
 };
@@ -10,9 +11,21 @@ export default function OnboardingStepNavigator({ step }: OnboardingStepNavigato
   const handleTabSelect = (value: string) => {
     addQueryParams('step', value);
   };
+  useEffect(() => {
+    window.history.replaceState({}, document.title, window.location.pathname);
+    if (!step) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, [step]);
   return (
     <Tabs>
       <TabsList className="flex items-center gap-4">
+        <Button
+          text="Intro"
+          onClick={() => handleTabSelect('')}
+          variant={!step ? 'primary' : 'default'}
+          className="!border-none"
+        />
         <Button
           text="1. Location"
           onClick={() => handleTabSelect('location')}

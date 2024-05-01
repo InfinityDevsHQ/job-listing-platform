@@ -1,3 +1,4 @@
+import OnboardingIntro from '../tabs/on-boarding-intro';
 import OnboardingStpFive from '../tabs/onboarding-step-five';
 import OnboardingStepFour from '../tabs/onboarding-step-four';
 import OnboardingStepOne from '../tabs/onboarding-step-one';
@@ -17,9 +18,9 @@ export default function FormsSlider({ step }: FormsSliderProps) {
 
   const renderStep = (step: string | undefined) => {
     if (!step) {
-      return <OnboardingStepOne />;
+      return <OnboardingIntro />;
     }
-    return stepComponents[step] || <OnboardingStepOne />;
+    return stepComponents[step] || <OnboardingIntro />;
   };
   return renderStep(step);
 }
