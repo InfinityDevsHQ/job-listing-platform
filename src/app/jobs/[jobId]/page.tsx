@@ -1,9 +1,9 @@
-import ApplyJobForm from '@/components/forms/apply-job-form/apply-job-form';
 import Jobs from '@/components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
 import SectionHeader from '@/components/ui/section-header';
 import { getJobById, getJobs } from '@/lib/jobs';
 import { notFound } from 'next/navigation';
+import ApplyJobModal from '../_components/apply-job-modal';
 import SearchedJob from '../_components/searched-job';
 
 type JobDetailsSlug = {
