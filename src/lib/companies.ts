@@ -5,7 +5,7 @@ const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
 const COMPANIES_URLS = {
   allPromotedCompanies: `${PLATFORM_API_BASE_URL}/api/v1/companies/promoted`,
-  singleCompany: `${PLATFORM_API_BASE_URL}/api/v1/companies/promoted`,
+  singleCompany: `${PLATFORM_API_BASE_URL}/api/v1/companies`,
 };
 
 export async function getPromotedCompanies(): Promise<Company[]> {

@@ -1,27 +1,26 @@
-import ContactPage from '../tabs/contact-page';
-import FilterJobs from '../tabs/filter-jobs';
-import Finish from '../tabs/finish';
-import LocationPage from '../tabs/location-page';
-import UploadCV from '../tabs/upload-cv';
+import OnboardingIntro from '../tabs/on-boarding-intro';
+import OnboardingStpFive from '../tabs/onboarding-step-five';
+import OnboardingStepFour from '../tabs/onboarding-step-four';
+import OnboardingStepOne from '../tabs/onboarding-step-one';
+import OnboardingStepThree from '../tabs/onboarding-step-three';
+import OnboardingStepTwo from '../tabs/onboarding-step-two';
 type FormsSliderProps = {
   step?: string;
 };
 export default function FormsSlider({ step }: FormsSliderProps) {
   const stepComponents: Record<string, JSX.Element> = {
-    location: <LocationPage />,
-    'upload-cv': <UploadCV />,
-    'filter-jobs': <FilterJobs />,
-    contact: <ContactPage />,
-    'terms-and-conditions': <Finish />,
+    location: <OnboardingStepOne />,
+    'upload-cv': <OnboardingStepTwo />,
+    'filter-jobs': <OnboardingStepThree />,
+    contact: <OnboardingStepFour />,
+    'terms-and-conditions': <OnboardingStpFive />,
   };
 
   const renderStep = (step: string | undefined) => {
     if (!step) {
-      return <LocationPage />;
+      return <OnboardingIntro />;
     }
-    return stepComponents[step] || <LocationPage />; // Default to LocationPage
+    return stepComponents[step] || <OnboardingIntro />;
   };
-
-  // Usage
   return renderStep(step);
 }

@@ -86,3 +86,18 @@ textarea {
   resize: none;
   overflow: hidden;
 }
+.ai-tile-gradient {
+  background: linear-gradient(
+    81.8deg,
+    #ffffff -29.85%,
+    rgba(202, 217, 252, 0.1) 7.75%,
+    #ffffff 34.61%,
+    rgba(202, 217, 252, 0.1) 59.17%,
+    #ffffff 72.98%,
+    rgba(202, 217, 252, 0.1) 104.44%,
+    #ffffff 123.63%
+  );
+}
+.intro-shadow {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}

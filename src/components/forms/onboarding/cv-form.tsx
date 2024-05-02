@@ -38,7 +38,7 @@ export default function CVForm() {
             </FormItem>
           )}
         />
-        <Pagination isNextSubmit />
+        <Pagination isNextSubmit handleBack={() => addQueryParams('step', 'location')} />
       </form>
     </Form>
   );

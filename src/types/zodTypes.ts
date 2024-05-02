@@ -29,7 +29,7 @@ export const AddJobListingDataSchema = z
       .max(99, 'Title should not exceed 99 characters.'),
     city: z
       .string()
-      .nonempty('City cannot be empty.')
+      .min(1, 'City cannot be empty.')
       .max(50, 'City should not exceed 50 characters.'),
     country: z.string().refine((value) => value !== '-', { message: 'Must be selected.' }),
     language: z.string(),
