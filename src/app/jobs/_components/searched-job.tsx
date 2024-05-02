@@ -1,5 +1,14 @@
+import ApplyJobForm from '@/components/forms/apply-job-form/apply-job-form';
 import Badges from '@/components/ui/badges';
 import Button from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 import InfoSection from '@/components/ui/info-section';
 import { Job } from '@/types/types';
 import { ArrowRight } from 'lucide-react';
@@ -35,12 +44,23 @@ const SearchedJob = ({ searchedJob }: SearchedJobProps) => {
               }))}
             />
           </InfoSection>
-          <Button
-            text="Apply"
-            trailingIcon={<ArrowRight className="h-5 w-5" />}
-            variant="primary"
-            size="full"
-          />
+          <Dialog>
+            <DialogTrigger>
+              <Button
+                text="Apply"
+                trailingIcon={<ArrowRight className="h-5 w-5" />}
+                variant="primary"
+                size="full"
+              />
+            </DialogTrigger>
+            <DialogContent className="xl:min-w-4xl  bg-white  lg:max-w-4xl">
+              <DialogHeader>
+                <DialogTitle>Apply For this role.</DialogTitle>
+                <DialogDescription></DialogDescription>
+              </DialogHeader>
+              <ApplyJobForm />
+            </DialogContent>
+          </Dialog>
           <JobFeedback className="lg:hidden" />
         </div>
         <div className="order-1 flex min-h-full max-w-max flex-shrink-0 flex-col justify-between gap-4 lg:order-2 lg:gap-8">
