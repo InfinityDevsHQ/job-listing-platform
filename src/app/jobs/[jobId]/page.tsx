@@ -1,3 +1,4 @@
+import ApplyJobForm from '@/components/forms/apply-job-form/apply-job-form';
 import Jobs from '@/components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
 import SectionHeader from '@/components/ui/section-header';
@@ -23,6 +24,7 @@ const JobDetails = async ({ params }: JobDetailsSlug) => {
   return (
     <div className="flex flex-col gap-4 p-4 lg:gap-8 lg:p-8">
       <SearchedJob searchedJob={job} />
+      <ApplyJobForm />
       <div className="flex w-full flex-col gap-4 lg:w-9/12 lg:gap-8">
         <SectionHeader heading="Similar Job Offers" leadingIcon={<FireIcon />} />
         <Jobs jobs={recommendedJobs} />
