@@ -4,7 +4,14 @@ import Input from '@/components/ui/input';
 
 import MagnifyingGlassIcon from '@/components/svgs/magnifying-glass';
 
-const Hero = () => {
+type HeroSectionProps = {
+  heading: string;
+  desc?: string;
+  searchQuery?: string;
+  handleChangeSearchQuery?: (val: string) => void;
+};
+
+const Hero = ({ heading, desc, searchQuery, handleChangeSearchQuery }: HeroSectionProps) => {
   return (
     <div
       className="grid grid-cols-3 items-center overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8"
@@ -13,10 +20,8 @@ const Hero = () => {
       }}
     >
       <div className="col-span-3 flex flex-col gap-4 lg:col-span-2 lg:gap-8">
-        <h2 className="text-lg font-bold text-white lg:text-3xl">Find your dream job here</h2>
-        <p className="max-w-lg text-sm text-white lg:text-base">
-          Explore the latest job openings and apply for the best job opportunities available today!
-        </p>
+        <h2 className="text-lg font-bold text-white lg:text-3xl">{heading}</h2>
+        {desc && <p className="max-w-lg text-sm text-white lg:text-base">{desc}</p>}
 
         <Input
           variant={'primary'}
