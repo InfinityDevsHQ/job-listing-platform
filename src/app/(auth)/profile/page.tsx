@@ -111,7 +111,11 @@ const Profile = () => {
               <p className="flex h-full flex-col justify-between">
                 <span className="flex items-center gap-2 font-bold text-gray-700 lg:text-base">
                   <span>Public Profile</span>
-                  <button className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white">
+                  <button
+                    aria-label="Clipboard Button"
+                    type="button"
+                    className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white"
+                  >
                     <ClipboardIcon className="h-3.5 w-3.5 " />
                   </button>
                 </span>
@@ -131,7 +135,11 @@ const Profile = () => {
               <p className="flex h-full flex-col justify-between">
                 <span className="flex items-center gap-2 font-bold text-gray-700 lg:text-base">
                   <span>Saad Gulzar Resume</span>
-                  <button className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white">
+                  <button
+                    aria-label="External Link"
+                    type="button"
+                    className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white"
+                  >
                     <ExternalLinkIcon className="h-3.5 w-3.5 " />
                   </button>
                 </span>
@@ -200,7 +208,11 @@ const Profile = () => {
                     <p className="flex h-full flex-col justify-between">
                       <span className="flex items-center gap-2 font-bold text-gray-700 lg:text-base">
                         <span>Public Profile</span>
-                        <button className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white">
+                        <button
+                          aria-label="ClipBoard Button"
+                          type="button"
+                          className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white"
+                        >
                           <ClipboardIcon className="h-3.5 w-3.5 " />
                         </button>
                       </span>
@@ -220,7 +232,11 @@ const Profile = () => {
                     <p className="flex h-full flex-col justify-between">
                       <span className="flex items-center gap-2 font-bold text-gray-700 lg:text-base">
                         <span>Saad Gulzar Resume</span>
-                        <button className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white">
+                        <button
+                          aria-label="External Link"
+                          type="button"
+                          className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white"
+                        >
                           <ExternalLinkIcon className="h-3.5 w-3.5 " />
                         </button>
                       </span>
