@@ -1,4 +1,4 @@
-import CompanyArrow from '../svgs/company-arrow';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Button from './button';
 type PaginationProps = {
   skip?: boolean;
@@ -24,7 +24,7 @@ export default function Pagination({
         <Button
           text="Previous"
           className="rounded-md border border-gray-200 bg-white hover:bg-gray-100 hover:text-black"
-          leadingIcon={<CompanyArrow width={16} height={16} />}
+          leadingIcon={<ArrowLeft size={16} />}
           onClick={handleBack}
         />
       )}
@@ -33,7 +33,7 @@ export default function Pagination({
         {next && (
           <Button
             text="Continue"
-            trailingIcon={<CompanyArrow width={16} height={16} />}
+            trailingIcon={<ArrowRight size={16} />}
             variant="primary"
             onClick={handleNext}
             type={`${isNextSubmit ? 'submit' : 'button'}`}
