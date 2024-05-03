@@ -37,14 +37,14 @@ export async function getJobById(jobId: string): Promise<Job> {
   const data = await DataService.delete<Job>(`${JOBS_URLS.singleJob}/${jobId}`);
   return data;
 }
-export async function updateJob(jobId: string): Promise<Job> {
-  if (!jobId) {
-    // can return 404 heres
-    return {} as Job;
-  }
-  const data = await DataService.put<Job>(`${JOBS_URLS.updateJob}/${jobId}`);
-  return data;
-}
+// export async function updateJob(jobId: string): Promise<Job> {
+//   if (!jobId) {
+//     // can return 404 heres
+//     return {} as Job;
+//   }
+//   const data = await DataService.put<Job>(`${JOBS_URLS.updateJob}/${jobId}`);
+//   return data;
+// }
 export async function deleteJob(jobId: string): Promise<Job> {
   if (!jobId) {
     // can return 404 heres
