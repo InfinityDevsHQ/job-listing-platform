@@ -22,6 +22,7 @@ const ApplyJobAdditionInfoForm = () => {
     defaultValues: {
       email: '',
       minimum_salary: '',
+      maximum_salary: '',
       amount: '',
       hours: '',
     },
@@ -32,7 +33,7 @@ const ApplyJobAdditionInfoForm = () => {
   return (
     <Form {...form}>
       <form
-        className="grid grid-cols-4 gap-4 border border-gray-200 p-4 pt-8"
+        className="grid grid-cols-4 gap-4 border border-gray-200 p-4 pt-8 lg:border-none lg:bg-white"
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <h5 className="col-span-4 text-base font-bold text-gray-700">
@@ -75,12 +76,12 @@ const ApplyJobAdditionInfoForm = () => {
         />
         <FormField
           control={form.control}
-          name="amount"
+          name="maximum_salary"
           render={({ field }) => (
             <FormItem className="col-span-2 lg:col-span-1">
               <FormControl>
                 <AppSelect
-                  placeholder="$"
+                  placeholder="Maximum Salary"
                   {...field}
                   options={Amount.map((option) => ({
                     label: option,
