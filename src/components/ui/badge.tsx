@@ -5,10 +5,9 @@ const Badge = ({ text, color, bgColor }: BadgeProps) => {
   return (
     <span
       className={cn(
-        'flex-shrink-0 rounded-md border border-neutral-200 bg-gray-100 px-2 py-1 text-sm font-bold text-neutral-500',
-        {
-          'border-transparent': bgColor,
-        }
+        'flex-shrink-0 rounded-md bg-gray-100 px-2 py-1 text-sm font-bold text-neutral-500 shadow-minor',
+        bgColor,
+        color
       )}
     >
       {text}

@@ -20,9 +20,12 @@ export default async function Home() {
     jobs.push(...newJobs);
   };
   return (
-    <div className="grid grid-cols-3 gap-8 p-4 lg:p-16">
+    <div className="grid grid-cols-3 gap-8 p-4 lg:p-8">
       <div className="col-span-3 flex flex-col gap-4 lg:col-span-2 lg:gap-8">
-        <Hero />
+        <Hero
+          heading="Find your dream job here"
+          desc="Explore the latest job openings and apply for the best job opportunities available today!"
+        />
         <SectionHeader
           leadingIcon={<FireIcon className="h-5 w-4 text-red-900 lg:h-7 lg:w-6" />}
           heading="Latest Hot Offers"
