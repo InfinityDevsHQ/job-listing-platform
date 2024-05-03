@@ -991,7 +991,7 @@ export interface CompanyFormData {
   employees_count: string;
   company_country: string;
   company_city: string;
-  prefered_language: string;
+  preferred_language: string;
 }
 
 //userStore.ts

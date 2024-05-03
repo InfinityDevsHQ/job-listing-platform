@@ -3,32 +3,28 @@ import CompanyArrow from '@/components/svgs/company-arrow';
 import CompanyLock from '@/components/svgs/company-lock';
 import CompanyProfileOne from '@/components/svgs/company-profile-one';
 import CompanyMail from '@/components/svgs/coompany-mail';
+import AppSelect from '@/components/ui/app-select';
 import Button from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
-import { register } from '@/lib/auth';
-import { storeToken } from '@/lib/auth-token';
 import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
+import { LoaderCircleIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { toast } from 'sonner';
 import * as z from 'zod';
 
-const formSchema = z
-  .object({
-    name: z.string().min(2, { message: 'Username must be at least 2 characters long' }),
-    email: z.string().email({ message: 'Email must be valid' }),
-    password: z.string().min(6, { message: 'Password must be at least 6 characters long' }),
-    confirmPassword: z.string().min(6, { message: 'Password must be at least 6 characters long' }),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
-    path: ['confirmPassword'],
-  });
-
+const formSchema = z.object({
+  company_name: z.string().min(4, { message: 'Company Name Should at least 4 characters long.' }),
+  company_mail: z.string().email({ message: 'Please Enter valid email address' }),
+  company_phone_number: z.string().min(6, { message: 'Please EnterValid phon number' }),
+  employees_count: z.string().min(1, { message: 'Please Select One' }),
+  company_country: z.string().min(4, { message: 'Please Select One' }),
+  company_city: z.string().min(2, { message: 'Please Enter a valid city name' }),
+  preferred_language: z.string().min(2, { message: 'Please Select' }),
+});
+const Employees = ['100 - 200', '500 - 1000'];
 export default function RegisterCandidateForm() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
@@ -38,32 +34,19 @@ export default function RegisterCandidateForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
+      company_name: '',
+      company_mail: '',
+      company_phone_number: '',
+      employees_count: '',
+      company_country: '',
+      company_city: '',
     },
   });
 
   const isLoading = form.formState.isSubmitting;
 
-  async function onSubmit({ name, email, password }: z.infer<typeof formSchema>) {
-    const body = {
-      name,
-      email,
-      password,
-      is_recruiter: true,
-      is_social_login: false,
-    };
-    return register(body)
-      .then(async (data) => {
-        await storeToken({ token: data.access_token });
-        setUser(data?.user);
-        router.push('/profile');
-      })
-      .catch((error) => {
-        toast.error(error.message || 'Uh oh! Something went wrong.');
-      });
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
   }
 
   return (
@@ -71,7 +54,7 @@ export default function RegisterCandidateForm() {
       <form className="flex flex-col gap-8" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
-          name="name"
+          name="company_name"
           render={({ field }) => (
             <FormItem>
               <FormControl>
@@ -83,7 +66,7 @@ export default function RegisterCandidateForm() {
         />
         <FormField
           control={form.control}
-          name="email"
+          name="company_mail"
           render={({ field }) => (
             <FormItem>
               <FormControl>
@@ -99,25 +82,14 @@ export default function RegisterCandidateForm() {
         />
         <FormField
           control={form.control}
-          name="password"
+          name="company_phone_number"
           render={({ field }) => (
             <FormItem>
               <FormControl>
                 <Input
                   {...field}
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="Password"
+                  placeholder="Phone Number"
                   leadingIcon={<CompanyLock width={14} height={15} />}
-                  trailingIcon={
-                    showPassword ? (
-                      <EyeOffIcon className="h-4 w-4" />
-                    ) : (
-                      <EyeIcon className="h-4 w-4" />
-                    )
-                  }
-                  onClickTrailing={() => {
-                    setShowPassword(!showPassword);
-                  }}
                 />
               </FormControl>
               <FormMessage />
@@ -126,25 +98,62 @@ export default function RegisterCandidateForm() {
         />
         <FormField
           control={form.control}
-          name="confirmPassword"
+          name="employees_count"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <AppSelect
+                  {...field}
+                  placeholder="Number of employees"
+                  options={Employees.map((option) => ({ label: option, value: option }))}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="company_country"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <AppSelect
+                  {...field}
+                  placeholder="Country"
+                  options={Employees.map((option) => ({ label: option, value: option }))}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="company_city"
           render={({ field }) => (
             <FormItem>
               <FormControl>
                 <Input
                   {...field}
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="Confirm Password"
+                  placeholder="City"
                   leadingIcon={<CompanyLock width={14} height={15} />}
-                  trailingIcon={
-                    showPassword ? (
-                      <EyeOffIcon className="h-4 w-4" />
-                    ) : (
-                      <EyeIcon className="h-4 w-4" />
-                    )
-                  }
-                  onClickTrailing={() => {
-                    setShowPassword(!showPassword);
-                  }}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="preferred_language"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <AppSelect
+                  {...field}
+                  placeholder="Preferred Language"
+                  options={Employees.map((option) => ({ label: option, value: option }))}
                 />
               </FormControl>
               <FormMessage />
