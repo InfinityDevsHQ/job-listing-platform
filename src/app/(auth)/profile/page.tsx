@@ -8,8 +8,8 @@ import {
 } from '@/components/ui/accordion';
 import InfoList from '@/components/ui/info-list';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import UserHeader from '@/components/user-header';
 import { deleteToken, getToken } from '@/lib/auth-token';
-import { cn } from '@/lib/utils';
 import useAuthStore from '@/stores/authStore/store';
 import {
   ClipboardIcon,
@@ -20,7 +20,6 @@ import {
   MailIcon,
   MapPinIcon,
 } from 'lucide-react';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
@@ -60,21 +59,11 @@ const Profile = () => {
       <Accordion type="single" collapsible className="flex w-full flex-col gap-4 lg:hidden">
         <AccordionItem value="item-1">
           <AccordionTrigger>
-            <div className="flex items-center gap-4">
-              <Image
-                src={'/assets/candidates/candidate.png'}
-                alt="test"
-                width={50}
-                height={50}
-                className={cn('rounded-full border-2 border-gray-100 ring-2 ring-gray-500', {
-                  'ring-green-500': !user.online_status,
-                })}
-              />
-              <div className="flex flex-col items-start gap-0">
-                <h4 className="text-lg font-bold text-neutral-950">Saad Gulzar</h4>
-                <p className="text-base font-normal text-gray-500">Software Engineer</p>
-              </div>
-            </div>
+            <UserHeader
+              online_status={user.online_status}
+              user_name="Saad Gulzar"
+              user_role="Software Engineer"
+            />
           </AccordionTrigger>
           <AccordionContent>
             <div className="flex flex-col gap-4 rounded-md bg-white">
