@@ -12,8 +12,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 type LocationFormProps = {
-  languages: string[];
-  countries: Country[];
+  languages?: string[];
+  countries?: Country[];
 };
 const locationFormSchema = z.object({
   preferLanguage: z.string().min(2, {
@@ -61,7 +61,7 @@ export default function LocationForm({ languages, countries }: LocationFormProps
                 <AppSelect
                   placeholder="Preferred Language"
                   {...field}
-                  options={languages.map((language) => ({ value: language, label: language }))}
+                  options={languages?.map((language) => ({ value: language, label: language }))}
                 />
               </FormControl>
               <FormMessage />
@@ -97,7 +97,7 @@ export default function LocationForm({ languages, countries }: LocationFormProps
                   placeholder="Select Country"
                   {...field}
                   leadingIcon={<CompanyGlobe />}
-                  options={countries.map((country) => ({
+                  options={countries?.map((country) => ({
                     label: country.name,
                     value: country.name,
                   }))}
