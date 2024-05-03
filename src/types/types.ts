@@ -344,7 +344,7 @@ export type User = {
   ai_tokens_query_limit: number;
   ai_tokens_consumed: number;
   is_recruiter: boolean;
-  is_onboarded: boolean;
+  is_onboard: boolean;
   is_social_login: boolean;
   last_active: string; // Should be a valid date string, e.g., "2024-04-24T20:29:20.106046"
   id: number;
