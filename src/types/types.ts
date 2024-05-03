@@ -376,6 +376,20 @@ export type RegisterBodyProps = {
   is_social_login: boolean;
   password: string;
 };
+type SocialMediaLinks = {
+  [key: string]: string;
+};
+
+export type RegisterCompanyBodyProps = {
+  name: string;
+  country: string;
+  city: string;
+  contact_name: string;
+  email: string;
+  phone_number: string;
+  company_size: '1-10';
+  prefered_language: string;
+};
 
 export type LoginResProps = {
   access_token: string;

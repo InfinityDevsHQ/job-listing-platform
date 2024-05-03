@@ -6,7 +6,7 @@ import CompanyMail from '@/components/svgs/coompany-mail';
 import Button from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
-import { register } from '@/lib/auth';
+import { registerCandidate } from '@/lib/auth';
 import { storeToken } from '@/lib/auth-token';
 import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -55,7 +55,7 @@ export default function RegisterCandidateForm() {
       is_recruiter: false,
       is_social_login: false,
     };
-    return register(body)
+    return registerCandidate(body)
       .then(async (data) => {
         await storeToken({ token: data.access_token });
         setUser(data?.user);
