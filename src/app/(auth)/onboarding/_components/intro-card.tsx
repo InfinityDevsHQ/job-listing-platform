@@ -1,5 +1,6 @@
 import Button from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import AITile from './ai-tile';
 const IntroCard = () => {
   return (
@@ -44,12 +45,9 @@ const IntroCard = () => {
           </p>
         </div>
       </div>
-      <Button
-        text="Let's Go"
-        className="self-end"
-        variant="primary"
-        trailingIcon={<ArrowRight size={18} />}
-      />
+      <Link href={'?step=location'} className="self-end">
+        <Button text="Let's Go" variant="primary" trailingIcon={<ArrowRight size={18} />} />
+      </Link>
     </div>
   );
 };

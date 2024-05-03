@@ -6,8 +6,8 @@ export default function Home({ searchParams }: { searchParams?: { step?: string 
   return (
     <>
       <div className="flex flex-col items-center justify-between p-4">
-        <Intro />
-        <OnboardingStepNavigator step={step} />
+        {step && <Intro />}
+        {step && <OnboardingStepNavigator step={step} />}
         <FormsSlider step={step} />
       </div>
     </>

@@ -1,8 +1,7 @@
 import Badges from '@/components/ui/badges';
-import Button from '@/components/ui/button';
 import InfoSection from '@/components/ui/info-section';
 import { Job } from '@/types/types';
-import { ArrowRight } from 'lucide-react';
+import ApplyJobModal from './apply-job-modal';
 import JobFeedback from './job-feedback';
 import JobHeader from './job-header';
 import JobInfo from './job-info';
@@ -35,12 +34,7 @@ const SearchedJob = ({ searchedJob }: SearchedJobProps) => {
               }))}
             />
           </InfoSection>
-          <Button
-            text="Apply"
-            trailingIcon={<ArrowRight className="h-5 w-5" />}
-            variant="primary"
-            size="full"
-          />
+          <ApplyJobModal />
           <JobFeedback className="lg:hidden" />
         </div>
         <div className="order-1 flex min-h-full max-w-max flex-shrink-0 flex-col justify-between gap-4 lg:order-2 lg:gap-8">
