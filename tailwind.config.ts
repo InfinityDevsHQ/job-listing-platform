@@ -65,6 +65,7 @@ const config = {
       },
       boxShadow: {
         theme: '0px 4px 60px 0px #0000000D',
+        minor: '0px 4px 4px 0px #0000000D',
       },
     },
   },
