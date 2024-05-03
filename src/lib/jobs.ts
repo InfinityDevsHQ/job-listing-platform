@@ -7,6 +7,7 @@ const JOBS_URLS = {
   allJobs: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listings/all`,
   singleJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listings`,
   postJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listing`,
+  updateJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listing/{job_listing_id}`,
 };
 
 type GetJobsParams = {
@@ -23,6 +24,7 @@ export async function getJobs({
     skip: `${skip}`,
     limit: `${limit}`,
     allow_for_translated_jobs: `${allow_for_translated_jobs}`,
+    deleteJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listing/{job_listing_id}`,
   });
   return data;
 }
@@ -32,12 +34,25 @@ export async function getJobById(jobId: string): Promise<Job> {
     // can return 404 heres
     return {} as Job;
   }
-  const data = await DataService.get<Job>(`${JOBS_URLS.singleJob}/${jobId}`, {
-    skip: '0',
-    limit: '10',
-    allow_for_translated_jobs: 'false',
-  });
+  const data = await DataService.delete<Job>(`${JOBS_URLS.singleJob}/${jobId}`);
   return data;
 }
+export async function updateJob(jobId: string): Promise<Job> {
+  if (!jobId) {
+    // can return 404 heres
+    return {} as Job;
+  }
+  const data = await DataService.put<Job>(`${JOBS_URLS.updateJob}/${jobId}`);
+  return data;
+}
+export async function deleteJob(jobId: string): Promise<Job> {
+  if (!jobId) {
+    // can return 404 heres
+    return {} as Job;
+  }
+  const data = await DataService.put<Job>(`${JOBS_URLS.updateJob}/${jobId}`);
+  return data;
+}
+
 export const postJobListing = (body: PostJobWorkerInputData): Promise<PostJobWorkerInputData> =>
   DataService.post<PostJobWorkerInputData>(JOBS_URLS.postJob, body);
