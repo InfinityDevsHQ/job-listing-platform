@@ -1,5 +1,4 @@
 import CompanyTeam from './company-team';
-import CompanyTechnologies from './company-technologies';
 import SectionHeading from './section-heading';
 type CompanyAboutProps = {
   className?: string;
@@ -21,7 +20,6 @@ const CompanyAbout = ({ className }: CompanyAboutProps) => {
         numquam voluptatibus maxime velit atque quis, impedit tempore autem dolores? Officiis qui
         quos distinctio sequi!
       </p>
-      <CompanyTechnologies />
       <CompanyTeam />
     </div>
   );
