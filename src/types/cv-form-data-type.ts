@@ -1,3 +1,0 @@
-type CVFormData = {
-  imgUrl: string;
-};

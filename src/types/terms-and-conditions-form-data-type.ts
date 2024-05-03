@@ -1,3 +1,0 @@
-type TermsAndConditionsFormData = {
-  termsAgreed: boolean;
-};

@@ -2,7 +2,7 @@ import MagnifyingGlassIcon from '@/components/svgs/magnifying-glass';
 import Input from '@/components/ui/input';
 import CandidateCard from './_components/candidate-card';
 export default function Candidates() {
-  const CANDIDATES: CandidateCardData[] = [
+  const CANDIDATES = [
     {
       name: 'Youssef Ahmed',
       profession: 'UI Designer',

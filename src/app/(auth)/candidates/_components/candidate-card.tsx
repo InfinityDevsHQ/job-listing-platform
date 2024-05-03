@@ -4,6 +4,14 @@ import CompanyLocation from '@/components/svgs/company-location';
 import Button from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Image from 'next/image';
+type CandidateCardData = {
+  name: string;
+  candidateImgUrl: string;
+  profession: string;
+  location: string;
+  about: string;
+  skillSet?: string[];
+};
 
 type CandidateCardProps = {
   candidateData: CandidateCardData;
