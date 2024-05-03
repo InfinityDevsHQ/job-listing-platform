@@ -50,7 +50,7 @@ export async function deleteJob(jobId: string): Promise<Job> {
     // can return 404 heres
     return {} as Job;
   }
-  const data = await DataService.put<Job>(`${JOBS_URLS.updateJob}/${jobId}`);
+  const data = await DataService.delete<Job>(`${JOBS_URLS.updateJob}/${jobId}`);
   return data;
 }
 
