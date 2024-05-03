@@ -1,18 +1,6 @@
 'use client';
-
-import Image from 'next/image';
-import Link from 'next/link';
-
-import { usePathname, useRouter } from 'next/navigation';
-
 import Navbar from '@/components/header/_components/navbar';
 import Button from '@/components/ui/button';
-
-import ArrowRightIcon from '@/components/svgs/arrow-right';
-import LockIcon from '@/components/svgs/lock';
-
-import { cn } from '@/lib/utils';
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,8 +10,19 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { deleteToken } from '@/lib/auth-token';
 import { getCountries } from '@/lib/countries';
+import { cn } from '@/lib/utils';
 import { Country } from '@/types/types';
-import { BellIcon, ChevronDown, ChevronsUpDown, MailIcon } from 'lucide-react';
+import {
+  ArrowRight,
+  BellIcon,
+  ChevronDown,
+  ChevronsUpDown,
+  LockIcon,
+  MailIcon,
+} from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
@@ -104,12 +103,12 @@ const Header = () => {
               <Button
                 text="Login"
                 variant={'primary'}
-                trailingIcon={<LockIcon />}
+                trailingIcon={<LockIcon size={16} />}
                 onClick={() => router.push('/login')}
               />
               <Button
                 text="Register"
-                trailingIcon={<ArrowRightIcon />}
+                trailingIcon={<ArrowRight size={16} />}
                 variant={'primary'}
                 onClick={() => router.push('/register')}
               />
