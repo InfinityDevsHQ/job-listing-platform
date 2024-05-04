@@ -1,8 +1,12 @@
-import { InfoListProps } from '@/types/types';
+type InfoListProps = {
+  list?: string[] | null;
+  children?: React.ReactNode;
+  variant?: string;
+};
 
-const InfoList = ({ list, children }: InfoListProps) => {
+const InfoList = ({ list, children, variant = 'primary' }: InfoListProps) => {
   return (
-    <ul className="list list-inside list-image-[url('/assets/images/jobs/send.png')] ">
+    <ul className={`list list-inside list-image-[url('/assets/icons/send-${variant}.png')]`}>
       {children ? (
         <>{children}</>
       ) : (

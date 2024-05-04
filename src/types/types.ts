@@ -159,22 +159,10 @@ export type BadgeProps = {
   bgColor?: string;
 };
 
-// info-section.tsx
-export type InfoSectionProps = {
-  heading?: string;
-  children?: React.ReactNode;
-};
-
 // info-badge.tsx
 export type InfoBadgeProps = {
   heading?: string;
   desc?: string;
-};
-
-// info-list.tsx
-export type InfoListProps = {
-  list?: string[] | null;
-  children?: React.ReactNode;
 };
 
 // userStore.ts
