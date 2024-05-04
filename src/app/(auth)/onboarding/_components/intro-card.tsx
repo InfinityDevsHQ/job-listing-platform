@@ -4,7 +4,7 @@ import Link from 'next/link';
 import AITile from './ai-tile';
 const IntroCard = () => {
   return (
-    <div className="intro-shadow flex flex-col gap-4 rounded-md border border-gray-200 bg-white p-4 lg:p-8">
+    <div className="flex flex-col gap-4 rounded-md border border-gray-200 bg-white p-4 shadow-card lg:p-8">
       <AITile />
       <div className="flex flex-col gap-2 lg:gap-4">
         <h4 className="text-lg font-bold text-gray-700 lg:text-2xl">
