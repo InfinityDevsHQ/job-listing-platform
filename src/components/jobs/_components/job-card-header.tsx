@@ -6,7 +6,7 @@ const JobCardHeader = ({ job }: JobProps) => {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-5">
-        <span className="flex-center h-10 w-10 rounded-full bg-orange-100">
+        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-100">
           <Image alt="logo" src={'/assets/icons/fire.svg'} width={16} height={18} />
         </span>
         <div>

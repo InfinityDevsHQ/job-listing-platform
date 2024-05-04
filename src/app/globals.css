@@ -3,47 +3,41 @@
 @tailwind utilities;
 
 @layer base {
-  body,
-  html {
-    @apply font-sans font-normal;
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220, 9%, 46%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 224, 64%, 33%;
+    --primary-foreground: 0, 0%, 100%;
+
+    --secondary: 166, 61%, 20%;
+    --secondary-foreground: 0, 0%, 100%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 72.22% 50.59%;
+    --destructive-foreground: 0, 0%, 100%;
+
+    --border: 220, 13%, 91%;
+    --input: 220, 13%, 91%;
+    --ring: 224, 64%, 33%;
+
+    --radius: 0.375rem;
   }
 
   body {
-    @apply bg-primary-50;
+    @apply font-sans font-normal;
   }
-}
-
-@layer utilities {
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
-}
-
-.section-heading {
-  font-size: 38px;
-  font-weight: 700;
-  letter-spacing: -0.0075em;
-}
-.section-description {
-  @apply text-sm font-normal lg:text-xl lg:leading-8;
-}
-.btn {
-  @apply text-sm font-bold lg:font-sans lg:text-base lg:font-medium;
-}
-.tag {
-  @apply rounded-md px-2 py-1 font-sans font-medium;
-}
-.new-gray {
-  color: #70777f;
-}
-.text-mute-1 {
-  color: #263238;
-}
-.text-mute-2 {
-  color: #ebebeb;
-}
-.bg-new-gray {
-  background-color: #70777f;
 }
 
 .custom-select input {
@@ -70,6 +64,7 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #d1d5db; /* Thumb color */
 }
+
 /* Hide arrow buttons for number inputs, */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -81,11 +76,13 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
 }
+
 /* Fix textarea scrollbar */
 textarea {
   resize: none;
   overflow: hidden;
 }
+
 .ai-tile-gradient {
   background: linear-gradient(
     81.8deg,
@@ -97,7 +94,4 @@ textarea {
     rgba(202, 217, 252, 0.1) 104.44%,
     #ffffff 123.63%
   );
-}
-.intro-shadow {
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
 }

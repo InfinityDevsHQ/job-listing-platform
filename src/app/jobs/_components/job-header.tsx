@@ -8,7 +8,7 @@ export default function JobHeader({ title, is_hot, external_company_name }: JobH
   return (
     <div className="flex items-start justify-between">
       <div className="flex items-center gap-5">
-        <span className="flex-center h-11 w-11 rounded-full bg-orange-100 lg:h-24 lg:w-24">
+        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-orange-100 lg:h-24 lg:w-24">
           <Image
             alt="logo"
             src={'/assets/icons/fire.svg'}
