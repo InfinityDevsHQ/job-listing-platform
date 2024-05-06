@@ -1,5 +1,5 @@
 import JobsList from '@/components/jobs/jobs-list';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import Input from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { JobListProps } from '@/types/types';
@@ -36,7 +36,7 @@ const CompanyTabs = ({ jobs }: JobListProps) => {
             </p>
             <div className="flex items-center gap-2.5">
               <Input placeholder="Email" type="email" />
-              <Button text="Subscribe" variant="primary" className="self-end" />
+              <Button className="self-end">Subscribe</Button>
             </div>
           </div>
         </div>

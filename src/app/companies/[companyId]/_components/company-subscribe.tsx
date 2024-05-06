@@ -1,4 +1,4 @@
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import Input from '@/components/ui/input';
 
 export default function CompanySubscribe() {
@@ -10,7 +10,7 @@ export default function CompanySubscribe() {
         to our rules.
       </p>
       <Input placeholder="Email" type="email" />
-      <Button text="Subscribe" variant="primary" className="self-end" />
+      <Button className="self-end">Subscribe</Button>
     </div>
   );
 }
