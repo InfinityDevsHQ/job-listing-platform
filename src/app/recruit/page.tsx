@@ -21,7 +21,7 @@ const Recruit = () => {
               process easier and lets you focus on what matters the most – your candidates.
             </p>
             <div className="flex flex-col items-center gap-3 lg:flex-row">
-              <Button variant="secondary" className="-full lg:w-auto">
+              <Button variant="secondary" className="w-full lg:w-auto">
                 Try it Free for 14 Days
               </Button>
               <Button variant="outline" className="w-full lg:w-auto">
