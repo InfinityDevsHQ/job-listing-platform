@@ -1,9 +1,8 @@
 import CartIcon from '@/components/svgs/cart-icon';
 import CompanyLocation from '@/components/svgs/company-location';
-import { Eye } from 'lucide-react';
-// import Button from '@/components/ui/button';
 import { Button } from '@/components/ui/button-new';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { Eye } from 'lucide-react';
 import Image from 'next/image';
 type CandidateCardData = {
   name: string;

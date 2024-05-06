@@ -1,4 +1,4 @@
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import { Mail, MailCheck, MailQuestion } from 'lucide-react';
 type InboxPanelProps = {
   className?: string;
@@ -9,25 +9,19 @@ const InboxPanel = ({ className }: InboxPanelProps) => {
       className={`flex w-64 flex-col gap-4 rounded-md border border-neutral-200 bg-white  p-4 ${className ? className : ''}`}
     >
       <h2 className="w-full text-2xl font-bold text-black">Inbox</h2>
+      <Button variant="outline" className="flex justify-start gap-2 border-none" size={'lg'}>
+        <Mail width={14} height={24} />
+        New Message
+      </Button>
+      <Button variant="outline" className="flex justify-start gap-2 border-none" size={'lg'}>
+        <MailCheck width={14} height={24} />
+        Accepted
+      </Button>
 
-      <Button
-        text="New Message"
-        size="full"
-        leadingIcon={<Mail width={14} height={24} />}
-        className="justify-start border-none"
-      />
-      <Button
-        text="New Message"
-        size="full"
-        leadingIcon={<MailCheck width={14} height={24} />}
-        className="justify-start border-none"
-      />
-      <Button
-        text="Sent"
-        size="full"
-        leadingIcon={<MailQuestion width={14} height={24} />}
-        className="justify-start border-none"
-      />
+      <Button variant="outline" className="flex justify-start gap-2 border-none" size={'lg'}>
+        <MailQuestion width={14} height={24} />
+        Sent
+      </Button>
     </div>
   );
 };
