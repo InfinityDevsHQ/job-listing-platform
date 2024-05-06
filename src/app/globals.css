@@ -96,5 +96,6 @@ textarea {
   );
 }
 .inbox {
-  height: calc(100vh - 32px - 39.981px);
+  min-height: calc(100vh - 32px - 39.981px);
+  max-height: calc(100vh - 32px - 39.981px);
 }
