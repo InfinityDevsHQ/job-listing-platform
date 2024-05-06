@@ -12,14 +12,7 @@ import { deleteToken } from '@/lib/auth-token';
 import { getCountries } from '@/lib/countries';
 import { cn } from '@/lib/utils';
 import { Country } from '@/types/types';
-import {
-  ArrowRight,
-  BellIcon,
-  ChevronDown,
-  ChevronsUpDown,
-  LockIcon,
-  MailIcon,
-} from 'lucide-react';
+import { ArrowRight, BellIcon, ChevronDown, LockIcon, MailIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -93,20 +86,55 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <Navbar />
             <div className="hidden gap-4 lg:flex">
-              <Button variant={'outline'}>
-                Country
-                <ChevronsUpDown className="h-4 w-4" />
-              </Button>
+              <Link
+                href={'/companies'}
+                className="inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium"
+              >
+                Companies
+              </Link>
+              <DropdownMenu modal={false}>
+                <DropdownMenuTrigger asChild>
+                  <button
+                    type="button"
+                    className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium"
+                  >
+                    <span>Country</span>
+                    <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-52 bg-white">
+                  {countries?.map((country, index) => (
+                    <Fragment key={index}>
+                      {index === countries.length - 1 && <DropdownMenuSeparator />}
+                      <DropdownMenuItem
+                        onSelect={() => handleSelectCountry(country.id, country.name)}
+                      >
+                        <span className="flex items-center gap-2">
+                          <Image
+                            src={`http://devel.clickjob.ai/${country.flag_icon}`}
+                            alt="test"
+                            width={20}
+                            height={20}
+                          />
+                          <span className="-gap-1 flex flex-col">
+                            <span className="font-medium capitalize">{country.name}</span>
+                          </span>
+                        </span>
+                      </DropdownMenuItem>
+                    </Fragment>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
               <Link href={'/login'}>
-                <Button>
+                <Button variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'default'}>
                   Login
-                  <LockIcon size={16} />
+                  <LockIcon className="ml-2 h-4 w-4" size={16} />
                 </Button>
               </Link>
               <Link href={'/register'}>
-                <Button>
+                <Button variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'default'}>
                   Register
-                  <ArrowRight size={16} />
+                  <ArrowRight className="ml-2 h-4 w-4" size={16} />
                 </Button>
               </Link>
             </div>
