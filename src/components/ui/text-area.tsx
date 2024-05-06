@@ -11,7 +11,7 @@ export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextArea
   variant?: 'default' | 'primary' | 'secondary' | 'danger';
 }
 const inputVariants = cva(
-  'p-2 h-10 w-full peer border-2 border-gray-300 rounded-md bg-white text-black placeholder-gray-400 outline-none transition-all duration-300',
+  'p-2 h-10 w-full peer border border-gray-300 rounded-md bg-white text-black placeholder-gray-400 outline-none transition-all duration-300',
   {
     variants: {
       variant: {
