@@ -1,7 +1,15 @@
 import CartIcon from '@/components/svgs/cart-icon';
 import CompanyLocation from '@/components/svgs/company-location';
+import Badge from '@/components/ui/badge';
 import { Button } from '@/components/ui/button-new';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import { getColorClasses } from '@/lib/utils';
 import { Eye } from 'lucide-react';
 import Image from 'next/image';
 type CandidateCardData = {
@@ -18,9 +26,9 @@ type CandidateCardProps = {
 };
 export default function CandidateCard({ candidateData }: CandidateCardProps) {
   return (
-    <div className="max-w-80 rounded-md border border-gray-200 bg-gray-50 lg:p-4">
-      <div className="flex flex-col gap-4">
-        <header className="flex gap-4 p-4">
+    <div className="rounded-md border border-gray-200 bg-gray-50 p-4">
+      <div className="flex flex-col">
+        <header className="mb-4 flex gap-4">
           <div className="flex items-center justify-center">
             <Image
               src={candidateData.candidateImgUrl}
@@ -39,10 +47,10 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             </div>
           </div>
         </header>
-        <div className="flex items-center justify-center gap-4 p-4">
+        <div className="flex  items-stretch  gap-4">
           <Button
             variant={'outline'}
-            className="flex flex-1 items-center gap-2 bg-white text-gray-800 lg:text-base"
+            className="flex flex-1 basis-1 items-center gap-2 bg-white text-gray-800 lg:text-base"
             size={'lg'}
           >
             <Eye size={16} />
@@ -50,8 +58,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
           </Button>
           <Button
             variant={'outline'}
-            className="flex flex-1 items-center gap-2 bg-white text-gray-800 lg:text-base"
-            size={'lg'}
+            className="flex flex-1 basis-1 items-center gap-2 bg-white text-gray-800 lg:text-base"
           >
             <Eye size={16} />
             Resume
@@ -59,30 +66,30 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
         </div>
         <div className="flex flex-col gap-4 p-4">
           <h4 className="text-base font-bold text-gray-700">About</h4>
-          <p className="max-h-12 overflow-hidden text-ellipsis text-base text-gray-500">
+          <p className="overflow-hidden text-ellipsis text-base text-gray-500 lg:max-h-12">
             {candidateData.about}
           </p>
         </div>
         {candidateData.skillSet?.length && (
           <Carousel
-            className="flex w-full"
+            className="mb-4 flex w-full"
             opts={{
               loop: true,
             }}
           >
-            {/* <CarouselPrevious text={''} className="relative left-0 translate-x-0 translate-y-0" /> */}
-            <CarouselContent>
+            <CarouselPrevious text={''} className="relative left-0 translate-x-0 translate-y-0" />
+            <CarouselContent className="flex items-center">
               {candidateData.skillSet?.map((skill, index) => (
                 <CarouselItem key={index} className="basis-1/4">
-                  <div className="p-1">
-                    <div>
-                      <span className="tag">{skill}</span>
-                    </div>
-                  </div>
+                  <Badge
+                    text={skill}
+                    color={getColorClasses(index)?.textColor}
+                    bgColor={getColorClasses(index)?.bgColor}
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>
-            {/* <CarouselNext text={''} className="relative left-0 translate-x-0 translate-y-0" /> */}
+            <CarouselNext text={''} className="relative left-0 translate-x-0 translate-y-0" />
           </Carousel>
         )}
         <Button className="gap-2">
