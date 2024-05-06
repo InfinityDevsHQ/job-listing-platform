@@ -27,8 +27,16 @@ const config = {
         ],
       },
       colors: {
-        primary: colors.blue,
-        secondary: colors.green,
+        primary: {
+          DEFAULT: '#1e3a8a',
+          foreground: '#ffffff',
+          ...colors.blue,
+        },
+        secondary: {
+          DEFAULT: '#14532d',
+          foreground: '#ffffff',
+          ...colors.green,
+        },
         danger: colors.red,
         neutral: colors.neutral,
         'mute-1': '#263238',
