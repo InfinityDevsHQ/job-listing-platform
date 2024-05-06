@@ -9,9 +9,7 @@ export default function Inbox() {
       <Tabs defaultValue="accepted" className="w-full lg:hidden">
         <TabsList className="bg-primary-50 lg:bg-transparent">
           <TabsTrigger value="accepted">Accepted</TabsTrigger>
-          <TabsTrigger value="sent" className="data-[state=active]:bg-secondary-900">
-            Sent
-          </TabsTrigger>
+          <TabsTrigger value="sent">Sent</TabsTrigger>
         </TabsList>
         <TabsContent value="accepted">
           <AcceptedTab className="w-auto" />

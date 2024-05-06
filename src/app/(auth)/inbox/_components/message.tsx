@@ -8,7 +8,7 @@ type MessageProps = {
 };
 const Message = ({ type, text, sendImgUrl, timeStamp }: MessageProps) => {
   return (
-    <div className={`flex w-1/2 gap-2 ${type === 'incoming' ? '' : 'ml-auto'}`}>
+    <div className={`flex w-56   gap-2 lg:w-1/2 ${type === 'incoming' ? '' : 'ml-auto'}`}>
       <div className={`flex ${type === 'outgoing' ? 'order-1' : ''}`}>
         <div className="self-end">
           <Image src={sendImgUrl} alt="Sender Image" width={30} height={30} className="lg:hidden" />
