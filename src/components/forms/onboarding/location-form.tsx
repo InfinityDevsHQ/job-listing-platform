@@ -1,8 +1,8 @@
 'use client';
+import Pagination from '@/app/(auth)/onboarding/_components/pagination';
 import AppSelect from '@/components/ui/app-select';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
-import Pagination from '@/components/ui/pagination';
 import { useQueryParams } from '@/hooks/useQueryParams';
 import { timezones } from '@/lib/time-zones';
 import useOnboardingStore from '@/stores/onboardingStore/store';

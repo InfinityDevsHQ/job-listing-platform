@@ -1,8 +1,8 @@
 'use client';
+import Pagination from '@/app/(auth)/onboarding/_components/pagination';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Label } from '@/components/ui/label';
-import Pagination from '@/components/ui/pagination';
 import { useQueryParams } from '@/hooks/useQueryParams';
 import { uploadOnBoardingData } from '@/lib/onboarding';
 import useOnboardingStore from '@/stores/onboardingStore/store';

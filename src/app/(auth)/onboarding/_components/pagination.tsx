@@ -1,5 +1,6 @@
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { Button } from './button-new';
+import { Button } from '@/components/ui/button-new';
+import { ArrowLeft, ArrowRightIcon } from 'lucide-react';
+
 type PaginationProps = {
   skip?: boolean;
   previous?: boolean;
@@ -9,6 +10,7 @@ type PaginationProps = {
   handleBack?: () => void;
   handleSkip?: () => void;
 };
+
 export default function Pagination({
   skip,
   previous = true,
@@ -21,24 +23,21 @@ export default function Pagination({
   return (
     <div className="flex w-full items-center">
       {previous && (
-        <Button
-          onClick={handleBack}
-          className="rounded-md border border-gray-200 bg-white hover:bg-gray-100 hover:text-black"
-        >
-          <ArrowLeft size={16} className="mr-2" />
+        <Button onClick={handleBack} variant="outline">
+          <ArrowLeft className="mr-2 h-4 w-4" />
           Previous
         </Button>
       )}
       <div className="ml-auto flex items-center gap-5">
         {skip && (
-          <Button className="bg-white" variant={'outline'} onClick={handleSkip}>
+          <Button className="bg-white" variant="outline" onClick={handleSkip}>
             Skip
           </Button>
         )}
         {next && (
           <Button onClick={handleNext} type={`${isNextSubmit ? 'submit' : 'button'}`}>
             Continue
-            <ArrowRight size={16} className="ml-2" />
+            <ArrowRightIcon className="ml-2 h-4 w-4" />
           </Button>
         )}
       </div>

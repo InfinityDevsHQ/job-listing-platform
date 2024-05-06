@@ -1,10 +1,10 @@
 'use client';
+import Pagination from '@/app/(auth)/onboarding/_components/pagination';
 import CompanyGithubSecond from '@/components/svgs/company-github-second';
 import CompanyPhone from '@/components/svgs/company-phone';
 import TwitterIcon from '@/components/svgs/twitter';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
-import Pagination from '@/components/ui/pagination';
 import { useQueryParams } from '@/hooks/useQueryParams';
 import useOnboardingStore from '@/stores/onboardingStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';

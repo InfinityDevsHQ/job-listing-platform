@@ -19,7 +19,7 @@ export default function OnboardingStepNavigator({ step }: OnboardingStepNavigato
   }, [step]);
   return (
     <Tabs>
-      <TabsList className="flex items-center gap-4">
+      <TabsList className="flex items-center bg-white">
         <Button
           onClick={() => handleTabSelect('location')}
           variant={step === 'location' ? 'default' : 'outline'}
