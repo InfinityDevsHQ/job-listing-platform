@@ -112,7 +112,12 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <Pagination handleBack={() => addQueryParams('step', 'filter-jobs')} skip isNextSubmit />
+          <Pagination
+            handleBack={() => addQueryParams('step', 'filter-jobs')}
+            handleSkip={() => addQueryParams('step', 'terms-and-conditions')}
+            skip
+            isNextSubmit
+          />
         </div>
       </form>
     </Form>

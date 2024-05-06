@@ -21,14 +21,6 @@ export default function OnboardingStepNavigator({ step }: OnboardingStepNavigato
     <Tabs>
       <TabsList className="flex items-center gap-4">
         <Button
-          onClick={() => handleTabSelect('')}
-          variant={!step ? 'default' : 'outline'}
-          className="!border-none"
-        >
-          Intro
-        </Button>
-
-        <Button
           onClick={() => handleTabSelect('location')}
           variant={step === 'location' ? 'default' : 'outline'}
           className="!border-none"
