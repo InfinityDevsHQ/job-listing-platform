@@ -170,7 +170,7 @@ const Messages = () => {
   ];
 
   return (
-    <div className="chat flex  flex-1 flex-col gap-5 overflow-y-auto p-2.5 lg:gap-4 lg:p-8">
+    <div className="chat flex  flex-1 flex-col gap-5 overflow-y-auto border-b p-2.5 lg:gap-4 lg:p-8">
       <p className="mx-auto mt-auto text-xs font-bold text-mute-3">4 March, 2024</p>
       {Messages.map((message, index) => (
         <Message

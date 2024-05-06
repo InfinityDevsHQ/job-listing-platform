@@ -8,7 +8,7 @@ type ChatPanelProps = {
 const ChatPanel = ({ className = '' }: ChatPanelProps) => {
   return (
     <div
-      className={`chat-panel flex-1 flex-col gap-2.5  bg-white lg:ml-8 lg:flex lg:p-4 ${className}`}
+      className={`chat-panel flex-1 flex-col gap-2.5  bg-white lg:ml-8 lg:flex lg:p-4 lg:pl-0 ${className}`}
     >
       <ChatHeader />
       <Messages />
