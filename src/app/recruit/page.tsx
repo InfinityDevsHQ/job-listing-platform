@@ -1,6 +1,7 @@
 import Button from '@/components/ui/button';
 import { CarouselItem } from '@/components/ui/carousel';
 import InfoList from '@/components/ui/info-list';
+import UserHeader from '@/components/user-header';
 import Image from 'next/image';
 import AutoPlayCarousel from './_components/autoplay-carousel';
 import FeatureCard from './_components/feature-card';
@@ -28,7 +29,7 @@ const Recruit = () => {
             alt="party"
           />
         </div>
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-8">
           <h2 className="text-4xl font-bold text-gray-700">Top brands trust ClickJob</h2>
           <p className="text-gray-500">
             We help over 270 recruitment agencies and companies across every industry to make their
@@ -36,7 +37,7 @@ const Recruit = () => {
           </p>
           <div className="max-h-40 max-w-4xl overflow-hidden">
             <AutoPlayCarousel showNavControls={false}>
-              <CarouselItem className="m-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/4">
+              <CarouselItem className="mx-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (1).png"
                   width={200}
@@ -44,7 +45,7 @@ const Recruit = () => {
                   alt="company-1"
                 />
               </CarouselItem>
-              <CarouselItem className="m-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/4">
+              <CarouselItem className="mx-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (2).png"
                   width={200}
@@ -52,7 +53,7 @@ const Recruit = () => {
                   alt="company-2"
                 />
               </CarouselItem>
-              <CarouselItem className="m-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/4">
+              <CarouselItem className="mx-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (3).png"
                   width={200}
@@ -60,7 +61,7 @@ const Recruit = () => {
                   alt="company-3"
                 />
               </CarouselItem>
-              <CarouselItem className="m-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/4">
+              <CarouselItem className="mx-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (4).png"
                   width={200}
@@ -68,7 +69,7 @@ const Recruit = () => {
                   alt="company-4"
                 />
               </CarouselItem>
-              <CarouselItem className="m-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/4">
+              <CarouselItem className="mx-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (5).png"
                   width={200}
@@ -76,7 +77,7 @@ const Recruit = () => {
                   alt="company-5"
                 />
               </CarouselItem>
-              <CarouselItem className="m-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/4">
+              <CarouselItem className="mx-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (6).png"
                   width={200}
@@ -84,7 +85,7 @@ const Recruit = () => {
                   alt="company-6"
                 />
               </CarouselItem>
-              <CarouselItem className="m-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/4">
+              <CarouselItem className="mx-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (7).png"
                   width={200}
@@ -92,7 +93,7 @@ const Recruit = () => {
                   alt="company-7"
                 />
               </CarouselItem>
-              <CarouselItem className="m-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/4">
+              <CarouselItem className="mx-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (8).png"
                   width={200}
@@ -100,7 +101,7 @@ const Recruit = () => {
                   alt="company-8"
                 />
               </CarouselItem>
-              <CarouselItem className="m-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/4">
+              <CarouselItem className="mx-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (9).png"
                   width={200}
@@ -108,7 +109,7 @@ const Recruit = () => {
                   alt="company-9"
                 />
               </CarouselItem>
-              <CarouselItem className="m-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/4">
+              <CarouselItem className="mx-3 rounded-md border border-neutral-200 bg-white p-4 md:basis-1/2 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (10).png"
                   width={200}
@@ -206,7 +207,7 @@ const Recruit = () => {
           </FeatureCard>
           <FeatureCard
             heading="AI-powered job descriptions with ChatGPT integration"
-            imageUrl="/assets/images/recruit/job_descriptions _with_ChatGPT_integration.png"
+            imageUrl="/assets/images/recruit/job_descriptions_with_ChatGPT_integration.png"
           >
             <p>
               To engage qualified candidates, a compelling job description is crucial. To help you
@@ -224,6 +225,130 @@ const Recruit = () => {
               </li>
             </InfoList>
           </FeatureCard>
+        </div>
+        <div className="flex flex-col items-center gap-8">
+          <h2 className="text-4xl font-bold text-gray-700">Our clients results</h2>
+          <div className="grid grid-cols-5 gap-4">
+            <div className="flex flex-col gap-16 lg:col-span-1">
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-6xl font-bold text-gray-700">4x</span>
+                <span className="text-center text-3xl font-light text-gray-700">
+                  Attract 4x more direct candidates
+                </span>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-6xl font-bold text-gray-700">50%</span>
+                <span className="text-center text-3xl font-light text-gray-700">
+                  Cut time-to-hire by 50%
+                </span>
+              </div>
+            </div>
+            <div className="relative flex flex-col gap-4 lg:col-span-3">
+              <Image
+                src="/assets/images/recruit/smart_solutions_for_big_challenges.png"
+                width={800}
+                height={602}
+                alt="smart_solutions_for_big_challenges"
+                className="mx-auto h-96 w-full max-w-lg"
+              />
+              <span className="relative -top-16 mx-auto max-w-xl text-center text-4xl font-semibold text-green-700">
+                Smart solutions for big challenges
+              </span>
+            </div>
+            <div className="flex flex-col gap-16 lg:col-span-1">
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-6xl font-bold text-gray-700">70%</span>
+                <span className="text-center text-3xl font-light text-gray-700">
+                  Speed up HR documentation by 70%
+                </span>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-6xl font-bold text-gray-700">6x</span>
+                <span className="text-center text-3xl font-light text-gray-700">
+                  Screen CVs 6 times faster
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col items-center gap-4">
+          <h2 className="text-4xl font-bold text-gray-700">
+            What our customers love about ClickJob
+          </h2>
+          <p className="text-gray-500">
+            We are proud to be trusted by hundreds of companies from all over the world.We have
+            asked some of them what they appreciate about ClickJob.
+          </p>
+          <div className="grid grid-cols-4 gap-4">
+            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+              <Image
+                src="/assets/companies/logos/company- (1).png"
+                width={295}
+                height={72}
+                alt="company-1"
+                className="mx-auto h-20 max-w-max"
+              />
+              <p className="text-center italic">
+                “My team can reduce administration time by up to 40% through automations.”
+              </p>
+              <UserHeader
+                online_status={'Offline'}
+                user_name="John Doe"
+                user_role="Software Engineer"
+              />
+            </div>
+            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+              <Image
+                src="/assets/companies/logos/company- (2).png"
+                width={295}
+                height={72}
+                alt="company-1"
+                className="mx-auto h-20 max-w-max"
+              />
+              <p className="text-center italic">
+                “My team can reduce administration time by up to 40% through automations.”
+              </p>
+              <UserHeader
+                online_status={'Offline'}
+                user_name="John Doe"
+                user_role="Software Engineer"
+              />
+            </div>
+            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+              <Image
+                src="/assets/companies/logos/company- (3).png"
+                width={295}
+                height={72}
+                alt="company-1"
+                className="mx-auto h-20 max-w-max"
+              />
+              <p className="text-center italic">
+                “My team can reduce administration time by up to 40% through automations.”
+              </p>
+              <UserHeader
+                online_status={'Offline'}
+                user_name="John Doe"
+                user_role="Software Engineer"
+              />
+            </div>
+            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+              <Image
+                src="/assets/companies/logos/company- (4).png"
+                width={295}
+                height={72}
+                alt="company-1"
+                className="mx-auto h-20 max-w-max"
+              />
+              <p className="text-center italic">
+                “My team can reduce administration time by up to 40% through automations.”
+              </p>
+              <UserHeader
+                online_status={'Offline'}
+                user_name="John Doe"
+                user_role="Software Engineer"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
