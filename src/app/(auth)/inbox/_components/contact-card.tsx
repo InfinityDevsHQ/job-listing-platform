@@ -7,6 +7,7 @@ type ContactCardProps = {
   date: string;
   time: string;
   message: string;
+  open?: boolean;
 };
 const ContactCard = ({
   senderImgUrl = '/assets/inbox/avatar.png',
@@ -16,9 +17,12 @@ const ContactCard = ({
   date,
   time,
   message,
+  open,
 }: ContactCardProps) => {
   return (
-    <li className="flex flex-col gap-2.5 bg-white p-2.5 lg:gap-4 lg:p-4">
+    <li
+      className={`flex cursor-pointer flex-col gap-2.5 rounded-md  border-gray-200 p-2.5 lg:gap-4 lg:p-4 ${open ? 'border bg-gray-100 lg:border-gray-200' : 'border-y bg-white lg:border-transparent'}`}
+    >
       <header className="flex items-center gap-5">
         <div className="flex items-center justify-center rounded-full">
           <Image src={senderImgUrl} alt={`${senderName} Image`} width={50} height={40} />

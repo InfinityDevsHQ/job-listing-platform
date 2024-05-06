@@ -7,10 +7,13 @@ type ChatPanelProps = {
 };
 const ChatPanel = ({ className = '' }: ChatPanelProps) => {
   return (
-    <div className={`flex-1 flex-col gap-2.5 bg-gray-200 lg:flex lg:p-4 ${className}`}>
+    <div className={`flex-1 flex-col gap-2.5 bg-white lg:ml-8 lg:flex lg:p-4 ${className}`}>
       <ChatHeader />
       <Messages />
-      <TextArea placeholder="Type a message" trailingIcon={<Send className="rotate-45" />} />
+      <TextArea
+        placeholder="Type a message"
+        trailingIcon={<Send className="rotate-45 self-center" size={16} />}
+      />
     </div>
   );
 };

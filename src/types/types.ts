@@ -20,7 +20,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     ButtonVariantProps {
   type?: 'button' | 'submit' | 'reset' | undefined;
-  text: string;
+  text?: string;
   leadingIcon?: React.ReactNode;
   trailingIcon?: React.ReactNode;
 }

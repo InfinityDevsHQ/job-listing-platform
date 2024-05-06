@@ -95,3 +95,6 @@ textarea {
     #ffffff 123.63%
   );
 }
+.inbox {
+  height: calc(100vh - 32px - 39.981px);
+}
