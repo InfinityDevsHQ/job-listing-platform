@@ -1,11 +1,11 @@
 'use client';
-import SyncIcon from '@/components/svgs/sync';
 import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import TextArea from '@/components/ui/text-area';
 import { postJobListing } from '@/lib/jobs';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { ArrowRightIcon, LoaderCircleIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -206,13 +206,13 @@ export default function PostJobForm() {
               We will use this information to develop a detailed job description, requirements list,
               and set of necessary skills.
             </p>
-            <Button size={'lg'} className="justify-center lg:hidden" type="submit">
-              {!isLoading && <SyncIcon />}
-              {isLoading ? 'Loading..' : 'Analyze'}
-            </Button>
-            <Button size={'lg'} className="hidden items-center lg:flex" type="submit">
-              {!isLoading && <SyncIcon className="mr-2" />}
-              {isLoading ? 'Loading..' : 'Analyze'}
+            <Button type="submit">
+              Analyze
+              {isLoading ? (
+                <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />
+              ) : (
+                <ArrowRightIcon className="ml-2 h-4 w-4" />
+              )}
             </Button>
           </div>
         </div>

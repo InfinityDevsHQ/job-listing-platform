@@ -41,7 +41,7 @@ const ApplyJobForm = () => {
         />
         <Button className="self-end" type="submit">
           Send
-          <Send className="ml-2 rotate-45" size={16} />
+          <Send className="ml-2 h-4 w-4 rotate-45" />
         </Button>
       </form>
     </Form>

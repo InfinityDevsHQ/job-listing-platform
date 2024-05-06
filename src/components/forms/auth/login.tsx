@@ -1,5 +1,4 @@
 'use client';
-import CompanyArrow from '@/components/svgs/company-arrow';
 import CompanyLock from '@/components/svgs/company-lock';
 import CompanyMail from '@/components/svgs/coompany-mail';
 import { Button } from '@/components/ui/button-new';
@@ -9,7 +8,7 @@ import { login } from '@/lib/auth';
 import { storeToken } from '@/lib/auth-token';
 import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
+import { ArrowRightIcon, EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -112,12 +111,12 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
             )}
           />
         )}
-        <Button type="submit" className="!max-w-full justify-center">
+        <Button type="submit" className="w-full">
           Login
           {isLoading ? (
-            <LoaderCircleIcon className="animate ml-2 h-5 w-5 animate-spin" />
+            <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />
           ) : (
-            <CompanyArrow fill="white" className="ml-2 h-5 w-5 pt-1" />
+            <ArrowRightIcon className="ml-2 h-4 w-4 " />
           )}
         </Button>
       </form>

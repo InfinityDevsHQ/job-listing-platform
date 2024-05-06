@@ -15,23 +15,23 @@ const SocialAuthWidget = ({ google, github, linkedin, auth }: AppsAuthProps) => 
     <div className="flex flex-wrap items-center justify-center gap-4">
       {google && (
         <Link href={'#'}>
-          <Button variant="outline" className="bg-white">
-            <CompanyGoogle className="mr-2" />
+          <Button variant="outline" className="flex gap-2 bg-white">
+            <CompanyGoogle className="mr-2 h-4 w-4" />
             Google
           </Button>
         </Link>
       )}
       {github && (
         <Link href={'#'}>
-          <Button variant="outline" className="bg-white">
-            <CompanyGithub className="mr-2" />
+          <Button variant="outline" className="flex gap-2 bg-white">
+            <CompanyGithub className="mr-2 h-4 w-4" />
             Github
           </Button>
         </Link>
       )}
       {linkedin && (
         <Link href={'#'}>
-          <Button variant="outline" className="bg-white">
+          <Button variant="outline" className="flex gap-2 bg-white">
             <CompanyLinkedin />
             Linkedin
           </Button>

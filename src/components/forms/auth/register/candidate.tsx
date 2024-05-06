@@ -1,5 +1,4 @@
 'use client';
-import CompanyArrow from '@/components/svgs/company-arrow';
 import CompanyLock from '@/components/svgs/company-lock';
 import CompanyProfileOne from '@/components/svgs/company-profile-one';
 import CompanyMail from '@/components/svgs/coompany-mail';
@@ -10,7 +9,7 @@ import { registerCandidate } from '@/lib/auth';
 import { storeToken } from '@/lib/auth-token';
 import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
+import { ArrowRightIcon, EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -151,11 +150,13 @@ export default function RegisterCandidateForm() {
             </FormItem>
           )}
         />
-        <Button className="!max-w-full justify-center" type="submit">
-          Register isLoading ? (
-          <LoaderCircleIcon className="animate h-5 w-5 animate-spin" />
+        <Button type="submit" className="w-full">
+          Register
+          {isLoading ? (
+            <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />
           ) : (
-          <CompanyArrow fill="white" className="h-5 w-5 pt-1" />)
+            <ArrowRightIcon className="ml-2 h-4 w-4" />
+          )}
         </Button>
       </form>
     </Form>

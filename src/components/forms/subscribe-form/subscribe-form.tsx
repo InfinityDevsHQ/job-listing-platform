@@ -3,6 +3,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from '@/component
 import Input from '@/components/ui/input';
 import { subscribe } from '@/lib/newsletter';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { ArrowRightIcon, LoaderCircleIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
@@ -52,7 +53,12 @@ export default function Subscribe() {
             )}
           />
           <Button type="submit" variant="outline">
-            {isLoading ? 'Loading...' : 'Subscribe'}
+            Subscribe
+            {isLoading ? (
+              <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />
+            ) : (
+              <ArrowRightIcon className="ml-2 h-4 w-4" />
+            )}
           </Button>
         </div>
       </form>

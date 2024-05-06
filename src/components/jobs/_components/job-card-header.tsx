@@ -1,6 +1,8 @@
 import Image from 'next/image';
 
+import { Button } from '@/components/ui/button-new';
 import { JobProps } from '@/types/types';
+import { BookmarkIcon } from 'lucide-react';
 
 const JobCardHeader = ({ job }: JobProps) => {
   return (
@@ -28,15 +30,10 @@ const JobCardHeader = ({ job }: JobProps) => {
           </p>
         </div>
       </div>
-      <button type="button">
-        {/* <Image
-            alt="bookmarked"
-            src={"/assets/icons/bookmarked.svg"}
-            width={30}
-            height={30}
-          />  */}
-        <Image alt="bookmark" src={'/assets/icons/bookmark.svg'} width={30} height={30} />
-      </button>
+      <Button className="border-none" size="icon">
+        <BookmarkIcon />
+        {/* <BookmarkCheckIcon /> */}
+      </Button>
     </div>
   );
 };

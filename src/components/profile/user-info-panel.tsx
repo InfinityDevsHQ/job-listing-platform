@@ -9,6 +9,7 @@ import {
   MapPinIcon,
 } from 'lucide-react';
 import Image from 'next/image';
+import { Button } from '../ui/button-new';
 type UserInfoPanel = {
   online_status: 'Offline' | 'Online';
 };
@@ -70,13 +71,9 @@ const UserInfoPanel = ({ online_status }: UserInfoPanel) => {
             <p className="flex h-full flex-col justify-between">
               <span className="flex items-center gap-2 font-bold text-gray-700 lg:text-base">
                 <span>Public Profile</span>
-                <button
-                  aria-label="Clipboard Button"
-                  type="button"
-                  className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white"
-                >
-                  <ClipboardIcon className="h-3.5 w-3.5" />
-                </button>
+                <Button variant="outline" size="icon-xs">
+                  <ClipboardIcon className="h-4 w-4" />
+                </Button>
               </span>
               <span className="text-gray-700 lg:text-base">clickjob.ai/john-doe</span>
             </p>
@@ -93,14 +90,10 @@ const UserInfoPanel = ({ online_status }: UserInfoPanel) => {
             </span>
             <p className="flex h-full flex-col justify-between">
               <span className="flex items-center gap-2 font-bold text-gray-700 lg:text-base">
-                <span>Saad Gulzar Resume</span>
-                <button
-                  aria-label="External Link"
-                  type="button"
-                  className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white"
-                >
-                  <ExternalLinkIcon className="h-3.5 w-3.5 " />
-                </button>
+                Saad Gulzar Resume
+                <Button variant="outline" size="icon-xs">
+                  <ExternalLinkIcon className="h-4 w-4" />
+                </Button>
               </span>
               <span className="text-gray-700 lg:text-base">Created 4 Hours Ago</span>
             </p>
