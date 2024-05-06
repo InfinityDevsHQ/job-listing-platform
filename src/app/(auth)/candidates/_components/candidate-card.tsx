@@ -77,7 +77,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
               loop: true,
             }}
           >
-            <CarouselPrevious text={''} className="relative left-0 translate-x-0 translate-y-0" />
+            <CarouselPrevious className="relative left-0 translate-x-0 translate-y-0" />
             <CarouselContent className="flex items-center">
               {candidateData.skillSet?.map((skill, index) => (
                 <CarouselItem key={index} className="basis-1/4">
@@ -89,7 +89,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselNext text={''} className="relative left-0 translate-x-0 translate-y-0" />
+            <CarouselNext className="relative left-0 translate-x-0 translate-y-0" />
           </Carousel>
         )}
         <Button className="gap-2">
