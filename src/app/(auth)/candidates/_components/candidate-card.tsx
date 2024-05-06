@@ -26,7 +26,7 @@ type CandidateCardProps = {
 };
 export default function CandidateCard({ candidateData }: CandidateCardProps) {
   return (
-    <div className="rounded-md border border-gray-200 bg-gray-50 p-4">
+    <div className="max-w-80 rounded-md border border-gray-200 bg-gray-50 p-4 lg:max-w-none">
       <div className="flex flex-col">
         <header className="mb-4 flex gap-4">
           <div className="flex items-center justify-center">
@@ -50,17 +50,17 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
         <div className="flex  items-stretch  gap-4">
           <Button
             variant={'outline'}
-            className="flex flex-1 basis-1 items-center gap-2 bg-white text-gray-800 lg:text-base"
+            className="flex-1 basis-1/2 items-center bg-white text-gray-800 lg:text-base"
             size={'lg'}
           >
-            <Eye size={16} />
+            <Eye size={16} className="mr-2" />
             View Profile
           </Button>
           <Button
             variant={'outline'}
-            className="flex flex-1 basis-1 items-center gap-2 bg-white text-gray-800 lg:text-base"
+            className="flex-1 basis-1/2 bg-white text-gray-800 lg:text-base"
           >
-            <Eye size={16} />
+            <Eye size={16} className="mr-2" />
             Resume
           </Button>
         </div>

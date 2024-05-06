@@ -115,9 +115,9 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
         <Button type="submit" className="!max-w-full justify-center">
           Login
           {isLoading ? (
-            <LoaderCircleIcon className="animate h-5 w-5 animate-spin" />
+            <LoaderCircleIcon className="animate ml-2 h-5 w-5 animate-spin" />
           ) : (
-            <CompanyArrow fill="white" className="h-5 w-5 pt-1" />
+            <CompanyArrow fill="white" className="ml-2 h-5 w-5 pt-1" />
           )}
         </Button>
       </form>

@@ -113,7 +113,7 @@ const ApplyJobAdditionInfoForm = () => {
           )}
         />
         <Button type="submit" className="col-span-4 ml-auto place-items-end">
-          Send <Send className="rotate-45" size={16} />
+          Send <Send className="ml-2 rotate-45" size={16} />
         </Button>
       </form>
     </Form>

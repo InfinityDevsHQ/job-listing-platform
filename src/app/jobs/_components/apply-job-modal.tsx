@@ -28,7 +28,7 @@ const ApplyJobModal = () => {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <Button size={'lg'}>
-            Apply <ArrowRight className="h-5 w-5" />
+            Apply <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </DialogTrigger>
         <DialogContent className="xl:min-w-4xl  bg-gray-200  lg:max-w-4xl">
@@ -47,7 +47,7 @@ const ApplyJobModal = () => {
         <DrawerTrigger asChild>
           <Button size={'lg'}>
             Apply
-            <ArrowRight className="h-5 w-5" />
+            <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </DrawerTrigger>
         <DrawerContent className="bg-gray-200 p-8">

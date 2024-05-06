@@ -211,7 +211,7 @@ export default function PostJobForm() {
               {isLoading ? 'Loading..' : 'Analyze'}
             </Button>
             <Button size={'lg'} className="hidden items-center lg:flex" type="submit">
-              {!isLoading && <SyncIcon />}
+              {!isLoading && <SyncIcon className="mr-2" />}
               {isLoading ? 'Loading..' : 'Analyze'}
             </Button>
           </div>

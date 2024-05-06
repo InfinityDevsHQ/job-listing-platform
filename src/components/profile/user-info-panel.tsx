@@ -75,7 +75,7 @@ const UserInfoPanel = ({ online_status }: UserInfoPanel) => {
                   type="button"
                   className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white"
                 >
-                  <ClipboardIcon className="h-3.5 w-3.5 " />
+                  <ClipboardIcon className="h-3.5 w-3.5" />
                 </button>
               </span>
               <span className="text-gray-700 lg:text-base">clickjob.ai/john-doe</span>
