@@ -95,7 +95,13 @@ textarea {
     #ffffff 123.63%
   );
 }
-.inbox {
-  min-height: calc(100vh - 32px - 39.981px);
-  max-height: calc(100vh - 32px - 39.981px);
+@media (min-width: 1024px) {
+  .inbox {
+    min-height: calc(100vh - 32px - 39.981px);
+    max-height: calc(100vh - 32px - 39.981px);
+  }
+}
+.chat {
+  min-height: calc(100vh - 200px - 39.981px);
+  max-height: calc(100vh - 200px - 39.981px);
 }
