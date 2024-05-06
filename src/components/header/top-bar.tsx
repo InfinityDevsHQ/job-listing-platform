@@ -66,6 +66,8 @@ const Header = () => {
 
   const noHeaderRoutes = ['/login', '/register'];
 
+  const companyHeaderRoutes = ['/recruit'];
+
   if (noHeaderRoutes?.includes(pathname)) {
     return <></>;
   }
@@ -124,17 +126,14 @@ const Header = () => {
         <Link href={'/'}>
           <Image
             alt="logo"
-            src={'/assets/images/common/logo_clickJob_primary.svg'}
+            src={
+              companyHeaderRoutes.includes(pathname)
+                ? '/assets/images/common/logo_clickJob_secondary.svg'
+                : '/assets/images/common/logo_clickJob_primary.svg'
+            }
             width={160}
             height={40}
-            className="hidden lg:block"
-          />
-          <Image
-            alt="logo"
-            src={'/assets/images/common/logo_clickJob_primary.svg'}
-            width={118}
-            height={30}
-            className="block lg:hidden"
+            className="h-7 w-28 lg:h-10 lg:w-40"
           />
         </Link>
         <div className="flex items-center gap-4">

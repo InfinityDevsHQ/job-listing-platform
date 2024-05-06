@@ -51,7 +51,9 @@ export default function Subscribe() {
               </FormItem>
             )}
           />
-          <Button type="submit">{isLoading ? 'Loading...' : 'Subscribe'}</Button>
+          <Button type="submit" variant="outline">
+            {isLoading ? 'Loading...' : 'Subscribe'}
+          </Button>
         </div>
       </form>
     </Form>
