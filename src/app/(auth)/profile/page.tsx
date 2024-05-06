@@ -6,10 +6,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button-new';
 import InfoList from '@/components/ui/info-list';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import TextArea from '@/components/ui/text-area';
 import UserHeader from '@/components/user-header';
-import { deleteToken, getToken } from '@/lib/auth-token';
 import useAuthStore from '@/stores/authStore/store';
 import {
   ClipboardIcon,
@@ -21,37 +22,16 @@ import {
   MapPinIcon,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useState } from 'react';
 
 const Profile = () => {
+  const [editProfile, setEditProfile] = useState(false);
+  const [profileVal, setProfileVal] = useState(
+    `I am looking to enhance my skills in advanced web development and contribute to innovative projects. Seeking opportunities to excel in UI design and collaborative environments. Passionate about creating efficient and user-friendly web systems.`
+  );
+
   const router = useRouter();
   const user = useAuthStore((state) => state.user);
-
-  const logout = async () => {
-    await deleteToken();
-    router.push('/login');
-  };
-
-  const setUser = useAuthStore((state) => state.setUser);
-
-  const checkToken = async () => {
-    const accessToken = await getToken();
-    if (!accessToken) {
-      router.push('/login');
-      return;
-    }
-  };
-
-  useEffect(() => {
-    // checkToken();
-    // getUser()
-    //   .then((user) => {
-    //     setUser(user);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
-  }, []);
 
   return (
     <div className="grid gap-4 p-4 lg:grid-cols-4 lg:gap-8 lg:p-8">
@@ -104,14 +84,10 @@ const Profile = () => {
                     </span>
                     <p className="flex h-full flex-col justify-between">
                       <span className="flex items-center gap-2 font-bold text-gray-700 lg:text-base">
-                        <span>Public Profile</span>
-                        <button
-                          aria-label="ClipBoard Button"
-                          type="button"
-                          className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white"
-                        >
-                          <ClipboardIcon className="h-3.5 w-3.5 " />
-                        </button>
+                        Public Profile
+                        <Button size="icon-xs">
+                          <ClipboardIcon className="h-4 w-4" />
+                        </Button>
                       </span>
                       <span className="text-gray-700 lg:text-base">clickjob.ai/john-doe</span>
                     </p>
@@ -128,14 +104,10 @@ const Profile = () => {
                     </span>
                     <p className="flex h-full flex-col justify-between">
                       <span className="flex items-center gap-2 font-bold text-gray-700 lg:text-base">
-                        <span>Saad Gulzar Resume</span>
-                        <button
-                          aria-label="External Link"
-                          type="button"
-                          className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-400 text-gray-500 hover:bg-primary-900 hover:text-white"
-                        >
-                          <ExternalLinkIcon className="h-3.5 w-3.5 " />
-                        </button>
+                        Saad Gulzar Resume
+                        <Button size="icon-xs">
+                          <ExternalLinkIcon className="h-4 w-4" />
+                        </Button>
                       </span>
                       <span className="text-gray-700 lg:text-base">Created 4 Hours Ago</span>
                     </p>
@@ -148,24 +120,41 @@ const Profile = () => {
       </Accordion>
       <div className="flex flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-3 lg:p-8">
         <Tabs orientation="vertical" defaultValue="about" className="flex flex-col lg:gap-4">
-          <TabsList className="mx-0 w-full overflow-x-auto bg-primary-50">
-            <TabsTrigger value="about">About</TabsTrigger>
-            <TabsTrigger value="ai-insights">Ai Insights</TabsTrigger>
-            <TabsTrigger value="recruiter">Recruiter Eye</TabsTrigger>
-          </TabsList>
+          <div className="flex items-center justify-between gap-4">
+            <TabsList className="mx-0 w-full overflow-x-auto bg-primary-50">
+              <TabsTrigger value="about">About</TabsTrigger>
+              <TabsTrigger value="ai-insights">Ai Insights</TabsTrigger>
+              <TabsTrigger value="recruiter">Recruiter Eye</TabsTrigger>
+            </TabsList>
+            <Button variant="outline" onClick={() => setEditProfile(!editProfile)}>
+              {editProfile ? 'Save' : 'Edit'}
+            </Button>
+          </div>
           <TabsContent value="about" className="mt-4">
             <Accordion
-              type="single"
-              defaultValue="profile"
-              collapsible
+              type={editProfile ? 'multiple' : 'single'}
+              defaultValue={editProfile ? ['profile', 'summary', 'expertise', 'skills'] : 'profile'}
+              collapsible={editProfile ? false : true}
               className="flex w-full flex-col gap-4"
             >
               <AccordionItem value="profile">
                 <AccordionTrigger>Profile</AccordionTrigger>
                 <AccordionContent>
-                  I am looking to enhance my skills in advanced web development and contribute to
-                  innovative projects. Seeking opportunities to excel in UI design and collaborative
-                  environments. Passionate about creating efficient and user-friendly web systems.
+                  {editProfile ? (
+                    <TextArea
+                      defaultValue={profileVal}
+                      placeholder="Edit profile"
+                      className="h-auto"
+                      rows={4}
+                    />
+                  ) : (
+                    <>
+                      I am looking to enhance my skills in advanced web development and contribute
+                      to innovative projects. Seeking opportunities to excel in UI design and
+                      collaborative environments. Passionate about creating efficient and
+                      user-friendly web systems.
+                    </>
+                  )}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="summary">
