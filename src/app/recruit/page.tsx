@@ -271,7 +271,7 @@ const Recruit = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-8">
           <h2 className="text-4xl font-bold text-gray-700">
             What our customers love about ClickJob
           </h2>
@@ -348,7 +348,86 @@ const Recruit = () => {
                 user_role="Software Engineer"
               />
             </div>
+            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+              <Image
+                src="/assets/companies/logos/company- (5).png"
+                width={295}
+                height={72}
+                alt="company-1"
+                className="mx-auto h-20 max-w-max"
+              />
+              <p className="text-center italic">
+                “My team can reduce administration time by up to 40% through automations.”
+              </p>
+              <UserHeader
+                online_status={'Offline'}
+                user_name="John Doe"
+                user_role="Software Engineer"
+              />
+            </div>
+            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+              <Image
+                src="/assets/companies/logos/company- (6).png"
+                width={295}
+                height={72}
+                alt="company-1"
+                className="mx-auto h-20 max-w-max"
+              />
+              <p className="text-center italic">
+                “My team can reduce administration time by up to 40% through automations.”
+              </p>
+              <UserHeader
+                online_status={'Offline'}
+                user_name="John Doe"
+                user_role="Software Engineer"
+              />
+            </div>
+            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+              <Image
+                src="/assets/companies/logos/company- (7).png"
+                width={295}
+                height={72}
+                alt="company-1"
+                className="mx-auto h-20 max-w-max"
+              />
+              <p className="text-center italic">
+                “My team can reduce administration time by up to 40% through automations.”
+              </p>
+              <UserHeader
+                online_status={'Offline'}
+                user_name="John Doe"
+                user_role="Software Engineer"
+              />
+            </div>
+            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+              <Image
+                src="/assets/companies/logos/company- (8).png"
+                width={295}
+                height={72}
+                alt="company-1"
+                className="mx-auto h-20 max-w-max"
+              />
+              <p className="text-center italic">
+                “My team can reduce administration time by up to 40% through automations.”
+              </p>
+              <UserHeader
+                online_status={'Offline'}
+                user_name="John Doe"
+                user_role="Software Engineer"
+              />
+            </div>
           </div>
+        </div>
+        <div className="flex w-full flex-col items-center justify-center gap-8 bg-secondary-gradient p-4 lg:p-8">
+          <h2 className="text-4xl font-bold text-gray-700">Start your 14-day free trial</h2>
+          <p className="text-center text-gray-500">
+            Join 270+ companies already growing with ClickJob.
+          </p>
+          <InfoList className="text-center">
+            <li className="text-base text-gray-500">Monthly contracts, cancel at any time</li>
+            <li className="text-base text-gray-500">Book a Free Demo with our team</li>
+            <li className="text-base text-gray-500">We’ll do the setup for you</li>
+          </InfoList>
         </div>
       </div>
     </section>

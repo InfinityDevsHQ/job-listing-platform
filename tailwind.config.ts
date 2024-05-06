@@ -68,6 +68,10 @@ const config = {
         minor: '0px 4px 4px 0px #0000000D',
         card: '0px 4px 20px 0px #0000000D',
       },
+      backgroundImage: {
+        'secondary-gradient':
+          'linear-gradient(92.04deg, #F9FFFD 1.76%, rgba(187, 247, 227, 0.3) 51.52%, #F9FFFD 102.29%)',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
