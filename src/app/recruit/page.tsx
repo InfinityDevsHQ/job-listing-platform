@@ -38,108 +38,108 @@ const Recruit = () => {
             className="order-1 h-40 w-40 lg:order-2 lg:h-96 lg:w-full lg:max-w-sm"
           />
         </div>
-        <div className="flex flex-col flex-wrap items-center gap-8">
+        <div className="flex w-full flex-col items-center gap-8">
           <h2 className="text-xl font-bold text-gray-700 lg:text-4xl">Top brands trust ClickJob</h2>
-          <p className="flex-wrap text-gray-500">
+          <span className="text-gray-500">
             We help over 270 recruitment agencies and companies across every industry to make their
             selection process more efficient
-          </p>
+          </span>
           <div className="max-w-4xl overflow-hidden lg:max-h-40">
             <AutoPlayCarousel showNavControls={false}>
-              <CarouselItem className="mx-1 basis-1/2 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
+              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (1).png"
                   width={150}
                   height={100}
-                  className="mx-auto h-20"
+                  className="mx-auto h-16 lg:h-20"
                   alt="company-1"
                 />
               </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/2 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
+              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (2).png"
                   width={150}
                   height={100}
-                  className="mx-auto h-20"
+                  className="mx-auto h-16 lg:h-20"
                   alt="company-2"
                 />
               </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/2 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
+              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (3).png"
                   width={150}
                   height={100}
-                  className="mx-auto h-20"
+                  className="mx-auto h-16 lg:h-20"
                   alt="company-3"
                 />
               </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/2 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
+              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (4).png"
                   width={150}
                   height={100}
-                  className="mx-auto h-20"
+                  className="mx-auto h-16 lg:h-20"
                   alt="company-4"
                 />
               </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/2 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
+              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (5).png"
                   width={150}
                   height={100}
-                  className="mx-auto h-20"
+                  className="mx-auto h-16 lg:h-20"
                   alt="company-5"
                 />
               </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/2 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
+              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (6).png"
                   width={150}
                   height={100}
-                  className="mx-auto h-20"
+                  className="mx-auto h-16 lg:h-20"
                   alt="company-6"
                 />
               </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/2 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
+              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (7).png"
                   width={150}
                   height={100}
-                  className="mx-auto h-20"
+                  className="mx-auto h-16 lg:h-20"
                   alt="company-7"
                 />
               </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/2 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
+              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (8).png"
                   width={150}
                   height={100}
-                  className="mx-auto h-20"
+                  className="mx-auto h-16 lg:h-20"
                   alt="company-8"
                 />
               </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/2 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
+              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (9).png"
                   width={150}
                   height={100}
-                  className="mx-auto h-20"
+                  className="mx-auto h-16 lg:h-20"
                   alt="company-9"
                 />
               </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/2 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
+              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
                 <Image
                   src="/assets/companies/logos/company- (10).png"
                   width={150}
                   height={100}
-                  className="mx-auto h-20"
+                  className="mx-auto h-16 lg:h-20"
                   alt="company-10"
                 />
               </CarouselItem>
             </AutoPlayCarousel>
           </div>
         </div>
-        <div className="flex flex-col gap-8">
+        <div className="flex w-full flex-col gap-8">
           <h2 className="col-span-2 text-center text-xl font-bold text-gray-700 lg:text-4xl">
             Features
           </h2>
@@ -247,52 +247,52 @@ const Recruit = () => {
             </InfoList>
           </FeatureCard>
         </div>
-        <div className="flex flex-col items-center gap-8">
+        <div className="flex w-full flex-col items-center gap-8">
           <h2 className="text-xl font-bold text-gray-700 lg:text-4xl">Our clients results</h2>
-          <div className="grid grid-cols-5 gap-4">
-            <div className="flex flex-col gap-16 lg:col-span-1">
-              <div className="flex flex-col items-center justify-center">
-                <span className="text-6xl font-bold text-gray-700">4x</span>
-                <span className="text-center text-3xl font-light text-gray-700">
+          <div className="grid gap-4 lg:grid-cols-5">
+            <div className="order-2 flex gap-4 lg:order-1 lg:col-span-1 lg:flex-col lg:gap-16">
+              <div className="flex w-full flex-col items-center justify-center gap-1 border border-gray-200 p-2 lg:w-auto lg:border-none lg:p-0 ">
+                <span className="text-lg font-bold text-gray-700 lg:text-6xl">4x</span>
+                <span className="text-center text-sm font-light text-gray-700 lg:text-3xl">
                   Attract 4x more direct candidates
                 </span>
               </div>
-              <div className="flex flex-col items-center justify-center">
-                <span className="text-6xl font-bold text-gray-700">50%</span>
-                <span className="text-center text-3xl font-light text-gray-700">
+              <div className="flex w-full flex-col items-center justify-center gap-1 border border-gray-200 p-2 lg:w-auto lg:border-none lg:p-0 ">
+                <span className="text-lg font-bold text-gray-700 lg:text-6xl">50%</span>
+                <span className="text-center text-sm font-light text-gray-700 lg:text-3xl">
                   Cut time-to-hire by 50%
                 </span>
               </div>
             </div>
-            <div className="relative flex flex-col gap-4 lg:col-span-3">
+            <div className="relative order-1 flex flex-col gap-4 lg:order-2 lg:col-span-3">
               <Image
                 src="/assets/images/recruit/smart_solutions_for_big_challenges.png"
                 width={800}
                 height={602}
                 alt="smart_solutions_for_big_challenges"
-                className="mx-auto h-96 w-full max-w-lg"
+                className="mx-auto h-72 w-full max-w-lg lg:h-96"
               />
-              <span className="relative -top-16 mx-auto max-w-xl text-center text-4xl font-semibold text-green-700">
+              <span className="relative -top-8 mx-auto max-w-xl text-center text-2xl font-semibold text-green-700 lg:-top-16 lg:text-4xl">
                 Smart solutions for big challenges
               </span>
             </div>
-            <div className="flex flex-col gap-16 lg:col-span-1">
-              <div className="flex flex-col items-center justify-center">
-                <span className="text-6xl font-bold text-gray-700">70%</span>
-                <span className="text-center text-3xl font-light text-gray-700">
+            <div className="order-3 flex gap-4 lg:col-span-1 lg:flex-col  lg:gap-16">
+              <div className="flex w-full flex-col items-center justify-center gap-1 border border-gray-200 p-2 lg:w-auto lg:border-none lg:p-0 ">
+                <span className="text-lg font-bold text-gray-700 lg:text-6xl">70%</span>
+                <span className="text-center text-sm font-light text-gray-700 lg:text-3xl">
                   Speed up HR documentation by 70%
                 </span>
               </div>
-              <div className="flex flex-col items-center justify-center">
-                <span className="text-6xl font-bold text-gray-700">6x</span>
-                <span className="text-center text-3xl font-light text-gray-700">
+              <div className="flex w-full flex-col items-center justify-center gap-1 border border-gray-200 p-2 lg:w-auto lg:border-none lg:p-0 ">
+                <span className="text-lg font-bold text-gray-700 lg:text-6xl">6x</span>
+                <span className="text-center text-sm font-light text-gray-700 lg:text-3xl">
                   Screen CVs 6 times faster
                 </span>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center gap-8">
+        <div className="flex w-full flex-col items-center gap-8">
           <h2 className="text-xl font-bold text-gray-700 lg:text-4xl">
             What our customers love about ClickJob
           </h2>
@@ -307,7 +307,7 @@ const Recruit = () => {
                 width={295}
                 height={72}
                 alt="company-1"
-                className="mx-auto h-20 max-w-max"
+                className="mx-auto h-16 max-w-max lg:h-20"
               />
               <p className="text-center italic">
                 “My team can reduce administration time by up to 40% through automations.”
@@ -324,7 +324,7 @@ const Recruit = () => {
                 width={295}
                 height={72}
                 alt="company-1"
-                className="mx-auto h-20 max-w-max"
+                className="mx-auto h-16 max-w-max lg:h-20"
               />
               <p className="text-center italic">
                 “My team can reduce administration time by up to 40% through automations.”
@@ -341,7 +341,7 @@ const Recruit = () => {
                 width={295}
                 height={72}
                 alt="company-1"
-                className="mx-auto h-20 max-w-max"
+                className="mx-auto h-16 max-w-max lg:h-20"
               />
               <p className="text-center italic">
                 “My team can reduce administration time by up to 40% through automations.”
@@ -358,7 +358,7 @@ const Recruit = () => {
                 width={295}
                 height={72}
                 alt="company-1"
-                className="mx-auto h-20 max-w-max"
+                className="mx-auto h-16 max-w-max lg:h-20"
               />
               <p className="text-center italic">
                 “My team can reduce administration time by up to 40% through automations.”
@@ -375,7 +375,7 @@ const Recruit = () => {
                 width={295}
                 height={72}
                 alt="company-1"
-                className="mx-auto h-20 max-w-max"
+                className="mx-auto h-16 max-w-max lg:h-20"
               />
               <p className="text-center italic">
                 “My team can reduce administration time by up to 40% through automations.”
@@ -392,7 +392,7 @@ const Recruit = () => {
                 width={295}
                 height={72}
                 alt="company-1"
-                className="mx-auto h-20 max-w-max"
+                className="mx-auto h-16 max-w-max lg:h-20"
               />
               <p className="text-center italic">
                 “My team can reduce administration time by up to 40% through automations.”
@@ -409,7 +409,7 @@ const Recruit = () => {
                 width={295}
                 height={72}
                 alt="company-1"
-                className="mx-auto h-20 max-w-max"
+                className="mx-auto h-16 max-w-max lg:h-20"
               />
               <p className="text-center italic">
                 “My team can reduce administration time by up to 40% through automations.”
@@ -426,7 +426,7 @@ const Recruit = () => {
                 width={295}
                 height={72}
                 alt="company-1"
-                className="mx-auto h-20 max-w-max"
+                className="mx-auto h-16 max-w-max lg:h-20"
               />
               <p className="text-center italic">
                 “My team can reduce administration time by up to 40% through automations.”
