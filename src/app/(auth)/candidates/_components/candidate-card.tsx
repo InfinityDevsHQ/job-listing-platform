@@ -1,7 +1,8 @@
 import CartIcon from '@/components/svgs/cart-icon';
-import CompanyEye from '@/components/svgs/company-eye';
 import CompanyLocation from '@/components/svgs/company-location';
-import Button from '@/components/ui/button';
+import { Eye } from 'lucide-react';
+// import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Image from 'next/image';
 type CandidateCardData = {
@@ -41,17 +42,21 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
         </header>
         <div className="flex items-center gap-4">
           <Button
-            text="View Profile"
-            leadingIcon={<CompanyEye width={16} height={16} />}
-            size="full"
-            className="bg-white"
-          />
+            variant={'outline'}
+            className="flex flex-1 items-center gap-2 bg-white text-gray-800 lg:text-base"
+            size={'lg'}
+          >
+            <Eye size={16} />
+            View Profile
+          </Button>
           <Button
-            text="Resume"
-            leadingIcon={<CompanyEye width={16} height={16} />}
-            size="full"
-            className="bg-white"
-          />
+            variant={'outline'}
+            className="flex flex-1 items-center gap-2 bg-white text-gray-800 lg:text-base"
+            size={'lg'}
+          >
+            <Eye size={16} />
+            Resume
+          </Button>
         </div>
         <div className="flex flex-col gap-4">
           <h4 className="text-base font-bold text-gray-700">About</h4>
@@ -81,8 +86,10 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             {/* <CarouselNext text={''} className="relative left-0 translate-x-0 translate-y-0" /> */}
           </Carousel>
         )}
-
-        <Button text="Add to Cart" size="full" variant="primary" trailingIcon={<CartIcon />} />
+        <Button size={'lg'} className="flex flex-1 items-center gap-2">
+          Add to Cart
+          <CartIcon />
+        </Button>
       </div>
     </div>
   );
