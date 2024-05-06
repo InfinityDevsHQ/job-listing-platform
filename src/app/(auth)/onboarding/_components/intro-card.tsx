@@ -46,9 +46,9 @@ const IntroCard = () => {
         </div>
       </div>
       <Link href={'?step=location'} className="self-end">
-        <Button className="flex items-center gap-2">
+        <Button className="flex items-center">
           Let&apos;s Go
-          <ArrowRight size={18} />
+          <ArrowRight size={18} className="ml-2" />
         </Button>
       </Link>
     </div>

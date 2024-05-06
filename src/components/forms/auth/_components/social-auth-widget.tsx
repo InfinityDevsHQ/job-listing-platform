@@ -16,7 +16,7 @@ const SocialAuthWidget = ({ google, github, linkedin, auth }: AppsAuthProps) => 
       {google && (
         <Link href={'#'}>
           <Button variant="outline" className="bg-white">
-            <CompanyGoogle />
+            <CompanyGoogle className="mr-2" />
             Google
           </Button>
         </Link>
@@ -24,7 +24,7 @@ const SocialAuthWidget = ({ google, github, linkedin, auth }: AppsAuthProps) => 
       {github && (
         <Link href={'#'}>
           <Button variant="outline" className="bg-white">
-            <CompanyGithub />
+            <CompanyGithub className="mr-2" />
             Github
           </Button>
         </Link>
