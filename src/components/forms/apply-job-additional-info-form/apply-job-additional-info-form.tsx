@@ -1,6 +1,6 @@
 'use client';
 import AppSelect from '@/components/ui/app-select';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -112,13 +112,9 @@ const ApplyJobAdditionInfoForm = () => {
             </FormItem>
           )}
         />
-        <Button
-          text="Send"
-          type="submit"
-          trailingIcon={<Send className="rotate-45" size={16} />}
-          variant="primary"
-          className="col-span-4 ml-auto place-items-end"
-        />
+        <Button type="submit" className="col-span-4 ml-auto place-items-end">
+          Send <Send className="rotate-45" size={16} />
+        </Button>
       </form>
     </Form>
   );

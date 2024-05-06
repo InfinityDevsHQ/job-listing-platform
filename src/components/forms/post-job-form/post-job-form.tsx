@@ -1,6 +1,6 @@
 'use client';
 import SyncIcon from '@/components/svgs/sync';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import TextArea from '@/components/ui/text-area';
@@ -206,21 +206,14 @@ export default function PostJobForm() {
               We will use this information to develop a detailed job description, requirements list,
               and set of necessary skills.
             </p>
-            <Button
-              type="submit"
-              text={isLoading ? 'Loading..' : 'Analyze'}
-              variant="primary"
-              size="full"
-              leadingIcon={!isLoading && <SyncIcon />}
-              className="justify-center lg:hidden"
-            />
-            <Button
-              type="submit"
-              text="Analyze"
-              variant="primary"
-              className="hidden items-center lg:flex"
-              leadingIcon={!isLoading && <SyncIcon />}
-            />
+            <Button size={'lg'} className="justify-center lg:hidden" type="submit">
+              {!isLoading && <SyncIcon />}
+              {isLoading ? 'Loading..' : 'Analyze'}
+            </Button>
+            <Button size={'lg'} className="hidden items-center lg:flex" type="submit">
+              {!isLoading && <SyncIcon />}
+              {isLoading ? 'Loading..' : 'Analyze'}
+            </Button>
           </div>
         </div>
       </form>

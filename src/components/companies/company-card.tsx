@@ -1,4 +1,4 @@
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import { CompanyCardProps } from '@/types/types';
 import Image from 'next/image';
 
@@ -23,7 +23,7 @@ const CompanyCard = ({ name, logo_url, description }: CompanyCardProps) => {
           'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit incidunt minima officia nemo hic eprehenderit incidunt minima officia nemo hic'}
       </p>
       <div className="flex justify-end">
-        <Button text="Load More" variant="primary" />
+        <Button>Load More</Button>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
 import CompanyArrow from '@/components/svgs/company-arrow';
 import CompanyLock from '@/components/svgs/company-lock';
 import CompanyMail from '@/components/svgs/coompany-mail';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { login } from '@/lib/auth';
@@ -112,19 +112,14 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
             )}
           />
         )}
-        <Button
-          text="Login"
-          variant={'primary'}
-          className="!max-w-full justify-center"
-          type="submit"
-          trailingIcon={
-            isLoading ? (
-              <LoaderCircleIcon className="animate h-5 w-5 animate-spin" />
-            ) : (
-              <CompanyArrow fill="white" className="h-5 w-5 pt-1" />
-            )
-          }
-        />
+        <Button type="submit" className="!max-w-full justify-center">
+          Login
+          {isLoading ? (
+            <LoaderCircleIcon className="animate h-5 w-5 animate-spin" />
+          ) : (
+            <CompanyArrow fill="white" className="h-5 w-5 pt-1" />
+          )}
+        </Button>
       </form>
     </Form>
   );

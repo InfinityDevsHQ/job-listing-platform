@@ -1,4 +1,4 @@
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { subscribe } from '@/lib/newsletter';
@@ -51,7 +51,7 @@ export default function Subscribe() {
               </FormItem>
             )}
           />
-          <Button type="submit" text={isLoading ? 'Loading...' : 'Subscribe'} variant={'primary'} />
+          <Button type="submit">{isLoading ? 'Loading...' : 'Subscribe'}</Button>
         </div>
       </form>
     </Form>
