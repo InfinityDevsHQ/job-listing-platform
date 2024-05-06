@@ -177,7 +177,7 @@ export default function Candidates() {
     <div className="p-4 lg:p-8">
       <div className="flex flex-col gap-4 rounded-md border border-gray-200 bg-gray-50 p-4 lg:gap-8 lg:bg-transparent lg:p-8">
         <div
-          className="grid grid-cols-3 items-center overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8"
+          className="grid items-center overflow-hidden rounded-md bg-cover p-4 lg:grid-cols-3 lg:gap-8 lg:p-8"
           style={{
             background: "url('/assets/images/home/homePage_hero_section_bg.png')",
           }}
@@ -195,7 +195,7 @@ export default function Candidates() {
             />
           </div>
         </div>
-        <div className="grid gap-4 lg:grid-cols-3 lg:gap-8">
+        <div className="grid justify-items-center gap-4 lg:grid-cols-3 lg:gap-8">
           {CANDIDATES.map((candidate, index) => (
             <CandidateCard key={index} candidateData={candidate} />
           ))}

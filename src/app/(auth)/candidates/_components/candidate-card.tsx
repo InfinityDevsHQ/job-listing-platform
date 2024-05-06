@@ -18,9 +18,9 @@ type CandidateCardProps = {
 };
 export default function CandidateCard({ candidateData }: CandidateCardProps) {
   return (
-    <div className="rounded-md border border-gray-200 bg-gray-50 p-4">
+    <div className="max-w-80 rounded-md border border-gray-200 bg-gray-50 lg:p-4">
       <div className="flex flex-col gap-4">
-        <header className="flex gap-4">
+        <header className="flex gap-4 p-4">
           <div className="flex items-center justify-center">
             <Image
               src={candidateData.candidateImgUrl}
@@ -39,7 +39,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             </div>
           </div>
         </header>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-center gap-4 p-4">
           <Button
             variant={'outline'}
             className="flex flex-1 items-center gap-2 bg-white text-gray-800 lg:text-base"
@@ -57,7 +57,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             Resume
           </Button>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 p-4">
           <h4 className="text-base font-bold text-gray-700">About</h4>
           <p className="max-h-12 overflow-hidden text-ellipsis text-base text-gray-500">
             {candidateData.about}
@@ -85,7 +85,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             {/* <CarouselNext text={''} className="relative left-0 translate-x-0 translate-y-0" /> */}
           </Carousel>
         )}
-        <Button size={'lg'} className="flex flex-1 items-center gap-2">
+        <Button className="gap-2">
           Add to Cart
           <CartIcon />
         </Button>
