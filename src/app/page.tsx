@@ -1,7 +1,7 @@
 import CompaniesList from '@/components/companies/companies-list';
 import JobsList from '@/components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
 import { getPromotedCompanies } from '@/lib/companies';
@@ -32,7 +32,9 @@ export default async function Home() {
           helpText={`${jobs?.length} JOBS`}
         />
         <JobsList jobs={jobs} />
-        <Button text="Load More" variant="primary" className="self-end" />
+        <Button className="self-end" variant={'default'}>
+          Load More
+        </Button>
       </div>
       <div className="col-span-3 flex flex-col gap-5 lg:col-span-1">
         <SectionHeader

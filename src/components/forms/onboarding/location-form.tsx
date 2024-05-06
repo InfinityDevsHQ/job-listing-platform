@@ -1,5 +1,4 @@
 'use client';
-import CompanyGlobe from '@/components/svgs/company-globe';
 import AppSelect from '@/components/ui/app-select';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
@@ -9,6 +8,7 @@ import { timezones } from '@/lib/time-zones';
 import useOnboardingStore from '@/stores/onboardingStore/store';
 import { Country } from '@/types/types';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Building2Icon, Clock, Globe2, Languages } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 type LocationFormProps = {
@@ -60,6 +60,7 @@ export default function LocationForm({ languages, countries }: LocationFormProps
               <FormControl>
                 <AppSelect
                   placeholder="Preferred Language"
+                  leadingIcon={<Languages size={16} />}
                   {...field}
                   options={languages?.map((language) => ({ value: language, label: language }))}
                 />
@@ -76,6 +77,7 @@ export default function LocationForm({ languages, countries }: LocationFormProps
               <FormControl>
                 <AppSelect
                   placeholder="Time Zone"
+                  leadingIcon={<Clock size={16} />}
                   {...field}
                   options={timezones.map((time) => ({
                     value: time,
@@ -96,7 +98,7 @@ export default function LocationForm({ languages, countries }: LocationFormProps
                 <AppSelect
                   placeholder="Select Country"
                   {...field}
-                  leadingIcon={<CompanyGlobe />}
+                  leadingIcon={<Globe2 size={16} />}
                   options={countries?.map((country) => ({
                     label: country.name,
                     value: country.name,
@@ -113,13 +115,13 @@ export default function LocationForm({ languages, countries }: LocationFormProps
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input {...field} placeholder="City" />
+                <Input {...field} placeholder="City" leadingIcon={<Building2Icon size={16} />} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Pagination previous={false} isNextSubmit />
+        <Pagination handleBack={() => addQueryParams('', '')} isNextSubmit />
       </form>
     </Form>
   );

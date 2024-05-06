@@ -1,5 +1,5 @@
-import Button from '@/components/ui/button';
-import { InfoIcon, Menu } from 'lucide-react';
+import { Button } from '@/components/ui/button-new';
+import { Info, Menu } from 'lucide-react';
 import Image from 'next/image';
 const ChatHeader = () => {
   return (
@@ -18,8 +18,12 @@ const ChatHeader = () => {
         <p className="text-xs text-gray-500">Company</p>
       </div>
       <div className="flex gap-2">
-        <Button text="" className="h-full" leadingIcon={<Menu />} />
-        <Button text="" className="h-full justify-center" leadingIcon={<InfoIcon />} />
+        <Button variant="outline" className="h-full !max-w-max justify-center">
+          <Menu size={16} />
+        </Button>
+        <Button variant="outline" className="h-full !max-w-max justify-center">
+          <Info size={16} />
+        </Button>
       </div>
     </header>
   );

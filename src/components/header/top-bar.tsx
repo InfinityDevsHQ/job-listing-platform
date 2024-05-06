@@ -1,6 +1,6 @@
 'use client';
 import Navbar from '@/components/header/_components/navbar';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -95,23 +95,22 @@ const Header = () => {
             <Navbar />
 
             <div className="hidden gap-4 lg:flex">
-              <Button
-                variant="outline-primary"
-                text="Country"
-                trailingIcon={<ChevronsUpDown className="h-4 w-4" />}
-              />
-              <Button
-                text="Login"
-                variant={'primary'}
-                trailingIcon={<LockIcon size={16} />}
-                onClick={() => router.push('/login')}
-              />
-              <Button
-                text="Register"
-                trailingIcon={<ArrowRight size={16} />}
-                variant={'primary'}
-                onClick={() => router.push('/register')}
-              />
+              <Button variant={'outline'}>
+                Country
+                <ChevronsUpDown className="h-4 w-4" />
+              </Button>
+              <Link href={'/login'}>
+                <Button>
+                  Login
+                  <LockIcon size={16} />
+                </Button>
+              </Link>
+              <Link href={'/register'}>
+                <Button>
+                  Register
+                  <ArrowRight size={16} />
+                </Button>
+              </Link>
             </div>
           </div>
         </header>

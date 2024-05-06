@@ -4,7 +4,7 @@ import CompanyLock from '@/components/svgs/company-lock';
 import CompanyProfileOne from '@/components/svgs/company-profile-one';
 import CompanyMail from '@/components/svgs/coompany-mail';
 import AppSelect from '@/components/ui/app-select';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import useAuthStore from '@/stores/authStore/store';
@@ -160,19 +160,14 @@ export default function RegisterCandidateForm() {
             </FormItem>
           )}
         />
-        <Button
-          text="Register"
-          variant={'secondary'}
-          className="!max-w-full justify-center"
-          type="submit"
-          trailingIcon={
-            isLoading ? (
-              <LoaderCircleIcon className="animate h-5 w-5 animate-spin" />
-            ) : (
-              <CompanyArrow fill="white" className="h-5 w-5 pt-1" />
-            )
-          }
-        />
+        <Button className="!max-w-full justify-center" type="submit">
+          Register
+          {isLoading ? (
+            <LoaderCircleIcon className="animate h-5 w-5 animate-spin" />
+          ) : (
+            <CompanyArrow fill="white" className="h-5 w-5 pt-1" />
+          )}
+        </Button>
       </form>
     </Form>
   );

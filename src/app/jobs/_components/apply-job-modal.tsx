@@ -1,6 +1,6 @@
 'use client';
 import ApplyJobForm from '@/components/forms/apply-job-form/apply-job-form';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import {
   Dialog,
   DialogContent,
@@ -27,12 +27,9 @@ const ApplyJobModal = () => {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button
-            text="Apply"
-            trailingIcon={<ArrowRight className="h-5 w-5" />}
-            variant="primary"
-            size="full"
-          />
+          <Button size={'lg'}>
+            Apply <ArrowRight className="h-5 w-5" />
+          </Button>
         </DialogTrigger>
         <DialogContent className="xl:min-w-4xl  bg-gray-200  lg:max-w-4xl">
           <DialogHeader>
@@ -48,12 +45,10 @@ const ApplyJobModal = () => {
     <>
       <Drawer open={open} onOpenChange={setOpen}>
         <DrawerTrigger asChild>
-          <Button
-            text="Apply"
-            trailingIcon={<ArrowRight className="h-5 w-5" />}
-            variant="primary"
-            size="full"
-          />
+          <Button size={'lg'}>
+            Apply
+            <ArrowRight className="h-5 w-5" />
+          </Button>
         </DrawerTrigger>
         <DrawerContent className="bg-gray-200 p-8">
           <DrawerHeader>

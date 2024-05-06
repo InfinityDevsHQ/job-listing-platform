@@ -1,7 +1,7 @@
 import CompanyGithub from '@/components/svgs/company-github-second';
 import CompanyGoogle from '@/components/svgs/company-google';
 import CompanyLinkedin from '@/components/svgs/company-linedin';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import Link from 'next/link';
 
 type AppsAuthProps = {
@@ -15,17 +15,26 @@ const SocialAuthWidget = ({ google, github, linkedin, auth }: AppsAuthProps) => 
     <div className="flex flex-wrap items-center justify-center gap-4">
       {google && (
         <Link href={'#'}>
-          <Button variant="white-primary" leadingIcon={<CompanyGoogle />} text="Google" />
+          <Button variant="outline" className="bg-white">
+            <CompanyGoogle />
+            Google
+          </Button>
         </Link>
       )}
       {github && (
         <Link href={'#'}>
-          <Button variant="white-primary" leadingIcon={<CompanyGithub />} text="Github" />
+          <Button variant="outline" className="bg-white">
+            <CompanyGithub />
+            Github
+          </Button>
         </Link>
       )}
       {linkedin && (
         <Link href={'#'}>
-          <Button variant="white-primary" leadingIcon={<CompanyLinkedin />} text="Linkedin" />
+          <Button variant="outline" className="bg-white">
+            <CompanyLinkedin />
+            Linkedin
+          </Button>
         </Link>
       )}
     </div>

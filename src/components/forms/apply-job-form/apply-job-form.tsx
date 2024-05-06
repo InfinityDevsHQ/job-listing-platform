@@ -1,5 +1,5 @@
 'use client';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import TextArea from '@/components/ui/text-area';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -39,13 +39,10 @@ const ApplyJobForm = () => {
             </FormItem>
           )}
         />
-        <Button
-          text="Send"
-          className="self-end"
-          type="submit"
-          variant={'primary'}
-          trailingIcon={<Send className="rotate-45" size={16} />}
-        />
+        <Button className="self-end" type="submit">
+          Send
+          <Send className="rotate-45" size={16} />
+        </Button>
       </form>
     </Form>
   );

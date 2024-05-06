@@ -1,5 +1,5 @@
 import CompanyCommunity from '@/components/svgs/company-community';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import Image from 'next/image';
 export default function CompanyInfo() {
   return (
@@ -15,12 +15,12 @@ export default function CompanyInfo() {
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-2 lg:gap-4">
             <h4 className="text-base font-bold text-black lg:text-4xl">Company Name</h4>
-            <Button text="Follow" />
+            <Button variant={'outline'}>Follow</Button>
           </div>
           <p className="text-sm text-gray-500 lg:hidden">Silicon Valley</p>
-          <Button text="Get Emails About New Jobs" variant={'primary'} className="lg:hidden" />
+          <Button className="lg:hidden">Get Emails About New Jobs</Button>
         </div>
-        <Button text="Get Emails About New Jobs" variant={'primary'} className="hidden lg:flex" />
+        <Button className="hidden lg:flex">Get Emails About New Jobs</Button>
       </div>
       {/* BIO */}
       <p className="hidden text-xl text-gray-500 lg:block">Silicon Valley</p>
