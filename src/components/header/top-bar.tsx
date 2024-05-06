@@ -12,7 +12,14 @@ import { deleteToken } from '@/lib/auth-token';
 import { getCountries } from '@/lib/countries';
 import { cn } from '@/lib/utils';
 import { Country } from '@/types/types';
-import { ArrowRight, BellIcon, ChevronDown, LockIcon, MailIcon } from 'lucide-react';
+import {
+  ArrowRight,
+  BellIcon,
+  ChevronDown,
+  ChevronDownIcon,
+  LockIcon,
+  MailIcon,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -20,7 +27,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
 const Header = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [countries, setCountries] = useState<Country[]>([]);
 
   const router = useRouter();
@@ -61,12 +68,15 @@ const Header = () => {
 
   const companyHeaderRoutes = ['/recruit'];
 
+  const publicNavLinks = [{ text: 'For Companies', href: '/recruit' }];
+  const privateNavLinks = [{ text: 'Companies', href: '/companies' }];
+
   if (noHeaderRoutes?.includes(pathname)) {
     return <></>;
   }
 
   // TODO: fix/show auth protected header in proper way
-  if (isAuthenticated) {
+  if (!isAuthenticated) {
     return (
       <>
         <header className="flex w-full items-center justify-between bg-white px-4 py-3.5 lg:px-16 lg:py-8">
@@ -84,23 +94,25 @@ const Header = () => {
             />
           </Link>
           <div className="flex items-center gap-4">
-            <Navbar />
             <div className="hidden gap-4 lg:flex">
-              <Link
-                href={'/companies'}
-                className="inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium"
-              >
-                Companies
-              </Link>
+              <Navbar
+                links={publicNavLinks}
+                activeLinkClassName={
+                  companyHeaderRoutes.includes(pathname) ? 'text-secondary' : 'text-primary'
+                }
+              />
               <DropdownMenu modal={false}>
                 <DropdownMenuTrigger asChild>
-                  <button
-                    type="button"
-                    className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium"
+                  <Button
+                    variant={
+                      companyHeaderRoutes.includes(pathname)
+                        ? 'link-hover-secondary'
+                        : 'link-hover-primary'
+                    }
                   >
-                    <span>Country</span>
-                    <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
-                  </button>
+                    Country
+                    <ChevronDownIcon className="ml-2 h-4 w-4" />
+                  </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-52 bg-white">
                   {countries?.map((country, index) => (

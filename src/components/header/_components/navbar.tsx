@@ -5,29 +5,30 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import MobileNav from './mobile-nav';
 
-type Tabs = {
+type Link = {
   text: string;
   href: string;
 };
 
-const Navbar = () => {
-  const pathname = usePathname();
+type NavbarProps = {
+  links: Link[];
+  activeLinkClassName?: string;
+};
 
-  const tabs: Tabs[] = [{ text: 'For Companies', href: '/companies' }];
+const Navbar = ({ links, activeLinkClassName }: NavbarProps) => {
+  const pathname = usePathname();
 
   return (
     <>
       <nav className="hidden flex-shrink-0 lg:block">
         <ol className="flex gap-8">
-          {tabs.map((link, index) => (
+          {links.map((link, index) => (
             <li key={index}>
               <Link
                 href={link.href}
                 className={cn(
                   'inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium',
-                  {
-                    'text-primary-900': pathname === link.href,
-                  }
+                  activeLinkClassName
                 )}
               >
                 {link.text}
