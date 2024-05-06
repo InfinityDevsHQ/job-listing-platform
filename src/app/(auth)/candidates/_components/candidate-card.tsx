@@ -26,7 +26,7 @@ type CandidateCardProps = {
 };
 export default function CandidateCard({ candidateData }: CandidateCardProps) {
   return (
-    <div className="rounded-md border border-gray-200 bg-gray-50 p-4">
+    <div className="max-w-80 rounded-md border border-gray-200 bg-gray-50 p-4">
       <div className="flex flex-col">
         <header className="mb-4 flex gap-4">
           <div className="flex items-center justify-center">
