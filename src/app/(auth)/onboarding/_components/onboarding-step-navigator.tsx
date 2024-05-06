@@ -51,13 +51,7 @@ export default function OnboardingStepNavigator({ step }: OnboardingStepNavigato
         >
           3. Filter Jobs
         </Button>
-        <Button
-          onClick={() => handleTabSelect('filter-jobs')}
-          variant={step === 'filter-jobs' ? 'default' : 'outline'}
-          className="!border-none"
-        >
-          3. Filter Jobs
-        </Button>
+
         <Button
           onClick={() => handleTabSelect('contact')}
           variant={step === 'contact' ? 'default' : 'outline'}
