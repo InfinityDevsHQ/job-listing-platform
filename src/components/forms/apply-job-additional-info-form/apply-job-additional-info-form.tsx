@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Send } from 'lucide-react';
+import { SendIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 const MinimumSalary = ['$ 100', '$ 200', '$ 800'];
@@ -113,7 +113,7 @@ const ApplyJobAdditionInfoForm = () => {
           )}
         />
         <Button type="submit" className="col-span-4 ml-auto place-items-end">
-          Send <Send className="ml-2 rotate-45" size={16} />
+          Send <SendIcon className="ml-2 h-4 w-4 rotate-45" />
         </Button>
       </form>
     </Form>

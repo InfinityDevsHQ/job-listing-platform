@@ -15,7 +15,7 @@ export default function CompanyInfo() {
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-2 lg:gap-4">
             <h4 className="text-base font-bold text-black lg:text-4xl">Company Name</h4>
-            <Button variant={'outline'}>Follow</Button>
+            <Button variant="outline">Follow</Button>
           </div>
           <p className="text-sm text-gray-500 lg:hidden">Silicon Valley</p>
           <Button className="lg:hidden">Get Emails About New Jobs</Button>

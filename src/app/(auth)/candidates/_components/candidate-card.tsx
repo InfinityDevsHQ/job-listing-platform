@@ -1,4 +1,3 @@
-import CartIcon from '@/components/svgs/cart-icon';
 import CompanyLocation from '@/components/svgs/company-location';
 import Badge from '@/components/ui/badge';
 import { Button } from '@/components/ui/button-new';
@@ -10,7 +9,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { getColorClasses } from '@/lib/utils';
-import { Eye } from 'lucide-react';
+import { Eye, ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
 type CandidateCardData = {
   name: string;
@@ -47,20 +46,13 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             </div>
           </div>
         </header>
-        <div className="flex  items-stretch  gap-4">
-          <Button
-            variant={'outline'}
-            className="flex-1 basis-1/2 items-center bg-white text-gray-800 lg:text-base"
-            size={'lg'}
-          >
-            <Eye size={16} className="mr-2" />
+        <div className="flex items-center gap-4">
+          <Button variant="outline" className="w-1/2">
+            <Eye className="mr-2 h-4 w-4" />
             View Profile
           </Button>
-          <Button
-            variant={'outline'}
-            className="flex-1 basis-1/2 bg-white text-gray-800 lg:text-base"
-          >
-            <Eye size={16} className="mr-2" />
+          <Button variant="outline" className="w-1/2">
+            <Eye className="mr-2 h-4 w-4" />
             Resume
           </Button>
         </div>
@@ -92,9 +84,9 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             <CarouselNext className="relative left-0 translate-x-0 translate-y-0" />
           </Carousel>
         )}
-        <Button className="gap-2">
+        <Button size="lg">
           Add to Cart
-          <CartIcon />
+          <ShoppingCart className="ml-2 h-4 w-4" />
         </Button>
       </div>
     </div>

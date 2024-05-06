@@ -1,4 +1,5 @@
-import { ThumbsDown, ThumbsUp } from 'lucide-react';
+import { Button } from '@/components/ui/button-new';
+import { ThumbsDownIcon, ThumbsUpIcon } from 'lucide-react';
 
 type JobHeaderProps = {
   className?: string;
@@ -10,20 +11,12 @@ const JobFeedback = ({ className }: JobHeaderProps) => {
     >
       <span className="text-gray-950">Do you like this job offer?</span>
       <div className="flex items-center gap-4">
-        <button
-          aria-label="Like"
-          type="button"
-          className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 lg:h-6 lg:w-6"
-        >
-          <ThumbsUp className="h-5 w-5 text-gray-500 lg:h-4 lg:w-4" />
-        </button>
-        <button
-          aria-label="Unlike"
-          type="button"
-          className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 lg:h-6 lg:w-6"
-        >
-          <ThumbsDown className="h-5 w-5 text-gray-500 lg:h-4 lg:w-4" />
-        </button>
+        <Button variant="outline" size="icon-xs">
+          <ThumbsUpIcon className="h-4 w-4 text-gray-500" />
+        </Button>
+        <Button variant="outline" size="icon-xs">
+          <ThumbsDownIcon className="h-4 w-4 text-gray-500" />
+        </Button>
       </div>
     </div>
   );

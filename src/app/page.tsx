@@ -32,9 +32,7 @@ export default async function Home() {
           helpText={`${jobs?.length} JOBS`}
         />
         <JobsList jobs={jobs} />
-        <Button className="self-end" variant={'default'}>
-          Load More
-        </Button>
+        <Button className="self-end">Load More</Button>
       </div>
       <div className="col-span-3 flex flex-col gap-5 lg:col-span-1">
         <SectionHeader

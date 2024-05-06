@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/button-new';
+import { BookmarkIcon } from 'lucide-react';
 import Image from 'next/image';
 type JobHeaderProps = {
   title: string;
@@ -43,21 +45,10 @@ export default function JobHeader({ title, is_hot, external_company_name }: JobH
           </p>
         </div>
       </div>
-      <button type="button">
-        <Image
-          alt="bookmarked"
-          src={'/assets/icons/bookmarked.svg'}
-          width={30}
-          height={30}
-          className="h-auto w-auto"
-        />
-        {/* <Image
-      alt="bookmark"
-      src={"/assets/icons/bookmark.svg"}
-      width={30}
-      height={30}
-    /> */}
-      </button>
+      <Button className="border-none" size="icon">
+        <BookmarkIcon />
+        {/* <BookmarkCheckIcon /> */}
+      </Button>
     </div>
   );
 }

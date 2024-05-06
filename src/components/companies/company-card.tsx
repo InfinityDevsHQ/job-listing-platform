@@ -22,9 +22,7 @@ const CompanyCard = ({ name, logo_url, description }: CompanyCardProps) => {
         {description ||
           'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit incidunt minima officia nemo hic eprehenderit incidunt minima officia nemo hic'}
       </p>
-      <div className="flex justify-end">
-        <Button>Load More</Button>
-      </div>
+      <Button className="self-end">Load More</Button>
     </div>
   );
 };

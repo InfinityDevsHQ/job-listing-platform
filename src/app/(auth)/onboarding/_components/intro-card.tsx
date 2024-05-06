@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button-new';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRightIcon } from 'lucide-react';
 import Link from 'next/link';
 import AITile from './ai-tile';
+
 const IntroCard = () => {
   return (
     <div className="flex flex-col gap-4 rounded-md border border-gray-200 bg-white p-4 shadow-card lg:p-8">
@@ -48,10 +49,11 @@ const IntroCard = () => {
       <Link href={'?step=location'} className="self-end">
         <Button className="flex items-center">
           Let&apos;s Go
-          <ArrowRight size={18} className="ml-2" />
+          <ArrowRightIcon className="ml-2 h-4 w-4" />
         </Button>
       </Link>
     </div>
   );
 };
+
 export default IntroCard;
