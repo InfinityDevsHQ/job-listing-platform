@@ -1,12 +1,20 @@
+import { cn } from '@/lib/utils';
+
 type InfoListProps = {
   list?: string[] | null;
   children?: React.ReactNode;
   variant?: string;
+  className?: string;
 };
 
-const InfoList = ({ list, children, variant = 'primary' }: InfoListProps) => {
+const InfoList = ({ list, children, variant = 'primary', className }: InfoListProps) => {
   return (
-    <ul className={`list list-inside list-image-[url('/assets/icons/send-${variant}.png')]`}>
+    <ul
+      className={cn(
+        `list list-inside list-image-[url('/assets/icons/check-circle.png')]`,
+        className
+      )}
+    >
       {children ? (
         <>{children}</>
       ) : (

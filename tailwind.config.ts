@@ -27,8 +27,16 @@ const config = {
         ],
       },
       colors: {
-        primary: colors.blue,
-        secondary: colors.green,
+        primary: {
+          DEFAULT: '#1e3a8a',
+          foreground: '#ffffff',
+          ...colors.blue,
+        },
+        secondary: {
+          DEFAULT: '#14532d',
+          foreground: '#ffffff',
+          ...colors.green,
+        },
         danger: colors.red,
         neutral: colors.neutral,
         'mute-1': '#263238',
@@ -67,6 +75,10 @@ const config = {
         theme: '0px 4px 60px 0px #0000000D',
         minor: '0px 4px 4px 0px #0000000D',
         card: '0px 4px 20px 0px #0000000D',
+      },
+      backgroundImage: {
+        'secondary-gradient':
+          'linear-gradient(92.04deg, #F9FFFD 1.76%, rgba(187, 247, 227, 0.3) 51.52%, #F9FFFD 102.29%)',
       },
     },
   },
