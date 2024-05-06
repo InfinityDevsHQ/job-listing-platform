@@ -7,40 +7,27 @@ import {
 } from '@/components/ui/select';
 import React from 'react';
 
-interface OptionProp {
+type OptionProp = {
   value: string;
   label: string;
   icon?: React.ReactNode;
-}
-
-// TODO: change them temporary
-interface SelectProps {
+};
+type SelectProps = {
   leadingIcon?: React.ReactNode;
   options?: OptionProp[];
   selectedValue?: OptionProp;
   onChange?: (value: string) => void;
   placeholder?: string;
-}
-
-interface OptionProp {
-  value: string;
-  label: string;
-  icon?: React.ReactNode;
-}
-
-interface SelectProps {
-  leadingIcon?: React.ReactNode;
-  options?: OptionProp[];
-  selectedValue?: OptionProp;
-  onChange?: (value: string) => void;
-  placeholder?: string;
-}
+  className?: string;
+};
 
 const AppSelect = React.forwardRef<HTMLDivElement, SelectProps>(
-  ({ options, selectedValue, onChange, leadingIcon, placeholder = 'Select' }) => {
+  ({ options, selectedValue, onChange, leadingIcon, placeholder = 'Select', className = '' }) => {
     return (
       <Select onValueChange={onChange} defaultValue={selectedValue?.value}>
-        <SelectTrigger className="w-full border border-gray-300 bg-white focus:border-primary-900 focus:ring-0">
+        <SelectTrigger
+          className={`w-full border border-gray-300 bg-white focus:border-primary-900 focus:ring-0 ${className}`}
+        >
           <SelectValue
             placeholder={
               <p className="flex w-full items-center gap-2">

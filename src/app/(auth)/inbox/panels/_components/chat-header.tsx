@@ -14,7 +14,7 @@ const ChatHeader = () => {
         />
       </div>
       <div className="flex flex-1 flex-col">
-        <h4 className="text-base font-bold text-gray-700">Jan Filips</h4>
+        <h4 className="text-base font-bold text-gray-700">Bob Powell</h4>
         <p className="text-xs text-gray-500">Company</p>
       </div>
       <div className="flex gap-2">

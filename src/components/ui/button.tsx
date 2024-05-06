@@ -41,7 +41,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button className={cn(buttonVariants({ variant, size, className }))} type={type} {...props}>
         {leadingIcon && leadingIcon}
-        <span>{text}</span>
+        {text && <span>{text}</span>}
         {trailingIcon && trailingIcon}
       </button>
     );
