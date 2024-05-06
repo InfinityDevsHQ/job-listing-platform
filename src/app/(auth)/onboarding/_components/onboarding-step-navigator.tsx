@@ -1,5 +1,5 @@
 'use client';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button-new';
 import { Tabs, TabsList } from '@/components/ui/tabs';
 import { useQueryParams } from '@/hooks/useQueryParams';
 import { useEffect } from 'react';
@@ -21,41 +21,57 @@ export default function OnboardingStepNavigator({ step }: OnboardingStepNavigato
     <Tabs>
       <TabsList className="flex items-center gap-4">
         <Button
-          text="Intro"
           onClick={() => handleTabSelect('')}
-          variant={!step ? 'primary' : 'default'}
+          variant={!step ? 'default' : 'outline'}
           className="!border-none"
-        />
+        >
+          Intro
+        </Button>
+
         <Button
-          text="1. Location"
           onClick={() => handleTabSelect('location')}
-          variant={step === 'location' ? 'primary' : 'default'}
+          variant={step === 'location' ? 'default' : 'outline'}
           className="!border-none"
-        />
+        >
+          1. Location
+        </Button>
+
         <Button
-          text="2. Upload Cv"
           onClick={() => handleTabSelect('upload-cv')}
-          variant={step === 'upload-cv' ? 'primary' : 'default'}
+          variant={step === 'upload-cv' ? 'default' : 'outline'}
           className="!border-none"
-        />
+        >
+          2. Upload CV
+        </Button>
+
         <Button
-          text="3. Filter Jobs"
           onClick={() => handleTabSelect('filter-jobs')}
-          variant={step === 'filter-jobs' ? 'primary' : 'default'}
+          variant={step === 'filter-jobs' ? 'default' : 'outline'}
           className="!border-none"
-        />
+        >
+          3. Filter Jobs
+        </Button>
         <Button
-          text="4. Contacts"
+          onClick={() => handleTabSelect('filter-jobs')}
+          variant={step === 'filter-jobs' ? 'default' : 'outline'}
+          className="!border-none"
+        >
+          3. Filter Jobs
+        </Button>
+        <Button
           onClick={() => handleTabSelect('contact')}
-          variant={step === 'contact' ? 'primary' : 'default'}
+          variant={step === 'contact' ? 'default' : 'outline'}
           className="!border-none"
-        />
+        >
+          4. Contact
+        </Button>
         <Button
-          text="5. Finish"
           onClick={() => handleTabSelect('terms-and-conditions')}
-          variant={step === 'terms-and-conditions' ? 'primary' : 'default'}
+          variant={step === 'terms-and-conditions' ? 'default' : 'outline'}
           className="!border-none"
-        />
+        >
+          5. Finish
+        </Button>
       </TabsList>
     </Tabs>
   );
