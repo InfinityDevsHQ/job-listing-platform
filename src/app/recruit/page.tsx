@@ -300,8 +300,8 @@ const Recruit = () => {
             We are proud to be trusted by hundreds of companies from all over the world.We have
             asked some of them what they appreciate about ClickJob.
           </p>
-          <div className="grid grid-cols-4 gap-4">
-            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+          <div className="grid gap-4 lg:grid-cols-4">
+            <div className="flex flex-col gap-4 rounded-md border border-gray-300 bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
               <Image
                 src="/assets/companies/logos/company- (1).png"
                 width={295}
@@ -318,7 +318,7 @@ const Recruit = () => {
                 user_role="Software Engineer"
               />
             </div>
-            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+            <div className="flex flex-col gap-4 rounded-md border border-gray-300 bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
               <Image
                 src="/assets/companies/logos/company- (2).png"
                 width={295}
@@ -335,7 +335,7 @@ const Recruit = () => {
                 user_role="Software Engineer"
               />
             </div>
-            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+            <div className="flex flex-col gap-4 rounded-md border border-gray-300 bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
               <Image
                 src="/assets/companies/logos/company- (3).png"
                 width={295}
@@ -352,7 +352,7 @@ const Recruit = () => {
                 user_role="Software Engineer"
               />
             </div>
-            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+            <div className="flex flex-col gap-4 rounded-md border border-gray-300 bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
               <Image
                 src="/assets/companies/logos/company- (4).png"
                 width={295}
@@ -369,7 +369,7 @@ const Recruit = () => {
                 user_role="Software Engineer"
               />
             </div>
-            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+            <div className="flex flex-col gap-4 rounded-md border border-gray-300 bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
               <Image
                 src="/assets/companies/logos/company- (5).png"
                 width={295}
@@ -386,7 +386,7 @@ const Recruit = () => {
                 user_role="Software Engineer"
               />
             </div>
-            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+            <div className="flex flex-col gap-4 rounded-md border border-gray-300 bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
               <Image
                 src="/assets/companies/logos/company- (6).png"
                 width={295}
@@ -403,7 +403,7 @@ const Recruit = () => {
                 user_role="Software Engineer"
               />
             </div>
-            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+            <div className="flex flex-col gap-4 rounded-md border border-gray-300 bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
               <Image
                 src="/assets/companies/logos/company- (7).png"
                 width={295}
@@ -420,7 +420,7 @@ const Recruit = () => {
                 user_role="Software Engineer"
               />
             </div>
-            <div className="flex flex-col gap-4 rounded-md bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
+            <div className="flex flex-col gap-4 rounded-md border border-gray-300 bg-white p-4 shadow-theme md:basis-1/2 lg:basis-1/6 lg:p-8">
               <Image
                 src="/assets/companies/logos/company- (8).png"
                 width={295}
@@ -451,9 +451,13 @@ const Recruit = () => {
             <li className="text-base text-gray-500">Book a Free Demo with our team</li>
             <li className="text-base text-gray-500">We’ll do the setup for you</li>
           </InfoList>
-          <div className="flex flex-col items-center gap-3 lg:flex-row">
-            <Button variant="secondary">Try it Free for 14 Days</Button>
-            <Button variant="outline">See it in Action</Button>
+          <div className="flex w-full flex-col items-center gap-3 lg:flex-row">
+            <Button variant="secondary" className="w-full lg:w-auto">
+              Try it Free for 14 Days
+            </Button>
+            <Button variant="outline" className="w-full lg:w-auto">
+              See it in Action
+            </Button>
           </div>
         </div>
       </div>
