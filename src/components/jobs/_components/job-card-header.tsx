@@ -6,7 +6,7 @@ import { BookmarkIcon } from 'lucide-react';
 
 const JobCardHeader = ({ job }: JobProps) => {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-start justify-between">
       <div className="flex items-center gap-5">
         <span className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-100">
           <Image alt="logo" src={'/assets/icons/fire.svg'} width={16} height={18} />
@@ -30,9 +30,9 @@ const JobCardHeader = ({ job }: JobProps) => {
           </p>
         </div>
       </div>
-      <Button className="border-none" size="icon">
-        <BookmarkIcon />
-        {/* <BookmarkCheckIcon /> */}
+      <Button variant="outline" size="icon-xs">
+        <BookmarkIcon className="h-4 w-4" />
+        {/* <BookmarkCheckIcon className="h-4 w-4" /> */}
       </Button>
     </div>
   );

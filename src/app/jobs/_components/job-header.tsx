@@ -45,9 +45,9 @@ export default function JobHeader({ title, is_hot, external_company_name }: JobH
           </p>
         </div>
       </div>
-      <Button className="border-none" size="icon">
-        <BookmarkIcon />
-        {/* <BookmarkCheckIcon /> */}
+      <Button variant="outline" size="icon-xs">
+        <BookmarkIcon className="h-4 w-4" />
+        {/* <BookmarkCheckIcon className="h-4 w-4" /> */}
       </Button>
     </div>
   );

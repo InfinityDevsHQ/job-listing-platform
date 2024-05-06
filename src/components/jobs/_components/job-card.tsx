@@ -2,35 +2,41 @@
 import Badges from '@/components/ui/badges';
 import { JobProps } from '@/types/types';
 import Link from 'next/link';
-import { useState } from 'react';
 import JobCardDetails from './job-card-details';
 import JobCardHeader from './job-card-header';
 
-export default function JobCard({ job }: JobProps) {
-  const [isOpened, setIsOpened] = useState(false);
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
+export default function JobCard({ job }: JobProps) {
   return (
-    <div className="flex flex-col gap-4 overflow-hidden rounded-md border border-gray-200 bg-white p-4 duration-500 animate-in fade-in lg:gap-8 lg:p-8">
-      <div
-        className="flex cursor-pointer select-none flex-col gap-4 lg:gap-8"
-        onClick={() => setIsOpened(!isOpened)}
-      >
-        <JobCardHeader job={job} />
-        <JobCardDetails job={job} />
-      </div>
-      {isOpened && job?.id && (
-        <Link
-          className="flex cursor-default flex-col gap-4 duration-500 animate-in fade-in fade-out lg:gap-8"
-          onClick={() => setIsOpened(!isOpened)}
-          href={`/jobs/${job.id}`}
-        >
-          {job?.description && (
-            <p className="text-xs text-neutral-600 lg:text-sm">{job?.description}</p>
-          )}
-          <span className="border-b border-gray-200" />
-          <Badges badges={job?.skill_tags?.map((tag) => ({ text: tag }))} />
-        </Link>
-      )}
-    </div>
+    <Accordion type="single" defaultValue="" collapsible className="flex w-full flex-col gap-4">
+      <AccordionItem value="item-1">
+        <AccordionTrigger className="p-4">
+          <div className="no-arrow peer flex w-full cursor-pointer select-none flex-col gap-4 lg:gap-8">
+            <JobCardHeader job={job} />
+            <JobCardDetails job={job} />
+          </div>
+        </AccordionTrigger>
+        {job?.id && (
+          <AccordionContent>
+            <Link
+              className="flex cursor-default flex-col gap-4 duration-500 animate-in fade-in fade-out lg:gap-8"
+              href={`/jobs/${job.id}`}
+            >
+              {job?.description && (
+                <p className="text-xs text-neutral-600 lg:text-sm">{job?.description}</p>
+              )}
+              <span className="border-b border-gray-200" />
+              <Badges badges={job?.skill_tags?.map((tag) => ({ text: tag }))} />
+            </Link>
+          </AccordionContent>
+        )}
+      </AccordionItem>
+    </Accordion>
   );
 }
