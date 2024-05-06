@@ -18,11 +18,11 @@ const ChatHeader = () => {
         <p className="text-xs text-gray-500">Company</p>
       </div>
       <div className="flex gap-2">
-        <Button variant="outline" className="h-full justify-center">
-          <Menu />
+        <Button variant="outline" className="h-full !max-w-max justify-center">
+          <Menu size={16} />
         </Button>
-        <Button variant="outline" className="h-full justify-center">
-          <Info />
+        <Button variant="outline" className="h-full !max-w-max justify-center">
+          <Info size={16} />
         </Button>
       </div>
     </header>
