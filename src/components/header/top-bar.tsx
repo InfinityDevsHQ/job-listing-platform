@@ -73,29 +73,25 @@ const Header = () => {
   }
 
   // TODO: fix/show auth protected header in proper way
-  if (!isAuthenticated) {
+  if (isAuthenticated) {
     return (
       <>
-        <header className="flex w-full items-center justify-between bg-white px-4 py-2 lg:px-16 lg:py-8">
+        <header className="flex w-full items-center justify-between bg-white px-4 py-3.5 lg:px-16 lg:py-8">
           <Link href={'/'}>
             <Image
               alt="logo"
-              src={'/assets/images/common/logo_clickJob_primary.svg'}
-              width={206}
-              height={50}
-              className="hidden lg:block"
-            />
-            <Image
-              alt="logo"
-              src={'/assets/images/common/logo_clickJob_primary.svg'}
-              width={118}
-              height={30}
-              className="block lg:hidden"
+              src={
+                companyHeaderRoutes.includes(pathname)
+                  ? '/assets/images/common/logo_clickJob_secondary.svg'
+                  : '/assets/images/common/logo_clickJob_primary.svg'
+              }
+              width={160}
+              height={40}
+              className="h-7 w-28 lg:h-10 lg:w-40"
             />
           </Link>
           <div className="flex items-center gap-4">
             <Navbar />
-
             <div className="hidden gap-4 lg:flex">
               <Button variant={'outline'}>
                 Country
