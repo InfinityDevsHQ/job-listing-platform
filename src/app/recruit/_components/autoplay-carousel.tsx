@@ -18,12 +18,7 @@ const AutoPlayCarousel = ({ children, showNavControls = true }: AutoPlayCarousel
   const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: false }));
 
   return (
-    <Carousel
-      plugins={[plugin.current]}
-      className="w-full"
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
-    >
+    <Carousel plugins={[plugin.current]} className="w-full" opts={{ loop: true }}>
       <CarouselContent>{children}</CarouselContent>
       {showNavControls && (
         <>

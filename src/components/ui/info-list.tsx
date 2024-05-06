@@ -11,7 +11,7 @@ const InfoList = ({ list, children, variant = 'primary', className }: InfoListPr
   return (
     <ul
       className={cn(
-        `list list-inside list-image-[url('/assets/icons/send-${variant}.png')]`,
+        `list list-inside list-image-[url('/assets/icons/check-circle.png')]`,
         className
       )}
     >
