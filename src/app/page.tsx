@@ -25,6 +25,7 @@ export default async function Home() {
         <Hero
           heading="Find your dream job here"
           desc="Explore the latest job openings and apply for the best job opportunities available today!"
+          vectorUrl="/assets/images/home/homePage_hero_section_vector.png"
         />
         <SectionHeader
           leadingIcon={<FireIcon className="h-5 w-4 text-red-900 lg:h-7 lg:w-6" />}

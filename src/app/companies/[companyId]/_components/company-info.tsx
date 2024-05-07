@@ -1,10 +1,11 @@
 import CompanyCommunity from '@/components/svgs/company-community';
 import { Button } from '@/components/ui/button-new';
+import { Mail } from 'lucide-react';
 import Image from 'next/image';
 export default function CompanyInfo() {
   return (
     <>
-      <div className="mt-14 flex items-center gap-4 lg:gap-8">
+      <div className="flex items-center gap-4 lg:mt-14 lg:gap-8">
         <Image
           src={'/assets/company/profile.png'}
           alt="profile"
@@ -18,9 +19,15 @@ export default function CompanyInfo() {
             <Button variant="outline">Follow</Button>
           </div>
           <p className="text-sm text-gray-500 lg:hidden">Silicon Valley</p>
-          <Button className="lg:hidden">Get Emails About New Jobs</Button>
+          <Button className="lg:hidden">
+            <Mail size={16} className="mr-2" />
+            Get Emails About New Jobs
+          </Button>
         </div>
-        <Button className="hidden lg:flex">Get Emails About New Jobs</Button>
+        <Button className="hidden lg:flex">
+          <Mail size={16} className="mr-2" />
+          Get Emails About New Jobs
+        </Button>
       </div>
       {/* BIO */}
       <p className="hidden text-xl text-gray-500 lg:block">Silicon Valley</p>
@@ -34,7 +41,7 @@ export default function CompanyInfo() {
         <div className="flex flex-1 justify-between lg:pl-6">
           <div className="flex items-center gap-2">
             <CompanyCommunity />
-            <p className="font-bold lg:text-xl">Size f Company</p>
+            <p className="font-bold lg:text-xl">Size of Company</p>
           </div>
           <p className="lg:text-xl">0-100 Employees</p>
         </div>

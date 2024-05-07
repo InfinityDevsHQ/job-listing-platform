@@ -27,7 +27,7 @@ export default function OnboardingStepOne() {
           height={580}
         />
       </div>
-      <div className="col-span-2 flex w-full flex-col justify-center gap-4 lg:col-span-1">
+      <div className="col-span-2 flex w-full flex-col gap-4 lg:col-span-1">
         <BoardingHeader title="1. Location" />
         <HydrationBoundary state={dehydrate}>
           <LocationForm languages={languages} countries={countries} />

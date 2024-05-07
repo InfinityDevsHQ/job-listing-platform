@@ -9,12 +9,19 @@ type HeroSectionProps = {
   desc?: string;
   searchQuery?: string;
   handleChangeSearchQuery?: (val: string) => void;
+  vectorUrl?: string;
 };
 
-const Hero = ({ heading, desc, searchQuery, handleChangeSearchQuery }: HeroSectionProps) => {
+const Hero = ({
+  heading,
+  desc,
+  searchQuery = '',
+  vectorUrl = '',
+  handleChangeSearchQuery,
+}: HeroSectionProps) => {
   return (
     <div
-      className="grid grid-cols-3 items-center overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8"
+      className="z-10 grid grid-cols-3 items-center overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8"
       style={{
         background: "url('/assets/images/home/homePage_hero_section_bg.png')",
       }}
@@ -34,7 +41,7 @@ const Hero = ({ heading, desc, searchQuery, handleChangeSearchQuery }: HeroSecti
       </div>
       <Image
         alt="homePage_hero_section_vector.png"
-        src={'/assets/images/home/homePage_hero_section_vector.png'}
+        src={vectorUrl}
         width={245}
         height={195}
         className="mx-auto hidden h-48 lg:block"

@@ -2,7 +2,7 @@ import Image from 'next/image';
 export default function CompanyHeader() {
   return (
     <header className="relative lg:mb-16">
-      <div className="flex items-center justify-center">
+      <div className="hidden items-center justify-center lg:flex">
         <Image src={'/assets/company/cover.png'} alt="cover photo" width={1600} height={456} />
       </div>
       <Image
