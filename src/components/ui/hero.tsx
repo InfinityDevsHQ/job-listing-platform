@@ -14,7 +14,7 @@ type HeroSectionProps = {
 const Hero = ({ heading, desc, searchQuery, handleChangeSearchQuery }: HeroSectionProps) => {
   return (
     <div
-      className="grid grid-cols-3 items-center overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8"
+      className="z-10 grid grid-cols-3 items-center overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8"
       style={{
         background: "url('/assets/images/home/homePage_hero_section_bg.png')",
       }}
