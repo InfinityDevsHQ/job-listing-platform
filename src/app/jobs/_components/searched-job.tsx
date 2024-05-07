@@ -9,6 +9,7 @@ import JobRequirements from './job-requirements';
 type SearchedJobProps = {
   searchedJob: Job;
 };
+
 const SearchedJob = ({ searchedJob }: SearchedJobProps) => {
   return (
     <div className="flex flex-col gap-4 rounded-md border border-gray-200 bg-white p-4 lg:gap-8 lg:p-8">
@@ -37,19 +38,13 @@ const SearchedJob = ({ searchedJob }: SearchedJobProps) => {
           <ApplyJobModal />
           <JobFeedback className="lg:hidden" />
         </div>
-        <div className="order-1 flex min-h-full max-w-max flex-shrink-0 flex-col justify-between gap-4 lg:order-2 lg:gap-8">
-          <JobInfo
-            salary="30k-40k"
-            experience="1-4 years"
-            city={searchedJob.city}
-            country={searchedJob.country}
-            created={searchedJob.created}
-            applicants={searchedJob.applicants}
-          />
+        <div className="order-1 flex min-h-full max-w-72 flex-shrink-0 flex-col justify-between gap-4 lg:order-2 lg:gap-8">
+          <JobInfo job={searchedJob} />
           <JobFeedback className="hidden lg:flex" />
         </div>
       </div>
     </div>
   );
 };
+
 export default SearchedJob;

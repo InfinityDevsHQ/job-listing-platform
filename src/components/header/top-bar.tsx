@@ -17,6 +17,7 @@ import {
   BellIcon,
   ChevronDown,
   ChevronDownIcon,
+  GlobeIcon,
   LockIcon,
   MailIcon,
 } from 'lucide-react';
@@ -26,6 +27,12 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
+type CountryProps = {
+  id: number;
+  name: string;
+  flag_icon: string;
+};
+
 const Header = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [countries, setCountries] = useState<Country[]>([]);
@@ -33,6 +40,11 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState<CountryProps>({
+    id: 0,
+    name: '',
+    flag_icon: '',
+  });
 
   useEffect(() => {
     getCountries()
@@ -60,8 +72,9 @@ const Header = () => {
     console.log('deleteToken');
   };
 
-  const handleSelectCountry = async (countryId: number, name: string) => {
-    console.log('handleSelectCountry ==> countryId ', countryId); // TODO: handle change country selection
+  const handleSelectCountry = async (country: CountryProps) => {
+    console.log('handleSelectCountry ==> countryId ', country); // TODO: handle change country selection
+    setSelectedCountry(country);
   };
 
   const noHeaderRoutes = ['/login', '/register'];
@@ -103,14 +116,21 @@ const Header = () => {
               />
               <DropdownMenu modal={false}>
                 <DropdownMenuTrigger asChild>
-                  <Button
-                    variant={
-                      companyHeaderRoutes.includes(pathname)
-                        ? 'link-hover-secondary'
-                        : 'link-hover-primary'
-                    }
-                  >
-                    Country
+                  <Button variant={companyHeaderRoutes.includes(pathname) ? 'outline' : 'outline'}>
+                    {selectedCountry?.flag_icon ? (
+                      <>
+                        <Image
+                          src={`http://devel.clickjob.ai/${selectedCountry?.flag_icon}`}
+                          alt="test"
+                          width={16}
+                          height={16}
+                          className="mr-2 h-4 w-4"
+                        />
+                      </>
+                    ) : (
+                      <GlobeIcon className="mr-2 h-4 w-4" />
+                    )}
+                    {selectedCountry?.name ? selectedCountry?.name : 'Country'}
                     <ChevronDownIcon className="ml-2 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -118,9 +138,7 @@ const Header = () => {
                   {countries?.map((country, index) => (
                     <Fragment key={index}>
                       {index === countries.length - 1 && <DropdownMenuSeparator />}
-                      <DropdownMenuItem
-                        onSelect={() => handleSelectCountry(country.id, country.name)}
-                      >
+                      <DropdownMenuItem onSelect={() => handleSelectCountry(country)}>
                         <span className="flex items-center gap-2">
                           <Image
                             src={`http://devel.clickjob.ai/${country.flag_icon}`}
@@ -275,7 +293,7 @@ const Header = () => {
               {countries?.map((country, index) => (
                 <Fragment key={index}>
                   {index === countries.length - 1 && <DropdownMenuSeparator />}
-                  <DropdownMenuItem onSelect={() => handleSelectCountry(country.id, country.name)}>
+                  <DropdownMenuItem onSelect={() => handleSelectCountry(country)}>
                     <span className="flex items-center gap-2">
                       <Image
                         src={`http://devel.clickjob.ai/${country.flag_icon}`}

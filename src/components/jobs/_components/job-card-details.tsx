@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { formatNumber } from '@/lib/utils';
 import { JobProps } from '@/types/types';
 
 export default function JobCardDetails({ job }: JobProps) {
@@ -34,7 +35,7 @@ export default function JobCardDetails({ job }: JobProps) {
               height={12}
             />
             <span className="text-xxs font-semibold text-gray-950 lg:text-sm lg:font-normal">
-              ${job?.remuneration_from}-${job?.remuneration_to}/Month
+              ${formatNumber(job?.remuneration_from)} - ${formatNumber(job?.remuneration_to)}/Year
             </span>
           </span>
           <span className="flex items-center gap-2.5 lg:pl-7">

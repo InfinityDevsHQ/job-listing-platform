@@ -38,3 +38,27 @@ export function getColorClasses(val: number) {
     bgColor: bgColors[index],
   };
 }
+
+export function formatNumber(number: number | undefined) {
+  if (!number) return 0;
+  // Convert number to absolute value to handle negative numbers
+  const absNumber = Math.abs(number);
+
+  // Define an array of suffixes for different magnitudes
+  const suffixes = ['', 'K', 'M', 'B', 'T'];
+
+  // Determine the magnitude (index of the suffix)
+  const magnitude = Math.floor(Math.log10(absNumber) / 3);
+
+  // Calculate the scaled number
+  const scaledNumber = absNumber / Math.pow(10, magnitude * 3);
+
+  // Round the scaled number to 2 decimal places
+  const roundedNumber = Math.round(scaledNumber * 100) / 100;
+
+  // Add the suffix to the rounded number
+  const formattedNumber = roundedNumber + suffixes[magnitude];
+
+  // If the original number was negative, add the negative sign back
+  return number < 0 ? '-' + formattedNumber : formattedNumber;
+}

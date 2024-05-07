@@ -52,13 +52,13 @@ export interface Job {
   language?: string;
   title?: string;
   slug?: string;
-  external_company_id?: 0;
+  external_company_id?: number;
   city?: string;
   country?: string;
   employment_type?: string;
   work_location_type?: string;
-  remuneration_from?: 0;
-  remuneration_to?: 0;
+  remuneration_from?: number;
+  remuneration_to?: number;
   remuneration_currency?: string;
   short_description?: string;
   job_requirements?: string;
@@ -73,18 +73,18 @@ export interface Job {
   external_company_website?: string | null;
   external_company_industry?: string | null;
   external_company_size?: string | null;
-  id_parent_job_translation?: 0;
+  id_parent_job_translation?: number;
   parent_job?: Job;
   parent_language?: string;
   id: number;
   category?: {
-    id: 0;
+    id: number;
     name?: string;
   };
-  latitude?: 0;
-  longitude?: 0;
+  latitude?: number;
+  longitude?: number;
   is_added_to_qdrant?: boolean;
-  geo_resolve_tries?: 0;
+  geo_resolve_tries?: number;
   is_dummy?: boolean;
   created?: string;
   updated?: string;
@@ -162,7 +162,7 @@ export type BadgeProps = {
 // info-badge.tsx
 export type InfoBadgeProps = {
   heading?: string;
-  desc?: string;
+  desc?: string | number;
 };
 
 // userStore.ts
