@@ -12,7 +12,7 @@ export default function OnboardingStepFour() {
           height={580}
         />
       </div>
-      <div className="col-span-2 flex w-full flex-col justify-center gap-4 lg:col-span-1">
+      <div className="col-span-2 flex w-full flex-col gap-4 lg:col-span-1">
         <BoardingHeader
           title="4. Contact"
           description="Share you contact info, get noticed by employers!"

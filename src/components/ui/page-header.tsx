@@ -3,10 +3,15 @@ import Logo from './logo';
 type PageHeaderProps = {
   title: string;
   className?: string;
+  containerClassName?: string;
 };
-export default function PageHeader({ title, className = '' }: PageHeaderProps) {
+export default function PageHeader({
+  title,
+  className = '',
+  containerClassName = '',
+}: PageHeaderProps) {
   return (
-    <header className="py-5">
+    <header className={`py-5 ${containerClassName}`}>
       <div className="flex items-center justify-center pb-10 pt-5 lg:hidden">
         <Logo />
       </div>

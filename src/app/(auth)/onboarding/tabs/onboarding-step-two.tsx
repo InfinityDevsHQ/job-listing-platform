@@ -12,7 +12,7 @@ export default function OnboardingStepTwo() {
           height={580}
         />
       </div>
-      <div className="col-span-2 flex w-full flex-col justify-center gap-4 lg:col-span-1">
+      <div className="col-span-2 flex w-full flex-col  gap-4 lg:col-span-1">
         <BoardingHeader
           title="2. Upload CV"
           description="Drop your CV here and kick back. Our AI scans, analyzes, and fills out your profile for you. Welcome to next level."

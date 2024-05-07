@@ -13,7 +13,7 @@ export default function OnboardingStpFive() {
           height={580}
         />
       </div>
-      <div className="col-span-2 flex w-full flex-col justify-center gap-4 lg:col-span-1">
+      <div className="col-span-2 flex w-full flex-col gap-4 lg:col-span-1">
         <BoardingHeader title="5. Finish" />
         <p className="mt-4 font-sans text-sm font-bold text-mute-3 lg:mt-8 lg:text-xl">
           Let&apos;s make some career magic happen!
