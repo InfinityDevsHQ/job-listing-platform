@@ -1,4 +1,5 @@
 import CandidateCard from './_components/candidate-card';
+import CandidatePagination from './_components/candidates-pagination';
 export default function Candidates() {
   const CANDIDATES = [
     {
@@ -193,13 +194,14 @@ export default function Candidates() {
   ];
   return (
     <div className="p-4 lg:p-8">
-      <div className="flex flex-col gap-4 rounded-md border border-gray-200 bg-gray-50 p-4 lg:gap-8 lg:bg-transparent lg:p-8">
+      <div className="flex flex-col gap-4 rounded-md bg-gray-50 p-4 lg:gap-8 lg:bg-transparent lg:p-8">
         <div className="lg:justify-items-between grid  justify-items-center gap-4 lg:grid-cols-3 lg:gap-8">
           {CANDIDATES.map((candidate, index) => (
             <CandidateCard key={index} candidateData={candidate} />
           ))}
         </div>
       </div>
+      <CandidatePagination />
     </div>
   );
 }
