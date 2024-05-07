@@ -17,6 +17,7 @@ export default async function Companies() {
       <Hero
         heading="Explore Companies Offering Job Opportunities"
         desc="Amet nulla dolore ullam quia maxime laboriosam obcaecati nostrum ad aliquam, modi libero voluptatem doloribus voluptatibus!"
+        vectorUrl="/assets/companies/companies-hero.png"
       />
       <div className="z-10 flex items-center justify-center">
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
