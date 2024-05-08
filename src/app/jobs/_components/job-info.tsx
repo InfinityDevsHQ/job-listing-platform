@@ -1,21 +1,34 @@
 import InfoBadge from '@/components/ui/info-badge';
 import { formatNumber } from '@/lib/utils';
-import { Job } from '@/types/types';
 type JobInfoProps = {
-  job: Job;
+  remuneration_from: number;
+  remuneration_to: number;
+  employment_type: string;
+  applicants: number;
+  city: string;
+  country: string;
+  created: string;
 };
-const JobInfo = ({ job }: JobInfoProps) => {
+const JobInfo = ({
+  remuneration_from,
+  remuneration_to,
+  employment_type,
+  applicants,
+  city,
+  country,
+  created,
+}: JobInfoProps) => {
   return (
     <div className="flex w-full flex-wrap gap-4 lg:flex-col lg:gap-8">
       <InfoBadge
         heading="Salary"
-        desc={`$${formatNumber(job?.remuneration_from)} - $${formatNumber(job?.remuneration_to)}`}
+        desc={`$${formatNumber(remuneration_from)}k - $${formatNumber(remuneration_to)}l`}
       />
-      <InfoBadge heading="Job Type" desc={job.employment_type} />
-      <InfoBadge heading="Number of Applicants" desc={`${job.applicants}`} />
-      <InfoBadge heading="Applicants" desc={job.applicants} />
-      <InfoBadge heading="Location" desc={`${job.city}, ${job.country}`} />
-      <InfoBadge heading="Date Posted" desc={`${new Date(job.created as string).toDateString()}`} />
+      <InfoBadge heading="Job Type" desc={employment_type} />
+      <InfoBadge heading="Number of Applicants" desc={`${applicants}`} />
+      <InfoBadge heading="Applicants" desc={applicants} />
+      <InfoBadge heading="Location" desc={`${city}, ${country}`} />
+      <InfoBadge heading="Date Posted" desc={`${new Date(created as string).toDateString()}`} />
     </div>
   );
 };
