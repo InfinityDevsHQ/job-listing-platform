@@ -15,7 +15,7 @@ const JobInfo = ({ job }: JobInfoProps) => {
       <InfoBadge heading="Number of Applicants" desc={`${job.applicants}`} />
       <InfoBadge heading="Applicants" desc={job.applicants} />
       <InfoBadge heading="Location" desc={`${job.city}, ${job.country}`} />
-      <InfoBadge heading="Date Posted" desc={`${new Date(job.created).toDateString()}`} />
+      <InfoBadge heading="Date Posted" desc={`${new Date(job.created as string).toDateString()}`} />
     </div>
   );
 };
