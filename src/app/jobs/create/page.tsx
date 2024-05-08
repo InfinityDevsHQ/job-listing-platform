@@ -5,7 +5,7 @@ import FAQSection from './_components/faq-section';
 
 export default function PostJob() {
   return (
-    <div className="flex flex-col gap-4 p-4 lg:gap-8 lg:p-8">
+    <div className="mt-4 flex flex-col gap-4 border border-gray-200 bg-gray-50 p-4 lg:mt-8 lg:gap-8 lg:p-8">
       <PostJobForm />
       <AdvancedPromotion />
       <FAQSection />

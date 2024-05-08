@@ -72,7 +72,7 @@ export default function PostJobForm() {
   return (
     <Form {...form}>
       <form
-        className="flex flex-col gap-4  rounded-md border border-gray-200 bg-gray-50 p-4 lg:gap-8 lg:p-8"
+        className="flex flex-col gap-4 rounded-md bg-white p-4 lg:gap-8 lg:p-8"
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <div className="grid grid-cols-2 gap-4 lg:gap-8">
@@ -86,7 +86,9 @@ export default function PostJobForm() {
             />
           </div>
           <div className="col-span-2 flex flex-col gap-4 rounded-custom-20 lg:col-span-1 lg:gap-8">
-            <h3 className="font-sans text-base font-bold text-gray-700">Post a job listing</h3>
+            <h3 className="font-sans text-base font-bold text-gray-700 lg:text-2xl">
+              Post a job listing
+            </h3>
             <FormField
               control={form.control}
               name="jobTitle"
@@ -203,7 +205,7 @@ export default function PostJobForm() {
             />
           </div>
           <div className="col-span-2 flex flex-col items-center justify-between gap-2 lg:flex-row">
-            <p className="font-sans text-sm text-gray-500">
+            <p className="font-sans text-sm text-gray-500 lg:text-xl">
               We will use this information to develop a detailed job description, requirements list,
               and set of necessary skills.
             </p>

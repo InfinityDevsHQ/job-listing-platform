@@ -26,7 +26,9 @@ const Hero = ({
         background: "url('/assets/images/home/homePage_hero_section_bg.png')",
       }}
     >
-      <div className="col-span-3 flex flex-col gap-4 lg:col-span-2 lg:gap-8">
+      <div
+        className={`col-span-3 flex flex-col gap-4 lg:gap-8 ${vectorUrl ? 'lg:col-span-2' : 'lg:col-span-3'}`}
+      >
         <h2 className="text-lg font-bold text-white lg:text-3xl">{heading}</h2>
         {desc && <p className="max-w-lg text-sm text-white lg:text-base">{desc}</p>}
 
@@ -39,13 +41,15 @@ const Hero = ({
           leadingIcon={<MagnifyingGlassIcon />}
         />
       </div>
-      <Image
-        alt="homePage_hero_section_vector.png"
-        src={vectorUrl}
-        width={245}
-        height={195}
-        className="mx-auto hidden h-48 lg:block"
-      />
+      {vectorUrl && (
+        <Image
+          alt="homePage_hero_section_vector.png"
+          src={vectorUrl}
+          width={245}
+          height={195}
+          className="mx-auto hidden h-48 lg:block"
+        />
+      )}
     </div>
   );
 };
