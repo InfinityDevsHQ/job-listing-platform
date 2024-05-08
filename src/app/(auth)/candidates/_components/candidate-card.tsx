@@ -64,7 +64,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
         </div>
         {candidateData.skillSet?.length && (
           <Carousel
-            className="mb-4 flex w-full"
+            className="mb-4 flex w-full items-center justify-center"
             opts={{
               loop: true,
             }}
@@ -72,7 +72,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             <CarouselPrevious className="relative left-0 translate-x-0 translate-y-0" />
             <CarouselContent className="flex items-center">
               {candidateData.skillSet?.map((skill, index) => (
-                <CarouselItem key={index} className="basis-1/4">
+                <CarouselItem key={index} className="basis-1/5">
                   <Badge
                     text={skill}
                     color={getColorClasses(index)?.textColor}
