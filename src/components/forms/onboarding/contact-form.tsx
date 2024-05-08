@@ -1,13 +1,13 @@
 'use client';
 import Pagination from '@/app/(auth)/onboarding/_components/pagination';
 import CompanyGithubSecond from '@/components/svgs/company-github-second';
-import CompanyPhone from '@/components/svgs/company-phone';
 import TwitterIcon from '@/components/svgs/twitter';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { useQueryParams } from '@/hooks/useQueryParams';
 import useOnboardingStore from '@/stores/onboardingStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Linkedin, Phone } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 // TODO: Validate Urls more strictly to check if urls contains words like github, linkedin e.t.c
@@ -55,7 +55,7 @@ export default function ContactForm() {
                     {...field}
                     variant={'primary'}
                     placeholder="Phone Number"
-                    leadingIcon={<CompanyPhone width={16} height={16} />}
+                    leadingIcon={<Phone width={16} height={16} />}
                   />
                 </FormControl>
                 <FormMessage />
@@ -72,7 +72,12 @@ export default function ContactForm() {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input {...field} variant={'primary'} placeholder="Linkedin" />
+                  <Input
+                    {...field}
+                    variant={'primary'}
+                    placeholder="Linkedin"
+                    leadingIcon={<Linkedin />}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -88,7 +93,7 @@ export default function ContactForm() {
                     {...field}
                     variant={'primary'}
                     placeholder="X"
-                    leadingIcon={<TwitterIcon width={16} height={16} />}
+                    leadingIcon={<TwitterIcon />}
                   />
                 </FormControl>
                 <FormMessage />
