@@ -78,10 +78,11 @@ export default function PostJobForm() {
         <div className="grid grid-cols-2 gap-4 lg:gap-8">
           <div className="hidden items-center justify-center  lg:flex">
             <Image
-              src={'/assets/boarding/location_poster.png'}
+              src={'/assets/post-jobs/post_poster.png'}
               alt="Location Poster"
-              width={580}
-              height={580}
+              width={432}
+              height={408}
+              className="h-auto w-auto"
             />
           </div>
           <div className="col-span-2 flex flex-col gap-4 rounded-custom-20 lg:col-span-1 lg:gap-8">
