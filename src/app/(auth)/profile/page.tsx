@@ -7,7 +7,9 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button-new';
+import InfoList from '@/components/ui/info-list';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import TextArea from '@/components/ui/text-area';
 import UserHeader from '@/components/user-header';
 import useAuthStore from '@/stores/authStore/store';
 import {
@@ -130,7 +132,7 @@ const Profile = () => {
           </div>
           <TabsContent value="about" className="mt-4">
             {/* TODO: FIX it */}
-            {/* <Accordion
+            <Accordion
               type={editProfile ? 'multiple' : 'single'}
               defaultValue={editProfile ? ['profile', 'summary', 'expertise', 'skills'] : 'profile'}
               collapsible={editProfile ? false : true}
@@ -191,7 +193,7 @@ const Profile = () => {
                   vitae exercitationem possimus natus atque odit illo.
                 </AccordionContent>
               </AccordionItem>
-            </Accordion> */}
+            </Accordion>
           </TabsContent>
           <TabsContent value="ai-insights" className="mt-4">
             <Accordion
