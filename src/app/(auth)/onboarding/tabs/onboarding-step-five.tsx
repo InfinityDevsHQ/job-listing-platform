@@ -7,7 +7,7 @@ export default function OnboardingStpFive() {
     <div className="grid w-full grid-cols-2">
       <div className="col-span-2 hidden items-center justify-center lg:col-span-1 lg:flex">
         <Image
-          src={'/assets/boarding/location_poster.png'}
+          src={'/assets/boarding/finish_poster.png'}
           alt="Location Poster"
           width={580}
           height={580}
