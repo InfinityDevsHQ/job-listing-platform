@@ -106,3 +106,7 @@ textarea {
   min-height: calc(100vh - 200px - 39.981px);
   max-height: calc(100vh - 200px - 39.981px);
 }
+.success {
+  min-height: calc(100vh - 128px - 39.981px);
+  max-height: calc(100vh - 128px - 39.981px);
+}

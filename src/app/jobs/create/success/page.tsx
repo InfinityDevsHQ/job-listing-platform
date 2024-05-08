@@ -2,8 +2,14 @@ import Image from 'next/image';
 
 export default function JobPostSuccess() {
   return (
-    <section className="relative mt-4 flex items-center justify-center bg-white lg:mt-8">
-      <Image src="/assets/party.png" width={1684} height={1820} alt="party" />
+    <section className="success relative my-4 flex items-center justify-center bg-white lg:my-8">
+      <Image
+        src="/assets/party.png"
+        width={1684}
+        height={1820}
+        alt="party"
+        className="absolute top-0"
+      />
       <div className="absolute flex flex-col gap-4 lg:gap-8">
         <div className="flex items-center justify-center">
           <Image
