@@ -63,7 +63,7 @@ export interface Job {
   short_description?: string;
   job_requirements?: string;
   welcomed_skills?: string;
-  skill_tags?: [string];
+  skill_tags?: string[];
   description?: string;
   is_hot?: boolean;
   is_external?: boolean;
