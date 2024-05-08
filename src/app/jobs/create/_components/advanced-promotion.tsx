@@ -3,7 +3,7 @@ import AdvancedPromotionCard from './advanced-promotion-card';
 export default function AdvancedPromotion() {
   return (
     <section className="flex flex-col gap-4 lg:gap-8">
-      <h2 className="mb-4 text-center text-base font-bold text-gray-700">
+      <h2 className="text-center text-base font-bold text-gray-700 lg:text-4xl">
         Accelerate your recruitment through advanced promotion
       </h2>
       <AdvancedPromotionCard
