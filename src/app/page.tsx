@@ -128,7 +128,7 @@ export default async function Home() {
           hotJobsLoading ? (
             <Loader2Icon className="animate h-6 w-6 animate-spin" />
           ) : (
-            <FireIcon className="h-6 w-6 text-red-900 lg:h-7 lg:w-6" />
+            <FireIcon className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />
           )
         }
         heading="Latest Hot Offers"
@@ -145,7 +145,7 @@ export default async function Home() {
           allJobsLoading ? (
             <Loader2Icon className="animate h-6 w-6 animate-spin" />
           ) : (
-            <ListCollapseIcon className="h-7 w-7" />
+            <ListCollapseIcon className="h-7 w-7 text-blue-500" />
           )
         }
         heading="All offers from 2,300+ companies"
