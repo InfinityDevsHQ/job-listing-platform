@@ -1,15 +1,14 @@
-import CompaniesList from '@/components/companies/companies-list';
+'use client';
 import JobsList from '@/components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
 import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
-import { getPromotedCompanies } from '@/lib/companies';
-import { getJobs } from '@/lib/jobs';
+import { useAllJobs } from '@/hooks/useAllJobs';
 
-export default async function Home() {
-  const jobs = await getJobs({ is_hot: true });
-  const companies = await getPromotedCompanies();
-
+export default function Home() {
+  const { isLoading, error, data: jobs } = useAllJobs({ isHot: true });
+  if (isLoading) return <p>Loading......</p>;
+  if (error) return <p>Error while getting data: {error.message}</p>;
   return (
     <div className="grid grid-cols-3 gap-8 p-4 lg:p-8">
       <div className="col-span-3 flex flex-col gap-4 lg:col-span-2 lg:gap-8">
@@ -30,9 +29,7 @@ export default async function Home() {
           leadingIcon={<FireIcon className="h-5 w-4 text-black lg:h-7 lg:w-6" />}
           heading="Companies That Will Grow You Forward"
         />
-        <div className="overflow-x-auto">
-          <CompaniesList companies={companies} />
-        </div>
+        <div className="overflow-x-auto">{/* <CompaniesList companies={companies} /> */}</div>
       </div>
     </div>
   );
