@@ -37,7 +37,7 @@ export async function getJobById(jobId: string): Promise<Job> {
     // can return 404 heres
     return {} as Job;
   }
-  const data = await DataService.delete<Job>(`${JOBS_URLS.singleJob}/${jobId}`);
+  const data = await DataService.get<Job>(`${JOBS_URLS.singleJob}/${jobId}`);
   return data;
 }
 // export async function updateJob(jobId: string): Promise<Job> {
