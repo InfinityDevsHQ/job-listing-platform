@@ -8,6 +8,8 @@ const JOBS_URLS = {
   singleJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listings`,
   postJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listing`,
   updateJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listing/{job_listing_id}`,
+  deleteJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listing/{job_listing_id}`,
+  similarJobs: `${NEURAL_API_BASE_URL}/api/v1/qdrant/job-listings/similar/{job_listing_id}`,
 };
 
 type GetJobsParams = {
@@ -27,7 +29,6 @@ export async function getJobs({
     limit: `${limit}`,
     is_hot: `${is_hot}`,
     allow_for_translated_jobs: `${allow_for_translated_jobs}`,
-    deleteJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listing/{job_listing_id}`,
   });
   return data;
 }
@@ -53,9 +54,15 @@ export async function deleteJob(jobId: string): Promise<Job> {
     // can return 404 heres
     return {} as Job;
   }
-  const data = await DataService.delete<Job>(`${JOBS_URLS.updateJob}/${jobId}`);
+  const data = await DataService.delete<Job>(`${JOBS_URLS.deleteJob}/${jobId}`);
   return data;
 }
 
 export const postJobListing = (body: PostJobWorkerInputData): Promise<PostJobWorkerInputData> =>
   DataService.post<PostJobWorkerInputData>(JOBS_URLS.postJob, body);
+
+export const findSimilarJobs = ({ jobId }: { jobId: string }): Promise<Job[]> =>
+  DataService.post<Job[]>(JOBS_URLS.similarJobs, {
+    job_listing_id: jobId,
+    collection_name: process.env.JOBS_COLLECTION_NAME,
+  });

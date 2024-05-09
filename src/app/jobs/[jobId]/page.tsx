@@ -2,6 +2,7 @@
 import FireIcon from '@/components/svgs/fire';
 import SectionHeader from '@/components/ui/section-header';
 import { useJobListingById } from '@/hooks/useJobListingById';
+import { useSimilarJobs } from '@/hooks/useSimilarJobs';
 import { Job } from '@/types/types';
 import { notFound } from 'next/navigation';
 import { toast } from 'sonner';
@@ -12,10 +13,14 @@ type JobDetailsSlug = {
 
 const JobDetails = ({ params }: JobDetailsSlug) => {
   const jobListingId = params.jobId;
-
-  const { isLoading, error, data: job } = useJobListingById({ jobId: jobListingId });
-  if (error) toast.error(error.message);
-  if (isLoading) return <p>Loading....</p>;
+  const {
+    isLoading: searchedJobLoading,
+    error: searchedJobError,
+    data: job,
+  } = useJobListingById({ jobId: jobListingId });
+  const { isLoading, error, data } = useSimilarJobs({ jobId: jobListingId });
+  if (searchedJobError) toast.error(searchedJobError.message);
+  if (searchedJobLoading) return <p>Loading....</p>;
   if (job) {
     return (
       <div className="flex flex-col gap-4 p-4 lg:gap-8 lg:p-8">
