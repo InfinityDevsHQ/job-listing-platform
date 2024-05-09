@@ -14,15 +14,18 @@ type GetJobsParams = {
   skip?: number;
   limit?: number;
   allow_for_translated_jobs?: boolean;
+  is_hot?: boolean;
 };
 export async function getJobs({
   skip = 0,
   limit = 10,
   allow_for_translated_jobs = false,
+  is_hot = false,
 }: GetJobsParams): Promise<Job[]> {
   const data = await DataService.get<Job[]>(`${JOBS_URLS.allJobs}`, {
     skip: `${skip}`,
     limit: `${limit}`,
+    is_hot: `${is_hot}`,
     allow_for_translated_jobs: `${allow_for_translated_jobs}`,
     deleteJob: `${NEURAL_API_BASE_URL}/api/v1/pgsql/job-listing/{job_listing_id}`,
   });

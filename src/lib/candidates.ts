@@ -46,7 +46,6 @@ export async function getCandidateSettingsByCandidateId(
   );
   return data;
 }
-
 export async function getUserInfoByCandidateId(candidateId: string): Promise<User> {
   if (!candidateId) {
     // can return 404 heres
