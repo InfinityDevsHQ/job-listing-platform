@@ -33,9 +33,7 @@ const JobDetails = ({ params }: JobDetailsSlug) => {
         <div className="flex w-full flex-col gap-4 lg:w-9/12 lg:gap-8">
           <SectionHeader heading="Similar Job Offers" leadingIcon={<FireIcon />} />
 
-          {similarJobsLoading && <p>Loading....</p>}
-          {similarJobsError && <p>{searchedJobError?.cause as string}</p>}
-          <JobsList jobs={recommendedJobs as Job[]} />
+          <JobsList similarJobId={jobListingId} />
         </div>
       </div>
     );

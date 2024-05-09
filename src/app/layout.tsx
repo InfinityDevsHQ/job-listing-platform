@@ -4,7 +4,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
 import './globals.css';
-import Providers from './providers';
+import { RqProvider } from './utils/rq/rq-provider';
 // Get meta data from relevant persons
 export const metadata: Metadata = {
   title: 'Click Job AI',
@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={`${GeistSans.variable} h-auto`}>
         <Header />
         <main className="mx-auto h-full w-full max-w-screen-2xl">
-          <Providers>{children}</Providers>
+          <RqProvider>{children}</RqProvider>
         </main>
         <Footer />
         <Toaster richColors />
