@@ -34,7 +34,7 @@ type CountryProps = {
 };
 
 const Header = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [countries, setCountries] = useState<Country[]>([]);
 
   const router = useRouter();
@@ -91,8 +91,8 @@ const Header = () => {
   // TODO: fix/show auth protected header in proper way
   if (!isAuthenticated) {
     return (
-      <>
-        <header className="flex w-full items-center justify-between bg-white px-4 py-3.5 lg:px-16 lg:py-8">
+      <header className="bg-white">
+        <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4 py-3.5 lg:px-16 lg:py-8">
           <Link href={'/'}>
             <Image
               alt="logo"
@@ -169,14 +169,14 @@ const Header = () => {
               </Link>
             </div>
           </div>
-        </header>
-      </>
+        </div>
+      </header>
     );
   }
 
   return (
-    <>
-      <header className="flex w-full items-center justify-between overflow-hidden bg-white px-4 py-2 lg:px-16 lg:py-4">
+    <header className="bg-white">
+      <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between overflow-hidden px-4 py-2 lg:px-16 lg:py-4">
         <Link href={'/'}>
           <Image
             alt="logo"
@@ -360,8 +360,8 @@ const Header = () => {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-      </header>
-    </>
+      </div>
+    </header>
   );
 };
 
