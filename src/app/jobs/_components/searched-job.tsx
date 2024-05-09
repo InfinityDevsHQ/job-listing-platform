@@ -39,7 +39,15 @@ const SearchedJob = ({ searchedJob }: SearchedJobProps) => {
           <JobFeedback className="lg:hidden" />
         </div>
         <div className="order-1 flex min-h-full max-w-72 flex-shrink-0 flex-col justify-between gap-4 lg:order-2 lg:gap-8">
-          <JobInfo job={searchedJob} />
+          <JobInfo
+            remuneration_from={30}
+            remuneration_to={40}
+            city={searchedJob.city as string}
+            country={searchedJob.country as string}
+            created={searchedJob.created as string}
+            applicants={searchedJob.applicants as number}
+            employment_type={searchedJob.employment_type as string}
+          />
           <JobFeedback className="hidden lg:flex" />
         </div>
       </div>
