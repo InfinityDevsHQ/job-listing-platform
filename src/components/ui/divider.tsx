@@ -23,9 +23,9 @@ const Divider = ({ size, variant, mobileVariant, text }: DividerProps) => {
       {text && (
         <span
           className={cn('absolute -top-4 left-1/2 w-full max-w-max -translate-x-1/2 px-2 py-1', {
-            'lg:bg-primary-900 lg:text-gray-50': variant == 'primary',
+            'lg:bg-neutral-950 lg:text-gray-50': variant == 'primary',
             'lg:bg-primary-50 lg:text-gray-500': variant == 'light',
-            'bg-primary-900  text-gray-50': mobileVariant == 'primary',
+            'bg-neutral-950  text-gray-50': mobileVariant == 'primary',
             'bg-secondary-900  text-gray-50': mobileVariant == 'secondary',
             'bg-primary-50 text-gray-500': mobileVariant == 'light',
           })}

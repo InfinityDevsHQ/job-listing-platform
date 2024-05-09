@@ -36,9 +36,7 @@ export default function Subscribe() {
         className="flex flex-col items-center justify-center gap-4 lg:flex-row lg:justify-between"
         onSubmit={form.handleSubmit(onSubmit)}
       >
-        <h2 className="text-xl font-semibold text-gray-50 lg:text-2xl">
-          Sign Up for Our Newsletter
-        </h2>
+        <h2 className="text-xl font-semibold  lg:text-2xl">Sign Up for Our Newsletter</h2>
         <div className="flex flex-shrink-0 items-center justify-center gap-2 lg:max-w-xl">
           <FormField
             name="email"

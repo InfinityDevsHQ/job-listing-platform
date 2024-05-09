@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import { formatNumber } from '@/lib/utils';
 import { JobProps } from '@/types/types';
 
@@ -7,54 +5,71 @@ export default function JobCardDetails({ job }: JobProps) {
   return (
     <>
       <div className="flex w-full flex-col gap-4 lg:flex-row">
-        <div className="flex w-full flex-wrap items-center gap-5 divide-gray-200 lg:justify-between lg:gap-4 lg:divide-x-2">
-          <span className="flex items-center gap-2.5">
-            <Image alt="timer" src={'/assets/icons/timer.svg'} width={14} height={12} />
-            <span className="text-xxs font-semibold capitalize text-gray-950 lg:text-sm lg:font-normal">
-              {job.employment_type}
-            </span>
-          </span>
-          {(job?.city || job?.country) && (
-            <span className="flex items-center gap-2.5 lg:pl-7">
-              <Image
-                alt="map-marker-alt"
-                src={'/assets/icons/map-marker-alt.svg'}
-                width={11}
-                height={12}
-              />
-              <span className="text-xxs font-semibold text-gray-950 lg:text-sm lg:font-normal">
-                {job?.city == 'Worldwide' ? job?.city : `${[job?.city, job?.country].join(', ')}`}
-              </span>
+        <div className="flex w-full flex-wrap items-center gap-3">
+          {job.category && (
+            <span className="text-sm font-semibold text-slate-500 lg:font-normal">
+              {job?.category?.name}
             </span>
           )}
-          <span className="flex items-center gap-2.5 lg:pl-7">
-            <Image
-              alt="circle-dollar"
-              src={'/assets/icons/circle-dollar.svg'}
-              width={14}
-              height={12}
-            />
-            <span className="text-xxs font-semibold text-gray-950 lg:text-sm lg:font-normal">
-              ${formatNumber(job?.remuneration_from)} - ${formatNumber(job?.remuneration_to)}/Year
-            </span>
+          {job.employment_type && (
+            <>
+              <svg viewBox="0 0 2 2" className="h-1 w-1 fill-current text-slate-600">
+                <circle cx="1" cy="1" r="1" />
+              </svg>
+              <span className="text-sm font-semibold capitalize text-slate-500 lg:font-normal">
+                {job.employment_type}
+              </span>
+            </>
+          )}
+          {job.work_location_type && (
+            <>
+              <svg viewBox="0 0 2 2" className="h-1 w-1 fill-current text-slate-600">
+                <circle cx="1" cy="1" r="1" />
+              </svg>
+              <span className="text-sm font-semibold capitalize text-slate-500 lg:font-normal">
+                {job.work_location_type}
+              </span>
+            </>
+          )}
+          {job.city && job.country && (
+            <>
+              <svg viewBox="0 0 2 2" className="h-1 w-1 fill-current text-slate-600">
+                <circle cx="1" cy="1" r="1" />
+              </svg>
+              <span className="text-sm font-semibold text-slate-500 lg:font-normal">
+                {job?.city == 'Worldwide' ? job?.city : `${[job?.city, job?.country].join(', ')}`}
+              </span>
+            </>
+          )}
+          {job.remuneration_from || job.remuneration_to ? (
+            <>
+              <svg viewBox="0 0 2 2" className="h-1 w-1 fill-current text-slate-600">
+                <circle cx="1" cy="1" r="1" />
+              </svg>
+              <span className="text-sm font-semibold text-slate-500 lg:font-normal">
+                {job.remuneration_currency} {formatNumber(job?.remuneration_from)} -{' '}
+                {formatNumber(job?.remuneration_to)}
+              </span>
+            </>
+          ) : (
+            <></>
+          )}
+          <svg viewBox="0 0 2 2" className="h-1 w-1 fill-current text-slate-600">
+            <circle cx="1" cy="1" r="1" />
+          </svg>
+          <span className="text-sm font-semibold text-slate-500 lg:font-normal">
+            {job?.applicants || 0} Applicants
           </span>
-          <span className="flex items-center gap-2.5 lg:pl-7">
-            <Image alt="users" src={'/assets/icons/users.svg'} width={18} height={12} />
-            <span className="text-xxs font-semibold text-gray-950 lg:text-sm lg:font-normal">
-              {job?.applicants} Applied
-            </span>
-          </span>
-          <span className="flex items-center gap-2.5 lg:pl-7">
-            <Image
-              alt="calendar-alt"
-              src={'/assets/icons/calendar-alt.svg'}
-              width={13}
-              height={12}
-            />
-            <span className="text-xxs font-semibold text-gray-950 lg:text-sm lg:font-normal">
-              {job?.created ? new Date(job.created).toDateString() : ''}
-            </span>
-          </span>
+          {job?.created && (
+            <>
+              <svg viewBox="0 0 2 2" className="h-1 w-1 fill-current text-slate-600">
+                <circle cx="1" cy="1" r="1" />
+              </svg>
+              <span className="text-sm font-semibold text-slate-500 lg:font-normal">
+                {job?.created ? new Date(job.created).toDateString() : ''}
+              </span>
+            </>
+          )}
         </div>
       </div>
     </>

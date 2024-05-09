@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Assister = () => {
   return (
-    <section className="flex flex-col items-center gap-4 rounded-md border border-primary-950 bg-primary-900 p-8 lg:flex-row lg:items-center lg:gap-12">
+    <section className="flex flex-col items-center gap-4 rounded-md border border-primary-950 bg-neutral-950 p-8 lg:flex-row lg:items-center lg:gap-12">
       <Image
         src={'/assets/avatar.png'}
         alt="Image"

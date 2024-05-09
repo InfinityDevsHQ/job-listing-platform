@@ -17,7 +17,7 @@ const Register = () => {
   ]);
   return (
     <div
-      className={cn('grid h-full grid-cols-2 overflow-hidden bg-primary-900 lg:bg-transparent', {
+      className={cn('grid h-full grid-cols-2 overflow-hidden bg-neutral-950 lg:bg-transparent', {
         'bg-secondary-900': currentUserRole === 'company',
       })}
     >

@@ -4,25 +4,24 @@ import Image from 'next/image';
 
 const CompanyCard = ({ name, logo_url, description }: CompanyCardProps) => {
   return (
-    <div className="flex flex-col gap-4 rounded-md border border-gray-200 bg-white p-4 lg:gap-8 lg:p-8">
-      <div className="flex items-center gap-2.5 lg:gap-5">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100 lg:h-16 lg:w-16">
-          <Image src={logo_url} alt={`${name} logo`} width={30} height={30} className="lg:hidden" />
-          <Image
-            src={logo_url}
-            alt={`${name} logo`}
-            width={44}
-            height={44}
-            className="hidden lg:block"
-          />
-        </div>
-        <h3 className="text-2xl font-bold text-neutral-950 lg:text-3xl">{name}</h3>
+    <div className="flex transform flex-col gap-3 rounded-xl border-b border-gray-100 bg-gray-50 p-8 transition duration-300 ease-in-out hover:-translate-y-2">
+      <div className="inline-block">
+        <Image
+          src={logo_url}
+          alt={`${name} logo`}
+          width={100}
+          height={80}
+          className="mx-auto h-16"
+        />
       </div>
-      <p className="lg:min-w-none min-w-72 text-sm text-neutral-500 lg:text-base">
+      <h3 className="text-center text-lg font-semibold leading-normal text-black">{name}</h3>
+      <p className="text-center text-gray-500">
         {description ||
           'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit incidunt minima officia nemo hic eprehenderit incidunt minima officia nemo hic'}
       </p>
-      <Button className="self-end">Load More</Button>
+      <Button className="self-center" variant="primary">
+        Learn More
+      </Button>
     </div>
   );
 };

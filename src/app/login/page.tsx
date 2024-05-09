@@ -12,7 +12,7 @@ import Divider from '@/components/ui/divider';
 
 const Login = () => {
   return (
-    <div className="grid h-full grid-cols-2 overflow-hidden bg-primary-900 lg:bg-transparent">
+    <div className="grid h-full grid-cols-2 overflow-hidden bg-neutral-950 lg:bg-transparent">
       <div className="col-span-2 flex max-h-screen flex-col gap-8 overflow-y-auto px-4 pt-8 lg:col-span-1 lg:px-8">
         <PageHeader title="Login to your Account" />
         <Divider size={2} text="Select Method to Login" mobileVariant="primary" variant="light" />

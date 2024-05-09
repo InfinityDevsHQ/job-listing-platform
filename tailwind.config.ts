@@ -28,9 +28,9 @@ const config = {
       },
       colors: {
         primary: {
-          DEFAULT: '#1e3a8a',
+          DEFAULT: '#407BFF',
           foreground: '#ffffff',
-          ...colors.blue,
+          ...colors.gray,
         },
         secondary: {
           DEFAULT: '#14532d',
@@ -49,6 +49,7 @@ const config = {
       },
       borderRadius: {
         'custom-20': '20px',
+        theme: 'var(--radius)',
       },
       width: {
         81: '21.25rem', //340px

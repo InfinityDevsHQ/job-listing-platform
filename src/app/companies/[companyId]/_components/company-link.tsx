@@ -8,7 +8,7 @@ type CompanyLinkProps = {
 export default function CompanyLink({ className, heading, description }: CompanyLinkProps) {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <span className="flex items-center justify-center rounded-full bg-primary-900 p-2.5 text-white">
+      <span className="flex items-center justify-center rounded-full bg-neutral-950 p-2.5 text-white">
         <CompanyLocation width={11} height={12} />
       </span>
       <div className="flex flex-col">

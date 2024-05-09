@@ -26,7 +26,7 @@ const AppSelect = React.forwardRef<HTMLDivElement, SelectProps>(
     return (
       <Select onValueChange={onChange} defaultValue={selectedValue?.value}>
         <SelectTrigger
-          className={`w-full border border-gray-300 bg-white focus:border-primary-900 focus:ring-0 ${className}`}
+          className={`w-full border border-gray-300 bg-white focus:border-neutral-950 focus:ring-0 ${className}`}
         >
           <SelectValue
             placeholder={

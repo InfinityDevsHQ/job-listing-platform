@@ -1,8 +1,7 @@
+import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
-
-import Input from '@/components/ui/input';
-
-import MagnifyingGlassIcon from '@/components/svgs/magnifying-glass';
+import Link from 'next/link';
+import { Button } from './button-new';
 
 type HeroSectionProps = {
   heading: string;
@@ -20,37 +19,37 @@ const Hero = ({
   handleChangeSearchQuery,
 }: HeroSectionProps) => {
   return (
-    <div
-      className="z-10 grid grid-cols-3 items-center overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8"
-      style={{
-        background: "url('/assets/images/home/homePage_hero_section_bg.png')",
-      }}
-    >
-      <div
-        className={`col-span-3 flex flex-col gap-4 lg:gap-8 ${vectorUrl ? 'lg:col-span-2' : 'lg:col-span-3'}`}
-      >
-        <h2 className="text-lg font-bold text-white lg:text-3xl">{heading}</h2>
-        {desc && <p className="max-w-lg text-sm text-white lg:text-base">{desc}</p>}
-
-        <Input
-          variant={'primary'}
-          type="text"
-          name="search"
-          defaultValue={''}
-          placeholder="Search"
-          leadingIcon={<MagnifyingGlassIcon />}
+    <main className="grid place-items-center pb-4 pt-4 md:grid-cols-2 md:pb-8 md:pt-16 md:pt-8">
+      <div className="w-full md:order-1 md:py-6">
+        <Image
+          src={vectorUrl}
+          width={600}
+          height={600}
+          alt="Astronaut in the air"
+          loading="eager"
+          className="ml-auto h-40 rounded-3xl md:h-80 md:w-80 md:border lg:h-96 lg:w-96"
         />
       </div>
-      {vectorUrl && (
-        <Image
-          alt="homePage_hero_section_vector.png"
-          src={vectorUrl}
-          width={245}
-          height={195}
-          className="mx-auto hidden h-48 lg:block"
-        />
-      )}
-    </div>
+      <div>
+        <h1 className="px-8 text-center text-4xl font-bold md:px-0 md:text-left md:text-5xl md:tracking-tight lg:text-7xl">
+          {heading}
+        </h1>
+        <p className="mt-4 max-w-xl text-center text-lg  text-slate-600 md:text-left">{desc}</p>
+        <div className="mt-6 flex flex-col gap-3 md:flex-row">
+          <Button>
+            <Link href="#" target="_blank" rel="noopener">
+              Get Started
+            </Link>
+          </Button>
+          <Button variant="outline">
+            <Link href="#" target="_blank" rel="noopener" className="flex items-center">
+              Learn More
+              <ArrowRightIcon className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </main>
   );
 };
 

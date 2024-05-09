@@ -23,7 +23,7 @@ const Message = ({ type, text, sendImgUrl, timeStamp }: MessageProps) => {
       </div>
       <div className="flex flex-1 flex-col gap-2">
         <div
-          className={`rounded-md border p-2 lg:p-4 ${type === 'incoming' ? 'rounded-bl-none border-primary-900 bg-primary-800 text-white' : 'rounded-br-none border-gray-200 bg-white text-mute-3'}`}
+          className={`rounded-md border p-2 lg:p-4 ${type === 'incoming' ? 'rounded-bl-none border-neutral-950 bg-primary-800 text-white' : 'rounded-br-none border-gray-200 bg-white text-mute-3'}`}
         >
           <p className="text-xs lg:text-base">{text}</p>
         </div>

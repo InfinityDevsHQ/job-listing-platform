@@ -34,7 +34,7 @@ type CountryProps = {
 };
 
 const Header = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [countries, setCountries] = useState<Country[]>([]);
 
   const router = useRouter();
@@ -111,7 +111,7 @@ const Header = () => {
               <Navbar
                 links={publicNavLinks}
                 activeLinkClassName={
-                  companyHeaderRoutes.includes(pathname) ? 'text-secondary' : 'text-primary'
+                  companyHeaderRoutes.includes(pathname) ? 'text-secondary' : 'text-neutral-950'
                 }
               />
               <DropdownMenu modal={false}>
@@ -203,8 +203,8 @@ const Header = () => {
           >
             <span>Inbox</span>
             <span className="absolute right-1 top-1 flex h-3 w-3 ">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-900 opacity-75"></span>
-              <span className="relative inline-flex h-3 w-3 rounded-full bg-primary-900"></span>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neutral-950 opacity-75"></span>
+              <span className="relative inline-flex h-3 w-3 rounded-full bg-neutral-950"></span>
             </span>
           </Link>
           <DropdownMenu modal={false}>

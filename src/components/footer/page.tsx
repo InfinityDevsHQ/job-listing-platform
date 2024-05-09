@@ -21,18 +21,14 @@ const Footer = () => {
   }
 
   return (
-    <footer
-      className={cn('bg-primary-900', {
-        'bg-secondary-900': companyHeaderRoutes.includes(pathname),
-      })}
-    >
+    <footer>
       <div className={cn('mx-auto flex w-full max-w-screen-2xl flex-col gap-4 p-8 lg:gap-8')}>
         <Link href={'/'}>
           <Image
             src={
               companyHeaderRoutes.includes(pathname)
-                ? '/assets/images/common/logo_clickJob_secondary_white.svg'
-                : '/assets/images/common/logo_clickJob_primary_white.svg'
+                ? '/assets/images/common/logo_clickJob_secondary.svg'
+                : '/assets/images/common/logo_clickJob_primary.svg'
             }
             alt="Logo"
             className="mx-auto h-7 w-28 lg:mx-0 lg:h-12 lg:w-56"
@@ -40,7 +36,7 @@ const Footer = () => {
             height={50}
           />
         </Link>
-        <p className="text-center text-sm text-white lg:max-w-3xl lg:text-left lg:text-base">
+        <p className="text-center text-sm lg:max-w-3xl lg:text-left lg:text-base">
           Mauris pharetra imperdiet iaculis elementum nulla. Tellus morbi nunc non vitae enim amet.
           Faucibus eleifend sit leo varius suspendisse.
         </p>

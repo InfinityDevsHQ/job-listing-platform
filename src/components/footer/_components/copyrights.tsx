@@ -17,15 +17,11 @@ const Copyright = () => {
 
   return (
     <div className="flex flex-col items-center justify-between gap-4 lg:flex-row">
-      <span className="text-sm text-white lg:text-base">&copy; 2024 - All Rights Reserved</span>
+      <span className="text-sm  lg:text-base">&copy; 2024 - All Rights Reserved</span>
       <ul className="flex items-center gap-4">
         {socialLinks.map((link, index) => (
           <li key={index}>
-            <Link
-              href={link.href}
-              title={link.platform}
-              className="text-white hover:text-neutral-300"
-            >
+            <Link href={link.href} title={link.platform} className=" hover:text-neutral-300">
               {link.icon}
             </Link>
           </li>

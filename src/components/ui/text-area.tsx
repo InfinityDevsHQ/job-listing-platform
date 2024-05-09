@@ -16,7 +16,7 @@ const inputVariants = cva(
     variants: {
       variant: {
         default: '',
-        primary: 'focus:border-primary-900 peer-focus:!text-primary-900',
+        primary: 'focus:border-neutral-950 peer-focus:!text-neutral-950',
         secondary: 'focus:border-secondary-900 peer-focus:!text-secondary-900',
         danger: '!border-red-500 bg-danger/40 focus:border-red-900 peer-focus:!text-danger-900',
       },

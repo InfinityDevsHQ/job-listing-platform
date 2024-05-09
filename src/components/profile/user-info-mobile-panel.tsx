@@ -30,7 +30,7 @@ const UserInfoMobilePanel = ({ online_status }: { online_status: 'Offline' | 'On
               <ul className="flex flex-col gap-4">
                 <li className="flex items-center gap-4">
                   <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-100">
-                    <MapPinIcon className="h-5 w-5 text-primary-900" />
+                    <MapPinIcon className="h-5 w-5 text-neutral-950" />
                   </span>
                   <p className="flex h-full flex-col justify-between">
                     <span className="font-bold text-gray-700 lg:text-base">Location</span>
@@ -39,7 +39,7 @@ const UserInfoMobilePanel = ({ online_status }: { online_status: 'Offline' | 'On
                 </li>
                 <li className="flex items-center gap-4">
                   <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-100">
-                    <ClockIcon className="h-5 w-5 text-primary-900" />
+                    <ClockIcon className="h-5 w-5 text-neutral-950" />
                   </span>
                   <p className="flex h-full flex-col justify-between">
                     <span className="font-bold text-gray-700 lg:text-base">Timezone</span>
@@ -48,7 +48,7 @@ const UserInfoMobilePanel = ({ online_status }: { online_status: 'Offline' | 'On
                 </li>
                 <li className="flex items-center gap-4">
                   <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-100">
-                    <MailIcon className="h-5 w-5 text-primary-900" />
+                    <MailIcon className="h-5 w-5 text-neutral-950" />
                   </span>
                   <p className="flex h-full flex-col justify-between">
                     <span className="font-bold text-gray-700 lg:text-base">Email</span>
@@ -57,7 +57,7 @@ const UserInfoMobilePanel = ({ online_status }: { online_status: 'Offline' | 'On
                 </li>
                 <li className="flex items-center gap-4">
                   <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-100">
-                    <LinkIcon className="h-5 w-5 text-primary-900" />
+                    <LinkIcon className="h-5 w-5 text-neutral-950" />
                   </span>
                   <p className="flex h-full flex-col justify-between">
                     <span className="flex items-center gap-2 font-bold text-gray-700 lg:text-base">
@@ -77,7 +77,7 @@ const UserInfoMobilePanel = ({ online_status }: { online_status: 'Offline' | 'On
               <ul className="flex flex-col gap-8">
                 <li className="flex items-center gap-4">
                   <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-100">
-                    <FileIcon className="h-5 w-5 text-primary-900" />
+                    <FileIcon className="h-5 w-5 text-neutral-950" />
                   </span>
                   <p className="flex h-full flex-col justify-between">
                     <span className="flex items-center gap-2 font-bold text-gray-700 lg:text-base">
