@@ -1,7 +1,9 @@
-import { CompaniesListProps } from '@/types/types';
+import { getPromotedCompanies } from '@/lib/companies';
 import CompanyCard from './company-card';
 
-const CompaniesList = async ({ companies }: CompaniesListProps) => {
+const CompaniesList = async () => {
+  const companies = await getPromotedCompanies();
+
   return (
     <div className="flex gap-4 lg:flex-col lg:gap-8">
       {companies
