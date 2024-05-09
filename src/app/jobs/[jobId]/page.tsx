@@ -1,4 +1,5 @@
 'use client';
+import JobsList from '@/components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
 import SectionHeader from '@/components/ui/section-header';
 import { useJobListingById } from '@/hooks/useJobListingById';
@@ -18,7 +19,11 @@ const JobDetails = ({ params }: JobDetailsSlug) => {
     error: searchedJobError,
     data: job,
   } = useJobListingById({ jobId: jobListingId });
-  const { isLoading, error, data } = useSimilarJobs({ jobId: jobListingId });
+  const {
+    isLoading: similarJobsLoading,
+    error: similarJobsError,
+    data: recommendedJobs,
+  } = useSimilarJobs({ jobId: jobListingId });
   if (searchedJobError) toast.error(searchedJobError.message);
   if (searchedJobLoading) return <p>Loading....</p>;
   if (job) {
@@ -27,7 +32,10 @@ const JobDetails = ({ params }: JobDetailsSlug) => {
         <SearchedJob searchedJob={job as Job} />
         <div className="flex w-full flex-col gap-4 lg:w-9/12 lg:gap-8">
           <SectionHeader heading="Similar Job Offers" leadingIcon={<FireIcon />} />
-          {/* <Jobs jobs={recommendedJobs} /> */}
+
+          {similarJobsLoading && <p>Loading....</p>}
+          {similarJobsError && <p>{searchedJobError?.cause as string}</p>}
+          <JobsList jobs={recommendedJobs as Job[]} />
         </div>
       </div>
     );
