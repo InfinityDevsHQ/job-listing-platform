@@ -2,7 +2,7 @@
 import Badges from '@/components/ui/badges';
 import { Button } from '@/components/ui/button-new';
 import { cn } from '@/lib/utils';
-import { JobProps } from '@/types/types';
+import { Job, JobProps } from '@/types/types';
 import { ArrowRight, BriefcaseBusinessIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';

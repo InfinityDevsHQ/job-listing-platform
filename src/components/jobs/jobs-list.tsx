@@ -5,6 +5,7 @@ const JobsList = ({ jobs }: JobListProps) => {
   return (
     <div className="flex flex-col gap-4">
       {jobs?.map((job, index) => <JobCard key={index} job={job} />)}
+      {!jobs && <p>There are not jobs to showcase.</p>}
     </div>
   );
 };
