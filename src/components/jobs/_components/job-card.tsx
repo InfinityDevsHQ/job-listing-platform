@@ -2,10 +2,12 @@
 import Badges from '@/components/ui/badges';
 import { Button } from '@/components/ui/button-new';
 import { cn } from '@/lib/utils';
-import { Job, JobProps } from '@/types/types';
+import { JobProps } from '@/types/types';
+import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, BriefcaseBusinessIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
+
 import JobCardDetails from './job-card-details';
 import JobCardHeader from './job-card-header';
 
@@ -56,24 +58,33 @@ export default function JobCard({ job }: JobProps) {
           <JobCardDetails job={job} />
         </div>
       </div>
-      {isOpened && job?.id && (
-        <>
-          {job?.description && (
-            <p className="text-sm text-neutral-600 lg:text-base">{job?.description}</p>
-          )}
-          <span className="border-b border-gray-300" />
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <Badges badges={job?.skill_tags?.map((tag) => ({ text: tag }))} />
-            <span className="border-b border-gray-300 md:hidden" />
-            <Button onClick={(e) => e.stopPropagation()} variant="primary" className="max-w-max">
-              <Link href={`/jobs/${job.id}`} className="flex items-center">
-                More Details
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </>
-      )}
+      <AnimatePresence>
+        {isOpened && job?.id && (
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: 'auto' }}
+            exit={{ height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden "
+          >
+            {job?.description && (
+              <p className="border-b border-gray-300 pb-4 text-sm text-neutral-600 lg:text-base">
+                {job?.description}
+              </p>
+            )}
+            <div className="flex flex-col gap-3 pt-4 md:flex-row md:items-center md:justify-between">
+              <Badges badges={job?.skill_tags?.map((tag) => ({ text: tag }))} />
+              <span className="border-b border-gray-300 md:hidden" />
+              <Button onClick={(e) => e.stopPropagation()} variant="primary" className="max-w-max">
+                <Link href={`/jobs/${job.id}`} className="flex items-center">
+                  More Details
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
