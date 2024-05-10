@@ -11,6 +11,7 @@ import {
 import { deleteToken } from '@/lib/auth-token';
 import { getCountries } from '@/lib/countries';
 import { cn } from '@/lib/utils';
+import { useCountryStore } from '@/stores/countryStore/countryStore';
 import { Country } from '@/types/types';
 import {
   ArrowRight,
@@ -40,11 +41,7 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState<CountryProps>({
-    id: 0,
-    name: '',
-    flag_icon: '',
-  });
+  const { selectedCountry, setSelectedCountry } = useCountryStore();
 
   useEffect(() => {
     getCountries()
