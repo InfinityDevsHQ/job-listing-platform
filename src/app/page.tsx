@@ -1,18 +1,17 @@
+import AutoPlayCarousel from '@/app/recruit/_components/autoplay-carousel';
 import CompaniesList from '@/components/companies/companies-list';
+import LoadMoreHotJobs from '@/components/homepage/load-more-hot-jobs';
 import JobsList from '@/components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
 import { Button } from '@/components/ui/button-new';
+import { CarouselItem } from '@/components/ui/carousel';
 import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
 import { getPromotedCompanies } from '@/lib/companies';
 import { getJobs } from '@/lib/jobs';
 import { cn } from '@/lib/utils';
 import { Building2Icon, ListCollapseIcon, Loader2Icon, RefreshCcwIcon } from 'lucide-react';
-
-import AutoPlayCarousel from '@/app/recruit/_components/autoplay-carousel';
-import { CarouselItem } from '@/components/ui/carousel';
 import Image from 'next/image';
-
 export default async function Home() {
   const hotJobsLoading = false;
   const allJobsLoading = false;
@@ -133,10 +132,7 @@ export default async function Home() {
       />
       <JobsList jobs={hotJobs ? hotJobs : []} />
       <div className="flex items-center justify-center">
-        <Button>
-          Load More
-          <RefreshCcwIcon className={cn('ml-2 h-4 w-4', { 'animate-spin': hotJobsLoading })} />
-        </Button>
+        <LoadMoreHotJobs previousJobs={hotJobs} />
       </div>
       <SectionHeader
         leadingIcon={
