@@ -1,5 +1,5 @@
 'use server';
-import { Job, PostJobWorkerInputData } from '@/types/types';
+import { Job, PostJobWorkerInputData, SimilarJobsProps } from '@/types/types';
 import { DataService } from './data-service';
 const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
 
@@ -18,6 +18,7 @@ type GetJobsParams = {
   allow_for_translated_jobs?: boolean;
   is_hot?: boolean;
 };
+
 export async function getJobs({
   skip = 0,
   limit = 10,
@@ -41,6 +42,7 @@ export async function getJobById(jobId: string): Promise<Job> {
   const data = await DataService.get<Job>(`${JOBS_URLS.singleJob}/${jobId}`);
   return data;
 }
+
 // export async function updateJob(jobId: string): Promise<Job> {
 //   if (!jobId) {
 //     // can return 404 heres
@@ -49,6 +51,7 @@ export async function getJobById(jobId: string): Promise<Job> {
 //   const data = await DataService.put<Job>(`${JOBS_URLS.updateJob}/${jobId}`);
 //   return data;
 // }
+
 export async function deleteJob(jobId: string): Promise<Job> {
   if (!jobId) {
     // can return 404 heres
@@ -61,16 +64,16 @@ export async function deleteJob(jobId: string): Promise<Job> {
 export const postJobListing = (body: PostJobWorkerInputData): Promise<PostJobWorkerInputData> =>
   DataService.post<PostJobWorkerInputData>(JOBS_URLS.postJob, body);
 
-export const findSimilarJobs = (jobId: string): Promise<Job[]> => {
+export async function getSimilarJobs(jobId: string): Promise<SimilarJobsProps[]> {
   const body = {
     filter: '',
   };
-  console.log(
-    `Request to: ${DataService.post<Job[]>(`${JOBS_URLS.similarJobs}/${jobId}`, body, {
+  const data = await DataService.post<SimilarJobsProps[]>(
+    `${JOBS_URLS.similarJobs}/${jobId}`,
+    body,
+    {
       collection_name: process.env.JOBS_COLLECTION_NAME as string,
-    })}`
+    }
   );
-  return DataService.post<Job[]>(`${JOBS_URLS.similarJobs}/${jobId}`, body, {
-    collection_name: process.env.JOBS_COLLECTION_NAME as string,
-  });
-};
+  return data;
+}

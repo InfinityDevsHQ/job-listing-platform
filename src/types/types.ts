@@ -99,6 +99,7 @@ export interface JobListProps {
 // job_card.tsx
 export interface JobProps {
   job: Job;
+  size?: string;
 }
 
 // JobCard.tsx
@@ -598,6 +599,10 @@ export interface TailoredUsersJobsResponse {
     work_location_type: string;
   };
   vector: null;
+}
+
+export interface SimilarJobsProps {
+  result: TailoredUsersJobsResponse[];
 }
 
 export interface Company {
