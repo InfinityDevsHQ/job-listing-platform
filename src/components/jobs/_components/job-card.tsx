@@ -1,14 +1,12 @@
 'use client';
 import Badges from '@/components/ui/badges';
 import { Button } from '@/components/ui/button-new';
-import { cn } from '@/lib/utils';
 import { JobProps } from '@/types/types';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight, BriefcaseBusinessIcon } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import JobCardDetails from './job-card-details';
 import JobCardHeader from './job-card-header';
 
 export default function JobCard({ job }: JobProps) {
@@ -25,39 +23,7 @@ export default function JobCard({ job }: JobProps) {
           </div>
         </div>
       )}
-      <div
-        onClick={() => setIsOpened(!isOpened)}
-        className="flex cursor-pointer select-none items-center gap-4"
-      >
-        <div
-          className={cn(
-            'hidden h-14 w-14 items-center justify-center rounded-full bg-blue-100 md:flex',
-            {
-              'bg-red-100': job?.is_hot,
-            }
-          )}
-        >
-          {/* {job?.external_company_logo ? (
-            <Image
-              src={job.external_company_logo}
-              width={100}
-              height={100}
-              alt="company logo"
-              className="ml-auto h-96 w-96 rounded-2xl"
-            />
-          ) : (
-          )} */}
-          <BriefcaseBusinessIcon
-            className={cn('text-blue-500', {
-              'text-red-500': job?.is_hot,
-            })}
-          />
-        </div>
-        <div className="flex cursor-pointer select-none flex-col gap-2">
-          <JobCardHeader job={job} />
-          <JobCardDetails job={job} />
-        </div>
-      </div>
+      <JobCardHeader job={job} handleClick={() => setIsOpened(!isOpened)} />
       <AnimatePresence>
         {isOpened && job?.id && (
           <motion.div

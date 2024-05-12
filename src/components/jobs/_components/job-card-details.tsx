@@ -73,8 +73,8 @@ export default function JobCardDetails({ job, size }: JobProps) {
                   'lg:text-lg': size == 'lg',
                 })}
               >
-                {job.remuneration_currency} {formatNumber(job?.remuneration_from)} -{' '}
-                {formatNumber(job?.remuneration_to)}
+                {formatNumber(job?.remuneration_from)} - {formatNumber(job?.remuneration_to)}{' '}
+                <span className="uppercase">{job.remuneration_currency}</span>
               </span>
             </>
           ) : (
