@@ -10,9 +10,7 @@ import { cn } from '@/lib/utils';
 import { Building2Icon, ListCollapseIcon, Loader2Icon, RefreshCcwIcon } from 'lucide-react';
 
 import AutoPlayCarousel from '@/app/recruit/_components/autoplay-carousel';
-import JobCard from '@/components/jobs/_components/job-card';
 import { CarouselItem } from '@/components/ui/carousel';
-import { Job } from '@/types/types';
 import Image from 'next/image';
 
 export default async function Home() {
@@ -21,22 +19,9 @@ export default async function Home() {
   const hotJobs = await getJobs({ is_hot: true });
   const allJobs = await getJobs({ is_hot: false });
   const promotedCompanies = await getPromotedCompanies();
-  const dummyJob: Job = {
-    id: 50000,
-    description: `
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae vero, impedit, tempora error
-    quod aliquid facilis incidunt magnam, hic molestiae est esse quam. Similique numquam suscipit
-    molestias libero! Laborum, sit.
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae vero, impedit, tempora error
-    quod aliquid facilis incidunt magnam, hic molestiae est esse quam. Similique numquam suscipit
-    molestias libero! Laborum, sit.`,
-    title: 'Dummy Job',
-    applicants: 999,
-    skill_tags: ['Vanila Js', 'Postgre'],
-  };
+
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-8 p-4 lg:p-8">
-      <JobCard job={dummyJob} />
       <Hero
         heading="Find your dream job here"
         desc="Explore the latest job openings and apply for the best job opportunities available today!"

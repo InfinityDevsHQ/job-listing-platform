@@ -65,7 +65,7 @@ export default function JobCard({ job }: JobProps) {
             animate={{ height: 'auto' }}
             exit={{ height: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden "
+            className="overflow-hidden"
           >
             {job?.description && (
               <p className="border-b border-gray-300 pb-4 text-sm text-neutral-600 lg:text-base">

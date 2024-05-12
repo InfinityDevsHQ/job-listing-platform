@@ -1,7 +1,7 @@
 import JobsList from '@/components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
 import SectionHeader from '@/components/ui/section-header';
-import { findSimilarJobs, getJobById } from '@/lib/jobs';
+import { getJobById, getSimilarJobs } from '@/lib/jobs';
 import { notFound } from 'next/navigation';
 import SearchedJob from '../_components/searched-job';
 
@@ -11,21 +11,27 @@ type JobDetailsSlug = {
 
 const JobDetails = async ({ params }: JobDetailsSlug) => {
   const jobListingId = params.jobId;
+
   if (!jobListingId) {
     return notFound();
   }
+
   const job = await getJobById(jobListingId);
-  const recommendedJobs = await findSimilarJobs(jobListingId);
+  const similarJobsData = await getSimilarJobs(jobListingId);
+  const similarJobs = similarJobsData?.result;
+
+  console.log('similarJobs', similarJobs);
+
   if (!job.id) {
     return notFound();
   }
 
   return (
     <div className="flex flex-col gap-4 p-4 lg:gap-8 lg:p-8">
-      <SearchedJob searchedJob={job} />
+      <SearchedJob job={job} />
       <div className="flex w-full flex-col gap-4 lg:w-9/12 lg:gap-8">
         <SectionHeader heading="Similar Job Offers" leadingIcon={<FireIcon />} />
-        <JobsList jobs={recommendedJobs.result} />
+        <JobsList jobs={similarJobs ? similarJobs : []} />
       </div>
     </div>
   );
