@@ -1,7 +1,7 @@
 'use server';
 import { DataService } from './data-service';
 const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
-
+// TODO: manage them into files all of these according to their work
 const NEWSLETTER_URLS = {
   jobListingIdSlug: `${PLATFORM_API_BASE_URL}/api/v1/slugify/job_listing/slug`,
   jobListingSlug: `${PLATFORM_API_BASE_URL}/api/v1/slugify/job_listing`,

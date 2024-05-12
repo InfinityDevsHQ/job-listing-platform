@@ -1,25 +1,21 @@
+import AutoPlayCarousel from '@/app/recruit/_components/autoplay-carousel';
 import CompaniesList from '@/components/companies/companies-list';
+import LoadMoreHotJobs from '@/components/homepage/load-more-hot-jobs';
+import LoadMoreJobs from '@/components/homepage/load-more-jobs';
 import JobsList from '@/components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
-import { Button } from '@/components/ui/button-new';
+import { CarouselItem } from '@/components/ui/carousel';
 import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
 import { getPromotedCompanies } from '@/lib/companies';
 import { getJobs } from '@/lib/jobs';
-import { cn } from '@/lib/utils';
-import { Building2Icon, ListCollapseIcon, Loader2Icon, RefreshCcwIcon } from 'lucide-react';
-
-import AutoPlayCarousel from '@/app/recruit/_components/autoplay-carousel';
-import { CarouselItem } from '@/components/ui/carousel';
+import { Building2Icon, ListCollapseIcon } from 'lucide-react';
 import Image from 'next/image';
-
 export default async function Home() {
-  const hotJobsLoading = false;
-  const allJobsLoading = false;
   const hotJobs = await getJobs({ is_hot: true });
   const allJobs = await getJobs({ is_hot: false });
   const promotedCompanies = await getPromotedCompanies();
-
+  console.log(allJobs.length);
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-8 p-4 lg:p-8">
       <Hero
@@ -122,38 +118,20 @@ export default async function Home() {
         </AutoPlayCarousel>
       </div>
       <SectionHeader
-        leadingIcon={
-          hotJobsLoading ? (
-            <Loader2Icon className="animate h-6 w-6 animate-spin" />
-          ) : (
-            <FireIcon className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />
-          )
-        }
+        leadingIcon={<FireIcon className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
         heading="Latest Hot Offers"
       />
       <JobsList jobs={hotJobs ? hotJobs : []} />
       <div className="flex items-center justify-center">
-        <Button>
-          Load More
-          <RefreshCcwIcon className={cn('ml-2 h-4 w-4', { 'animate-spin': hotJobsLoading })} />
-        </Button>
+        <LoadMoreHotJobs previousJobs={hotJobs} />
       </div>
       <SectionHeader
-        leadingIcon={
-          allJobsLoading ? (
-            <Loader2Icon className="animate h-6 w-6 animate-spin" />
-          ) : (
-            <ListCollapseIcon className="h-7 w-7 text-blue-500" />
-          )
-        }
+        leadingIcon={<ListCollapseIcon className="h-7 w-7 text-blue-500" />}
         heading="All offers from 2,300+ companies"
       />
       <JobsList jobs={allJobs ? allJobs : []} />
       <div className="flex items-center justify-center">
-        <Button>
-          Load More
-          <RefreshCcwIcon className={cn('ml-2 h-4 w-4', { 'animate-spin': allJobsLoading })} />
-        </Button>
+        <LoadMoreJobs previousJobs={allJobs} />
       </div>
       <SectionHeader
         leadingIcon={<Building2Icon className="h-7 w-7 text-black" />}

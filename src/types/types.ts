@@ -167,6 +167,25 @@ export type InfoBadgeProps = {
   desc?: string | number;
 };
 
+// User Update Body
+export type UserBody = {
+  email: string;
+  name: string;
+  language: string;
+  latitude: number;
+  longitude: number;
+  city: string;
+  country: string;
+  timezone: string;
+  phone_number: string;
+  profile_picture: string;
+  prefered_language: string;
+  online_status: string;
+  selected_country: string;
+  geo_resolve_tries: string;
+  is_onboarded: boolean;
+};
+
 // userStore.ts
 export type UserData = {
   email: string;
