@@ -100,6 +100,7 @@ export interface JobListProps {
 export interface JobProps {
   job: Job;
   size?: string;
+  handleClick?: () => void;
 }
 
 // JobCard.tsx
