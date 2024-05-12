@@ -14,5 +14,6 @@ export const registerCandidate = (body: RegisterBodyProps): Promise<RegisterResP
 
 export const login = (body: LoginBodyProps): Promise<LoginResProps> =>
   DataService.post<LoginResProps>(AUTH_URLS.login, body);
+
 export const registerCompany = (body: RegisterBodyProps) =>
   DataService.post(AUTH_URLS.registerCompany, body);

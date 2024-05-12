@@ -1,5 +1,4 @@
 'use client';
-import Poster from '@/components/poster';
 
 import LoginRegisterToggler from '@/components/forms/auth/_components/login-register-toggler';
 import PageHeader from '@/components/ui/page-header';
@@ -12,8 +11,8 @@ import Divider from '@/components/ui/divider';
 
 const Login = () => {
   return (
-    <div className="grid h-full grid-cols-2 overflow-hidden bg-neutral-950 lg:bg-transparent">
-      <div className="col-span-2 flex max-h-screen flex-col gap-8 overflow-y-auto px-4 pt-8 lg:col-span-1 lg:px-8">
+    <div className="flex min-h-screen items-center justify-center bg-white p-8">
+      <div className="mx-auto flex w-full max-w-xl flex-col gap-8 rounded-2xl bg-stone-100 p-4 shadow ring-1 ring-gray-200/50 backdrop-blur-md">
         <PageHeader title="Login to your Account" />
         <Divider size={2} text="Select Method to Login" mobileVariant="primary" variant="light" />
         <SocialAuthWidget google linkedin github auth="login" />
@@ -32,10 +31,6 @@ const Login = () => {
         </Tabs>
         <LoginRegisterToggler currentPage="login" />
       </div>
-      <Poster
-        bgUrl="/assets/images/auth/auth_candidate_background.png"
-        imgUrl="/assets/images/auth/login_vector.svg"
-      />
     </div>
   );
 };
