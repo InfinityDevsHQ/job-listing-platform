@@ -16,6 +16,7 @@ export default async function Home() {
   const allJobs = await getJobs({ is_hot: false });
   const promotedCompanies = await getPromotedCompanies();
   console.log(allJobs.length);
+
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-8 p-4 lg:p-8">
       <Hero
@@ -127,7 +128,7 @@ export default async function Home() {
       </div>
       <SectionHeader
         leadingIcon={<ListCollapseIcon className="h-7 w-7 text-blue-500" />}
-        heading="All offers from 2,300+ companies"
+        heading={`All offers from 2,300+ companies`}
       />
       <JobsList jobs={allJobs ? allJobs : []} />
       <div className="flex items-center justify-center">

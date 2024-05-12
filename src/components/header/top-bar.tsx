@@ -28,12 +28,6 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
-type CountryProps = {
-  id: number;
-  name: string;
-  flag_icon: string;
-};
-
 const Header = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [countries, setCountries] = useState<Country[]>([]);
@@ -69,7 +63,7 @@ const Header = () => {
     console.log('deleteToken');
   };
 
-  const handleSelectCountry = async (country: CountryProps) => {
+  const handleSelectCountry = async (country: Country) => {
     console.log('handleSelectCountry ==> countryId ', country); // TODO: handle change country selection
     setSelectedCountry(country);
   };
