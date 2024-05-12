@@ -23,8 +23,10 @@ const getHeaders = () => {
 };
 
 const handleResponseGracefully = async (response: Response) => {
+  console.log('!response.ok ================>', !response.ok);
   if (!response.ok) {
     let errorMessage = 'An error occurred while fetching data';
+    console.log('response.status =====================>', response.status);
     if (response.status >= 400 && response.status < 500) {
       // Client error
       const responseData = await response.json();
@@ -34,8 +36,10 @@ const handleResponseGracefully = async (response: Response) => {
       // Server error
       errorMessage = 'Server error, Something wrong with backend service';
     }
+    console.log('errorMessage =========================>', errorMessage);
     throw new Error(errorMessage);
   }
+  console.log('here =========================>');
   const data = await response.json();
   return data;
 };
@@ -44,9 +48,9 @@ export const DataService = {
   get: async <T>(url: string, params: Record<string, string> = {}): Promise<T> => {
     const queryParams = constructQueryParams(params);
     const fullUrl = `${url}?${decodeURIComponent(queryParams)}`;
-
+    console.log('getHeaders ===========>', getHeaders());
     const response = await fetch(fullUrl, { headers: getHeaders() });
-
+    console.log('response ========================>', response);
     return handleResponseGracefully(response);
   },
 

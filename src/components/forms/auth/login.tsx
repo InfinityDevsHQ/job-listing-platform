@@ -49,7 +49,7 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
       login(body)
         .then(async (data) => {
           localStorage.setItem('access_token', data.access_token);
-          console.log('data', data.access_token);
+          console.log('data.access_token ================>', data.access_token);
           setAccessToken(data.access_token);
           await storeToken({ token: data.access_token });
         })

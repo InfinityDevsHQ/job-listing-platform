@@ -1,4 +1,6 @@
-import { getUserProfile, updateUser } from '@/lib/user';
+import ProfileTabs from '@/components/profile/profile-tabs';
+import UserInfoPanel from '@/components/profile/user-info-panel';
+import { getUserProfile } from '@/lib/user';
 
 const Profile = async () => {
   const user = await getUserProfile();
@@ -19,7 +21,7 @@ const Profile = async () => {
     geo_resolve_tries: 'Pro',
     is_onboarded: true,
   };
-  const updatedUser = await updateUser(updateUserBody);
+  // const updatedUser = await updateUser(updateUserBody);
   // TODO: put all all useStates and other hooks into child nodes,
   // const [editProfile, setEditProfile] = useState<boolean>(false);
   // const [profileVal, setProfileVal] = useState(
@@ -29,15 +31,11 @@ const Profile = async () => {
   // const user = useAuthStore((state) => state.user);
   return (
     <div className="grid gap-4 p-4 lg:grid-cols-4 lg:gap-8 lg:p-8">
-      <pre>{JSON.stringify(user)}</pre>
-      <pre>{JSON.stringify(updatedUser)}</pre>
-      {/* <UserInfoPanel online_status={user.online_status} /> */}
-      {/* <UserInfoMobilePanel online_status={user.online_status} /> */}
-      {/* <ProfileTabs
-        editProfile={editProfile}
-        setEditProfile={setEditProfile}
-        profileVal={profileVal}
-      /> */}
+      {/* <pre>{JSON.stringify(user)}</pre> */}
+      {/* <pre>{JSON.stringify(updatedUser)}</pre> */}
+      <UserInfoPanel user={user.user_data} candidate={user.candidate_data} />
+      {/* <UserInfoMobilePanel user={user.candidate_data} /> */}
+      <ProfileTabs candidate={user?.candidate_data} />
     </div>
   );
 };

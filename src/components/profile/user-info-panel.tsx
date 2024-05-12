@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { CandidateData, User } from '@/types/types';
 import {
   ClipboardIcon,
   ClockIcon,
@@ -10,27 +11,29 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '../ui/button-new';
+
 type UserInfoPanel = {
-  online_status: 'Offline' | 'Online';
+  user: User;
+  candidate: CandidateData;
 };
-const UserInfoPanel = ({ online_status }: UserInfoPanel) => {
+const UserInfoPanel = ({ user, candidate }: UserInfoPanel) => {
   return (
     <div className="hidden flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-1 lg:flex lg:p-8">
       <div className="flex flex-col items-center justify-center gap-2">
         <Image
-          src={'/assets/candidates/candidate.png'}
+          src={user?.profile_picture}
           alt="test"
           width={150}
           height={150}
           className={cn('rounded-full border-4 border-gray-100 ring-4 ring-gray-500', {
-            'ring-green-500': !online_status,
+            'ring-green-500': user.online_status !== 'Offline',
           })}
         />
         <div className="flex flex-col">
           <h4 className="pt-2 text-center text-xl font-bold text-neutral-950 lg:text-3xl">
-            Saad Gulzar
+            {user.name}
           </h4>
-          <p className="text-xl text-gray-500">Software Engineer</p>
+          <p className="text-xl text-gray-500">{candidate.headline}</p>
         </div>
       </div>
       <div className="flex flex-col gap-4">
@@ -43,7 +46,9 @@ const UserInfoPanel = ({ online_status }: UserInfoPanel) => {
             </span>
             <p className="flex h-full flex-col justify-between">
               <span className="font-bold text-gray-700 lg:text-base">Location</span>
-              <span className="text-gray-700 lg:text-base">Berlin, Germany</span>
+              <span className="text-gray-700 lg:text-base">
+                {user?.city}, {user?.country}
+              </span>
             </p>
           </li>
           <li className="flex items-center gap-4">
@@ -52,7 +57,7 @@ const UserInfoPanel = ({ online_status }: UserInfoPanel) => {
             </span>
             <p className="flex h-full flex-col justify-between">
               <span className="font-bold text-gray-700 lg:text-base">Timezone</span>
-              <span className="text-gray-700 lg:text-base">(GMT +05:00) Islamabad</span>
+              <span className="text-gray-700 lg:text-base">{user?.timezone}</span>
             </p>
           </li>
           <li className="flex items-center gap-4">
@@ -61,7 +66,7 @@ const UserInfoPanel = ({ online_status }: UserInfoPanel) => {
             </span>
             <p className="flex h-full flex-col justify-between">
               <span className="font-bold text-gray-700 lg:text-base">Email</span>
-              <span className="text-gray-700 lg:text-base">hello@test.com</span>
+              <span className="text-gray-700 lg:text-base">{user?.email}</span>
             </p>
           </li>
           <li className="flex items-center gap-4">
