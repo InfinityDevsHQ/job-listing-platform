@@ -1,6 +1,7 @@
 'use client';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import React from 'react';
 
 export function RqProvider(props: { children: React.ReactNode }) {
@@ -9,7 +10,7 @@ export function RqProvider(props: { children: React.ReactNode }) {
       new QueryClient({
         defaultOptions: {
           queries: {
-            staleTime: 60 * 5000, // For five minutes
+            staleTime: 60 * 1000, // For one minute
             retry: 1, // Retry only once
           },
         },
@@ -18,7 +19,7 @@ export function RqProvider(props: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       {props.children}
-      {/* {<ReactQueryDevtools initialIsOpen={false} />} */}
+      {<ReactQueryDevtools initialIsOpen={false} />}
     </QueryClientProvider>
   );
 }
