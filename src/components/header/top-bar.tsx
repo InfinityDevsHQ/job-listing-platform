@@ -8,9 +8,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { deleteToken } from '@/lib/auth-token';
+import { deleteToken, getToken } from '@/lib/auth-token';
 import { getCountries } from '@/lib/countries';
 import { cn } from '@/lib/utils';
+import useAuthStore from '@/stores/authStore/store';
 import { useCountryStore } from '@/stores/countryStore/countryStore';
 import { Country } from '@/types/types';
 import {
@@ -29,7 +30,10 @@ import { Fragment, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
 const Header = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useAuthStore((state) => [
+    state.isAuthenticated,
+    state.setIsAuthenticated,
+  ]);
   const [countries, setCountries] = useState<Country[]>([]);
 
   const router = useRouter();
@@ -46,19 +50,26 @@ const Header = () => {
         toast(error.message || 'Uh oh! Something went wrong');
       });
 
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 0;
-      setScrolled(isScrolled);
+    const verifyToken = async () => {
+      try {
+        const accessToken = await getToken();
+        console.log('accessToken ===========>', accessToken);
+        if (accessToken) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+        }
+      } catch (error) {
+        setIsAuthenticated(false);
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    verifyToken();
   }, []);
 
   const logout = async () => {
     await deleteToken();
+    setIsAuthenticated(false);
     router.push('/login');
     console.log('deleteToken');
   };
@@ -193,10 +204,10 @@ const Header = () => {
             className="relative inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium"
           >
             <span>Inbox</span>
-            <span className="absolute right-1 top-1 flex h-3 w-3 ">
+            {/* <span className="absolute right-1 top-1 flex h-3 w-3 ">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neutral-950 opacity-75"></span>
               <span className="relative inline-flex h-3 w-3 rounded-full bg-neutral-950"></span>
-            </span>
+            </span> */}
           </Link>
           <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild>

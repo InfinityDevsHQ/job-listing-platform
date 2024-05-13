@@ -8,6 +8,7 @@ const useAuthStore = create<AuthState & AuthAction>()(
     ...authInitialState,
     setUser: (user) => set({ user }),
     setAccessToken: (accessToken) => set({ accessToken }),
+    setIsAuthenticated: (isAuthenticated) => set({ isAuthenticated: isAuthenticated }),
     reset: () => set(authInitialState),
   }))
 );

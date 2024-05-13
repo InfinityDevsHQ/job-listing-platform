@@ -32,7 +32,10 @@ const formSchema = z
 export default function RegisterCandidateForm() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const setUser = useAuthStore((state) => state.setUser);
+  const [setUser, setIsAuthenticated] = useAuthStore((state) => [
+    state.setUser,
+    state.setIsAuthenticated,
+  ]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -57,6 +60,7 @@ export default function RegisterCandidateForm() {
     return registerCandidate(body)
       .then(async (data) => {
         await storeToken({ token: data.access_token });
+        setIsAuthenticated(true);
         setUser(data?.user);
         router.push('/profile');
       })

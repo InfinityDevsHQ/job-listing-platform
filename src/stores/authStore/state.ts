@@ -4,4 +4,5 @@ import { AuthState } from './type';
 export const authInitialState: AuthState = {
   user: {} as User,
   accessToken: '',
+  isAuthenticated: false,
 };

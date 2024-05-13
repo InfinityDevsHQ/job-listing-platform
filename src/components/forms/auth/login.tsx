@@ -24,9 +24,10 @@ const formSchema = z.object({
 const LoginForm = ({ activeTab }: { activeTab: string }) => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [setUser, setAccessToken, accessToken] = useAuthStore((state) => [
+  const [setUser, setAccessToken, setIsAuthenticated, accessToken] = useAuthStore((state) => [
     state.setUser,
     state.setAccessToken,
+    state.setIsAuthenticated,
     state.accessToken,
   ]);
 
@@ -51,6 +52,7 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
           localStorage.setItem('access_token', data.access_token);
           console.log('data.access_token ================>', data.access_token);
           setAccessToken(data.access_token);
+          setIsAuthenticated(true);
           await storeToken({ token: data.access_token });
         })
         // .then(() => getUser()) Todo: implement cookies for access token
