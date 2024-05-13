@@ -11,7 +11,7 @@ export default async function Home() {
   const queryClient = getQueryClient();
   await queryClient.prefetchQuery({
     queryKey: ['allJobs'],
-    queryFn: async () => await getJobs({ is_hot: true }),
+    queryFn: () => getJobs({ is_hot: true }),
   });
   return (
     <div className="grid grid-cols-3 gap-8 p-4 lg:p-8">

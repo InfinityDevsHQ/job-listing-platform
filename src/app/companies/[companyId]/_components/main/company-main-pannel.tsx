@@ -1,5 +1,5 @@
+import { useJobs } from '@/app/utils/rq/hooks/example-rq-hook';
 import JobsList from '@/components/jobs/jobs-list';
-import { getJobs } from '@/lib/jobs';
 import CompanyAbout from '../company-about';
 import CompanyBenefits from '../company-bebefits';
 import CompanyInfo from '../company-info';
@@ -8,7 +8,7 @@ import CompanyTabs from '../company-tabs';
 import SectionHeading from '../section-heading';
 
 export default async function CompanyMainPanel() {
-  const jobs = await getJobs({});
+  const { data: jobs = [], isError, isPending } = await useJobs();
   return (
     <div className="flex flex-col gap-4 lg:col-span-2 lg:gap-8">
       <CompanyInfo />
