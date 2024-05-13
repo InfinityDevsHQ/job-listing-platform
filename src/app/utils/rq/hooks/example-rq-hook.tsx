@@ -1,9 +1,11 @@
 import { getJobs } from '@/lib/jobs';
 import { useQuery } from '@tanstack/react-query';
 
-export function useAllJobs({ isHot }: { isHot: boolean }) {
+export const useJobs = () => {
   return useQuery({
     queryKey: ['allJobs'],
-    queryFn: () => getJobs({ is_hot: isHot }),
+    queryFn: () => getJobs({ is_hot: true }),
+    retry: 0,
+    refetchOnWindowFocus: true,
   });
-}
+};

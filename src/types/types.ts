@@ -94,7 +94,8 @@ export interface Job {
 
 // job_list.tsx
 export interface JobListProps {
-  jobs: Job[];
+  homepage?: boolean;
+  similarJobId?: string;
 }
 // job_card.tsx
 export interface JobProps {
