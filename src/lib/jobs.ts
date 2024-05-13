@@ -24,7 +24,7 @@ export async function getJobs({
   limit = 10,
   allow_for_translated_jobs = false,
   is_hot = false,
-}: GetJobsParams): Promise<Job[]> {
+}: GetJobsParams): Promise<any> {
   const data = await DataService.get<Job[]>(`${JOBS_URLS.allJobs}`, {
     skip: `${skip}`,
     limit: `${limit}`,

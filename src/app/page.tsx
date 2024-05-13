@@ -6,21 +6,25 @@ import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
 import { getPromotedCompanies } from '@/lib/companies';
 import { getJobs } from '@/lib/jobs';
-import { dehydrate } from '@tanstack/react-query';
+import { Job } from '@/types/types';
+import { InfiniteData, dehydrate } from '@tanstack/react-query';
 import { Building2Icon, ListCollapseIcon } from 'lucide-react';
 import Image from 'next/image';
 import AutoPlayCarousel from './recruit/_components/autoplay-carousel';
+import { ALL_HOT_JOBS_KEY } from './utils/rq/hooks/jobs-hook';
 import { getQueryClient } from './utils/rq/react-query-client';
 import { ReactQueryHydrate } from './utils/rq/react-query-hydrate';
 
 export default async function Home() {
   const queryClient = getQueryClient();
-  await queryClient.prefetchQuery({
-    queryKey: ['allJobs'],
-    queryFn: () => getJobs({ is_hot: true }),
+
+  await queryClient.prefetchInfiniteQuery<number, Error, InfiniteData<Job[], number>, any, number>({
+    queryKey: [ALL_HOT_JOBS_KEY],
+    initialPageParam: 0,
+    queryFn: () => getJobs({ is_hot: true, skip: 0, limit: 10 }),
   });
+
   const promotedCompanies = await getPromotedCompanies();
-  // console.log(allJobs.length);
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-8 p-4 lg:p-8">
       <Hero
@@ -130,17 +134,13 @@ export default async function Home() {
         <JobsList homepage />
       </ReactQueryHydrate>
 
-      <div className="flex items-center justify-center">
-        {/* <LoadMoreHotJobs previousJobs={hotJobs} /> */}
-      </div>
-
       <SectionHeader
         leadingIcon={<ListCollapseIcon className="h-7 w-7 text-blue-500" />}
         heading={`All offers from 2,300+ companies`}
       />
-      <ReactQueryHydrate state={dehydrate(queryClient)}>
-        {/* <JobsList similarJobId /> */}
-      </ReactQueryHydrate>
+      {/* <ReactQueryHydrate state={dehydrate(queryClient)}>
+        <JobsList similarJobId />
+      </ReactQueryHydrate> */}
       <div className="flex items-center justify-center">
         {/* <LoadMoreJobs previousJobs={allJobs} /> */}
       </div>

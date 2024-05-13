@@ -2,11 +2,10 @@ import JobsList from '@/components/jobs/jobs-list';
 import { Button } from '@/components/ui/button-new';
 import Input from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { JobListProps } from '@/types/types';
 import CompanyAbout from './company-about';
 import CompanyLink from './company-link';
 import SectionHeading from './section-heading';
-const CompanyTabs = ({ jobs }: JobListProps) => {
+const CompanyTabs = () => {
   return (
     <Tabs defaultValue="about" className="lg:hidden">
       <TabsList>
@@ -44,7 +43,7 @@ const CompanyTabs = ({ jobs }: JobListProps) => {
       <TabsContent value="job-openings">
         <div className="flex flex-col gap-4">
           <SectionHeading text="Job Opportunities" />
-          <JobsList jobs={jobs} />
+          <JobsList homepage />
         </div>
       </TabsContent>
     </Tabs>
