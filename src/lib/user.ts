@@ -1,5 +1,5 @@
 'use server';
-import { User, UserBody } from '@/types/types';
+import { ApplyJobResponse, User, UserBody } from '@/types/types';
 import { DataService } from './data-service';
 const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
@@ -13,6 +13,7 @@ const USER_URLS = {
   userJobsFavorited: `${PLATFORM_API_BASE_URL}/api/v1/user/jobs/favorited`,
   userJobsDisabled: `${PLATFORM_API_BASE_URL}/api/v1/user/jobs/disliked`,
   userUpdate: `${PLATFORM_API_BASE_URL}/api/v1/user`,
+  applyJob: `${PLATFORM_API_BASE_URL}/api/v1/user/job/apply`,
 };
 
 export const getUser = (): Promise<User> => DataService.get<User>(USER_URLS.user);
@@ -48,5 +49,13 @@ export async function getUserJobsDisabled(): Promise<{}> {
 }
 export async function updateUserProfile(body: UserBody) {
   const data = await DataService.put<UserBody>(USER_URLS.userUpdate, body);
+  return data;
+}
+
+export async function applyForJob(jobId: string): Promise<ApplyJobResponse> {
+  if (jobId) return {} as ApplyJobResponse;
+  const data = await DataService.post<ApplyJobResponse>(`${USER_URLS.applyJob}`, {
+    job_id: jobId,
+  });
   return data;
 }

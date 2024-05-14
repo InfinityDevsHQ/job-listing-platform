@@ -713,9 +713,14 @@ export interface ApplyFormProps {
   isApplied: boolean;
   handleApplied: () => void;
 }
-
+//ApplyJobResponse
+export type ApplyJobResponse = {
+  candidate_id: number;
+  job_offer_id: number;
+  status: string;
+};
 //FormToggleButtons.tsx
-export interface FormToggleButtonsProps {
+interface FormToggleButtonsProps {
   isCandidate: boolean;
   toggleUser: () => void;
 }
