@@ -53,9 +53,8 @@ export async function updateUserProfile(body: UserBody) {
 }
 
 export async function applyForJob(jobId: string): Promise<ApplyJobResponse> {
-  if (jobId) return {} as ApplyJobResponse;
   const data = await DataService.post<ApplyJobResponse>(`${USER_URLS.applyJob}`, {
-    job_id: jobId,
+    job_id: `${jobId}`,
   });
   return data;
 }

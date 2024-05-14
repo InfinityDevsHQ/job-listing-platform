@@ -20,7 +20,7 @@ import {
 import useMediaQuery from '@/hooks/useMediaQuey';
 import { ArrowRight } from 'lucide-react';
 import { useState } from 'react';
-const ApplyJobModal = () => {
+const ApplyJobModal = ({ jobId }: { jobId: string }) => {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
   if (isDesktop) {
@@ -36,7 +36,7 @@ const ApplyJobModal = () => {
             <DialogTitle>Apply For this role.</DialogTitle>
             <DialogDescription></DialogDescription>
           </DialogHeader>
-          <ApplyJobForm />
+          <ApplyJobForm jobId={jobId} />
         </DialogContent>
       </Dialog>
     );
@@ -55,7 +55,7 @@ const ApplyJobModal = () => {
             <DrawerTitle>Apply For this role.</DrawerTitle>
             <DrawerDescription></DrawerDescription>
           </DrawerHeader>
-          <ApplyJobForm />
+          <ApplyJobForm jobId={jobId} />
         </DrawerContent>
       </Drawer>
     </>

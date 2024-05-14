@@ -34,7 +34,7 @@ const JobDetails = ({ jobId }: { jobId: string }) => {
                 }))}
               />
             </InfoSection>
-            <ApplyJobModal />
+            <ApplyJobModal jobId={jobId} />
             <JobFeedback className="lg:hidden" />
           </div>
         </div>
