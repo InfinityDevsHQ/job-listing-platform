@@ -1,7 +1,6 @@
 'use client';
 import { useGetUserProfile } from '@/hooks/useGetUserProfile';
 import { cn } from '@/lib/utils';
-import { CandidateData } from '@/types/types';
 import {
   ClipboardIcon,
   ClockIcon,
@@ -14,19 +13,16 @@ import {
 import Image from 'next/image';
 import { toast } from 'sonner';
 import { Button } from '../ui/button-new';
-
-type UserInfoPanel = {
-  candidate?: CandidateData;
-};
-const UserInfoPanel = ({ candidate }: UserInfoPanel) => {
-  const { isLoading: profileLoading, error: profileError, data: user } = useGetUserProfile();
-  if (profileError || !user) {
+const UserInfoPanel = () => {
+  const { isLoading: profileLoading, error: profileError, data: userProfile } = useGetUserProfile();
+  if (profileError || !userProfile) {
     if (profileError) {
       toast.error(profileError.message);
     }
     return <p>Error while getting profile {profileError?.message}</p>;
   }
   if (profileLoading) return <p>Loading.....</p>;
+  const { user_data: user, candidate_data: candidate } = userProfile;
   if (user) {
     return (
       <div className="hidden flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-1 lg:flex lg:p-8">
