@@ -551,8 +551,12 @@ export interface PostJobWorkerResponse {
   result: string;
   state: string;
 }
+export type CandidateVector = {
+  candidate_id: number;
+  vector: [];
+};
 
-export interface TailoredUserJobsParams {
+export type TailoredUserJobsParams = {
   candidate_id: number;
   country?: string;
   collection_name?: string;
@@ -567,7 +571,7 @@ export interface TailoredUserJobsParams {
       value: string;
     };
   }>;
-}
+};
 
 export interface TailoredUsersJobsResponse {
   id: number;
