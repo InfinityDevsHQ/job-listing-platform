@@ -14,6 +14,7 @@ import {
 import Image from 'next/image';
 import { toast } from 'sonner';
 import { Button } from '../ui/button-new';
+import ProfileTabs from './profile-tabs';
 import UserInfoMobilePanel from './user-info-mobile-panel';
 const UserInfoPanel = () => {
   const updateUserBody = {
@@ -146,6 +147,7 @@ const UserInfoPanel = () => {
           <h2 className="text-5xl">error while updating: ${updateProfileError.message} </h2>
         )}
         <UserInfoMobilePanel online_status={user.online_status} />
+        <ProfileTabs candidate={candidate} />
       </>
     );
   }

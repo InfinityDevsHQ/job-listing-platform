@@ -13,7 +13,6 @@ const Profile = async () => {
       {/* <pre>{JSON.stringify(user)}</pre> */}
       {/* <pre>{JSON.stringify(updatedUser)}</pre> */}
       <UserInfoPanel />
-      {/* <ProfileTabs candidate={user?.candidate_data} /> */}
     </div>
   );
 };
