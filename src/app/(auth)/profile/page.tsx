@@ -1,24 +1,6 @@
 import UserInfoPanel from '@/components/profile/user-info-panel';
 
 const Profile = async () => {
-  const updateUserBody = {
-    email: 'new@gmail.com',
-    name: 'John Doe',
-    language: 'Persion',
-    latitude: 100,
-    longitude: 200,
-    city: 'Manchester',
-    country: 'United Kingdom',
-    timezone: 'UK',
-    phone_number: '0000099393',
-    profile_picture: '/assets/avatar',
-    prefered_language: 'English',
-    online_status: 'Online',
-    selected_country: 'United Kingdom',
-    geo_resolve_tries: 'Pro',
-    is_onboarded: true,
-  };
-  // const updatedUser = await updateUser(updateUserBody);
   // TODO: put all all useStates and other hooks into child nodes,
   // const [editProfile, setEditProfile] = useState<boolean>(false);
   // const [profileVal, setProfileVal] = useState(

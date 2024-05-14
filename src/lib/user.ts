@@ -46,7 +46,7 @@ export async function getUserJobsDisabled(): Promise<{}> {
   const data = await DataService.get<{}>(`${USER_URLS.userJobsDisabled}`);
   return data;
 }
-export async function updateUser(body: UserBody) {
+export async function updateUserProfile(body: UserBody) {
   const data = await DataService.put<UserBody>(USER_URLS.userUpdate, body);
   return data;
 }

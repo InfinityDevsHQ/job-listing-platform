@@ -1,5 +1,6 @@
 'use client';
 import { useGetUserProfile } from '@/hooks/useGetUserProfile';
+import { useUpdateUserProfile } from '@/hooks/useUpdateUserProfile';
 import { cn } from '@/lib/utils';
 import {
   ClipboardIcon,
@@ -15,7 +16,32 @@ import { toast } from 'sonner';
 import { Button } from '../ui/button-new';
 import UserInfoMobilePanel from './user-info-mobile-panel';
 const UserInfoPanel = () => {
+  const updateUserBody = {
+    email: 'new@gmail.com',
+    name: 'John Doe',
+    language: 'Persion',
+    latitude: 100,
+    longitude: 200,
+    city: 'Manchester',
+    country: 'United Kingdom',
+    timezone: 'UK',
+    phone_number: '0000099393',
+    profile_picture: '/assets/avatar',
+    prefered_language: 'English',
+    online_status: 'Online',
+    selected_country: 'United Kingdom',
+    geo_resolve_tries: 'Pro',
+    is_onboarded: true,
+  };
+
   const { isLoading: profileLoading, error: profileError, data: userProfile } = useGetUserProfile();
+
+  const {
+    isPending: updateProfileLoading,
+    data: updateProfileResponse,
+    error: updateProfileError,
+  } = useUpdateUserProfile(updateUserBody);
+
   if (profileError || !userProfile) {
     if (profileError) {
       toast.error(profileError.message);
@@ -24,6 +50,7 @@ const UserInfoPanel = () => {
   }
   if (profileLoading) return <p>Loading.....</p>;
   const { user_data: user, candidate_data: candidate } = userProfile;
+
   if (user) {
     return (
       <>
@@ -115,6 +142,9 @@ const UserInfoPanel = () => {
             </ul>
           </div>
         </div>
+        {updateProfileError && (
+          <h2 className="text-5xl">error while updating: ${updateProfileError.message} </h2>
+        )}
         <UserInfoMobilePanel online_status={user.online_status} />
       </>
     );
