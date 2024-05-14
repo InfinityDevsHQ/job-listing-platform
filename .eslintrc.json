@@ -1,6 +1,6 @@
 {
   "extends": ["next", "next/core-web-vitals", "prettier"],
-  "plugins": ["unicorn"],
+  "plugins": ["unicorn", "@tanstack/query"],
   "rules": {
     "prefer-const": "error"
   }
