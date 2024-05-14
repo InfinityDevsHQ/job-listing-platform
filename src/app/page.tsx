@@ -146,9 +146,6 @@ export default async function Home() {
       <ReactQueryHydrate state={dehydrate(queryClient)}>
         <JobsList allJobs />
       </ReactQueryHydrate>
-      <div className="flex items-center justify-center">
-        {/* <LoadMoreJobs previousJobs={allJobs} /> */}
-      </div>
       <SectionHeader
         leadingIcon={<Building2Icon className="h-7 w-7 text-black" />}
         heading="Companies that will grow you forward"
