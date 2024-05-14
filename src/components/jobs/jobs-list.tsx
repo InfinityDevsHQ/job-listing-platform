@@ -22,9 +22,11 @@ const JobsList = ({ hotJobsAll, similarJobId, allJobs }: JobListProps) => {
     hasNextPage: hasNextAllJobsPage,
     isFetchingNextPage: isFetchingNextAllJobsPage,
   } = useAllJobs();
+  const allJobsList = allJobsData?.pages.flat() || [];
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
       {hotJobsAll && hotJobs?.map((job, index) => <JobCard key={index} job={job} />)}
+      {allJobs && allJobsList.map((job, index) => <JobCard key={index} job={job} />)}
       {/* {similarJobId && similarJobsData?.map((job, index) => <JobCard key={index} job={job} />)} */}
       {hasNextHotJobsPage && (
         <div className="flex items-center justify-center">

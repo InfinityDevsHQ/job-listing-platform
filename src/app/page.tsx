@@ -4,6 +4,7 @@ import FireIcon from '@/components/svgs/fire';
 import { CarouselItem } from '@/components/ui/carousel';
 import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
+import { ALL_JOBS_KEY } from '@/hooks/useAllJobs';
 import { getPromotedCompanies } from '@/lib/companies';
 import { getJobs } from '@/lib/jobs';
 import { Job } from '@/types/types';
@@ -23,7 +24,11 @@ export default async function Home() {
     initialPageParam: 0,
     queryFn: () => getJobs({ is_hot: true, skip: 0, limit: 10 }),
   });
-
+  await queryClient.prefetchInfiniteQuery<number, Error, InfiniteData<Job[], number>, any, number>({
+    queryKey: [ALL_JOBS_KEY],
+    initialPageParam: 0,
+    queryFn: () => getJobs({ is_hot: false, skip: 0, limit: 10 }),
+  });
   const promotedCompanies = await getPromotedCompanies();
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-8 p-4 lg:p-8">
@@ -139,7 +144,7 @@ export default async function Home() {
         heading={`All offers from 2,300+ companies`}
       />
       <ReactQueryHydrate state={dehydrate(queryClient)}>
-        <JobsList />
+        <JobsList allJobs />
       </ReactQueryHydrate>
       <div className="flex items-center justify-center">
         {/* <LoadMoreJobs previousJobs={allJobs} /> */}
