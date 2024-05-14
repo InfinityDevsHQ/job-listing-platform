@@ -6,13 +6,13 @@ import { RefreshCcwIcon } from 'lucide-react';
 import { Button } from '../ui/button-new';
 import JobCard from './_components/job-card';
 
-const JobsList = ({ homepage, similarJobId }: JobListProps) => {
+const JobsList = ({ hotJobsAll, similarJobId, allJobs }: JobListProps) => {
   const { fetchNextPage, data, hasNextPage, isFetchingNextPage } = useGetHotJobs();
   const hotJobs = data?.pages.flat() || [];
 
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
-      {homepage && hotJobs?.map((job, index) => <JobCard key={index} job={job} />)}
+      {hotJobsAll && hotJobs?.map((job, index) => <JobCard key={index} job={job} />)}
       {/* {similarJobId && similarJobsData?.map((job, index) => <JobCard key={index} job={job} />)} */}
       {hasNextPage && (
         <div className="flex items-center justify-center">

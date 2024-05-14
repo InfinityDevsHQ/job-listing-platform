@@ -94,8 +94,9 @@ export interface Job {
 
 // job_list.tsx
 export interface JobListProps {
-  homepage?: boolean;
+  hotJobsAll?: boolean;
   similarJobId?: string;
+  allJobs?: boolean;
 }
 // job_card.tsx
 export interface JobProps {

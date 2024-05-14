@@ -131,16 +131,16 @@ export default async function Home() {
         heading="Latest Hot Offers"
       />
       <ReactQueryHydrate state={dehydrate(queryClient)}>
-        <JobsList homepage />
+        <JobsList hotJobsAll />
       </ReactQueryHydrate>
 
       <SectionHeader
         leadingIcon={<ListCollapseIcon className="h-7 w-7 text-blue-500" />}
         heading={`All offers from 2,300+ companies`}
       />
-      {/* <ReactQueryHydrate state={dehydrate(queryClient)}>
-        <JobsList similarJobId />
-      </ReactQueryHydrate> */}
+      <ReactQueryHydrate state={dehydrate(queryClient)}>
+        <JobsList />
+      </ReactQueryHydrate>
       <div className="flex items-center justify-center">
         {/* <LoadMoreJobs previousJobs={allJobs} /> */}
       </div>
