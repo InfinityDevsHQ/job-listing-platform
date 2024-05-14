@@ -1,4 +1,3 @@
-import JobsList from '@/components/jobs/jobs-list';
 import FireIcon from '@/components/svgs/fire';
 import SectionHeader from '@/components/ui/section-header';
 import { getJobById, getSimilarJobs } from '@/lib/jobs';
@@ -27,7 +26,7 @@ const JobDetailsPage = async ({ params }: JobDetailsSlug) => {
       <JobDetails job={job} />
       <div className="flex w-full flex-col gap-4 lg:w-9/12 lg:gap-8">
         <SectionHeader heading="Similar Job Offers" leadingIcon={<FireIcon />} />
-        <JobsList similarJobId={jobListingId} />
+        {/* <JobsList similarJobId={jobListingId} /> */}
       </div>
     </div>
   );

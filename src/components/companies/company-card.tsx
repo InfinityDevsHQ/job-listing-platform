@@ -1,8 +1,8 @@
-import { Button } from '@/components/ui/button-new';
 import { CompanyCardProps } from '@/types/types';
 import Image from 'next/image';
+import Link from 'next/link';
 
-const CompanyCard = ({ name, logo_url, description }: CompanyCardProps) => {
+const CompanyCard = ({ name, logo_url, description, id }: CompanyCardProps) => {
   return (
     <div className="flex transform flex-col gap-3 rounded-xl border-b border-gray-100 bg-gray-50 p-8 transition duration-300 ease-in-out hover:-translate-y-2">
       <div className="inline-block">
@@ -19,9 +19,12 @@ const CompanyCard = ({ name, logo_url, description }: CompanyCardProps) => {
         {description ||
           'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit incidunt minima officia nemo hic eprehenderit incidunt minima officia nemo hic'}
       </p>
-      <Button className="self-center" variant="primary">
+      <Link
+        className="self-center rounded-md border border-primary bg-primary px-4 py-2 text-white "
+        href={`/companies/${id}`}
+      >
         Learn More
-      </Button>
+      </Link>
     </div>
   );
 };

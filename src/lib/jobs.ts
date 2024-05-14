@@ -21,7 +21,7 @@ type GetJobsParams = {
 
 export async function getJobs({
   skip = 0,
-  limit = 10,
+  limit = 5,
   allow_for_translated_jobs = false,
   is_hot = false,
 }: GetJobsParams): Promise<any> {

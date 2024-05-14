@@ -21,7 +21,7 @@ export default function CompanyMainPanel() {
       <CompanyTabs />
       <div className="hidden flex-col gap-7 lg:flex">
         <SectionHeading text="Job Opportunities" />
-        <JobsList allJobs />
+        <JobsList />
       </div>
     </div>
   );
