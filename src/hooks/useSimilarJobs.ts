@@ -2,7 +2,7 @@ import { getSimilarJobs } from '@/lib/jobs';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-export const GET_SIMILAR_JOBS_KEY = 'similarJobs';
+export const GET_SIMILAR_JOBS_KEY = 'similar-jobs';
 
 export function useSimilarJobs() {
   return useMutation({

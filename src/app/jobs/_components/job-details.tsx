@@ -1,3 +1,4 @@
+'use client';
 import JobCardHeader from '@/components/jobs/_components/job-card-header';
 import Badges from '@/components/ui/badges';
 import InfoList from '@/components/ui/info-list';

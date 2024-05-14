@@ -24,7 +24,7 @@ export async function readCandidateVector(candidateId: string): Promise<Candidat
 type UpsertCandidateVectorBody = {
   text: string;
 };
-type UpsertCandidateVectorProps = {
+export type UpsertCandidateVectorProps = {
   candidateId: string;
   body: UpsertCandidateVectorBody;
 };
