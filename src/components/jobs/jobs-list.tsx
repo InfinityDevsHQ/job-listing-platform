@@ -28,12 +28,24 @@ const JobsList = ({ hotJobsAll, similarJobId, allJobs }: JobListProps) => {
       {hotJobsAll && hotJobs?.map((job, index) => <JobCard key={index} job={job} />)}
       {allJobs && allJobsList.map((job, index) => <JobCard key={index} job={job} />)}
       {/* {similarJobId && similarJobsData?.map((job, index) => <JobCard key={index} job={job} />)} */}
-      {hasNextHotJobsPage && (
+
+      {/* Button to fetch more hot jobs */}
+      {hotJobsAll && hasNextHotJobsPage && (
         <div className="flex items-center justify-center">
           <Button onClick={() => fetchNextHotJobs()} disabled={isFetchingNextHotJobsPage}>
             LoadMore
             <RefreshCcwIcon
               className={cn('ml-2 h-4 w-4', { 'animate-spin': isFetchingNextHotJobsPage })}
+            />
+          </Button>
+        </div>
+      )}
+      {allJobs && hasNextAllJobsPage && (
+        <div className="flex items-center justify-center">
+          <Button onClick={() => fetchNextJobs()} disabled={isFetchingNextAllJobsPage}>
+            LoadMore
+            <RefreshCcwIcon
+              className={cn('ml-2 h-4 w-4', { 'animate-spin': isFetchingNextAllJobsPage })}
             />
           </Button>
         </div>
