@@ -1,7 +1,6 @@
-import { getUserProfile } from '@/lib/user';
+import UserInfoPanel from '@/components/profile/user-info-panel';
 
 const Profile = async () => {
-  const user = await getUserProfile();
   const updateUserBody = {
     email: 'new@gmail.com',
     name: 'John Doe',
@@ -31,7 +30,7 @@ const Profile = async () => {
     <div className="grid gap-4 p-4 lg:grid-cols-4 lg:gap-8 lg:p-8">
       {/* <pre>{JSON.stringify(user)}</pre> */}
       {/* <pre>{JSON.stringify(updatedUser)}</pre> */}
-      {/* <UserInfoPanel user={user.user_data} candidate={user.candidate_data} /> */}
+      <UserInfoPanel />
       {/* <UserInfoMobilePanel user={user.candidate_data} /> */}
       {/* <ProfileTabs candidate={user?.candidate_data} /> */}
     </div>
