@@ -197,7 +197,7 @@ export type UserData = {
   city: string;
   profile_picture: string;
   selected_country?: string | null;
-  online_status: string;
+  online_status: 'Online' | 'Offline';
   is_recruiter?: boolean;
   timezone?: string | null;
   is_active?: boolean;
