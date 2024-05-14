@@ -9,7 +9,6 @@ import JobCard from './_components/job-card';
 const JobsList = ({ hotJobsAll, similarJobId, allJobs }: JobListProps) => {
   const { fetchNextPage, data, hasNextPage, isFetchingNextPage } = useGetHotJobs();
   const hotJobs = data?.pages.flat() || [];
-
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
       {hotJobsAll && hotJobs?.map((job, index) => <JobCard key={index} job={job} />)}
