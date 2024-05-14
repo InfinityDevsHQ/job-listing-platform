@@ -5,6 +5,7 @@ import { CarouselItem } from '@/components/ui/carousel';
 import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
 import { ALL_JOBS_KEY } from '@/hooks/useAllJobs';
+import { GET_PROMOTED_COMPANIES_KEY } from '@/hooks/usePromotedCompanies';
 import { getPromotedCompanies } from '@/lib/companies';
 import { getJobs } from '@/lib/jobs';
 import { Job } from '@/types/types';
@@ -18,7 +19,6 @@ import { ReactQueryHydrate } from './utils/rq/react-query-hydrate';
 
 export default async function Home() {
   const queryClient = getQueryClient();
-
   await queryClient.prefetchInfiniteQuery<number, Error, InfiniteData<Job[], number>, any, number>({
     queryKey: [ALL_HOT_JOBS_KEY],
     initialPageParam: 0,
@@ -29,7 +29,10 @@ export default async function Home() {
     initialPageParam: 0,
     queryFn: () => getJobs({ is_hot: false, skip: 0, limit: 10 }),
   });
-  const promotedCompanies = await getPromotedCompanies();
+  await queryClient.prefetchQuery({
+    queryKey: [GET_PROMOTED_COMPANIES_KEY],
+    queryFn: getPromotedCompanies,
+  });
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-8 p-4 lg:p-8">
       <Hero
@@ -150,7 +153,9 @@ export default async function Home() {
         leadingIcon={<Building2Icon className="h-7 w-7 text-black" />}
         heading="Companies that will grow you forward"
       />
-      <CompaniesList companies={promotedCompanies} />
+      <ReactQueryHydrate state={dehydrate(queryClient)}>
+        <CompaniesList />
+      </ReactQueryHydrate>
     </div>
   );
 }

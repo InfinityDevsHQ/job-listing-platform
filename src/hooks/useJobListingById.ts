@@ -1,8 +1,8 @@
-import { getPromotedCompanies } from '@/lib/companies';
+import { getJobById } from '@/lib/jobs';
 import { useQuery } from '@tanstack/react-query';
-export function usePromotedCompanies() {
+export function useJobListingById({ jobId }: { jobId: string }) {
   return useQuery({
-    queryKey: ['promotedCompanies'],
-    queryFn: getPromotedCompanies,
+    queryKey: ['singleJobListing'],
+    queryFn: () => getJobById(jobId),
   });
 }

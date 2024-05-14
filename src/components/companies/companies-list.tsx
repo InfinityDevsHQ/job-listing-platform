@@ -1,7 +1,10 @@
-import { CompaniesListProps } from '@/types/types';
+'use client';
+import { usePromotedCompanies } from '@/hooks/usePromotedCompanies';
 import CompanyCard from './company-card';
 
-const CompaniesList = async ({ companies }: CompaniesListProps) => {
+const CompaniesList = () => {
+  const { isLoading, error, data: companies } = usePromotedCompanies();
+  console.log(companies);
   return (
     <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
       {companies

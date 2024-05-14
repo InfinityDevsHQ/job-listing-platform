@@ -31,9 +31,10 @@ const JobsList = ({ hotJobsAll, similarJobId, allJobs }: JobListProps) => {
   } = useSimilarJobs();
   const allJobsList = allJobsData?.pages.flat() || [];
   useEffect(() => {
-    fetchSimilarJobs(similarJobId as string);
-  }, []);
-  console.log(similarJobsList);
+    if (similarJobId) {
+      fetchSimilarJobs(similarJobId as string);
+    }
+  }, [similarJobId]);
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
       {hotJobsAll && hotJobs?.map((job, index) => <JobCard key={index} job={job} />)}
