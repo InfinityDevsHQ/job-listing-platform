@@ -5,6 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { cn } from '@/lib/utils';
 import React from 'react';
 
 type OptionProp = {
@@ -26,7 +27,10 @@ const AppSelect = React.forwardRef<HTMLDivElement, SelectProps>(
     return (
       <Select onValueChange={onChange} defaultValue={selectedValue?.value}>
         <SelectTrigger
-          className={`w-full border border-gray-300 bg-white focus:border-neutral-950 focus:ring-0 ${className}`}
+          className={cn(
+            'w-full border border-gray-300 bg-white focus:border-neutral-950 focus:ring-0',
+            className
+          )}
         >
           <SelectValue
             placeholder={

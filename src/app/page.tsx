@@ -135,7 +135,7 @@ export default async function Home() {
 
       <SectionHeader
         leadingIcon={<ListCollapseIcon className="h-7 w-7 text-blue-500" />}
-        heading={`All offers from 2,300+ companies`}
+        heading={'All offers from 2,300+ companies'}
       />
       <ReactQueryHydrate state={dehydrate(queryClient)}>
         <JobsList />

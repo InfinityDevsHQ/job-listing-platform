@@ -1,4 +1,5 @@
 'use client';
+import { USER_PROFILE, useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import { ALL_JOBS_KEY } from '@/app/utils/rq/hooks/use-jobs';
 import Navbar from '@/components/header/_components/navbar';
 import { Button } from '@/components/ui/button-new';
@@ -9,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { deleteToken, getToken } from '@/lib/auth-token';
+import { deleteToken } from '@/lib/auth-token';
 import { getCountries } from '@/lib/countries';
 import { cn } from '@/lib/utils';
 import useAuthStore from '@/stores/authStore/store';
@@ -38,6 +39,7 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { selectedCountry, setSelectedCountry } = useCountryStore();
+  const { data } = useUserProfile();
 
   useEffect(() => {
     getCountries()
@@ -47,30 +49,26 @@ const Header = () => {
       .catch((error) => {
         toast(error.message || 'Uh oh! Something went wrong');
       });
-
-    const verifyToken = async () => {
-      try {
-        const accessToken = await getToken();
-        if (accessToken) {
-          setIsAuthenticated(true);
-        } else {
-          setIsAuthenticated(false);
-        }
-      } catch (error) {
-        setIsAuthenticated(false);
-      }
-    };
-
-    verifyToken();
   }, []);
-
   const queryClient = useQueryClient();
+
+  useEffect(() => {
+    if (data?.user_data?.name) {
+      setIsAuthenticated(true);
+    }
+    // // it means user is logged in but didn't complete onboarding yet
+    if (!data?.user_data?.is_onboarded) {
+      router.replace('/onboarding');
+    }
+  }, [data, setIsAuthenticated, router]);
 
   const logout = async () => {
     await deleteToken();
+    await queryClient.invalidateQueries({
+      queryKey: [USER_PROFILE],
+    });
     setIsAuthenticated(false);
     router.push('/login');
-    console.log('deleteToken');
   };
 
   const handleSelectCountry = async (country: Country) => {
@@ -91,7 +89,7 @@ const Header = () => {
   }
 
   // TODO: fix/show auth protected header in proper way
-  if (!isAuthenticated) {
+  if (!isAuthenticated || !data?.user_data.name) {
     return (
       <header className="bg-white">
         <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4 py-3.5 lg:px-16 lg:py-8">
@@ -314,16 +312,16 @@ const Header = () => {
                 <Link href="/profile" legacyBehavior passHref>
                   <span className="flex items-center gap-2">
                     <Image
-                      src={'/assets/candidates/candidate.png'}
+                      src={data.user_data.profile_picture}
                       alt="test"
                       width={40}
                       height={40}
                       className={cn('rounded-full border-2 border-gray-200', {
-                        'border-green-500': true, //TODO: add user online state
+                        'border-green-500': data.user_data.online_status !== 'Offline', //TODO: add user online state
                       })}
                     />
                     <span className="-gap-1 flex flex-col">
-                      <span className="font-medium">Muhammad S.</span>
+                      <span className="font-medium">{data.user_data.name}</span>
                       <span className="text-xs">Software Engineer</span>
                     </span>
                   </span>
