@@ -122,7 +122,7 @@ const Header = () => {
                     {selectedCountry?.flag_icon ? (
                       <>
                         <Image
-                          src={`http://devel.clickjob.ai/${selectedCountry?.flag_icon}`}
+                          src={selectedCountry?.flag_icon}
                           alt="test"
                           width={16}
                           height={16}
@@ -142,12 +142,7 @@ const Header = () => {
                       {index === countries.length - 1 && <DropdownMenuSeparator />}
                       <DropdownMenuItem onSelect={() => handleSelectCountry(country)}>
                         <span className="flex items-center gap-2">
-                          <Image
-                            src={`http://devel.clickjob.ai/${country.flag_icon}`}
-                            alt="test"
-                            width={20}
-                            height={20}
-                          />
+                          <Image src={country.flag_icon} alt="test" width={20} height={20} />
                           <span className="-gap-1 flex flex-col">
                             <span className="font-medium capitalize">{country.name}</span>
                           </span>
@@ -297,12 +292,7 @@ const Header = () => {
                   {index === countries.length - 1 && <DropdownMenuSeparator />}
                   <DropdownMenuItem onSelect={() => handleSelectCountry(country)}>
                     <span className="flex items-center gap-2">
-                      <Image
-                        src={`http://devel.clickjob.ai/${country.flag_icon}`}
-                        alt="test"
-                        width={20}
-                        height={20}
-                      />
+                      <Image src={country.flag_icon} alt="test" width={20} height={20} />
                       <span className="-gap-1 flex flex-col">
                         <span className="font-medium capitalize">{country.name}</span>
                       </span>
