@@ -1,4 +1,5 @@
 'use client';
+import { ALL_JOBS_KEY } from '@/app/utils/rq/hooks/use-jobs';
 import Navbar from '@/components/header/_components/navbar';
 import { Button } from '@/components/ui/button-new';
 import {
@@ -8,8 +9,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ALL_JOBS_KEY } from '@/hooks/useAllJobs';
-import { ALL_HOT_JOBS_KEY } from '@/hooks/useGetHotJobs';
 import { deleteToken, getToken } from '@/lib/auth-token';
 import { getCountries } from '@/lib/countries';
 import { cn } from '@/lib/utils';
@@ -67,16 +66,6 @@ const Header = () => {
 
   const queryClient = useQueryClient();
 
-  useEffect(() => {
-    console.log({ selectedCountry });
-    queryClient.invalidateQueries({
-      queryKey: [ALL_JOBS_KEY],
-    });
-    queryClient.invalidateQueries({
-      queryKey: [ALL_HOT_JOBS_KEY],
-    });
-  }, [queryClient, selectedCountry]);
-
   const logout = async () => {
     await deleteToken();
     setIsAuthenticated(false);
@@ -86,6 +75,9 @@ const Header = () => {
 
   const handleSelectCountry = async (country: Country) => {
     setSelectedCountry(country);
+    queryClient.invalidateQueries({
+      queryKey: [ALL_JOBS_KEY],
+    });
   };
 
   const noHeaderRoutes = ['/login', '/register'];
