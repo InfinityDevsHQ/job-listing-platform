@@ -1,4 +1,5 @@
 'use client';
+import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import Navbar from '@/components/header/_components/navbar';
 import { Button } from '@/components/ui/button-new';
 import {
@@ -8,15 +9,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ALL_JOBS_KEY } from '@/hooks/useAllJobs';
-import { ALL_HOT_JOBS_KEY } from '@/hooks/useGetHotJobs';
-import { deleteToken, getToken } from '@/lib/auth-token';
+import { deleteToken } from '@/lib/auth-token';
 import { getCountries } from '@/lib/countries';
 import { cn } from '@/lib/utils';
 import useAuthStore from '@/stores/authStore/store';
 import { useCountryStore } from '@/stores/countryStore/countryStore';
 import { Country } from '@/types/types';
-import { useQueryClient } from '@tanstack/react-query';
 import {
   ArrowRight,
   BellIcon,
@@ -39,7 +37,17 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { selectedCountry, setSelectedCountry } = useCountryStore();
+  const { data, isLoading } = useUserProfile();
 
+  useEffect(() => {
+    if (!isLoading) {
+      setIsAuthenticated(true);
+      // TODO: add proper types...
+      // @ts-ignore
+    } else if (!data?.user_data?.is_onboarded) {
+      router.push('/onboarding');
+    }
+  }, [isLoading, setIsAuthenticated, data, router]);
   useEffect(() => {
     getCountries()
       .then((data) => {
@@ -48,34 +56,7 @@ const Header = () => {
       .catch((error) => {
         toast(error.message || 'Uh oh! Something went wrong');
       });
-
-    const verifyToken = async () => {
-      try {
-        const accessToken = await getToken();
-        if (accessToken) {
-          setIsAuthenticated(true);
-        } else {
-          setIsAuthenticated(false);
-        }
-      } catch (error) {
-        setIsAuthenticated(false);
-      }
-    };
-
-    verifyToken();
   }, []);
-
-  const queryClient = useQueryClient();
-
-  useEffect(() => {
-    console.log({ selectedCountry });
-    queryClient.invalidateQueries({
-      queryKey: [ALL_JOBS_KEY],
-    });
-    queryClient.invalidateQueries({
-      queryKey: [ALL_HOT_JOBS_KEY],
-    });
-  }, [queryClient, selectedCountry]);
 
   const logout = async () => {
     await deleteToken();
@@ -322,16 +303,16 @@ const Header = () => {
                 <Link href="/profile" legacyBehavior passHref>
                   <span className="flex items-center gap-2">
                     <Image
-                      src={'/assets/candidates/candidate.png'}
+                      src={data.user_data.profile_picture}
                       alt="test"
                       width={40}
                       height={40}
                       className={cn('rounded-full border-2 border-gray-200', {
-                        'border-green-500': true, //TODO: add user online state
+                        'border-green-500': data.user_data.online_status !== 'Offline', //TODO: add user online state
                       })}
                     />
                     <span className="-gap-1 flex flex-col">
-                      <span className="font-medium">Muhammad S.</span>
+                      <span className="font-medium">{data.user_data.name}</span>
                       <span className="text-xs">Software Engineer</span>
                     </span>
                   </span>
