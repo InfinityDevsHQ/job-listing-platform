@@ -13,33 +13,15 @@ export interface JobListProps {
 }
 
 const JobsList = ({ hot }: JobListProps) => {
-  const {
-    fetchNextPage: fetchNextHotJobs,
-    data: hotJobsFiltered,
-    hasNextPage: hasNextHotJobsPage,
-    isFetchingNextPage: isFetchingNextHotJobsPage,
-    isFetching: isFetchingHotJobs,
-  } = useGetJobs(true);
+  const { fetchNextPage, data, hasNextPage, isFetchingNextPage, isFetching } = useGetJobs(hot);
 
-  const {
-    fetchNextPage,
-    data: allJobs,
-    hasNextPage,
-    isFetchingNextPage,
-    isFetching,
-  } = useGetJobs(false);
+  const jobs = data?.pages.flat() || [];
 
-  const jobs = hot ? hotJobsFiltered?.pages.flat() || [] : allJobs?.pages.flat() || [];
-  //
   const onClickLoadMore = () => {
-    if (hot) {
-      fetchNextHotJobs();
-    } else {
-      fetchNextPage();
-    }
+    fetchNextPage();
   };
 
-  if (isFetching || (isFetchingHotJobs && !(isFetchingNextHotJobsPage || isFetchingNextPage))) {
+  if (isFetching && !isFetchingNextPage) {
     return <Loader />;
   }
 
@@ -50,16 +32,13 @@ const JobsList = ({ hot }: JobListProps) => {
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
       {jobs?.map((job, index) => <JobCard key={index} job={job} />)}
-      {hot && hasNextHotJobsPage && (
+      {hasNextPage && (
         <div className="flex items-center justify-center">
-          <Button
-            onClick={onClickLoadMore}
-            disabled={hot ? isFetchingNextHotJobsPage : isFetchingNextPage}
-          >
+          <Button onClick={onClickLoadMore} disabled={isFetchingNextPage}>
             Load More
             <RefreshCcwIcon
               className={cn('ml-2 h-4 w-4', {
-                'animate-spin': hot ? isFetchingNextHotJobsPage : isFetchingNextPage,
+                'animate-spin': isFetchingNextPage,
               })}
             />
           </Button>
