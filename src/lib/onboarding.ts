@@ -1,5 +1,5 @@
 'use server';
-import { OnboardingData, UploadCVPayload, UploadCVResponse, UserData } from '@/types/types';
+import { OnboardingData, UploadCVPayload, UserData } from '@/types/types';
 import { DataService } from './data-service';
 const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
 const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
@@ -8,32 +8,22 @@ const ONBOARDING_URLS = {
   uploadOnBoarding: `${PLATFORM_API_BASE_URL}/api/v1/user/onboard`,
 };
 
-export const uploadCV = async (
-  payload: UploadCVPayload,
-  token: string
-): Promise<UploadCVResponse> => {
+export const uploadCV = async (payload: UploadCVPayload, token: string) => {
   try {
     const formData = new FormData();
     formData.append('user_id', payload.user_id.toString());
     formData.append('cv', payload.cv);
 
-    const url = ONBOARDING_URLS.uploadCVUrl;
-
-    const response = await fetch(url, {
+    const response = await fetch(`${ONBOARDING_URLS.uploadCVUrl}`, {
       method: 'POST',
       headers: {
         accept: 'application/json',
         Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
       },
       body: formData,
     });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const responseData = await response.json();
-    return responseData;
+    console.log(response);
   } catch (error) {
     console.error('Error uploading CV: ', error);
     throw error;

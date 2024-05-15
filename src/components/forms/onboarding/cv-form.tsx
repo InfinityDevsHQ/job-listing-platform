@@ -20,19 +20,11 @@ export default function CVForm() {
     },
   });
   async function onSubmit(values: z.infer<typeof fileSchema>) {
+    console.log('Running....');
     const fileList = values.fileData;
     const file = fileList[0];
-
-    try {
-      await uploadCV({ user_id: 6, cv: file || '' }, '').then((res) => {
-        const flag = Boolean(
-          res?.message.split(' ').filter((a) => a === 'successfully').length || true
-        );
-        console.log(res.message, 'That');
-      });
-    } catch (error) {
-      console.error(error);
-    }
+    await uploadCV({ user_id: 6, cv: file || '' }, '');
+    console.log('Ended');
   }
   return (
     <Form {...form}>
