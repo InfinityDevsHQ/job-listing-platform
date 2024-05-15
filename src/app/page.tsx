@@ -13,7 +13,6 @@ import { InfiniteData, dehydrate } from '@tanstack/react-query';
 import { Building2Icon, ListCollapseIcon } from 'lucide-react';
 import Image from 'next/image';
 import AutoPlayCarousel from './recruit/_components/autoplay-carousel';
-import { ALL_HOT_JOBS_KEY } from './utils/rq/hooks/jobs-hook';
 import { getQueryClient } from './utils/rq/react-query-client';
 import { ReactQueryHydrate } from './utils/rq/react-query-hydrate';
 
@@ -139,7 +138,7 @@ export default async function Home() {
         heading="Latest Hot Offers"
       />
       <ReactQueryHydrate state={dehydrate(queryClient)}>
-        <JobsList hotJobsAll />
+        <JobsList hot />
       </ReactQueryHydrate>
 
       <SectionHeader

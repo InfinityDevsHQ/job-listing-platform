@@ -6,9 +6,10 @@ const CompaniesList = () => {
   const { isLoading, error, data: companies } = usePromotedCompanies();
   console.log(companies);
   return (
+    // TODO: check if we need to show only 3 companies, may be we can create a carousel and show them inside it
     <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-      {companies
-        ?.filter((company, index) => index < 3)
+      {promotedCompanies
+        ?.slice(0, 3)
         ?.map((company, index) => <CompanyCard key={index} {...company} />)}
     </div>
   );

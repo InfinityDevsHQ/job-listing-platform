@@ -11,7 +11,7 @@ const COMPANIES_URLS = {
 export async function getPromotedCompanies(): Promise<Company[]> {
   const data = await DataService.get<Company[]>(`${COMPANIES_URLS.allPromotedCompanies}`, {
     skip: `0`,
-    limit: `20`,
+    limit: `5`,
     sort_by: 'alphabetical',
   });
   return data;

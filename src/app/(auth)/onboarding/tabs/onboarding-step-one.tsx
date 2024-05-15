@@ -10,7 +10,7 @@ import BoardingHeader from '../_components/boarding-header';
 export default function OnboardingStepOne() {
   // TODO: Make custom hooks for fetching data, and prefetch them
   const { data: countries } = useQuery<Country[], Error>({
-    queryKey: ['languages'],
+    queryKey: ['countries'],
     queryFn: getCountries,
   });
   const { data: languages } = useQuery<string[], Error>({

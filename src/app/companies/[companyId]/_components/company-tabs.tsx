@@ -43,7 +43,7 @@ const CompanyTabs = () => {
       <TabsContent value="job-openings">
         <div className="flex flex-col gap-4">
           <SectionHeading text="Job Opportunities" />
-          <JobsList allJobs />
+          <JobsList />
         </div>
       </TabsContent>
     </Tabs>
