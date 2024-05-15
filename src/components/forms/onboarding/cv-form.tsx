@@ -22,6 +22,7 @@ export default function CVForm() {
   async function onSubmit(values: z.infer<typeof fileSchema>) {
     const fileList = values.fileData;
     const file = fileList[0];
+
     try {
       await uploadCV({ user_id: 6, cv: file || '' }, '').then((res) => {
         const flag = Boolean(
