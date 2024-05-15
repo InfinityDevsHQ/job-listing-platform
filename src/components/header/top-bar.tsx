@@ -1,5 +1,5 @@
 'use client';
-import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
+import { USER_PROFILE, useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import { ALL_JOBS_KEY } from '@/app/utils/rq/hooks/use-jobs';
 import Navbar from '@/components/header/_components/navbar';
 import { Button } from '@/components/ui/button-new';
@@ -64,9 +64,11 @@ const Header = () => {
 
   const logout = async () => {
     await deleteToken();
+    await queryClient.invalidateQueries({
+      queryKey: [USER_PROFILE],
+    });
     setIsAuthenticated(false);
     router.push('/login');
-    console.log('deleteToken');
   };
 
   const handleSelectCountry = async (country: Country) => {

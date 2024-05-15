@@ -4,7 +4,6 @@ import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { getQueryClient } from '../react-query-client';
 
 export const USER_PROFILE = 'user-profile';
-export const JOB_BY_ID = 'JOB_BY_ID';
 
 export function usePrefetchUserProfile() {
   const queryClient = getQueryClient();
