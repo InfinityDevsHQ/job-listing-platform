@@ -4,35 +4,26 @@ import FireIcon from '@/components/svgs/fire';
 import { CarouselItem } from '@/components/ui/carousel';
 import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
-import { ALL_JOBS_KEY } from '@/hooks/useAllJobs';
-import { ALL_HOT_JOBS_KEY } from '@/hooks/useGetHotJobs';
 import { GET_PROMOTED_COMPANIES_KEY } from '@/hooks/usePromotedCompanies';
 import { getPromotedCompanies } from '@/lib/companies';
-import { getJobs } from '@/lib/jobs';
-import { Job } from '@/types/types';
-import { InfiniteData, dehydrate } from '@tanstack/react-query';
+import { dehydrate } from '@tanstack/react-query';
 import { Building2Icon, ListCollapseIcon } from 'lucide-react';
 import Image from 'next/image';
 import AutoPlayCarousel from './recruit/_components/autoplay-carousel';
+import { useGetJobsPrefetch } from './utils/rq/hooks/use-jobs';
 import { getQueryClient } from './utils/rq/react-query-client';
 import { ReactQueryHydrate } from './utils/rq/react-query-hydrate';
 
 export default async function Home() {
   const queryClient = getQueryClient();
-  await queryClient.prefetchInfiniteQuery<number, Error, InfiniteData<Job[], number>, any, number>({
-    queryKey: [ALL_HOT_JOBS_KEY],
-    initialPageParam: 0,
-    queryFn: () => getJobs({ is_hot: true, skip: 0, limit: 10 }),
-  });
-  await queryClient.prefetchInfiniteQuery<number, Error, InfiniteData<Job[], number>, any, number>({
-    queryKey: [ALL_JOBS_KEY],
-    initialPageParam: 0,
-    queryFn: () => getJobs({ is_hot: false, skip: 0, limit: 10 }),
-  });
-  await queryClient.prefetchQuery({
-    queryKey: [GET_PROMOTED_COMPANIES_KEY],
-    queryFn: getPromotedCompanies,
-  });
+  await Promise.allSettled([
+    await useGetJobsPrefetch(true),
+    await useGetJobsPrefetch(false),
+    queryClient.prefetchQuery({
+      queryKey: [GET_PROMOTED_COMPANIES_KEY],
+      queryFn: getPromotedCompanies,
+    }),
+  ]);
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-8 p-4 lg:p-8">
       <Hero
@@ -139,7 +130,7 @@ export default async function Home() {
         heading="Latest Hot Offers"
       />
       <ReactQueryHydrate state={dehydrate(queryClient)}>
-        <JobsList hotJobsAll />
+        <JobsList hot />
       </ReactQueryHydrate>
 
       <SectionHeader
@@ -147,7 +138,7 @@ export default async function Home() {
         heading={`All offers from 2,300+ companies`}
       />
       <ReactQueryHydrate state={dehydrate(queryClient)}>
-        <JobsList allJobs />
+        <JobsList />
       </ReactQueryHydrate>
       <SectionHeader
         leadingIcon={<Building2Icon className="h-7 w-7 text-black" />}

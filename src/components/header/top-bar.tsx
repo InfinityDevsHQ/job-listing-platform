@@ -30,10 +30,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
 const Header = () => {
-  const [isAuthenticated, setIsAuthenticated] = useAuthStore((state) => [
-    state.isAuthenticated,
-    state.setIsAuthenticated,
-  ]);
+  const { isAuthenticated, setIsAuthenticated } = useAuthStore();
   const [countries, setCountries] = useState<Country[]>([]);
 
   const router = useRouter();
@@ -53,7 +50,6 @@ const Header = () => {
     const verifyToken = async () => {
       try {
         const accessToken = await getToken();
-        console.log('accessToken ===========>', accessToken);
         if (accessToken) {
           setIsAuthenticated(true);
         } else {
