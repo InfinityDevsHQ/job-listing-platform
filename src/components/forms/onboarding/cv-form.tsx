@@ -33,12 +33,13 @@ export default function CVForm() {
       reader.readAsArrayBuffer(file);
     });
   };
+  const isLoading = form.formState.isSubmitting;
   async function onSubmit(values: z.infer<typeof fileSchema>) {
     const reader = new FileReader();
     const file = values.fileData;
 
     const formData = new FormData();
-    formData.append('user_id', '7');
+    formData.append('user_id', `${userProfile?.user_data.id}` || '');
 
     formData.append('force_refresh', 'false');
     const binaryData = await readFileAsArrayBuffer(file);
@@ -54,9 +55,11 @@ export default function CVForm() {
         toast.error('Something went wrong while uploading your resume');
       } else {
         toast.success('Your resume is uploaded successfully');
+        addQueryParams('step', 'filter-jobs');
       }
     } catch (error) {
       console.error(error);
+      toast.error('Please Login first');
     }
   }
   return (
@@ -81,7 +84,11 @@ export default function CVForm() {
             </FormItem>
           )}
         />
-        <Pagination isNextSubmit handleBack={() => addQueryParams('step', 'location')} />
+        <Pagination
+          isNextSubmit
+          handleBack={() => addQueryParams('step', 'location')}
+          nextLoading={isLoading}
+        />
       </form>
     </Form>
   );

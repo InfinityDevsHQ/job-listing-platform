@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button-new';
-import { ArrowLeft, ArrowRightIcon } from 'lucide-react';
+import { ArrowLeft, ArrowRightIcon, Loader2 } from 'lucide-react';
 
 type PaginationProps = {
   skip?: boolean;
@@ -9,6 +9,7 @@ type PaginationProps = {
   handleNext?: () => void;
   handleBack?: () => void;
   handleSkip?: () => void;
+  nextLoading?: boolean;
 };
 
 export default function Pagination({
@@ -19,6 +20,7 @@ export default function Pagination({
   isNextSubmit,
   handleBack,
   handleNext,
+  nextLoading,
 }: PaginationProps) {
   return (
     <div className="flex w-full items-center">
@@ -37,7 +39,11 @@ export default function Pagination({
         {next && (
           <Button onClick={handleNext} type={`${isNextSubmit ? 'submit' : 'button'}`}>
             Continue
-            <ArrowRightIcon className="ml-2 h-4 w-4" />
+            {!nextLoading ? (
+              <ArrowRightIcon className="ml-2 h-4 w-4" />
+            ) : (
+              <Loader2 className="ml-2 h-4 w-4 animate-spin" />
+            )}
           </Button>
         )}
       </div>
