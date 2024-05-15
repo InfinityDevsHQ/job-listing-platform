@@ -20,16 +20,11 @@ export default function CVForm() {
     },
   });
   async function onSubmit(values: z.infer<typeof fileSchema>) {
-    console.log(values);
+    console.log('Running....');
     const fileList = values.fileData;
     const file = fileList[0];
-    const payload = {
-      user_id: 1,
-      cv: file,
-      force_refresh: false,
-    };
-    const response = uploadCV(payload);
-    console.log(response);
+    await uploadCV({ user_id: 6, cv: file || '' }, '');
+    console.log('Ended');
   }
   return (
     <Form {...form}>
@@ -45,7 +40,7 @@ export default function CVForm() {
                 <Input
                   type="File"
                   onChange={(e) => {
-                    field.onChange(e.target.files); // Register the FileList with react-hook-form
+                    field.onChange(e.target.files);
                   }}
                 />
               </FormControl>
