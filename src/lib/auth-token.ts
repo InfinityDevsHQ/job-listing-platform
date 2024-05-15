@@ -10,9 +10,6 @@ const storeToken = async (request: StoreTokenRequest) => {
   cookies().set({
     name: 'accessToken',
     value: request.token,
-    httpOnly: true,
-    sameSite: 'strict',
-    secure: true,
   });
 };
 

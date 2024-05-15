@@ -18,11 +18,26 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import useMediaQuery from '@/hooks/useMediaQuey';
+import useAuthStore from '@/stores/authStore/store';
 import { ArrowRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 const ApplyJobModal = ({ jobId }: { jobId: string }) => {
   const [open, setOpen] = useState(false);
+  const { isAuthenticated } = useAuthStore();
+  const router = useRouter();
   const isDesktop = useMediaQuery('(min-width: 768px)');
+  const onClickLogin = () => {
+    router.replace('/login');
+  };
+  if (!isAuthenticated) {
+    return (
+      <Button size="lg" type="button" onClick={onClickLogin}>
+        Login to apply for this job
+        <ArrowRight className="ml-2 h-5 w-5" />
+      </Button>
+    );
+  }
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>

@@ -1,70 +1,45 @@
 'use client';
-import { useAllJobs } from '@/hooks/useAllJobs';
-import { useGetHotJobs } from '@/hooks/useGetHotJobs';
-import { useSimilarJobs } from '@/hooks/useSimilarJobs';
+import { useGetJobs } from '@/app/utils/rq/hooks/use-jobs';
+
 import { cn } from '@/lib/utils';
 import { RefreshCcwIcon } from 'lucide-react';
-import { useEffect } from 'react';
 import { Button } from '../ui/button-new';
 import { Skeleton } from '../ui/skeleton';
 import JobCard from './_components/job-card';
-type JobListProps = {
-  hotJobsAll?: boolean;
-  similarJobId?: string;
-  allJobs?: boolean;
-};
-const JobsList = ({ hotJobsAll, similarJobId, allJobs }: JobListProps) => {
-  const {
-    fetchNextPage: fetchNextHotJobs,
-    data: hotJobsFiltered,
-    hasNextPage: hasNextHotJobsPage,
-    isFetchingNextPage: isFetchingNextHotJobsPage,
-  } = useGetHotJobs();
-  const hotJobs = hotJobsFiltered?.pages.flat() || [];
-  const {
-    fetchNextPage: fetchNextJobs,
-    data: allJobsData,
-    hasNextPage: hasNextAllJobsPage,
-    isFetchingNextPage: isFetchingNextAllJobsPage,
-  } = useAllJobs();
-  const {
-    mutate: fetchSimilarJobs,
-    isPending: similarJobsLoading,
-    error: similarJobsEError,
-    data: similarJobsList,
-  } = useSimilarJobs();
-  const allJobsList = allJobsData?.pages.flat() || [];
-  useEffect(() => {
-    if (similarJobId) {
-      fetchSimilarJobs(similarJobId as string);
-    }
-  }, [similarJobId]);
+
+export interface JobListProps {
+  similarJobs?: string;
+  hot?: boolean;
+}
+
+const JobsList = ({ hot }: JobListProps) => {
+  const { fetchNextPage, data, hasNextPage, isFetchingNextPage, isFetching } = useGetJobs(hot);
+
+  const jobs = data?.pages.flat() || [];
+
+  const onClickLoadMore = () => {
+    fetchNextPage();
+  };
+
+  if (isFetching && !isFetchingNextPage) {
+    return <Loader />;
+  }
+
+  if (!jobs.length) {
+    return <h3 className="mt-2 text-center text-sm font-semibold text-gray-900">No Jobs found</h3>;
+  }
+
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
-      {hotJobsAll && hotJobs?.map((job, index) => <JobCard key={index} job={job} />)}
-      {allJobs && allJobsList.map((job, index) => <JobCard key={index} job={job} />)}
-      {/* TODO: Replace component with new one */}
-      {similarJobId &&
-        similarJobsList?.result.map((job, index) => <JobCard key={index} job={job} />)}
-
-      {/* Button to fetch more hot jobs */}
-      {hotJobsAll && hasNextHotJobsPage && (
+      {jobs?.map((job, index) => <JobCard key={index} job={job} />)}
+      {hasNextPage && (
         <div className="flex items-center justify-center">
-          <Button onClick={() => fetchNextHotJobs()} disabled={isFetchingNextHotJobsPage}>
-            LoadMore
+          <Button onClick={onClickLoadMore} disabled={isFetchingNextPage}>
+            Load More
             <RefreshCcwIcon
-              className={cn('ml-2 h-4 w-4', { 'animate-spin': isFetchingNextHotJobsPage })}
-            />
-          </Button>
-        </div>
-      )}
-      {/* Button to fetch more jobs */}
-      {allJobs && hasNextAllJobsPage && (
-        <div className="flex items-center justify-center">
-          <Button onClick={() => fetchNextJobs()} disabled={isFetchingNextAllJobsPage}>
-            LoadMore
-            <RefreshCcwIcon
-              className={cn('ml-2 h-4 w-4', { 'animate-spin': isFetchingNextAllJobsPage })}
+              className={cn('ml-2 h-4 w-4', {
+                'animate-spin': isFetchingNextPage,
+              })}
             />
           </Button>
         </div>

@@ -24,12 +24,7 @@ const formSchema = z.object({
 const LoginForm = ({ activeTab }: { activeTab: string }) => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [setUser, setAccessToken, setIsAuthenticated, accessToken] = useAuthStore((state) => [
-    state.setUser,
-    state.setAccessToken,
-    state.setIsAuthenticated,
-    state.accessToken,
-  ]);
+  const { setAccessToken, setIsAuthenticated } = useAuthStore();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

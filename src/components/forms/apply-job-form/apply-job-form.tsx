@@ -5,7 +5,7 @@ import TextArea from '@/components/ui/text-area';
 import { applyForJob } from '@/lib/user';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Send } from 'lucide-react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 const applyJobFormSchema = z.object({
