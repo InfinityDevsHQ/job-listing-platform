@@ -1090,7 +1090,7 @@ export interface languageStep {
 }
 
 //AIPoweredInsights
-export interface recommendations {
+export interface RecommendationsProps {
   job_market_insights: { text: string } | null;
   cv_optimization_suggestions: { text: string } | null;
   skill_gap_analysis: { text: string } | null;

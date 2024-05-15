@@ -1,4 +1,6 @@
 'use client';
+import { copyToClipboard } from '@/app/utils/common/copyToClipboard';
+import { calculateTimeDifference } from '@/app/utils/common/date';
 import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import { useUpdateUserProfile } from '@/hooks/useUpdateUserProfile';
 import { cn } from '@/lib/utils';
@@ -12,6 +14,7 @@ import {
   MapPinIcon,
 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { toast } from 'sonner';
 import { Button } from '../ui/button-new';
 import ProfileTabs from './profile-tabs';
@@ -47,10 +50,13 @@ const UserInfoPanel = () => {
     if (profileError) {
       toast.error(profileError.message);
     }
-    return <p>Error while getting profile {profileError?.message}</p>;
+    return <></>;
   }
-  if (profileLoading) return <p>Loading.....</p>;
+
+  if (profileLoading) return <></>;
   const { user_data: user, candidate_data: candidate } = userProfile;
+
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   if (user) {
     return (
@@ -71,6 +77,50 @@ const UserInfoPanel = () => {
                 {user.name}
               </h4>
               <p className="text-xl text-gray-500">{candidate?.headline}</p>
+              <div className="mt-2 flex items-center justify-center gap-3">
+                {candidate?.social?.github && (
+                  <Link
+                    href={`${candidate?.social?.github}`}
+                    className="flex h-8 w-8 items-center justify-center gap-2 rounded-full bg-gray-200 text-black"
+                  >
+                    <Image
+                      src={'/assets/svgs/github.svg'}
+                      alt="github"
+                      width={24}
+                      height={24}
+                      className={cn('h-4 w-4 grayscale')}
+                    />
+                  </Link>
+                )}
+                {candidate?.social?.twitter && (
+                  <Link
+                    href={`${candidate?.social?.twitter}`}
+                    className="flex h-8 w-8 items-center justify-center gap-2 rounded-full bg-gray-200 text-black"
+                  >
+                    <Image
+                      src={'/assets/svgs/twitter.svg'}
+                      alt="github"
+                      width={24}
+                      height={24}
+                      className={cn('h-4 w-4 grayscale')}
+                    />
+                  </Link>
+                )}
+                {candidate?.social?.linkedin && (
+                  <Link
+                    href={`${candidate?.social?.linkedin}`}
+                    className="flex h-8 w-8 items-center justify-center gap-2 rounded-full bg-gray-200 text-black"
+                  >
+                    <Image
+                      src={'/assets/svgs/linkedin.svg'}
+                      alt="github"
+                      width={24}
+                      height={24}
+                      className={cn('h-4 w-4 grayscale')}
+                    />
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
           <div className="flex flex-col gap-4">
@@ -78,48 +128,62 @@ const UserInfoPanel = () => {
             {/* TODO: create info-list component  */}
             <ul className="flex flex-col gap-4">
               <li className="flex items-center gap-4">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-100">
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
                   <MapPinIcon className="h-5 w-5 text-neutral-950" />
                 </span>
                 <p className="flex h-full flex-col justify-between">
-                  <span className="font-bold text-gray-700 lg:text-base">Location</span>
-                  <span className="text-gray-700 lg:text-base">
-                    {user?.city}, {user?.country}
+                  <span className="w-full truncate font-bold text-gray-700 lg:text-base">
+                    Location
+                  </span>
+                  <span className="w-full truncate text-gray-700 lg:text-base">
+                    {[user?.city, user?.country].join(', ')}
                   </span>
                 </p>
               </li>
               <li className="flex items-center gap-4">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-100">
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
                   <ClockIcon className="h-5 w-5 text-neutral-950" />
                 </span>
                 <p className="flex h-full flex-col justify-between">
-                  <span className="font-bold text-gray-700 lg:text-base">Timezone</span>
-                  <span className="text-gray-700 lg:text-base">{user?.timezone}</span>
+                  <span className="w-full truncate font-bold text-gray-700 lg:text-base">
+                    Timezone
+                  </span>
+                  <span className="w-full truncate text-gray-700 lg:text-base">
+                    {user?.timezone}
+                  </span>
                 </p>
               </li>
               <li className="flex items-center gap-4">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-100">
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
                   <MailIcon className="h-5 w-5 text-neutral-950" />
                 </span>
                 <p className="flex h-full flex-col justify-between">
-                  <span className="font-bold text-gray-700 lg:text-base">Email</span>
-                  <span className="text-gray-700 lg:text-base">{user?.email}</span>
-                </p>
-              </li>
-              <li className="flex items-center gap-4">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-100">
-                  <LinkIcon className="h-5 w-5 text-neutral-950" />
-                </span>
-                <p className="flex h-full flex-col justify-between">
-                  <span className="flex items-center gap-2 font-bold text-gray-700 lg:text-base">
-                    <span>Public Profile</span>
-                    <Button variant="outline" size="icon-xs">
-                      <ClipboardIcon className="h-4 w-4" />
-                    </Button>
+                  <span className="w-full truncate font-bold text-gray-700 lg:text-base">
+                    Email
                   </span>
-                  <span className="text-gray-700 lg:text-base">clickjob.ai/john-doe</span>
+                  <span className="w-full truncate text-gray-700 lg:text-base">{user?.email}</span>
                 </p>
               </li>
+              {currentUrl && (
+                <li className="flex items-center gap-4">
+                  <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
+                    <LinkIcon className="h-5 w-5 text-neutral-950" />
+                  </span>
+                  <p className="flex h-full flex-col justify-between overflow-hidden">
+                    <span className="flex w-full items-center gap-2 truncate font-bold text-gray-700 lg:text-base">
+                      <span>Public Profile</span>
+                      <Button
+                        variant="outline"
+                        size="icon-xs"
+                        onClick={() => copyToClipboard(`${currentUrl}/user/${user?.uid}`)}
+                      >
+                        <ClipboardIcon className="h-4 w-4" />
+                      </Button>
+                    </span>
+                    <span className="w-full truncate text-gray-700 lg:text-base">{`${currentUrl}/user/${user?.uid}`}</span>
+                  </p>
+                </li>
+              )}
             </ul>
           </div>
           <div className="flex flex-col gap-8">
@@ -127,17 +191,32 @@ const UserInfoPanel = () => {
             {/* TODO: create info-list component  */}
             <ul className="flex flex-col gap-8">
               <li className="flex items-center gap-4">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-100">
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
                   <FileIcon className="h-5 w-5 text-neutral-950" />
                 </span>
                 <p className="flex h-full flex-col justify-between">
-                  <span className="flex items-center gap-2 font-bold text-gray-700 lg:text-base">
-                    Saad Gulzar Resume
+                  <span className="flex w-full items-center gap-2 truncate font-bold text-gray-700 lg:text-base">
+                    <Link
+                      href={`${candidate?.uploaded_resumes?.length ? candidate?.uploaded_resumes[0]?.cv_filepath : ''}`}
+                    >
+                      {user?.name}&apos;s Resume
+                    </Link>
                     <Button variant="outline" size="icon-xs">
-                      <ExternalLinkIcon className="h-4 w-4" />
+                      <Link
+                        href={`${candidate?.uploaded_resumes?.length ? candidate?.uploaded_resumes[0]?.cv_url : ''}`}
+                      >
+                        <ExternalLinkIcon className="h-4 w-4" />
+                      </Link>
                     </Button>
                   </span>
-                  <span className="text-gray-700 lg:text-base">Created 4 Hours Ago</span>
+                  <span className="w-full truncate text-gray-700 lg:text-base">
+                    Created{' '}
+                    {calculateTimeDifference(
+                      candidate?.uploaded_resumes?.length
+                        ? candidate?.uploaded_resumes[0]?.created
+                        : ''
+                    )}
+                  </span>
                 </p>
               </li>
             </ul>
