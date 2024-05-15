@@ -17,6 +17,7 @@ type GetJobsParams = {
   limit?: number;
   allow_for_translated_jobs?: boolean;
   is_hot?: boolean;
+  country?: string;
 };
 
 export async function getJobs({
@@ -24,12 +25,14 @@ export async function getJobs({
   limit = 5,
   allow_for_translated_jobs = false,
   is_hot = false,
+  country,
 }: GetJobsParams): Promise<any> {
   const data = await DataService.get<Job[]>(`${JOBS_URLS.allJobs}`, {
     skip: `${skip}`,
     limit: `${limit}`,
     is_hot: `${is_hot}`,
     allow_for_translated_jobs: `${allow_for_translated_jobs}`,
+    ...(country ? { country } : {}),
   });
   return data;
 }
