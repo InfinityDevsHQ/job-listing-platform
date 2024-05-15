@@ -32,19 +32,23 @@ const ApplyJobModal = ({ jobId }: { jobId: string }) => {
   };
   if (!isAuthenticated) {
     return (
-      <Button size="lg" type="button" onClick={onClickLogin}>
-        Login to apply for this job
-        <ArrowRight className="ml-2 h-5 w-5" />
-      </Button>
+      <div className="flex w-full items-center justify-end">
+        <Button size="lg" type="button" className="max-w-max" onClick={onClickLogin}>
+          Login to apply for this job
+          <ArrowRight className="ml-2 h-5 w-5" />
+        </Button>
+      </div>
     );
   }
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button size="lg">
-            Apply <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <div className="flex w-full items-center justify-end">
+            <Button size="lg" className="max-w-max">
+              Apply <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
         </DialogTrigger>
         <DialogContent className="xl:min-w-4xl  bg-gray-200  lg:max-w-4xl">
           <DialogHeader>
