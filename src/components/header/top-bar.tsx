@@ -8,12 +8,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { ALL_JOBS_KEY } from '@/hooks/useAllJobs';
+import { ALL_HOT_JOBS_KEY } from '@/hooks/useGetHotJobs';
 import { deleteToken, getToken } from '@/lib/auth-token';
 import { getCountries } from '@/lib/countries';
 import { cn } from '@/lib/utils';
 import useAuthStore from '@/stores/authStore/store';
 import { useCountryStore } from '@/stores/countryStore/countryStore';
 import { Country } from '@/types/types';
+import { useQueryClient } from '@tanstack/react-query';
 import {
   ArrowRight,
   BellIcon,
@@ -38,7 +41,6 @@ const Header = () => {
 
   const router = useRouter();
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const { selectedCountry, setSelectedCountry } = useCountryStore();
 
   useEffect(() => {
@@ -67,6 +69,18 @@ const Header = () => {
     verifyToken();
   }, []);
 
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    console.log({ selectedCountry });
+    queryClient.invalidateQueries({
+      queryKey: [ALL_JOBS_KEY],
+    });
+    queryClient.invalidateQueries({
+      queryKey: [ALL_HOT_JOBS_KEY],
+    });
+  }, [queryClient, selectedCountry]);
+
   const logout = async () => {
     await deleteToken();
     setIsAuthenticated(false);
@@ -75,7 +89,6 @@ const Header = () => {
   };
 
   const handleSelectCountry = async (country: Country) => {
-    console.log('handleSelectCountry ==> countryId ', country); // TODO: handle change country selection
     setSelectedCountry(country);
   };
 
@@ -84,7 +97,6 @@ const Header = () => {
   const companyHeaderRoutes = ['/recruit'];
 
   const publicNavLinks = [{ text: 'For Companies', href: '/recruit' }];
-  const privateNavLinks = [{ text: 'Companies', href: '/companies' }];
 
   if (noHeaderRoutes?.includes(pathname)) {
     return <></>;
