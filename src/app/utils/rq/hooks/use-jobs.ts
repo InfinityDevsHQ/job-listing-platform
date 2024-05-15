@@ -1,4 +1,5 @@
 import { getJobById, getJobs } from '@/lib/jobs';
+import { useCountryStore } from '@/stores/countryStore/countryStore';
 import { Job } from '@/types/types';
 import { InfiniteData, QueryClient, useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import { getQueryClient } from '../react-query-client';
@@ -14,7 +15,12 @@ export function useGetJobs(isHot = false) {
     initialPageParam: 0,
     retry: 0,
     queryKey: [ALL_JOBS_KEY, payload],
-    queryFn: ({ pageParam }) => getJobs({ skip: pageParam, is_hot: isHot }),
+    queryFn: ({ pageParam }) =>
+      getJobs({
+        skip: pageParam,
+        is_hot: isHot,
+        country: useCountryStore.getState().selectedCountry.name,
+      }),
     getNextPageParam: (lastPageParam) => {
       return lastPageParam.length + 1;
     },

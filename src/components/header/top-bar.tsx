@@ -1,5 +1,6 @@
 'use client';
 import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
+import { ALL_JOBS_KEY } from '@/app/utils/rq/hooks/use-jobs';
 import Navbar from '@/components/header/_components/navbar';
 import { Button } from '@/components/ui/button-new';
 import {
@@ -15,6 +16,7 @@ import { cn } from '@/lib/utils';
 import useAuthStore from '@/stores/authStore/store';
 import { useCountryStore } from '@/stores/countryStore/countryStore';
 import { Country } from '@/types/types';
+import { useQueryClient } from '@tanstack/react-query';
 import {
   ArrowRight,
   BellIcon,
@@ -58,6 +60,8 @@ const Header = () => {
       });
   }, []);
 
+  const queryClient = useQueryClient();
+
   const logout = async () => {
     await deleteToken();
     setIsAuthenticated(false);
@@ -67,6 +71,9 @@ const Header = () => {
 
   const handleSelectCountry = async (country: Country) => {
     setSelectedCountry(country);
+    queryClient.invalidateQueries({
+      queryKey: [ALL_JOBS_KEY],
+    });
   };
 
   const noHeaderRoutes = ['/login', '/register'];
