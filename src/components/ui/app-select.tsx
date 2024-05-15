@@ -39,7 +39,7 @@ const AppSelect = React.forwardRef<HTMLDivElement, SelectProps>(
         </SelectTrigger>
         <SelectContent className="bg-white">
           {options?.map((option, index) => (
-            <SelectItem value={option?.value} key={index}>
+            <SelectItem value={option?.value} key={index + Math.random()}>
               <p className="flex items-center gap-2">
                 {option?.icon}
                 {option?.label}

@@ -3,23 +3,33 @@ import Pagination from '@/app/(auth)/onboarding/_components/pagination';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { useQueryParams } from '@/hooks/useQueryParams';
+import { uploadCV } from '@/lib/onboarding';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 const fileSchema = z.object({
-  fileName: z.string().min(2, { message: 'Please Upload a valid file' }),
+  fileData: z.instanceof(FileList).refine((files) => files.length > 0, 'File is required'),
 });
+
 export default function CVForm() {
   const addQueryParams = useQueryParams();
   const form = useForm<z.infer<typeof fileSchema>>({
     resolver: zodResolver(fileSchema),
     defaultValues: {
-      fileName: '',
+      fileData: undefined,
     },
   });
   async function onSubmit(values: z.infer<typeof fileSchema>) {
     console.log(values);
-    addQueryParams('step', 'filter-jobs');
+    const fileList = values.fileData;
+    const file = fileList[0];
+    const payload = {
+      user_id: 1,
+      cv: file,
+      force_refresh: false,
+    };
+    const response = uploadCV(payload);
+    console.log(response);
   }
   return (
     <Form {...form}>
@@ -28,11 +38,16 @@ export default function CVForm() {
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <FormField
-          name="fileName"
+          name="fileData"
           render={({ field }) => (
             <FormItem>
-              <FormControl {...field}>
-                <Input type="File" />
+              <FormControl>
+                <Input
+                  type="File"
+                  onChange={(e) => {
+                    field.onChange(e.target.files); // Register the FileList with react-hook-form
+                  }}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
