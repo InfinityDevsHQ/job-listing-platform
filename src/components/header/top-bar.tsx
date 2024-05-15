@@ -39,17 +39,8 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { selectedCountry, setSelectedCountry } = useCountryStore();
-  const { data, isLoading } = useUserProfile();
+  const { data } = useUserProfile();
 
-  useEffect(() => {
-    if (!isLoading) {
-      setIsAuthenticated(true);
-      // TODO: add proper types...
-      // @ts-ignore
-    } else if (!data?.user_data?.is_onboarded) {
-      router.push('/onboarding');
-    }
-  }, [isLoading, setIsAuthenticated, data, router]);
   useEffect(() => {
     getCountries()
       .then((data) => {
@@ -59,8 +50,17 @@ const Header = () => {
         toast(error.message || 'Uh oh! Something went wrong');
       });
   }, []);
-
   const queryClient = useQueryClient();
+
+  useEffect(() => {
+    if (data?.user_data?.name) {
+      setIsAuthenticated(true);
+    }
+    // // it means user is logged in but didn't complete onboarding yet
+    if (!data?.user_data?.is_onboarded) {
+      router.replace('/onboarding');
+    }
+  }, [data, setIsAuthenticated, router]);
 
   const logout = async () => {
     await deleteToken();
@@ -87,7 +87,7 @@ const Header = () => {
   }
 
   // TODO: fix/show auth protected header in proper way
-  if (!isAuthenticated) {
+  if (!isAuthenticated || !data?.user_data.name) {
     return (
       <header className="bg-white">
         <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4 py-3.5 lg:px-16 lg:py-8">

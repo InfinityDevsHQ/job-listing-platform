@@ -1,5 +1,5 @@
 'use client';
-import { useGetUserProfile } from '@/hooks/useGetUserProfile';
+import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import { useUpdateUserProfile } from '@/hooks/useUpdateUserProfile';
 import { cn } from '@/lib/utils';
 import {
@@ -35,7 +35,7 @@ const UserInfoPanel = () => {
     is_onboarded: true,
   };
 
-  const { isLoading: profileLoading, error: profileError, data: userProfile } = useGetUserProfile();
+  const { isLoading: profileLoading, error: profileError, data: userProfile } = useUserProfile();
 
   const {
     isPending: updateProfileLoading,

@@ -1,5 +1,6 @@
 import { getUserProfile } from '@/lib/user';
-import { useQuery } from '@tanstack/react-query';
+import { UserProfile } from '@/types/types';
+import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { getQueryClient } from '../react-query-client';
 
 export const USER_PROFILE = 'user-profile';
@@ -15,7 +16,7 @@ export function usePrefetchUserProfile() {
   });
 }
 
-export function useUserProfile() {
+export function useUserProfile(): UseQueryResult<UserProfile, Error> {
   return useQuery({
     queryKey: [USER_PROFILE],
     queryFn: async () => await getUserProfile(),

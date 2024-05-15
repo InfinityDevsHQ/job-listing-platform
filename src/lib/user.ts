@@ -1,5 +1,5 @@
 'use server';
-import { ApplyJobResponse, User, UserBody } from '@/types/types';
+import { ApplyJobResponse, User, UserBody, UserProfile } from '@/types/types';
 import { DataService } from './data-service';
 const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
@@ -18,8 +18,8 @@ const USER_URLS = {
 
 export const getUser = (): Promise<User> => DataService.get<User>(USER_URLS.user);
 
-export async function getUserProfile(): Promise<unknown> {
-  const data = await DataService.get<{}>(`${USER_URLS.userProfile}`);
+export async function getUserProfile(): Promise<UserProfile> {
+  const data = await DataService.get<UserProfile>(`${USER_URLS.userProfile}`);
   return data;
 }
 export async function getUserInbox(): Promise<{}> {
