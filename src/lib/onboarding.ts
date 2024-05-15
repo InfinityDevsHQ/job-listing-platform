@@ -1,5 +1,5 @@
 'use server';
-import { OnboardingData, UserData } from '@/types/types';
+import { OnboardingData, UploadCVPayload, UploadCVResponse, UserData } from '@/types/types';
 import { DataService } from './data-service';
 const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
 const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
@@ -8,15 +8,38 @@ const ONBOARDING_URLS = {
   uploadOnBoarding: `${PLATFORM_API_BASE_URL}/api/v1/user/onboard`,
 };
 
-type UploadCVBody = {
-  user_id: number;
-  cv: File | string;
-  force_refresh?: boolean;
+export const uploadCV = async (
+  payload: UploadCVPayload,
+  token: string
+): Promise<UploadCVResponse> => {
+  try {
+    const formData = new FormData();
+    formData.append('user_id', payload.user_id.toString());
+    formData.append('cv', payload.cv);
+
+    const url = ONBOARDING_URLS.uploadCVUrl;
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const responseData = await response.json();
+    return responseData;
+  } catch (error) {
+    console.error('Error uploading CV: ', error);
+    throw error;
+  }
 };
-export async function uploadCV(body: UploadCVBody) {
-  const response = await DataService.post(ONBOARDING_URLS.uploadCVUrl, body);
-  return await response;
-}
+
 export async function uploadOnBoardingData(userData: OnboardingData): Promise<UserData> {
   const data = await DataService.post<UserData>(ONBOARDING_URLS.uploadOnBoarding, userData);
   return data;
