@@ -5,6 +5,7 @@ import { CarouselItem } from '@/components/ui/carousel';
 import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
 import { ALL_JOBS_KEY } from '@/hooks/useAllJobs';
+import { ALL_HOT_JOBS_KEY } from '@/hooks/useGetHotJobs';
 import { GET_PROMOTED_COMPANIES_KEY } from '@/hooks/usePromotedCompanies';
 import { getPromotedCompanies } from '@/lib/companies';
 import { getJobs } from '@/lib/jobs';
@@ -138,7 +139,7 @@ export default async function Home() {
         heading="Latest Hot Offers"
       />
       <ReactQueryHydrate state={dehydrate(queryClient)}>
-        <JobsList hot />
+        <JobsList hotJobsAll />
       </ReactQueryHydrate>
 
       <SectionHeader

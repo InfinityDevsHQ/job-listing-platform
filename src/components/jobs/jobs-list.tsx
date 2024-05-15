@@ -1,6 +1,6 @@
 'use client';
-import { useGetHotJobs } from '@/app/utils/rq/hooks/jobs-hook';
 import { useAllJobs } from '@/hooks/useAllJobs';
+import { useGetHotJobs } from '@/hooks/useGetHotJobs';
 import { useSimilarJobs } from '@/hooks/useSimilarJobs';
 import { cn } from '@/lib/utils';
 import { RefreshCcwIcon } from 'lucide-react';
@@ -8,7 +8,11 @@ import { useEffect } from 'react';
 import { Button } from '../ui/button-new';
 import { Skeleton } from '../ui/skeleton';
 import JobCard from './_components/job-card';
-
+type JobListProps = {
+  hotJobsAll?: boolean;
+  similarJobId?: string;
+  allJobs?: boolean;
+};
 const JobsList = ({ hotJobsAll, similarJobId, allJobs }: JobListProps) => {
   const {
     fetchNextPage: fetchNextHotJobs,
