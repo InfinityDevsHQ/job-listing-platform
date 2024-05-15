@@ -7,7 +7,6 @@ export const USER_PROFILE = 'user-profile';
 
 export function usePrefetchUserProfile() {
   const queryClient = getQueryClient();
-
   return queryClient.prefetchQuery({
     retry: 0,
     queryKey: [USER_PROFILE],

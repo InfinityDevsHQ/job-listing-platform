@@ -5,6 +5,6 @@ export const TAILORED_USERS_JOBS_KEY = 'tailored-users-key';
 export function useTailoredUsersJobs() {
   return useMutation({
     mutationKey: [TAILORED_USERS_JOBS_KEY],
-    mutationFn: (id: string) => tailoredUserJobs(id),
+    mutationFn: (id: number) => tailoredUserJobs(id),
   });
 }

@@ -125,6 +125,7 @@ export default async function Home() {
           </CarouselItem>
         </AutoPlayCarousel>
       </div>
+
       <SectionHeader
         leadingIcon={<FireIcon className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
         heading="Latest Hot Offers"
