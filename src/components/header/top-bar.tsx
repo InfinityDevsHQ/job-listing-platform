@@ -10,8 +10,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useCountries } from '@/hooks/useCountries';
 import { deleteToken } from '@/lib/auth-token';
-import { getCountries } from '@/lib/countries';
 import { cn } from '@/lib/utils';
 import useAuthStore from '@/stores/authStore/store';
 import { useCountryStore } from '@/stores/countryStore/countryStore';
@@ -30,9 +30,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
-import { toast } from 'sonner';
 
 const Header = () => {
+  const { data: countriesData } = useCountries();
   const { isAuthenticated, setIsAuthenticated } = useAuthStore();
   const [countries, setCountries] = useState<Country[]>([]);
 
@@ -42,14 +42,8 @@ const Header = () => {
   const { data } = useUserProfile();
 
   useEffect(() => {
-    getCountries()
-      .then((data) => {
-        setCountries(data);
-      })
-      .catch((error) => {
-        toast(error.message || 'Uh oh! Something went wrong');
-      });
-  }, []);
+    setCountries(countriesData || []);
+  }, [countriesData]);
   const queryClient = useQueryClient();
 
   useEffect(() => {
