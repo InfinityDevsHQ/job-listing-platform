@@ -52,7 +52,7 @@ const Header = () => {
     }
     // // it means user is logged in but didn't complete onboarding yet
     if (!data?.user_data?.is_onboarded) {
-      router.replace('/onboarding');
+      // router.replace('/onboarding');
     }
   }, [data, setIsAuthenticated, router]);
 
