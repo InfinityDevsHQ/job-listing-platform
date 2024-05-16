@@ -6,10 +6,13 @@ import { EyeIcon } from 'lucide-react';
 import Image from 'next/image';
 import AutoPlayCarousel from './_components/autoplay-carousel';
 import FeatureCard from './_components/feature-card';
+import RecruitersData from './_components/recruiters-data';
 
 const Recruit = () => {
   return (
     <section className="bg-secondary-50 p-4 lg:gap-8 lg:p-8">
+      <RecruitersData />
+
       <div className="relative flex w-full flex-col items-center gap-4 overflow-hidden rounded-md border border-neutral-200 bg-white p-4 lg:gap-8 lg:p-8">
         <div className="relative flex w-full flex-col items-center gap-4 lg:flex-row lg:justify-between">
           <div className="order-2 flex flex-col gap-4 lg:order-1 lg:gap-8">

@@ -9,15 +9,20 @@ const RECRUITER_URLS = {
 };
 
 // TODO: make query params dynamic and easier to use in future
-export async function getRecruiters(): Promise<Recruiter[]> {
+type GetRecruitersParams = {
+  skip?: number;
+  limit?: number;
+};
+
+export async function getRecruiters({ skip = 0, limit = 10 }: GetRecruitersParams): Promise<any> {
   const data = await DataService.get<Recruiter[]>(`${RECRUITER_URLS.allRecruiters}`, {
-    skip: '0',
-    limit: '100',
+    skip: `${skip}`,
+    limit: `${limit}`,
   });
   return data;
 }
 
-export async function getJobById(recruiter_id: string): Promise<Recruiter> {
+export async function getRecruiterById(recruiter_id: string): Promise<Recruiter> {
   if (!recruiter_id) {
     // can return 404 heres
     return {} as Recruiter;
