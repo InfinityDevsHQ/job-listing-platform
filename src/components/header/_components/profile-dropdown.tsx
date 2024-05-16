@@ -1,5 +1,6 @@
 'use client';
-import { USER_PROFILE, useUserProfile } from '@/app/utils/rq/hooks/use-auth';
+import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
+import { removeToken } from '@/lib/auth';
 import { cn } from '@/lib/utils';
 import {
   DropdownMenu,
@@ -20,10 +21,12 @@ export const ProfileDropdown = () => {
   const queryClient = useQueryClient();
 
   const logout = async () => {
-    await queryClient.invalidateQueries({
-      queryKey: [USER_PROFILE],
-    });
-    router.push('/login');
+    removeToken();
+    // TODO: debug following query as well, I think currently it's not possible to invalidate queries from client components
+    // await queryClient.invalidateQueries({
+    //   queryKey: [USER_PROFILE],
+    // });
+    router.replace('/login');
   };
   if (!data?.user_data) {
     return;
@@ -76,7 +79,9 @@ export const ProfileDropdown = () => {
         </Link>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="focus:bg-red-50 focus:text-red-900">
-          <button onClick={() => logout()}>Log out</button>
+          <button onClick={() => logout()} type="button">
+            Log out
+          </button>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

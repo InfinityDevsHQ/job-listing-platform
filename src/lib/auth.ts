@@ -1,6 +1,6 @@
 'use server';
 import { LoginBodyProps, LoginResProps, RegisterBodyProps, RegisterResProps } from '@/types/types';
-import { storeToken } from './auth-token';
+import { deleteToken, storeToken } from './auth-token';
 import { DataService } from './data-service';
 const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
@@ -24,3 +24,7 @@ export const login = async (body: LoginBodyProps): Promise<LoginResProps> => {
 
 export const registerCompany = (body: RegisterBodyProps) =>
   DataService.post(AUTH_URLS.registerCompany, body);
+
+export const removeToken = () => {
+  deleteToken();
+};
