@@ -22,6 +22,7 @@ export default function Pagination({
   handleNext,
   nextLoading,
 }: PaginationProps) {
+  console.log('Inside Pagination,', nextLoading);
   return (
     <div className="flex w-full items-center">
       {previous && (
