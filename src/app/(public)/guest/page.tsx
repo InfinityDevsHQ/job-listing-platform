@@ -1,9 +1,9 @@
-import PostJobForm from '@/components/forms/post-job-form/post-job-form';
+import EditProfileForm from '@/components/forms/profile/edit-profile-form';
 
 export default function Guest() {
   return (
     <div>
-      <PostJobForm />
+      <EditProfileForm />
     </div>
   );
 }
