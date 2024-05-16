@@ -165,25 +165,6 @@ export type InfoBadgeProps = {
   desc?: string | number;
 };
 
-// User Update Body
-export type UserBody = {
-  email: string;
-  name: string;
-  language: string;
-  latitude: number;
-  longitude: number;
-  city: string;
-  country: string;
-  timezone: string;
-  phone_number: string;
-  profile_picture: string;
-  prefered_language: string;
-  online_status: string;
-  selected_country: string;
-  geo_resolve_tries: string;
-  is_onboarded: boolean;
-};
-
 // userStore.ts
 export type UserData = {
   email: string;
@@ -252,36 +233,7 @@ export interface CandidateData {
   ai_languages?: Record<string, string>;
   ai_social?: string | null;
   updated?: string;
-  user?: {
-    id: number;
-    email: string;
-    longitude: number | null;
-    is_admin: boolean;
-    updated: string;
-    name: string;
-    is_superuser: boolean;
-    selected_country: string | null;
-    phone_number: string | null;
-    geo_resolve_tries: number;
-    is_investor: boolean;
-    online_status: string;
-    is_banned: boolean;
-    profile_picture: string;
-    password: string;
-    ai_tokens_query_limit: number;
-    country: string;
-    is_recruiter: boolean;
-    language: string;
-    timezone?: string | null;
-    uid: string;
-    city: string;
-    is_active: boolean;
-    ai_tokens_consumed: number;
-    latitude: number | null;
-    is_staff: boolean;
-    is_social_login: boolean;
-    created: string;
-  };
+  user?: UserData;
 }
 
 export interface UserProfile {
