@@ -1,6 +1,8 @@
 import Footer from '@/components/footer/page';
 import Header from '@/components/header/top-bar';
 import { Toaster } from '@/components/ui/sonner';
+import { GET_COUNTRIES_KEY } from '@/hooks/useCountries';
+import { getCountries } from '@/lib/countries';
 import { dehydrate } from '@tanstack/react-query';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
@@ -23,6 +25,10 @@ export default async function RootLayout({
 }>) {
   const queryClient = getQueryClient();
   await usePrefetchUserProfile();
+  await queryClient.prefetchQuery({
+    queryKey: [GET_COUNTRIES_KEY],
+    queryFn: getCountries,
+  });
   const dehydratedState = dehydrate(queryClient);
   return (
     <html lang="en">
