@@ -19,8 +19,7 @@ const USER_URLS = {
 export const getUser = (): Promise<User> => DataService.get<User>(USER_URLS.user);
 
 export async function getUserProfile(): Promise<UserProfile> {
-  const data = await DataService.get<UserProfile>(`${USER_URLS.userProfile}`);
-  return data;
+  return DataService.get<UserProfile>(`${USER_URLS.userProfile}`);
 }
 export async function getUserInbox(): Promise<{}> {
   const data = await DataService.get<{}>(`${USER_URLS.userInbox}`);

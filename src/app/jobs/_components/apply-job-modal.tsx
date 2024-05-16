@@ -34,7 +34,7 @@ const ApplyJobModal = ({ jobId }: { jobId: string }) => {
     return (
       <div className="flex w-full items-center justify-end">
         <Button size="lg" type="button" className="max-w-max" onClick={onClickLogin}>
-          Login to apply for this job
+          Apply
           <ArrowRight className="ml-2 h-5 w-5" />
         </Button>
       </div>

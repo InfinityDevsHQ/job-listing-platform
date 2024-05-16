@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import { deleteToken } from './auth-token';
 
 const DEFAULT_QUERY_PARAMS: Record<string, string> = {};
 
@@ -24,7 +25,9 @@ const getHeaders = () => {
 
 const handleResponseGracefully = async (response: Response) => {
   if (!response.ok) {
+    const url = response.url;
     let errorMessage = 'An error occurred while fetching data';
+    if (response.status === 401) deleteToken();
     if (response.status >= 400 && response.status < 500) {
       // Client error
       const responseData = await response.json();
@@ -44,7 +47,8 @@ export const DataService = {
   get: async <T>(url: string, params: Record<string, string> = {}): Promise<T> => {
     const queryParams = constructQueryParams(params);
     const fullUrl = `${url}?${decodeURIComponent(queryParams)}`;
-    const response = await fetch(fullUrl, { headers: getHeaders() });
+    const headers = getHeaders();
+    const response = await fetch(fullUrl, { headers });
     return handleResponseGracefully(response);
   },
 
