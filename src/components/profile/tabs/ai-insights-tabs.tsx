@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 type AiInsightsTabsProps = { candidateRecommendations?: RecommendationsProps };
 
-const AiInsightsTabs = async ({ candidateId }: { candidateId: number | string }) => {
+const AiInsightsTabs = ({ candidateId }: { candidateId: number | string }) => {
   useEffect(() => {
     // const recommendations = await getCandidateRecommendationsById(candidateId || '');
     console.log('recommendations ==>');

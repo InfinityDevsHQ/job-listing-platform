@@ -8,7 +8,7 @@ const CANDIDATES_URLS = {
   singleCandidateSettings: `${PLATFORM_API_BASE_URL}/api/v1/candidates/settings`,
   candidateInfo: `${PLATFORM_API_BASE_URL}/api/v1/candidates/user_info`,
   candidateRawData: `${PLATFORM_API_BASE_URL}/api/v1/candidates/raw_data`,
-  candidateRecommendations: `${PLATFORM_API_BASE_URL}/api/v1/candidates/recommendation/{candidate_id}`,
+  candidateRecommendations: `${PLATFORM_API_BASE_URL}/api/v1/candidates/recommendation`,
 };
 
 // TODO: make query params dynamic and easier to use in future
