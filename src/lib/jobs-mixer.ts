@@ -1,6 +1,6 @@
 'use server';
 
-import { CandidateVector } from '@/types/types';
+import { CandidateVector, Job } from '@/types/types';
 import { DataService } from './data-service';
 
 const NEURAL_API_BASE_URL = process.env.NEURAL_API_BASE_URL;
@@ -9,9 +9,9 @@ const JOBS_MIXER_URLS = {
   candidateVector: `${NEURAL_API_BASE_URL}/api/v1/mixer/vector`,
 };
 
-export async function tailoredUserJobs(candidateId: number): Promise<[{}]> {
-  if (!candidateId) return {} as [{}];
-  const data = await DataService.post<[{}]>(`${JOBS_MIXER_URLS.tailoredUserJobs}/${candidateId}`);
+export async function tailoredUserJobs(candidateId: number): Promise<Job[]> {
+  if (!candidateId) return {} as Job[];
+  const data = await DataService.post<Job[]>(`${JOBS_MIXER_URLS.tailoredUserJobs}/${candidateId}`);
   return data;
 }
 export async function readCandidateVector(candidateId: string): Promise<CandidateVector> {

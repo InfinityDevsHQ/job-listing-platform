@@ -6,6 +6,7 @@ import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
 import { GET_PROMOTED_COMPANIES_KEY } from '@/hooks/usePromotedCompanies';
 import { getPromotedCompanies } from '@/lib/companies';
+import { getUserProfile } from '@/lib/user';
 import { dehydrate } from '@tanstack/react-query';
 import { Building2Icon, ListCollapseIcon } from 'lucide-react';
 import Image from 'next/image';
@@ -16,6 +17,7 @@ import { ReactQueryHydrate } from './utils/rq/react-query-hydrate';
 
 export default async function Home() {
   const queryClient = getQueryClient();
+  const user_data = await getUserProfile();
   await Promise.allSettled([
     await useGetJobsPrefetch(true),
     await useGetJobsPrefetch(false),
