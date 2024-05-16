@@ -1,14 +1,14 @@
 'use server';
-import { CandidateRawData, User, UserSettings } from '@/types/types';
+import { CandidateRawData, RecommendationsProps, User, UserSettings } from '@/types/types';
 import { DataService } from './data-service';
 const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
 const CANDIDATES_URLS = {
   singleCandidate: `${PLATFORM_API_BASE_URL}/api/v1/candidates/user`,
   singleCandidateSettings: `${PLATFORM_API_BASE_URL}/api/v1/candidates/settings`,
-  singleCandidateInfo: `${PLATFORM_API_BASE_URL}/api/v1/candidates/user_info`,
-  singleCandidateRawData: `${PLATFORM_API_BASE_URL}/api/v1/candidates/raw_data`,
-  singleCandidateRecommendations: `${PLATFORM_API_BASE_URL}/api/v1/candidates/recommendation/{candidate_id}`,
+  candidateInfo: `${PLATFORM_API_BASE_URL}/api/v1/candidates/user_info`,
+  candidateRawData: `${PLATFORM_API_BASE_URL}/api/v1/candidates/raw_data`,
+  candidateRecommendations: `${PLATFORM_API_BASE_URL}/api/v1/candidates/recommendation/{candidate_id}`,
 };
 
 // TODO: make query params dynamic and easier to use in future
@@ -25,7 +25,7 @@ export async function getCandidateByUserId(userId: string): Promise<{}> {
   });
   return data;
 }
-export async function getCandidateByCandidateId(candidateId: string): Promise<{}> {
+export async function getCandidateById(candidateId: string): Promise<{}> {
   if (!candidateId) {
     // can return 404 heres
     return {} as {};
@@ -34,9 +34,7 @@ export async function getCandidateByCandidateId(candidateId: string): Promise<{}
   return data;
 }
 
-export async function getCandidateSettingsByCandidateId(
-  candidateId: string
-): Promise<UserSettings> {
+export async function getCandidateSettingsById(candidateId: string): Promise<UserSettings> {
   if (!candidateId) {
     // can return 404 heres
     return {} as UserSettings;
@@ -51,28 +49,30 @@ export async function getUserInfoByCandidateId(candidateId: string): Promise<Use
     // can return 404 heres
     return {} as User;
   }
-  const data = await DataService.get<User>(`${CANDIDATES_URLS.singleCandidateInfo}/${candidateId}`);
+  const data = await DataService.get<User>(`${CANDIDATES_URLS.candidateInfo}/${candidateId}`);
   return data;
 }
-export async function getCandidateRawDataByCandidateId(
-  candidateId: string
-): Promise<CandidateRawData> {
+export async function getCandidateRawDataById(candidateId: string): Promise<CandidateRawData> {
   if (!candidateId) {
     // can return 404 heres
     return {} as CandidateRawData;
   }
   const data = await DataService.get<CandidateRawData>(
-    `${CANDIDATES_URLS.singleCandidateRawData}/${candidateId}`
+    `${CANDIDATES_URLS.candidateRawData}/${candidateId}`
   );
   return data;
 }
-export async function getCandidateRecommendationsByCandidateId(candidateId: string): Promise<{}> {
+export async function getCandidateRecommendationsById(
+  candidateId: number | string
+): Promise<RecommendationsProps> {
   if (!candidateId) {
     // can return 404 heres
-    return {} as {};
+    return {} as RecommendationsProps;
   }
-  const data = await DataService.get<{}>(
-    `${CANDIDATES_URLS.singleCandidateRecommendations}/${candidateId}`
+  const data = await DataService.get<RecommendationsProps>(
+    `${CANDIDATES_URLS.candidateRecommendations}/${candidateId}`
   );
+
+  console.log('DATA from API =================> : ', data);
   return data;
 }

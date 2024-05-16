@@ -26,7 +26,7 @@ const ProfileTabs = ({ candidate }: ProfileTabsProps) => {
           aiExpertise={candidate.ai_expertise}
           aiSkillTags={candidate.ai_skill_tags}
         />
-        <AiInsightsTabs />
+        <AiInsightsTabs candidateId={candidate?.id || ''} />
         <RecruiterTab />
       </Tabs>
     </div>

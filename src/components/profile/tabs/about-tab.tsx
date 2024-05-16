@@ -1,10 +1,6 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
+import Badges from '@/components/ui/badges';
 import InfoList from '@/components/ui/info-list';
+import InfoSection from '@/components/ui/info-section';
 import { TabsContent } from '@/components/ui/tabs';
 
 type AboutTabProps = {
@@ -16,28 +12,20 @@ type AboutTabProps = {
 
 const AboutTab = ({ aiObjective, aiCVSummary, aiExpertise, aiSkillTags }: AboutTabProps) => {
   return (
-    <TabsContent value="about" className="mt-4">
+    <TabsContent value="about" className="flex flex-col gap-5">
       {/* TODO: FIX it */}
-      <Accordion type="single" defaultValue="profile" className="flex w-full flex-col gap-4">
-        <AccordionItem value="profile">
-          <AccordionTrigger>Profile</AccordionTrigger>
-          <AccordionContent>{aiObjective}</AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="summary">
-          <AccordionTrigger>Summary</AccordionTrigger>
-          <AccordionContent>{aiCVSummary}</AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="expertise">
-          <AccordionTrigger>Expertise</AccordionTrigger>
-          <AccordionContent>
-            <InfoList list={aiExpertise} />
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="skills">
-          <AccordionTrigger>Skills</AccordionTrigger>
-          <AccordionContent>{JSON.stringify(aiSkillTags)}</AccordionContent>
-        </AccordionItem>
-      </Accordion>
+      <InfoSection heading="Objective">
+        <p className="text-gray-500">{aiObjective}</p>
+      </InfoSection>
+      <InfoSection heading="Summary">
+        <p className="text-gray-500">{aiCVSummary}</p>
+      </InfoSection>
+      <InfoSection heading="Expertise">
+        <InfoList list={aiExpertise} />
+      </InfoSection>
+      <InfoSection heading="Skills">
+        <Badges badges={aiSkillTags?.map((item) => ({ text: item }))} />
+      </InfoSection>
     </TabsContent>
   );
 };
