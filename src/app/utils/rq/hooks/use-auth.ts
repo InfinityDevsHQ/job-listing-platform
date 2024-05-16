@@ -10,13 +10,13 @@ export function usePrefetchUserProfile() {
   return queryClient.prefetchQuery({
     retry: 0,
     queryKey: [USER_PROFILE],
-    queryFn: () => getUserProfile(),
+    queryFn: getUserProfile,
   });
 }
 
 export function useUserProfile(): UseQueryResult<UserProfile, Error> {
   return useQuery({
     queryKey: [USER_PROFILE],
-    queryFn: async () => await getUserProfile(),
+    queryFn: getUserProfile,
   });
 }

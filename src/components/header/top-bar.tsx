@@ -39,7 +39,7 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { selectedCountry, setSelectedCountry } = useCountryStore();
-  const { data } = useUserProfile();
+  const { data, isPending } = useUserProfile();
 
   useEffect(() => {
     setCountries(countriesData || []);
@@ -47,6 +47,7 @@ const Header = () => {
   const queryClient = useQueryClient();
 
   useEffect(() => {
+    if (isPending) return;
     if (data?.user_data?.name) {
       setIsAuthenticated(true);
     }
@@ -54,7 +55,7 @@ const Header = () => {
     if (!data?.user_data?.is_onboarded) {
       // router.replace('/onboarding');
     }
-  }, [data, setIsAuthenticated, router]);
+  }, [data, isPending, setIsAuthenticated, router]);
 
   const logout = async () => {
     await deleteToken();
