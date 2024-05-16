@@ -16,7 +16,6 @@ import { useRouter } from 'next/navigation';
 
 export const ProfileDropdown = () => {
   const { data } = useUserProfile();
-  console.log({ data });
   const router = useRouter();
   const queryClient = useQueryClient();
 

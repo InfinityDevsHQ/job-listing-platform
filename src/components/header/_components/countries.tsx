@@ -1,6 +1,4 @@
 import { useCountries } from '@/app/utils/rq/hooks/use-countries';
-import { ALL_JOBS_KEY } from '@/app/utils/rq/hooks/use-jobs';
-import { getQueryClient } from '@/app/utils/rq/react-query-client';
 import { Button } from '@/components/ui/button-new';
 import { useCountryStore } from '@/stores/countryStore/countryStore';
 import { Country } from '@/types/types';
@@ -18,7 +16,7 @@ import { Fragment } from 'react';
 
 export const Countries = () => {
   const pathname = usePathname();
-  const queryClient = getQueryClient();
+  // const queryClient = getQueryClient();
   const { data: countries } = useCountries();
 
   const { selectedCountry, setSelectedCountry } = useCountryStore();
@@ -27,9 +25,9 @@ export const Countries = () => {
     setSelectedCountry(country);
     const payload = { is_hot: false };
     // TODO: debug why it's not calling
-    await queryClient.invalidateQueries({
-      queryKey: [ALL_JOBS_KEY, payload],
-    });
+    // await queryClient.invalidateQueries({
+    //   queryKey: [ALL_JOBS_KEY, payload],
+    // });
   };
   const companyHeaderRoutes = ['/recruit'];
 
