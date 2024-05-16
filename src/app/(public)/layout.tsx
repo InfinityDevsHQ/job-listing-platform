@@ -1,4 +1,4 @@
-import Header from '@/components/header/top-bar';
+import Header from '@/components/header/_components/top-bar';
 
 export default async function AuthRootLayout({
   children,

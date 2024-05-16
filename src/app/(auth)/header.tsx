@@ -1,10 +1,10 @@
 'use client';
+import { Countries } from '@/components/header/_components/countries';
+import { Notifications } from '@/components/header/_components/notifications';
+import { ProfileDropdown } from '@/components/header/_components/profile-dropdown';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Countries } from './_components/countries';
-import { Notifications } from './_components/notifications';
-import { ProfileDropdown } from './_components/profile-dropdown';
 
 const Header = () => {
   const pathname = usePathname();
@@ -40,8 +40,8 @@ const Header = () => {
           >
             <span>Inbox</span>
           </Link>
-          <Notifications />
           <Countries />
+          <Notifications />
           <ProfileDropdown />
         </div>
       </div>

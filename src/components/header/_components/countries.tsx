@@ -1,6 +1,7 @@
 import { useCountries } from '@/app/utils/rq/hooks/use-countries';
 import { ALL_JOBS_KEY } from '@/app/utils/rq/hooks/use-jobs';
 import { getQueryClient } from '@/app/utils/rq/react-query-client';
+import { Button } from '@/components/ui/button-new';
 import { useCountryStore } from '@/stores/countryStore/countryStore';
 import { Country } from '@/types/types';
 import {
@@ -10,33 +11,48 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@radix-ui/react-dropdown-menu';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDownIcon, GlobeIcon } from 'lucide-react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Fragment } from 'react';
 
 export const Countries = () => {
+  const pathname = usePathname();
   const queryClient = getQueryClient();
-
   const { data: countries } = useCountries();
 
   const { selectedCountry, setSelectedCountry } = useCountryStore();
 
   const handleSelectCountry = async (country: Country) => {
     setSelectedCountry(country);
-    queryClient.invalidateQueries({
-      queryKey: [ALL_JOBS_KEY],
+    const payload = { is_hot: false };
+    // TODO: debug why it's not calling
+    await queryClient.invalidateQueries({
+      queryKey: [ALL_JOBS_KEY, payload],
     });
   };
+  const companyHeaderRoutes = ['/recruit'];
+
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <button
-          type="button"
-          className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium"
-        >
-          <span>Country</span>
-          <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
-        </button>
+        <Button variant={companyHeaderRoutes.includes(pathname) ? 'outline' : 'outline'}>
+          {selectedCountry?.flag_icon ? (
+            <>
+              <Image
+                src={selectedCountry?.flag_icon}
+                alt="test"
+                width={16}
+                height={16}
+                className="mr-2 h-4 w-4"
+              />
+            </>
+          ) : (
+            <GlobeIcon className="mr-2 h-4 w-4" />
+          )}
+          {selectedCountry?.name ? selectedCountry?.name : 'Country'}
+          <ChevronDownIcon className="ml-2 h-4 w-4" />
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-52 bg-white">
         {countries?.map((country, index) => (

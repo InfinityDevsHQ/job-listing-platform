@@ -1,3 +1,4 @@
+'use client';
 import { USER_PROFILE, useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import { cn } from '@/lib/utils';
 import {
@@ -15,6 +16,7 @@ import { useRouter } from 'next/navigation';
 
 export const ProfileDropdown = () => {
   const { data } = useUserProfile();
+  console.log({ data });
   const router = useRouter();
   const queryClient = useQueryClient();
 
@@ -24,7 +26,9 @@ export const ProfileDropdown = () => {
     });
     router.push('/login');
   };
-
+  if (!data?.user_data) {
+    return;
+  }
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>

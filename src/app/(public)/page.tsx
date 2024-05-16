@@ -15,6 +15,7 @@ import { useGetJobsPrefetch } from '../utils/rq/hooks/use-jobs';
 import { getQueryClient } from '../utils/rq/react-query-client';
 import { ReactQueryHydrate } from '../utils/rq/react-query-hydrate';
 import AutoPlayCarousel from './recruit/_components/autoplay-carousel';
+
 export default async function Home() {
   const queryClient = getQueryClient();
   await Promise.allSettled([

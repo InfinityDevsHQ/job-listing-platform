@@ -5,6 +5,7 @@ import { dehydrate } from '@tanstack/react-query';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
 import './globals.css';
+import { usePrefetchUserProfile } from './utils/rq/hooks/use-auth';
 import { getQueryClient } from './utils/rq/react-query-client';
 import { ReactQueryHydrate } from './utils/rq/react-query-hydrate';
 import { RqProvider } from './utils/rq/rq-provider';
@@ -21,7 +22,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const queryClient = getQueryClient();
-  await usePrefetchCountries();
+  await Promise.allSettled([usePrefetchCountries(), usePrefetchUserProfile()]);
+
   const dehydratedState = dehydrate(queryClient);
   return (
     <html lang="en">

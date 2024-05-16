@@ -8,7 +8,7 @@ export function useCountries() {
   return useQuery({
     retry: 0,
     queryKey: [GET_COUNTRIES_KEY],
-    queryFn: getCountries,
+    queryFn: () => getCountries(),
   });
 }
 
@@ -17,6 +17,6 @@ export function usePrefetchCountries() {
   return queryClient.prefetchQuery({
     retry: 0,
     queryKey: [GET_COUNTRIES_KEY],
-    queryFn: getCountries,
+    queryFn: () => getCountries(),
   });
 }
