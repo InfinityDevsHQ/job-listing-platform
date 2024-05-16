@@ -6,7 +6,7 @@ import RecruiterTab from './tabs/recruiter-tab';
 type ProfileTabsProps = {
   candidate: CandidateData;
 };
-const ProfileTabs = ({ candidate }: ProfileTabsProps) => {
+const ProfileTabs = async ({ candidate }: ProfileTabsProps) => {
   return (
     <div className="flex flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-3 lg:p-8">
       <Tabs orientation="vertical" defaultValue="about" className="flex flex-col lg:gap-4">
@@ -26,7 +26,7 @@ const ProfileTabs = ({ candidate }: ProfileTabsProps) => {
           aiExpertise={candidate.ai_expertise}
           aiSkillTags={candidate.ai_skill_tags}
         />
-        <AiInsightsTabs candidateId={candidate?.id || ''} />
+        <AiInsightsTabs candidateId={Number(candidate?.id)} />
         <RecruiterTab />
       </Tabs>
     </div>

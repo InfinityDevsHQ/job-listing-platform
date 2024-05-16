@@ -8,7 +8,7 @@ const CANDIDATES_URLS = {
   singleCandidateSettings: `${PLATFORM_API_BASE_URL}/api/v1/candidates/settings`,
   candidateInfo: `${PLATFORM_API_BASE_URL}/api/v1/candidates/user_info`,
   candidateRawData: `${PLATFORM_API_BASE_URL}/api/v1/candidates/raw_data`,
-  candidateRecommendations: `${PLATFORM_API_BASE_URL}/api/v1/candidates/recommendation`,
+  candidateRecommendation: `${PLATFORM_API_BASE_URL}/api/v1/candidates/recommendation`,
 };
 
 // TODO: make query params dynamic and easier to use in future
@@ -62,7 +62,7 @@ export async function getCandidateRawDataById(candidateId: string): Promise<Cand
   );
   return data;
 }
-export async function getCandidateRecommendationsById(
+export async function getCandidateRecommendationById(
   candidateId: number | string
 ): Promise<RecommendationsProps> {
   if (!candidateId) {
@@ -70,9 +70,8 @@ export async function getCandidateRecommendationsById(
     return {} as RecommendationsProps;
   }
   const data = await DataService.get<RecommendationsProps>(
-    `${CANDIDATES_URLS.candidateRecommendations}/${candidateId}`
+    `${CANDIDATES_URLS.candidateRecommendation}/${candidateId}`
   );
 
-  console.log('DATA from API =================> : ', data);
   return data;
 }

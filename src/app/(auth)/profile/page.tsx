@@ -1,6 +1,5 @@
 import ProfileTabs from '@/components/profile/profile-tabs';
-import UserInfo from '@/components/profile/user-info';
-import UserInfoMobile from '@/components/profile/user-info-mobile';
+import UserDetails from '@/components/profile/user-details';
 import { getUserProfile } from '@/lib/user';
 
 const Profile = async () => {
@@ -9,8 +8,8 @@ const Profile = async () => {
 
   return (
     <div className="grid gap-4 p-4 lg:grid-cols-4 lg:gap-8 lg:p-8">
-      <UserInfo />
-      <UserInfoMobile online_status={user.online_status} />
+      <UserDetails user={user} />
+
       <ProfileTabs candidate={candidate} />
     </div>
   );

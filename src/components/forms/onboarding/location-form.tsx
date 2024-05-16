@@ -25,7 +25,7 @@ const locationFormSchema = z.object({
 export default function LocationForm() {
   const { isLoading: languagesLoading, error: languagesError, data: languages } = useLanguages();
   const { isLoading: countriesLoading, error: countriesError, data: countries } = useCountries();
-  console.log(languages);
+
   const { onboardingData, setOnboardingData } = useOnboardingStore();
   const addQueryParams = useQueryParams();
   const form = useForm<z.infer<typeof locationFormSchema>>({
@@ -64,8 +64,8 @@ export default function LocationForm() {
                   leadingIcon={<Languages size={16} />}
                   {...field}
                   options={languages?.map((language) => ({
-                    value: language.default_language,
-                    label: language.default_language,
+                    value: language || '',
+                    label: language || '',
                   }))}
                 />
               </FormControl>

@@ -10,14 +10,17 @@ import BoardingHeader from '../_components/boarding-header';
 
 export default async function OnboardingStepOne() {
   const queryClient = getQueryClient();
+
   await queryClient.prefetchQuery({
     queryKey: [GET_LANGUAGES_KEY],
     queryFn: getLanguages,
   });
+
   await queryClient.prefetchQuery({
     queryKey: [GET_COUNTRIES_KEY],
     queryFn: getCountries,
   });
+
   return (
     <div className="grid w-full grid-cols-2">
       <div className="col-span-2 hidden items-center justify-center lg:col-span-1 lg:flex">

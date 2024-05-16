@@ -21,7 +21,7 @@ export default function OnboardingStepNavigator({ step }: OnboardingStepNavigato
     <Tabs className="mb-3">
       <TabsList className="flex items-center bg-white">
         <Button
-          onClick={() => handleTabSelect('location')}
+          // onClick={() => handleTabSelect('location')}
           variant={step === 'location' ? 'default' : 'outline'}
           className="!border-none"
         >
@@ -29,7 +29,7 @@ export default function OnboardingStepNavigator({ step }: OnboardingStepNavigato
         </Button>
 
         <Button
-          onClick={() => handleTabSelect('upload-cv')}
+          // onClick={() => handleTabSelect('upload-cv')}
           variant={step === 'upload-cv' ? 'default' : 'outline'}
           className="!border-none"
         >
@@ -37,7 +37,7 @@ export default function OnboardingStepNavigator({ step }: OnboardingStepNavigato
         </Button>
 
         <Button
-          onClick={() => handleTabSelect('filter-jobs')}
+          // onClick={() => handleTabSelect('filter-jobs')}
           variant={step === 'filter-jobs' ? 'default' : 'outline'}
           className="!border-none"
         >
@@ -45,14 +45,14 @@ export default function OnboardingStepNavigator({ step }: OnboardingStepNavigato
         </Button>
 
         <Button
-          onClick={() => handleTabSelect('contact')}
+          // onClick={() => handleTabSelect('contact')}
           variant={step === 'contact' ? 'default' : 'outline'}
           className="!border-none"
         >
           4. Contact
         </Button>
         <Button
-          onClick={() => handleTabSelect('terms-and-conditions')}
+          // onClick={() => handleTabSelect('terms-and-conditions')}
           variant={step === 'terms-and-conditions' ? 'default' : 'outline'}
           className="!border-none"
         >

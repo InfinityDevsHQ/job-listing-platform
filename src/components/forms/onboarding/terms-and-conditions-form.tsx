@@ -38,10 +38,10 @@ export default function TermsAndConditionsForm() {
     });
     const resp = await uploadOnBoardingData(onboardingData);
     if ({ resp }) {
-      toast.success('Profile Creating Successfully');
+      toast.success('Profile Created Successfully.');
       router.push('/profile');
     } else {
-      toast.error('Profile Creation Failed, try again later.');
+      toast.error('Profile Creation Failed, Try again later.');
     }
   }
   return (

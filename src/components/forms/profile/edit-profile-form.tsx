@@ -1,13 +1,13 @@
 'use client';
 import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
+import { useCountries } from '@/app/utils/rq/hooks/use-countries';
+import { useLanguages } from '@/app/utils/rq/hooks/use-languages';
 import CompanyGithubSecond from '@/components/svgs/company-github-second';
 import TwitterIcon from '@/components/svgs/twitter';
 import AppSelect from '@/components/ui/app-select';
 import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
-import { useCountries } from '@/hooks/useCountries';
-import { useLanguages } from '@/hooks/useLnaguages';
 import { timezones } from '@/lib/time-zones';
 import { updateUserProfile } from '@/lib/user';
 import useOnboardingStore from '@/stores/onboardingStore/store';
@@ -16,22 +16,22 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Building2Icon, Clock, Globe2, Languages, Linkedin, Phone } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+
 const editProfileSchema = z.object({
-  preferLanguage: z.string().min(2, {
-    message: 'Must select a language',
-  }),
-  timeZone: z.string().min(2, { message: 'Must select a time zone' }),
-  country: z.string().min(2, { message: 'Must select a country' }),
-  city: z.string().min(2, { message: 'Please Enter a valid city' }),
-  phoneNumber: z.string().min(6, { message: 'Phone number must be at least 6 characters long' }),
-  linkedin: z.string().url({ message: 'Invalid LinkedIn URL' }),
-  twitter: z.string().url({ message: 'Invalid Twitter URL' }),
-  github: z.string().url({ message: 'Invalid GitHub URL' }),
+  preferLanguage: z.string(),
+  timeZone: z.string(),
+  country: z.string(),
+  city: z.string(),
+  phoneNumber: z.string(),
+  linkedin: z.string(),
+  twitter: z.string(),
+  github: z.string(),
 });
 
 export default function EditProfileForm() {
   const { data: user } = useUserProfile();
   const { onboardingData, setOnboardingData } = useOnboardingStore();
+
   const form = useForm<z.infer<typeof editProfileSchema>>({
     resolver: zodResolver(editProfileSchema),
     defaultValues: {
@@ -45,9 +45,17 @@ export default function EditProfileForm() {
       github: user?.candidate_data.social?.github || '',
     },
   });
+
   const isLoading = form.formState.isSubmitting;
   const { isLoading: languagesLoading, error: languagesError, data: languages } = useLanguages();
   const { isLoading: countriesLoading, error: countriesError, data: countries } = useCountries();
+
+  console.log(
+    'languages================================================================',
+    languagesLoading,
+    languages
+  );
+
   async function onSubmit(values: z.infer<typeof editProfileSchema>) {
     console.log('running');
     setOnboardingData({
@@ -87,7 +95,7 @@ export default function EditProfileForm() {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-3">
         <FormField
           control={form.control}
           name="preferLanguage"
@@ -99,8 +107,8 @@ export default function EditProfileForm() {
                   leadingIcon={<Languages size={16} />}
                   {...field}
                   options={languages?.map((language) => ({
-                    value: language.default_language,
-                    label: language.default_language,
+                    value: language,
+                    label: language,
                   }))}
                 />
               </FormControl>

@@ -28,6 +28,10 @@ export function calculateTimeDifference(dateString: string): string {
   } else if (minutesDifference >= 1) {
     return minutesDifference === 1 ? '1 minute ago' : `${minutesDifference} minutes ago`;
   } else {
-    return secondsDifference === 1 ? '1 second ago' : `${secondsDifference} seconds ago`;
+    return secondsDifference < 5
+      ? 'just now'
+      : secondsDifference === 1
+        ? '1 second ago'
+        : `${secondsDifference} seconds ago`;
   }
 }
