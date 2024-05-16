@@ -1,5 +1,4 @@
-import { cookies } from 'next/headers';
-import { deleteToken } from './auth-token';
+import { getToken } from './auth-token';
 
 const DEFAULT_QUERY_PARAMS: Record<string, string> = {};
 
@@ -10,44 +9,33 @@ function constructQueryParams(params?: Record<string, string>): string {
   return queryParams.toString();
 }
 
-const getHeaders = () => {
+const getHeaders = async () => {
   const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
+    'content-type': 'application/json',
   };
 
-  const accessToken = cookies().get('accessToken')?.value;
+  const accessToken = await getToken();
   if (accessToken) {
-    headers['Authorization'] = `Bearer ${accessToken}`;
+    headers['authorization'] = `Bearer ${accessToken}`;
   }
 
   return headers;
 };
 
 const handleResponseGracefully = async (response: Response) => {
+  const responseData = await response.json();
   if (!response.ok) {
-    const url = response.url;
-    let errorMessage = 'An error occurred while fetching data';
-    if (response.status === 401) deleteToken();
-    if (response.status >= 400 && response.status < 500) {
-      // Client error
-      const responseData = await response.json();
-      errorMessage =
-        responseData?.detail || responseData?.error || responseData?.message || errorMessage;
-    } else if (response.status >= 500 && response.status < 600) {
-      // Server error
-      errorMessage = 'Server error, Something wrong with backend service';
-    }
+    const errorMessage = responseData?.detail || responseData?.error || responseData?.message;
     throw new Error(errorMessage);
   }
-  const data = await response.json();
-  return data;
+  return responseData;
 };
 
 export const DataService = {
   get: async <T>(url: string, params: Record<string, string> = {}): Promise<T> => {
     const queryParams = constructQueryParams(params);
     const fullUrl = `${url}?${decodeURIComponent(queryParams)}`;
-    const headers = getHeaders();
+    const headers = await getHeaders();
     const response = await fetch(fullUrl, { headers });
     return handleResponseGracefully(response);
   },
@@ -62,7 +50,7 @@ export const DataService = {
 
     const response = await fetch(fullUrl, {
       method: 'POST',
-      headers: getHeaders(),
+      headers: await getHeaders(),
       body: JSON.stringify(data),
     });
 
@@ -75,7 +63,7 @@ export const DataService = {
 
     const response = await fetch(fullUrl, {
       method: 'PUT',
-      headers: getHeaders(),
+      headers: await getHeaders(),
       body: JSON.stringify(data),
     });
 
@@ -88,7 +76,7 @@ export const DataService = {
 
     const response = await fetch(fullUrl, {
       method: 'DELETE',
-      headers: getHeaders(),
+      headers: await getHeaders(),
     });
 
     return handleResponseGracefully(response);

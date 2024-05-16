@@ -1,7 +1,6 @@
+import { GET_COUNTRIES_KEY } from '@/app/utils/rq/hooks/use-countries';
 import Footer from '@/components/footer/page';
-import Header from '@/components/header/top-bar';
 import { Toaster } from '@/components/ui/sonner';
-import { GET_COUNTRIES_KEY } from '@/hooks/useCountries';
 import { getCountries } from '@/lib/countries';
 import { dehydrate } from '@tanstack/react-query';
 import { GeistSans } from 'geist/font/sans';
@@ -24,23 +23,26 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const queryClient = getQueryClient();
-  await usePrefetchUserProfile();
-  await queryClient.prefetchQuery({
-    queryKey: [GET_COUNTRIES_KEY],
-    queryFn: getCountries,
-  });
+  await Promise.allSettled([
+    usePrefetchUserProfile(),
+    queryClient.prefetchQuery({
+      queryKey: [GET_COUNTRIES_KEY],
+      queryFn: getCountries,
+    }),
+  ]);
   const dehydratedState = dehydrate(queryClient);
   return (
     <html lang="en">
       <body className={`${GeistSans.variable} h-auto`}>
-        <RqProvider>
-          <ReactQueryHydrate state={dehydratedState}>
-            <Header />
-            <main className="mx-auto h-full w-full max-w-screen-2xl">{children}</main>
-            <Footer />
-            <Toaster richColors />
-          </ReactQueryHydrate>
-        </RqProvider>
+        <main className="mx-auto h-full w-full max-w-screen-2xl">
+          <RqProvider>
+            <ReactQueryHydrate state={dehydratedState}>
+              {children}
+              <Footer />
+              <Toaster richColors />
+            </ReactQueryHydrate>
+          </RqProvider>
+        </main>
       </body>
     </html>
   );

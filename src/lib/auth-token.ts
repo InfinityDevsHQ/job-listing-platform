@@ -1,24 +1,22 @@
-'use server';
-
 import { cookies } from 'next/headers';
 
 interface StoreTokenRequest {
   token: string;
 }
-
-const storeToken = async (request: StoreTokenRequest) => {
+export const TOKEN_KEY = 'cj-session-token';
+const storeToken = (request: StoreTokenRequest) => {
   cookies().set({
-    name: 'accessToken',
+    name: TOKEN_KEY,
     value: request.token,
   });
 };
 
-const getToken = async () => {
-  return cookies().get('accessToken')?.value;
+const getToken = () => {
+  return cookies().get(TOKEN_KEY)?.value;
 };
 
-const deleteToken = async () => {
-  cookies().delete('accessToken');
+const deleteToken = () => {
+  cookies().delete(TOKEN_KEY);
 };
 
 export { deleteToken, getToken, storeToken };

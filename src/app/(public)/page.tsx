@@ -1,6 +1,7 @@
 import CompaniesList from '@/components/companies/companies-list';
-import TailoredJobs from '@/components/homepage/tailored-jobs-list';
+import HotJobs from '@/components/jobs/hot-jobs-list';
 import JobsList from '@/components/jobs/jobs-list';
+import TailoredJobs from '@/components/jobs/tailored-jobs-list';
 import FireIcon from '@/components/svgs/fire';
 import { CarouselItem } from '@/components/ui/carousel';
 import Hero from '@/components/ui/hero';
@@ -10,10 +11,10 @@ import { getPromotedCompanies } from '@/lib/companies';
 import { dehydrate } from '@tanstack/react-query';
 import { BookDown, Building2Icon, ListCollapseIcon } from 'lucide-react';
 import Image from 'next/image';
+import { useGetJobsPrefetch } from '../utils/rq/hooks/use-jobs';
+import { getQueryClient } from '../utils/rq/react-query-client';
+import { ReactQueryHydrate } from '../utils/rq/react-query-hydrate';
 import AutoPlayCarousel from './recruit/_components/autoplay-carousel';
-import { useGetJobsPrefetch } from './utils/rq/hooks/use-jobs';
-import { getQueryClient } from './utils/rq/react-query-client';
-import { ReactQueryHydrate } from './utils/rq/react-query-hydrate';
 export default async function Home() {
   const queryClient = getQueryClient();
   await Promise.allSettled([
@@ -126,20 +127,24 @@ export default async function Home() {
         </AutoPlayCarousel>
       </div>
 
-      <SectionHeader
-        leadingIcon={<FireIcon className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
-        heading="Latest Hot Offers"
-      />
-      <ReactQueryHydrate state={dehydrate(queryClient)}>
-        <JobsList hot />
-      </ReactQueryHydrate>
-      <SectionHeader
-        leadingIcon={<BookDown className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
-        heading="Ready-Set-Hired"
-      />
-      <ReactQueryHydrate state={dehydrate(queryClient)}>
-        <TailoredJobs />
-      </ReactQueryHydrate>
+      <section>
+        <SectionHeader
+          leadingIcon={<FireIcon className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
+          heading="Latest Hot Offers"
+        />
+        <ReactQueryHydrate state={dehydrate(queryClient)}>
+          <HotJobs />
+        </ReactQueryHydrate>
+      </section>
+      <section>
+        <SectionHeader
+          leadingIcon={<BookDown className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
+          heading="Ready-Set-Hired"
+        />
+        <ReactQueryHydrate state={dehydrate(queryClient)}>
+          <TailoredJobs />
+        </ReactQueryHydrate>
+      </section>
       <SectionHeader
         leadingIcon={<ListCollapseIcon className="h-7 w-7 text-blue-500" />}
         heading={'All offers from 2,300+ companies'}

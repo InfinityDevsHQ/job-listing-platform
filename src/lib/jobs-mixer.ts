@@ -17,7 +17,7 @@ export async function tailoredUserJobs(candidateId: number): Promise<Job[]> {
     with_vectors: false,
     min_score: process.env.JOBS_MIN_SCORE,
     skip: 0,
-    limit: 10,
+    limit: 5,
   });
   return data;
 }

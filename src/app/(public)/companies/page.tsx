@@ -1,4 +1,4 @@
-import CompanyTile from '@/app/companies/_components/company-tile';
+import CompanyTile from '@/app/(public)/companies/_components/company-tile';
 import Hero from '@/components/ui/hero';
 import { getPromotedCompanies } from '@/lib/companies';
 import Image from 'next/image';

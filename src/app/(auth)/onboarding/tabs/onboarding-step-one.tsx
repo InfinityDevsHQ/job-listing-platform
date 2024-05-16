@@ -1,6 +1,6 @@
+import { GET_COUNTRIES_KEY } from '@/app/utils/rq/hooks/use-countries';
 import { getQueryClient } from '@/app/utils/rq/react-query-client';
 import LocationForm from '@/components/forms/onboarding/location-form';
-import { GET_COUNTRIES_KEY } from '@/hooks/useCountries';
 import { GET_LANGUAGES_KEY } from '@/hooks/useLnaguages';
 import { getCountries } from '@/lib/countries';
 import getLanguages from '@/lib/languages';

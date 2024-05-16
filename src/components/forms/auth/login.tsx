@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { login } from '@/lib/auth';
-import { storeToken } from '@/lib/auth-token';
 import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRightIcon, EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
@@ -41,23 +40,19 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
       username: email,
       password,
     };
-    return (
-      login(body)
-        .then(async (data) => {
-          localStorage.setItem('access_token', data.access_token);
-          console.log('data.access_token ================>', data.access_token);
-          setAccessToken(data.access_token);
-          setIsAuthenticated(true);
-          await storeToken({ token: data.access_token });
-        })
-        // .then(() => getUser()) Todo: implement cookies for access token
-        .then(() => {
-          router.push('/profile');
-        })
-        .catch((error) => {
-          toast.error(error.message || 'Uh oh! Something went wrong.');
-        })
-    );
+    try {
+      const data = await login(body);
+      if (data.access_token) {
+        setIsAuthenticated(true);
+        router.push('/profile');
+      }
+    } catch (error) {
+      let message;
+      if (error instanceof Error) {
+        message = error.message || 'Uh oh! Invalid credentials.';
+      }
+      toast.error(message);
+    }
   }
 
   return (

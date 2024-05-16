@@ -7,8 +7,8 @@ import { JobCardSkeleton } from '../skeleton/job-card-skeleton';
 import { Button } from '../ui/button-new';
 import JobCard from './_components/job-card';
 
-const JobsList = () => {
-  const { fetchNextPage, data, hasNextPage, isFetchingNextPage, isFetching } = useGetJobs(false);
+const HotJobs = () => {
+  const { fetchNextPage, data, hasNextPage, isFetchingNextPage, isFetching } = useGetJobs(true);
 
   const jobs = data?.pages.flat() || [];
   const onClickLoadMore = () => {
@@ -42,4 +42,4 @@ const JobsList = () => {
   );
 };
 
-export default JobsList;
+export default HotJobs;
