@@ -1,7 +1,7 @@
 import { GET_COUNTRIES_KEY } from '@/app/utils/rq/hooks/use-countries';
+import { GET_LANGUAGES_KEY } from '@/app/utils/rq/hooks/use-languages';
 import { getQueryClient } from '@/app/utils/rq/react-query-client';
 import LocationForm from '@/components/forms/onboarding/location-form';
-import { GET_LANGUAGES_KEY } from '@/hooks/useLnaguages';
 import { getCountries } from '@/lib/countries';
 import getLanguages from '@/lib/languages';
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query';

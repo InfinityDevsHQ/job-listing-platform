@@ -1,8 +1,8 @@
+import { GET_SINGLE_JOB_LISTING_BY_ID_KEY } from '@/app/utils/rq/hooks/use-job-listing-by-id';
 import { getQueryClient } from '@/app/utils/rq/react-query-client';
 import { ReactQueryHydrate } from '@/app/utils/rq/react-query-hydrate';
 import FireIcon from '@/components/svgs/fire';
 import SectionHeader from '@/components/ui/section-header';
-import { GET_SINGLE_JOB_LISTING_BY_ID_KEY } from '@/hooks/useJobListingById';
 import { getJobById } from '@/lib/jobs';
 import { dehydrate } from '@tanstack/react-query';
 import { notFound } from 'next/navigation';

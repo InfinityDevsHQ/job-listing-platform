@@ -1,12 +1,10 @@
-import { GET_COUNTRIES_KEY } from '@/app/utils/rq/hooks/use-countries';
+import { usePrefetchCountries } from '@/app/utils/rq/hooks/use-countries';
 import Footer from '@/components/footer/page';
 import { Toaster } from '@/components/ui/sonner';
-import { getCountries } from '@/lib/countries';
 import { dehydrate } from '@tanstack/react-query';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
 import './globals.css';
-import { usePrefetchUserProfile } from './utils/rq/hooks/use-auth';
 import { getQueryClient } from './utils/rq/react-query-client';
 import { ReactQueryHydrate } from './utils/rq/react-query-hydrate';
 import { RqProvider } from './utils/rq/rq-provider';
@@ -23,13 +21,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const queryClient = getQueryClient();
-  await Promise.allSettled([
-    usePrefetchUserProfile(),
-    queryClient.prefetchQuery({
-      queryKey: [GET_COUNTRIES_KEY],
-      queryFn: getCountries,
-    }),
-  ]);
+  await usePrefetchCountries();
   const dehydratedState = dehydrate(queryClient);
   return (
     <html lang="en">

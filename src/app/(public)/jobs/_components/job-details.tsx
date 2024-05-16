@@ -1,9 +1,9 @@
 'use client';
+import { useJobListingById } from '@/app/utils/rq/hooks/use-job-listing-by-id';
 import JobCardHeader from '@/components/jobs/_components/job-card-header';
 import Badges from '@/components/ui/badges';
 import InfoList from '@/components/ui/info-list';
 import InfoSection from '@/components/ui/info-section';
-import { useJobListingById } from '@/hooks/useJobListingById';
 import ApplyJobModal from './apply-job-modal';
 import JobFeedback from './job-feedback';
 

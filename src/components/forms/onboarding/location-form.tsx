@@ -1,10 +1,10 @@
 'use client';
 import Pagination from '@/app/(auth)/onboarding/_components/pagination';
 import { useCountries } from '@/app/utils/rq/hooks/use-countries';
+import { useLanguages } from '@/app/utils/rq/hooks/use-languages';
 import AppSelect from '@/components/ui/app-select';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
-import { useLanguages } from '@/hooks/useLnaguages';
 import { useQueryParams } from '@/hooks/useQueryParams';
 import { timezones } from '@/lib/time-zones';
 import useOnboardingStore from '@/stores/onboardingStore/store';
