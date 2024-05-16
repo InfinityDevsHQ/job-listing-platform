@@ -10,11 +10,17 @@ const TailoredJobs = () => {
     error: tailoredJobsError,
     data: jobs,
   } = useTailoredUsersJobs();
-  getTailoredJobs(userProfile?.user_data.id as number);
+  console.log(jobs);
+  if (tailoredJobsLoading) {
+    return null;
+  }
   console.log(jobs);
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
       {jobs?.map((job, index) => <JobCard key={index} job={job} />)}
+      {!jobs && (
+        <h3 className="mt-2 text-center text-sm font-semibold text-gray-900">No Jobs found</h3>
+      )}
     </div>
   );
 };

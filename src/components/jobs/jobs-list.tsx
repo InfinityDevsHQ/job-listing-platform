@@ -1,8 +1,6 @@
 'use client';
 import { useGetJobs } from '@/app/utils/rq/hooks/use-jobs';
 
-import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
-import { useTailoredUsersJobs } from '@/hooks/useTailoredUsersJobs';
 import { cn } from '@/lib/utils';
 import { RefreshCcwIcon } from 'lucide-react';
 import { Button } from '../ui/button-new';
@@ -15,14 +13,7 @@ export interface JobListProps {
 
 const JobsList = ({ hot }: JobListProps) => {
   const { fetchNextPage, data, hasNextPage, isFetchingNextPage, isFetching } = useGetJobs(hot);
-  const { data: userProfile } = useUserProfile();
-  console.log(userProfile?.user_data.id);
-  const {
-    mutate: getTailoredJobs,
-    isPending: tailoredJobsLoading,
-    error: tailoredJobsError,
-  } = useTailoredUsersJobs();
-  // const tailoredJobs = getTailoredJobs(candidateId as number);
+
   const jobs = data?.pages.flat() || [];
   const onClickLoadMore = () => {
     fetchNextPage();

@@ -11,7 +11,14 @@ const JOBS_MIXER_URLS = {
 
 export async function tailoredUserJobs(candidateId: number): Promise<Job[]> {
   if (!candidateId) return {} as Job[];
-  const data = await DataService.post<Job[]>(`${JOBS_MIXER_URLS.tailoredUserJobs}/${candidateId}`);
+  const data = await DataService.post<Job[]>(`${JOBS_MIXER_URLS.tailoredUserJobs}/${candidateId}`, {
+    collection_name: process.env.JOBS_COLLECTION_NAME,
+    with_payload: true,
+    with_vectors: false,
+    min_score: process.env.JOBS_MIN_SCORE,
+    skip: 0,
+    limit: 10,
+  });
   return data;
 }
 export async function readCandidateVector(candidateId: string): Promise<CandidateVector> {
