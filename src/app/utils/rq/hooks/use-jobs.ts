@@ -14,7 +14,7 @@ export function useGetJobs(isHot = false) {
   return useInfiniteQuery<Job[], Error, InfiniteData<Job[], number>, any, number>({
     initialPageParam: 0,
     retry: 0,
-    queryKey: [ALL_JOBS_KEY, `${ALL_JOBS_KEY}_${payload}`],
+    queryKey: [ALL_JOBS_KEY, `${ALL_JOBS_KEY}_${isHot}`],
     queryFn: ({ pageParam }) =>
       getJobs({
         skip: pageParam,
