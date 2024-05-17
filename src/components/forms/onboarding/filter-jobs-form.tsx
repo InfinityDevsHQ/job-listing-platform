@@ -35,7 +35,6 @@ export default function FilterJobsForm() {
   });
   async function onSubmit(values: z.infer<typeof jobFilterSchema>) {
     // Updating Dat in the store
-    console.log(values);
     setOnboardingData({
       ...onboardingData,
       full_time: values.full_time,
@@ -46,7 +45,6 @@ export default function FilterJobsForm() {
       on_site: values.on_site,
       hybrid: values.hybrid,
     });
-    console.log(onboardingData);
     addQueryParams('step', 'contact');
   }
   return (

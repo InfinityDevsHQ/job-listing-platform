@@ -9,12 +9,13 @@ import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { timezones } from '@/lib/time-zones';
-import { updateUserProfile } from '@/lib/user';
+import { updateProfile } from '@/lib/user';
 import useOnboardingStore from '@/stores/onboardingStore/store';
 import { UserProfile } from '@/types/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Building2Icon, Clock, Globe2, Languages, Linkedin, Phone } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 
 const editProfileSchema = z.object({
@@ -31,13 +32,13 @@ const editProfileSchema = z.object({
   expertise: z.union([z.string(), z.array(z.string())]),
   ai_skill_tags: z.union([z.string(), z.array(z.string())]),
 });
+
 type EditProfileFormProps = {
   formName?: 'user-info' | 'about-us';
 };
 
 export default function EditProfileForm({ formName = 'user-info' }: EditProfileFormProps) {
   const { data: user } = useUserProfile();
-  console.log('user================================================================', user);
   const { onboardingData, setOnboardingData } = useOnboardingStore();
   const form = useForm<z.infer<typeof editProfileSchema>>({
     resolver: zodResolver(editProfileSchema),
@@ -58,17 +59,10 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
   });
 
   const isLoading = form.formState.isSubmitting;
-  const { isLoading: languagesLoading, error: languagesError, data: languages } = useLanguages();
-  const { isLoading: countriesLoading, error: countriesError, data: countries } = useCountries();
-
-  console.log(
-    'languages================================================================',
-    languagesLoading,
-    languages
-  );
+  const { data: languages } = useLanguages();
+  const { data: countries } = useCountries();
 
   async function onSubmit(values: z.infer<typeof editProfileSchema>) {
-    console.log('running.......', values);
     setOnboardingData({
       ...onboardingData,
       language: values.preferLanguage,
@@ -104,8 +98,12 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
       },
     };
 
-    const response = await updateUserProfile(body as UserProfile);
-    console.log(response);
+    const response = await updateProfile(body as UserProfile);
+    if (response) {
+      toast.success('Profile Updated Successfully.');
+    } else {
+      toast.error('Updating profile failed, Try again later.');
+    }
   }
 
   return (
