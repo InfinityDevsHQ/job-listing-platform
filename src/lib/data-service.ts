@@ -1,4 +1,23 @@
-import { getToken } from './auth-token';
+import { deleteToken, getToken } from './auth-token';
+
+interface IHttpError<T> {
+  status: number;
+  code?: number;
+  result?: T;
+}
+
+export class HttpError<T> extends Error implements IHttpError<T> {
+  status: number;
+  code?: number;
+  result?: T;
+
+  constructor(message: string, httpResult: IHttpError<T>, options?: ErrorOptions) {
+    super(message, options);
+    this.status = httpResult.status;
+    this.code = httpResult.code;
+    this.result = httpResult.result;
+  }
+}
 
 const DEFAULT_QUERY_PARAMS: Record<string, string> = {};
 
@@ -9,14 +28,14 @@ function constructQueryParams(params?: Record<string, string>): string {
   return queryParams.toString();
 }
 
-const getHeaders = async () => {
+const getHeaders = () => {
   const headers: Record<string, string> = {
-    'content-type': 'application/json',
+    'Content-Type': 'application/json',
   };
 
-  const accessToken = await getToken();
+  const accessToken = getToken();
   if (accessToken) {
-    headers['authorization'] = `Bearer ${accessToken}`;
+    headers['Authorization'] = `Bearer ${accessToken}`;
   }
 
   return headers;
@@ -25,8 +44,14 @@ const getHeaders = async () => {
 const handleResponseGracefully = async (response: Response) => {
   const responseData = await response.json();
   if (!response.ok) {
+    if (response.status === 401) deleteToken();
     const errorMessage = responseData?.detail || responseData?.error || responseData?.message;
-    throw new Error(errorMessage);
+
+    throw new HttpError(errorMessage, {
+      status: response.status,
+      code: responseData.code,
+      result: responseData.result,
+    });
   }
   return responseData;
 };
@@ -35,7 +60,7 @@ export const DataService = {
   get: async <T>(url: string, params: Record<string, string> = {}): Promise<T> => {
     const queryParams = constructQueryParams(params);
     const fullUrl = `${url}?${decodeURIComponent(queryParams)}`;
-    const headers = await getHeaders();
+    const headers = getHeaders();
     const response = await fetch(fullUrl, { headers });
     return handleResponseGracefully(response);
   },
@@ -50,7 +75,7 @@ export const DataService = {
 
     const response = await fetch(fullUrl, {
       method: 'POST',
-      headers: await getHeaders(),
+      headers: getHeaders(),
       body: JSON.stringify(data),
     });
 
@@ -63,7 +88,7 @@ export const DataService = {
 
     const response = await fetch(fullUrl, {
       method: 'PUT',
-      headers: await getHeaders(),
+      headers: getHeaders(),
       body: JSON.stringify(data),
     });
 
@@ -76,7 +101,7 @@ export const DataService = {
 
     const response = await fetch(fullUrl, {
       method: 'DELETE',
-      headers: await getHeaders(),
+      headers: getHeaders(),
     });
 
     return handleResponseGracefully(response);

@@ -14,7 +14,7 @@ export function useGetJobs(isHot = false) {
   return useInfiniteQuery<Job[], Error, InfiniteData<Job[], number>, any, number>({
     initialPageParam: 0,
     retry: 0,
-    queryKey: [ALL_JOBS_KEY, payload],
+    queryKey: [ALL_JOBS_KEY, `${ALL_JOBS_KEY}_${payload}`],
     queryFn: ({ pageParam }) =>
       getJobs({
         skip: pageParam,
@@ -35,7 +35,7 @@ export async function useGetJobsPrefetch(isHot = false): Promise<QueryClient> {
   await queryClient.prefetchInfiniteQuery<Job[], Error, InfiniteData<Job[], number>, any, number>({
     initialPageParam: 0,
     retry: 0,
-    queryKey: [ALL_JOBS_KEY, payload],
+    queryKey: [ALL_JOBS_KEY, `${ALL_JOBS_KEY}_${payload}`],
     queryFn: () => getJobs({ skip: 0, is_hot: isHot }),
   });
   return queryClient;
@@ -43,7 +43,7 @@ export async function useGetJobsPrefetch(isHot = false): Promise<QueryClient> {
 
 export function useJobListingById({ jobId }: { jobId: string }) {
   return useQuery({
-    queryKey: [JOB_BY_ID, jobId],
+    queryKey: [JOB_BY_ID, `${JOB_BY_ID}_${jobId}`],
     queryFn: async () => await getJobById(jobId),
   });
 }
