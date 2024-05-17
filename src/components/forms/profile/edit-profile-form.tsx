@@ -30,12 +30,13 @@ const editProfileSchema = z.object({
 
 export default function EditProfileForm() {
   const { data: user } = useUserProfile();
+  console.log('user================================================================', user);
   const { onboardingData, setOnboardingData } = useOnboardingStore();
 
   const form = useForm<z.infer<typeof editProfileSchema>>({
     resolver: zodResolver(editProfileSchema),
     defaultValues: {
-      preferLanguage: user?.user_data.language,
+      preferLanguage: user?.user_data.prefered_language || '',
       timeZone: user?.user_data.timezone || '',
       country: user?.user_data.country,
       city: user?.user_data.city,
@@ -93,6 +94,7 @@ export default function EditProfileForm() {
     const response = await updateUserProfile(body as UserProfile);
     console.log(response);
   }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-3">
@@ -103,7 +105,7 @@ export default function EditProfileForm() {
             <FormItem>
               <FormControl>
                 <AppSelect
-                  placeholder="Preferred Language"
+                  placeholder={user?.user_data.prefered_language || 'Preferred Language'}
                   leadingIcon={<Languages size={16} />}
                   {...field}
                   options={languages?.map((language) => ({
@@ -123,7 +125,7 @@ export default function EditProfileForm() {
             <FormItem>
               <FormControl>
                 <AppSelect
-                  placeholder="Time Zone"
+                  placeholder={user?.user_data.timezone || 'Timezone'}
                   leadingIcon={<Clock size={16} />}
                   {...field}
                   options={timezones.map((time) => ({
@@ -143,7 +145,7 @@ export default function EditProfileForm() {
             <FormItem>
               <FormControl>
                 <AppSelect
-                  placeholder="Select Country"
+                  placeholder={user?.user_data.selected_country || 'Select Country'}
                   {...field}
                   leadingIcon={<Globe2 size={16} />}
                   options={countries?.map((country) => ({

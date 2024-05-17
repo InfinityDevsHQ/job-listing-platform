@@ -192,6 +192,7 @@ export type UserData = {
   longitude?: number | null;
   geo_resolve_tries?: number;
   language?: string;
+  prefered_language: string;
 };
 export interface Resume {
   cv_filepath: string;
