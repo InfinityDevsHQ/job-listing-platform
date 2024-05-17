@@ -27,13 +27,13 @@ export async function getDeleteJob(jobId: number): Promise<{}> {
   });
   return data;
 }
-export async function getRemoveExternalCompanyLogo(jobId: number): Promise<{}> {
+export async function getRemoveExternalCompanyLogoByJobId(jobId: number): Promise<{}> {
   const data = await DataService.get<{}>(`${STAFF_URLS.removeExternalCompanyLogo}`, {
     job_id: `${jobId}`,
   });
   return data;
 }
-export async function getPromoteCompany(jobId: number): Promise<{}> {
+export async function getPromoteCompanyByJobId(jobId: number): Promise<{}> {
   const data = await DataService.get<{}>(`${STAFF_URLS.removeExternalCompanyLogo}`, {
     job_id: `${jobId}`,
   });
