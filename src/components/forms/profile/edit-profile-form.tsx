@@ -27,8 +27,11 @@ const editProfileSchema = z.object({
   twitter: z.string(),
   github: z.string(),
 });
+type EditProfileFormProps = {
+  formName?: 'user-info' | 'about-us';
+};
 
-export default function EditProfileForm() {
+export default function EditProfileForm({ formName = 'user-info' }: EditProfileFormProps) {
   const { data: user } = useUserProfile();
   console.log('user================================================================', user);
   const { onboardingData, setOnboardingData } = useOnboardingStore();
@@ -98,152 +101,161 @@ export default function EditProfileForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-3">
-        <FormField
-          control={form.control}
-          name="preferLanguage"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <AppSelect
-                  placeholder={user?.user_data.prefered_language || 'Preferred Language'}
-                  leadingIcon={<Languages size={16} />}
-                  {...field}
-                  options={languages?.map((language) => ({
-                    value: language,
-                    label: language,
-                  }))}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="timeZone"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <AppSelect
-                  placeholder={user?.user_data.timezone || 'Timezone'}
-                  leadingIcon={<Clock size={16} />}
-                  {...field}
-                  options={timezones.map((time) => ({
-                    value: time,
-                    label: time,
-                  }))}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="country"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <AppSelect
-                  placeholder={user?.user_data.selected_country || 'Select Country'}
-                  {...field}
-                  leadingIcon={<Globe2 size={16} />}
-                  options={countries?.map((country) => ({
-                    label: country.name,
-                    value: country.name,
-                  }))}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="city"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input {...field} placeholder="City" leadingIcon={<Building2Icon size={16} />} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <>
-          <FormField
-            name="phoneNumber"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input
-                    {...field}
-                    variant={'primary'}
-                    placeholder="Phone Number"
-                    leadingIcon={<Phone width={16} height={16} />}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        {formName === 'user-info' && (
+          <>
+            <FormField
+              control={form.control}
+              name="preferLanguage"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <AppSelect
+                      placeholder={user?.user_data.prefered_language || 'Preferred Language'}
+                      leadingIcon={<Languages size={16} />}
+                      {...field}
+                      options={languages?.map((language) => ({
+                        value: language,
+                        label: language,
+                      }))}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="timeZone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <AppSelect
+                      placeholder={user?.user_data.timezone || 'Timezone'}
+                      leadingIcon={<Clock size={16} />}
+                      {...field}
+                      options={timezones.map((time) => ({
+                        value: time,
+                        label: time,
+                      }))}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="country"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <AppSelect
+                      placeholder={user?.user_data.selected_country || 'Select Country'}
+                      {...field}
+                      leadingIcon={<Globe2 size={16} />}
+                      options={countries?.map((country) => ({
+                        label: country.name,
+                        value: country.name,
+                      }))}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="city"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      placeholder="City"
+                      leadingIcon={<Building2Icon size={16} />}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <>
+              <FormField
+                name="phoneNumber"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        variant={'primary'}
+                        placeholder="Phone Number"
+                        leadingIcon={<Phone width={16} height={16} />}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-          <h3 className="text-mute font-sans text-base font-bold lg:text-lg lg:font-semibold">
-            Social Networks
-          </h3>
-          <FormField
-            name="linkedin"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input
-                    {...field}
-                    variant={'primary'}
-                    placeholder="Linkedin"
-                    leadingIcon={<Linkedin />}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            name="twitter"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input
-                    {...field}
-                    variant={'primary'}
-                    placeholder="X"
-                    leadingIcon={<TwitterIcon />}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            name="github"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input
-                    {...field}
-                    variant={'primary'}
-                    placeholder="Github"
-                    leadingIcon={<CompanyGithubSecond width={16} height={16} />}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </>
+              <h3 className="text-mute font-sans text-base font-bold lg:text-lg lg:font-semibold">
+                Social Networks
+              </h3>
+              <FormField
+                name="linkedin"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        variant={'primary'}
+                        placeholder="Linkedin"
+                        leadingIcon={<Linkedin />}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="twitter"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        variant={'primary'}
+                        placeholder="X"
+                        leadingIcon={<TwitterIcon />}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="github"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        variant={'primary'}
+                        placeholder="Github"
+                        leadingIcon={<CompanyGithubSecond width={16} height={16} />}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </>
+          </>
+        )}
+        {formName === 'about-us'}
         <Button type="submit">{isLoading ? 'Saving....' : 'Save'}</Button>
       </form>
     </Form>
