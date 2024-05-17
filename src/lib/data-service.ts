@@ -1,4 +1,4 @@
-import { deleteToken, getToken } from './auth-token';
+import { getToken } from './auth-token';
 
 interface IHttpError<T> {
   status: number;
@@ -44,7 +44,6 @@ const getHeaders = () => {
 const handleResponseGracefully = async (response: Response) => {
   const responseData = await response.json();
   if (!response.ok) {
-    if (response.status === 401) deleteToken();
     const errorMessage = responseData?.detail || responseData?.error || responseData?.message;
 
     throw new HttpError(errorMessage, {

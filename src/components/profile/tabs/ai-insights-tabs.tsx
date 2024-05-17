@@ -1,4 +1,3 @@
-'use client';
 import { GET_CANDIDATE_RECOMMENDATION_BY_ID_KEY } from '@/app/utils/rq/hooks/use-candidate-recommendation';
 import { getQueryClient } from '@/app/utils/rq/react-query-client';
 import { ReactQueryHydrate } from '@/app/utils/rq/react-query-hydrate';

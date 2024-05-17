@@ -1,6 +1,6 @@
+'use clients';
 import { useCountries } from '@/app/utils/rq/hooks/use-countries';
 import { ALL_JOBS_KEY } from '@/app/utils/rq/hooks/use-jobs';
-import { getQueryClient } from '@/app/utils/rq/react-query-client';
 import { Button } from '@/components/ui/button-new';
 import { useCountryStore } from '@/stores/countryStore/countryStore';
 import { Country } from '@/types/types';
@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@radix-ui/react-dropdown-menu';
+import { useQueryClient } from '@tanstack/react-query';
 import { ChevronDownIcon, GlobeIcon } from 'lucide-react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -18,9 +19,8 @@ import { Fragment } from 'react';
 
 export const Countries = () => {
   const pathname = usePathname();
-  const queryClient = getQueryClient();
   const { data: countries } = useCountries();
-
+  const queryClient = useQueryClient();
   const { selectedCountry, setSelectedCountry } = useCountryStore();
 
   const handleSelectCountry = async (country: Country) => {

@@ -23,8 +23,8 @@ const locationFormSchema = z.object({
 });
 
 export default function LocationForm() {
-  const { isLoading: languagesLoading, error: languagesError, data: languages } = useLanguages();
-  const { isLoading: countriesLoading, error: countriesError, data: countries } = useCountries();
+  const { data: languages } = useLanguages();
+  const { data: countries } = useCountries();
 
   const { onboardingData, setOnboardingData } = useOnboardingStore();
   const addQueryParams = useQueryParams();
@@ -46,7 +46,6 @@ export default function LocationForm() {
       country: values.country,
       city: values.city,
     });
-    console.log(onboardingData);
     addQueryParams('step', 'upload-cv');
   }
 

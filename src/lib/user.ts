@@ -13,7 +13,7 @@ const USER_URLS = {
   userJobsClicked: `${PLATFORM_API_BASE_URL}/api/v1/user/jobs/clicked`,
   userJobsFavorited: `${PLATFORM_API_BASE_URL}/api/v1/user/jobs/favorited`,
   userJobsDisabled: `${PLATFORM_API_BASE_URL}/api/v1/user/jobs/disliked`,
-  userUpdate: `${PLATFORM_API_BASE_URL}/api/v1/user`,
+  userUpdate: `${PLATFORM_API_BASE_URL}/api/v1/user/profile`,
   applyJob: `${PLATFORM_API_BASE_URL}/api/v1/user/job/apply`,
 };
 
