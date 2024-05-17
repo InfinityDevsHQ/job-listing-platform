@@ -29,17 +29,15 @@ export default function TermsAndConditionsForm() {
     },
   });
   const isLoading = form.formState.isSubmitting;
+  console.log('Inside Component,', isLoading);
   async function onSubmit(values: z.infer<typeof termsAndConditionsFormSchema>) {
     // Updating Store on submitting data
     setOnboardingData({
       ...onboardingData,
-      is_terms_agreed: values.termsAgreed === 'true',
+      is_terms_agreed: values.termsAgreed === 'true' ? true : false,
     });
-    const resp = await uploadOnBoardingData({
-      ...onboardingData,
-      is_terms_agreed: values.termsAgreed === 'true',
-    });
-    if (resp.id) {
+    const resp = await uploadOnBoardingData(onboardingData);
+    if ({ resp }) {
       toast.success('Profile Created Successfully.');
       router.push('/profile');
     } else {

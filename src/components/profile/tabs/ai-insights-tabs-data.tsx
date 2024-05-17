@@ -1,10 +1,10 @@
-'use client';
-
 import { useCandidateRecommendationById } from '@/app/utils/rq/hooks/use-candidate-recommendation';
 import InfoSection from '@/components/ui/info-section';
 
-const AiInsightsTabsData = ({ candidateId }: { candidateId: number }) => {
+const AiInsightsTabsData = async ({ candidateId }: { candidateId: number }) => {
   const { isLoading, error, data: recommendation } = useCandidateRecommendationById(candidateId);
+
+  console.log('recommendation =====>', recommendation);
 
   if (isLoading || !recommendation || !Object.keys(recommendation).length) {
     return <></>;
