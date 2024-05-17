@@ -26,14 +26,14 @@ export default function Pagination({
   return (
     <div className="flex w-full items-center">
       {previous && (
-        <Button onClick={handleBack} variant="outline">
+        <Button onClick={handleBack} variant="outline" type="button">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Previous
         </Button>
       )}
       <div className="ml-auto flex items-center gap-5">
         {skip && (
-          <Button className="bg-white" variant="outline" onClick={handleSkip}>
+          <Button className="bg-white" variant="outline" onClick={handleSkip} type="button">
             Skip
           </Button>
         )}
