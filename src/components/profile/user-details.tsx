@@ -13,13 +13,10 @@ import UserInfoMobile from './user-info-mobile';
 type UserDetailsProps = {
   user: User;
 };
-
-const UserDetails = async ({ user }: UserDetailsProps) => {
+const UserDetails = ({ user }: UserDetailsProps) => {
   const [showEditForm, setShowEditForm] = useState(false);
-
   const queryClient = getQueryClient();
-
-  await queryClient.prefetchQuery({
+  queryClient.prefetchQuery({
     queryKey: [GET_LANGUAGES_KEY],
     queryFn: getLanguages,
   });
