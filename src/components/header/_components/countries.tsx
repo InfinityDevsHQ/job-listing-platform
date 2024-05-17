@@ -25,8 +25,6 @@ export const Countries = () => {
 
   const handleSelectCountry = async (country: Country) => {
     setSelectedCountry(country);
-    const payload = { is_hot: false };
-    // TODO: debug why it's not calling
     await queryClient.invalidateQueries({
       queryKey: [ALL_JOBS_KEY],
     });
