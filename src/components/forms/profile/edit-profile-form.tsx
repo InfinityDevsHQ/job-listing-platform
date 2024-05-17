@@ -26,6 +26,10 @@ const editProfileSchema = z.object({
   linkedin: z.string(),
   twitter: z.string(),
   github: z.string(),
+  objective: z.string(),
+  summary: z.string(),
+  expertise: z.union([z.string(), z.array(z.string())]),
+  ai_skill_tags: z.union([z.string(), z.array(z.string())]),
 });
 type EditProfileFormProps = {
   formName?: 'user-info' | 'about-us';
@@ -35,7 +39,6 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
   const { data: user } = useUserProfile();
   console.log('user================================================================', user);
   const { onboardingData, setOnboardingData } = useOnboardingStore();
-
   const form = useForm<z.infer<typeof editProfileSchema>>({
     resolver: zodResolver(editProfileSchema),
     defaultValues: {
@@ -47,6 +50,10 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
       linkedin: user?.candidate_data.social?.linkedin || '',
       twitter: user?.candidate_data.social?.twitter || '',
       github: user?.candidate_data.social?.github || '',
+      objective: user?.candidate_data.ai_objective || '',
+      summary: user?.candidate_data.ai_cv_summary || '',
+      expertise: user?.candidate_data.ai_expertise || '',
+      ai_skill_tags: user?.candidate_data.ai_skill_tags || '',
     },
   });
 
@@ -61,7 +68,7 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
   );
 
   async function onSubmit(values: z.infer<typeof editProfileSchema>) {
-    console.log('running');
+    console.log('running.......', values);
     setOnboardingData({
       ...onboardingData,
       language: values.preferLanguage,
@@ -73,7 +80,6 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
       linkedin: values.linkedin,
       twitter: values.twitter,
     });
-
     const body = {
       user_data: {
         ...user?.user_data,
@@ -85,6 +91,10 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
       },
       candidate_data: {
         ...user?.candidate_data,
+        ai_objective: values.objective,
+        ai_cv_summary: values.summary,
+        ai_expertise: values.expertise,
+        ai_skill_tags: values.ai_skill_tags,
         social: {
           ...user?.candidate_data?.social,
           github: values.github,
@@ -255,7 +265,58 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
             </>
           </>
         )}
-        {formName === 'about-us'}
+        {formName === 'about-us' && (
+          <>
+            <FormField
+              control={form.control}
+              name="objective"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder="Ai Objectives" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="summary"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder="Ai CV Summary" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="expertise"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder="Ai Expertise" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="ai_skill_tags"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder="AI Skill Tags" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </>
+        )}
         <Button type="submit">{isLoading ? 'Saving....' : 'Save'}</Button>
       </form>
     </Form>
