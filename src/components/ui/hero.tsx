@@ -1,7 +1,4 @@
-import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from './button-new';
 
 type HeroSectionProps = {
   heading: string;
@@ -35,7 +32,7 @@ const Hero = ({
           {heading}
         </h1>
         <p className="mt-4 max-w-xl text-center text-lg  text-slate-600 md:text-left">{desc}</p>
-        <div className="mt-6 flex flex-col gap-3 md:flex-row">
+        {/* <div className="mt-6 flex flex-col gap-3 md:flex-row">
           <Button>
             <Link href="#" target="_blank" rel="noopener">
               Get Started
@@ -47,7 +44,7 @@ const Hero = ({
               <ArrowRightIcon className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-        </div>
+        </div> */}
       </div>
     </main>
   );

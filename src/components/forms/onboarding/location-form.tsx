@@ -1,20 +1,21 @@
 'use client';
 import Pagination from '@/app/(auth)/onboarding/_components/pagination';
+import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
+import { useCountries } from '@/app/utils/rq/hooks/use-countries';
+import { useLanguages } from '@/app/utils/rq/hooks/use-languages';
 import AppSelect from '@/components/ui/app-select';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { useQueryParams } from '@/hooks/useQueryParams';
 import { timezones } from '@/lib/time-zones';
+import { updateUserProfile } from '@/lib/user';
 import useOnboardingStore from '@/stores/onboardingStore/store';
-import { Country } from '@/types/types';
+import { UserProfile } from '@/types/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Building2Icon, Clock, Globe2, Languages } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-type LocationFormProps = {
-  languages?: string[];
-  countries?: Country[];
-};
+
 const locationFormSchema = z.object({
   preferLanguage: z.string().min(2, {
     message: 'Must select a language',
@@ -24,7 +25,11 @@ const locationFormSchema = z.object({
   city: z.string().min(2, { message: 'Please Enter a valid city' }),
 });
 
-export default function LocationForm({ languages, countries }: LocationFormProps) {
+export default function LocationForm() {
+  const { data: user } = useUserProfile();
+  const { data: languages } = useLanguages();
+  const { data: countries } = useCountries();
+
   const { onboardingData, setOnboardingData } = useOnboardingStore();
   const addQueryParams = useQueryParams();
   const form = useForm<z.infer<typeof locationFormSchema>>({
@@ -45,7 +50,21 @@ export default function LocationForm({ languages, countries }: LocationFormProps
       country: values.country,
       city: values.city,
     });
-    console.log(onboardingData);
+
+    const body = {
+      ...user,
+      user_data: {
+        ...user?.user_data,
+        language: values.preferLanguage,
+        timezone: values.timeZone,
+        country: values.country,
+        city: values.city,
+      },
+    };
+
+    console.log('This is body', body);
+    const response = await updateUserProfile(body as UserProfile);
+    console.log(response);
     addQueryParams('step', 'upload-cv');
   }
 
@@ -62,7 +81,10 @@ export default function LocationForm({ languages, countries }: LocationFormProps
                   placeholder="Preferred Language"
                   leadingIcon={<Languages size={16} />}
                   {...field}
-                  options={languages?.map((language) => ({ value: language, label: language }))}
+                  options={languages?.map((language) => ({
+                    value: language || '',
+                    label: language || '',
+                  }))}
                 />
               </FormControl>
               <FormMessage />
@@ -121,7 +143,11 @@ export default function LocationForm({ languages, countries }: LocationFormProps
             </FormItem>
           )}
         />
-        <Pagination handleBack={() => addQueryParams('', '')} isNextSubmit />
+        <Pagination
+          handleBack={() => addQueryParams('', '')}
+          isNextSubmit
+          nextLoading={isLoading}
+        />
       </form>
     </Form>
   );

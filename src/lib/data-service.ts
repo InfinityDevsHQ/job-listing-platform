@@ -1,4 +1,23 @@
-import { cookies } from 'next/headers';
+import { getToken } from './auth-token';
+
+interface IHttpError<T> {
+  status: number;
+  code?: number;
+  result?: T;
+}
+
+export class HttpError<T> extends Error implements IHttpError<T> {
+  status: number;
+  code?: number;
+  result?: T;
+
+  constructor(message: string, httpResult: IHttpError<T>, options?: ErrorOptions) {
+    super(message, options);
+    this.status = httpResult.status;
+    this.code = httpResult.code;
+    this.result = httpResult.result;
+  }
+}
 
 const DEFAULT_QUERY_PARAMS: Record<string, string> = {};
 
@@ -14,7 +33,7 @@ const getHeaders = () => {
     'Content-Type': 'application/json',
   };
 
-  const accessToken = cookies().get('accessToken')?.value;
+  const accessToken = getToken();
   if (accessToken) {
     headers['Authorization'] = `Bearer ${accessToken}`;
   }
@@ -23,28 +42,25 @@ const getHeaders = () => {
 };
 
 const handleResponseGracefully = async (response: Response) => {
+  const responseData = await response.json();
   if (!response.ok) {
-    let errorMessage = 'An error occurred while fetching data';
-    if (response.status >= 400 && response.status < 500) {
-      // Client error
-      const responseData = await response.json();
-      errorMessage =
-        responseData?.detail || responseData?.error || responseData?.message || errorMessage;
-    } else if (response.status >= 500 && response.status < 600) {
-      // Server error
-      errorMessage = 'Server error, Something wrong with backend service';
-    }
-    throw new Error(errorMessage);
+    const errorMessage = responseData?.detail || responseData?.error || responseData?.message;
+
+    throw new HttpError(errorMessage, {
+      status: response.status,
+      code: responseData.code,
+      result: responseData.result,
+    });
   }
-  const data = await response.json();
-  return data;
+  return responseData;
 };
 
 export const DataService = {
   get: async <T>(url: string, params: Record<string, string> = {}): Promise<T> => {
     const queryParams = constructQueryParams(params);
     const fullUrl = `${url}?${decodeURIComponent(queryParams)}`;
-    const response = await fetch(fullUrl, { headers: getHeaders() });
+    const headers = getHeaders();
+    const response = await fetch(fullUrl, { headers });
     return handleResponseGracefully(response);
   },
 

@@ -2,14 +2,17 @@
 import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import TextArea from '@/components/ui/text-area';
+import { applyForJob } from '@/lib/user';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Send } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 const applyJobFormSchema = z.object({
   coverLetter: z.string().min(100, { message: 'Letter Must be at least 100 characters long.' }),
 });
-const ApplyJobForm = () => {
+const ApplyJobForm = ({ jobId }: { jobId: string }) => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof applyJobFormSchema>>({
     resolver: zodResolver(applyJobFormSchema),
     defaultValues: {
@@ -17,7 +20,10 @@ const ApplyJobForm = () => {
     },
   });
   const onSubmit = async (values: z.infer<typeof applyJobFormSchema>) => {
-    console.log(values);
+    const response = await applyForJob(jobId);
+    if (response) {
+      router.push('/success');
+    }
   };
   return (
     <Form {...form}>

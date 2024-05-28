@@ -8,7 +8,9 @@ import { uploadOnBoardingData } from '@/lib/onboarding';
 import useOnboardingStore from '@/stores/onboardingStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 const termsAndConditionsFormSchema = z.object({
   termsAgreed: z.string().refine((value) => value === 'true', {
@@ -19,12 +21,15 @@ const termsAndConditionsFormSchema = z.object({
 export default function TermsAndConditionsForm() {
   const { onboardingData, setOnboardingData } = useOnboardingStore();
   const addQueryParams = useQueryParams();
+  const router = useRouter();
   const form = useForm({
     resolver: zodResolver(termsAndConditionsFormSchema),
     defaultValues: {
       termsAgreed: 'false',
     },
   });
+  const isLoading = form.formState.isSubmitting;
+  console.log('Inside Component,', isLoading);
   async function onSubmit(values: z.infer<typeof termsAndConditionsFormSchema>) {
     // Updating Store on submitting data
     setOnboardingData({
@@ -32,7 +37,12 @@ export default function TermsAndConditionsForm() {
       is_terms_agreed: values.termsAgreed === 'true' ? true : false,
     });
     const resp = await uploadOnBoardingData(onboardingData);
-    console.log({ resp });
+    if ({ resp }) {
+      toast.success('Profile Created Successfully.');
+      router.push('/profile');
+    } else {
+      toast.error('Profile Creation Failed, Try again later.');
+    }
   }
   return (
     <Form {...form}>
@@ -62,7 +72,11 @@ export default function TermsAndConditionsForm() {
             </FormItem>
           )}
         />
-        <Pagination handleBack={() => addQueryParams('step', 'contact')} isNextSubmit />
+        <Pagination
+          handleBack={() => addQueryParams('step', 'contact')}
+          isNextSubmit
+          nextLoading={isLoading}
+        />
       </form>
     </Form>
   );

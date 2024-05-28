@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
 import { registerCandidate } from '@/lib/auth';
-import { storeToken } from '@/lib/auth-token';
 import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRightIcon, EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
@@ -32,10 +31,7 @@ const formSchema = z
 export default function RegisterCandidateForm() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [setUser, setIsAuthenticated] = useAuthStore((state) => [
-    state.setUser,
-    state.setIsAuthenticated,
-  ]);
+  const { setUser, setIsAuthenticated } = useAuthStore();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -57,16 +53,20 @@ export default function RegisterCandidateForm() {
       is_recruiter: false,
       is_social_login: false,
     };
-    return registerCandidate(body)
-      .then(async (data) => {
-        await storeToken({ token: data.access_token });
+    try {
+      const data = await registerCandidate(body);
+      if (data.access_token) {
         setIsAuthenticated(true);
         setUser(data?.user);
-        router.push('/profile');
-      })
-      .catch((error) => {
-        toast.error(error.message || 'Uh oh! Something went wrong.');
-      });
+        router.replace('/onboarding');
+      }
+    } catch (error) {
+      let message;
+      if (error instanceof Error) {
+        message = error.message || 'Uh oh! Something went wrong while registering your profile.';
+      }
+      toast.error(message);
+    }
   }
 
   return (

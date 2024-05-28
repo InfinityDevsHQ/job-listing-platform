@@ -2,7 +2,7 @@ import { SectionHeaderProps } from '@/types/types';
 
 const SectionHeader = ({ leadingIcon, heading, helpText }: SectionHeaderProps) => {
   return (
-    <div className="flex w-full items-center ">
+    <div className="flex w-full items-center">
       {(leadingIcon || heading) && (
         <div className="flex items-center justify-center gap-4">
           {leadingIcon && leadingIcon}

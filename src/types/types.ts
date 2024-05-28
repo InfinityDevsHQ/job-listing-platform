@@ -93,11 +93,7 @@ export interface Job {
 }
 
 // job_list.tsx
-export interface JobListProps {
-  hotJobsAll?: boolean;
-  similarJobId?: string;
-  allJobs?: boolean;
-}
+
 // job_card.tsx
 export interface JobProps {
   job: Job;
@@ -169,25 +165,6 @@ export type InfoBadgeProps = {
   desc?: string | number;
 };
 
-// User Update Body
-export type UserBody = {
-  email: string;
-  name: string;
-  language: string;
-  latitude: number;
-  longitude: number;
-  city: string;
-  country: string;
-  timezone: string;
-  phone_number: string;
-  profile_picture: string;
-  prefered_language: string;
-  online_status: string;
-  selected_country: string;
-  geo_resolve_tries: string;
-  is_onboarded: boolean;
-};
-
 // userStore.ts
 export type UserData = {
   email: string;
@@ -197,7 +174,7 @@ export type UserData = {
   city: string;
   profile_picture: string;
   selected_country?: string | null;
-  online_status: string;
+  online_status: 'Online' | 'Offline';
   is_recruiter?: boolean;
   timezone?: string | null;
   is_active?: boolean;
@@ -215,6 +192,7 @@ export type UserData = {
   longitude?: number | null;
   geo_resolve_tries?: number;
   language?: string;
+  prefered_language: string;
 };
 export interface Resume {
   cv_filepath: string;
@@ -256,36 +234,7 @@ export interface CandidateData {
   ai_languages?: Record<string, string>;
   ai_social?: string | null;
   updated?: string;
-  user?: {
-    id: number;
-    email: string;
-    longitude: number | null;
-    is_admin: boolean;
-    updated: string;
-    name: string;
-    is_superuser: boolean;
-    selected_country: string | null;
-    phone_number: string | null;
-    geo_resolve_tries: number;
-    is_investor: boolean;
-    online_status: string;
-    is_banned: boolean;
-    profile_picture: string;
-    password: string;
-    ai_tokens_query_limit: number;
-    country: string;
-    is_recruiter: boolean;
-    language: string;
-    timezone?: string | null;
-    uid: string;
-    city: string;
-    is_active: boolean;
-    ai_tokens_consumed: number;
-    latitude: number | null;
-    is_staff: boolean;
-    is_social_login: boolean;
-    created: string;
-  };
+  user?: UserData;
 }
 
 export interface UserProfile {
@@ -551,8 +500,12 @@ export interface PostJobWorkerResponse {
   result: string;
   state: string;
 }
+export type CandidateVector = {
+  candidate_id: number;
+  vector: [];
+};
 
-export interface TailoredUserJobsParams {
+export type TailoredUserJobsParams = {
   candidate_id: number;
   country?: string;
   collection_name?: string;
@@ -567,7 +520,7 @@ export interface TailoredUserJobsParams {
       value: string;
     };
   }>;
-}
+};
 
 export interface TailoredUsersJobsResponse {
   id: number;
@@ -650,6 +603,7 @@ export interface Company {
 
 // company-card.tsx
 export interface CompanyCardProps {
+  id: number;
   name: string;
   logo_url: string;
   description: string;
@@ -709,9 +663,14 @@ export interface ApplyFormProps {
   isApplied: boolean;
   handleApplied: () => void;
 }
-
+//ApplyJobResponse
+export type ApplyJobResponse = {
+  candidate_id: number;
+  job_offer_id: number;
+  status: string;
+};
 //FormToggleButtons.tsx
-export interface FormToggleButtonsProps {
+interface FormToggleButtonsProps {
   isCandidate: boolean;
   toggleUser: () => void;
 }
@@ -1084,7 +1043,7 @@ export interface languageStep {
 }
 
 //AIPoweredInsights
-export interface recommendations {
+export interface RecommendationsProps {
   job_market_insights: { text: string } | null;
   cv_optimization_suggestions: { text: string } | null;
   skill_gap_analysis: { text: string } | null;
