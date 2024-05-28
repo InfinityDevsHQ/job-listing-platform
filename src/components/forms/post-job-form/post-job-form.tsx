@@ -62,7 +62,6 @@ export default function PostJobForm() {
     };
     postJobListing(body)
       .then((data) => {
-        console.log(data);
         router.push('/jobs/create/success');
       })
       .catch((error) => {

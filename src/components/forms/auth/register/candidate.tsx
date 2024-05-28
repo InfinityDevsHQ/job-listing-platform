@@ -5,7 +5,6 @@ import CompanyMail from '@/components/svgs/coompany-mail';
 import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
-import { registerCandidate } from '@/lib/auth';
 import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRightIcon, EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
@@ -53,20 +52,21 @@ export default function RegisterCandidateForm() {
       is_recruiter: false,
       is_social_login: false,
     };
-    try {
-      const data = await registerCandidate(body);
-      if (data.access_token) {
-        setIsAuthenticated(true);
-        setUser(data?.user);
-        router.replace('/onboarding');
-      }
-    } catch (error) {
-      let message;
-      if (error instanceof Error) {
-        message = error.message || 'Uh oh! Something went wrong while registering your profile.';
-      }
-      toast.error(message);
-    }
+    toast.error('Cannot Register');
+    // try {
+    //   const data = await registerCandidate(body);
+    //   if (data.access_token) {
+    //     setIsAuthenticated(true);
+    //     setUser(data?.user);
+    //     router.replace('/onboarding');
+    //   }
+    // } catch (error) {
+    //   let message;
+    //   if (error instanceof Error) {
+    //     message = error.message || 'Uh oh! Something went wrong while registering your profile.';
+    //   }
+    //   toast.error(message);
+    // }
   }
 
   return (

@@ -62,9 +62,7 @@ export default function LocationForm() {
       },
     };
 
-    console.log('This is body', body);
     const response = await updateUserProfile(body as UserProfile);
-    console.log(response);
     addQueryParams('step', 'upload-cv');
   }
 

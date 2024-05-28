@@ -40,6 +40,10 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
       username: email,
       password,
     };
+    if (!(email === 'hello@infinitydevs.io' && password === 'hello@infinitydevs.io')) {
+      toast.error('Invalid username or password');
+      return;
+    }
     try {
       const data = await login(body);
       if (data.access_token) {
