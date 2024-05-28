@@ -43,7 +43,7 @@ const UserInfo = () => {
     isPending: updateProfileLoading,
     data: updateProfileResponse,
     error: updateProfileError,
-  } = useUpdateUserProfile(updateUserBody);
+  } = useUpdateUserProfile();
 
   if (profileError || !userProfile) {
     if (profileError) {

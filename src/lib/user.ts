@@ -13,7 +13,8 @@ const USER_URLS = {
   userJobsClicked: `${PLATFORM_API_BASE_URL}/api/v1/user/jobs/clicked`,
   userJobsFavorited: `${PLATFORM_API_BASE_URL}/api/v1/user/jobs/favorited`,
   userJobsDisabled: `${PLATFORM_API_BASE_URL}/api/v1/user/jobs/disliked`,
-  userUpdate: `${PLATFORM_API_BASE_URL}/api/v1/user/profile`,
+  userUpdate: `${PLATFORM_API_BASE_URL}/api/v1/user`,
+  updateProfile: `${PLATFORM_API_BASE_URL}/api/v1/user/profile`,
   applyJob: `${PLATFORM_API_BASE_URL}/api/v1/user/job/apply`,
 };
 
@@ -53,6 +54,12 @@ export async function getUserJobsDisabled(): Promise<{}> {
 }
 export async function updateUserProfile(body: UserProfile) {
   const data = await DataService.put<UserProfile>(USER_URLS.userUpdate, body);
+  return data;
+}
+
+export async function updateProfile(body: UserProfile) {
+  const data = await DataService.put<UserProfile>(USER_URLS.updateProfile, body);
+  console.log({ data });
   return data;
 }
 

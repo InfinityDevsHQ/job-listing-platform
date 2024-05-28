@@ -25,6 +25,6 @@ export const login = async (body: LoginBodyProps): Promise<LoginResProps> => {
 export const registerCompany = (body: RegisterBodyProps) =>
   DataService.post(AUTH_URLS.registerCompany, body);
 
-export const removeToken = () => {
+export const removeToken = async () => {
   deleteToken();
 };

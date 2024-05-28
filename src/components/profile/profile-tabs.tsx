@@ -1,12 +1,12 @@
-import { CandidateData } from '@/types/types';
+'use client';
+import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
 import AboutTab from './tabs/about-tab';
 import AiInsightsTabs from './tabs/ai-insights-tabs';
 import RecruiterTab from './tabs/recruiter-tab';
-type ProfileTabsProps = {
-  candidate: CandidateData;
-};
-const ProfileTabs = async ({ candidate }: ProfileTabsProps) => {
+
+const ProfileTabs = () => {
+  const { data: user } = useUserProfile();
   return (
     <div className="flex flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-3 lg:p-8">
       <Tabs orientation="vertical" defaultValue="about" className="flex flex-col lg:gap-4">
@@ -20,13 +20,8 @@ const ProfileTabs = async ({ candidate }: ProfileTabsProps) => {
             {editProfile ? 'Save' : 'Edit'}
           </Button> */}
         </div>
-        <AboutTab
-          aiObjective={candidate.ai_objective}
-          aiCVSummary={candidate.ai_cv_summary}
-          aiExpertise={candidate.ai_expertise}
-          aiSkillTags={candidate.ai_skill_tags}
-        />
-        <AiInsightsTabs candidateId={Number(candidate?.id)} />
+        <AboutTab />
+        <AiInsightsTabs candidateId={Number(user?.candidate_data?.id)} />
         <RecruiterTab />
       </Tabs>
     </div>

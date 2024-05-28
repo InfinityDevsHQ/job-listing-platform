@@ -49,10 +49,11 @@ export interface SectionHeaderProps {
 
 // Home.tsx
 export interface Job {
+  user_id: number;
   language?: string;
   title?: string;
   slug?: string;
-  external_company_id?: number;
+  external_company_id?: number | null;
   city?: string;
   country?: string;
   employment_type?: string;
@@ -73,15 +74,30 @@ export interface Job {
   external_company_website?: string | null;
   external_company_industry?: string | null;
   external_company_size?: string | null;
-  id_parent_job_translation?: number;
+  id_parent_job_translation?: number | null;
   parent_job?: Job;
-  parent_language?: string;
+  parent_language?: string | null;
   id: number;
   category?: {
     id: number;
     name?: string;
   };
   latitude?: number;
+  non_translated_title: string;
+  external_job_id: number | null;
+  external_feed_id: string;
+  external_source: string;
+  external_extra_1: string | null;
+  external_extra_2: number | null;
+  external_extra_3?: number | null;
+  external_company_established: number | null;
+  ai_candidates_matched?: number | null;
+  ai_candidates_matching_started_at?: string | null;
+  ai_candidates_matching_finish_reason?: string | null;
+  ai_candidates_matching_iterations?: number | null;
+  ai_candidates_matching_tries: number | null;
+  skill_analysis?: string;
+  comprehensive_skill_tags?: string;
   longitude?: number;
   is_added_to_qdrant?: boolean;
   geo_resolve_tries?: number;
@@ -473,7 +489,7 @@ export interface PostJobWorkerInputData {
   employment_type: string;
   work_location_type: string;
   language: string;
-  external_company_id?: number;
+  external_company_id?: number | null;
   id_hot?: boolean;
   is_external?: boolean;
   external_link?: string;
@@ -583,22 +599,26 @@ export interface SimilarJobsProps {
 export interface Company {
   city: string;
   country: string;
-  created: string;
-  description: string;
-  employee_count: number;
-  founded_date: string;
+  created: string | null;
+  description?: string;
+  employee_count?: number;
+  founded_date?: string;
   id: number;
-  job_openings_active: number;
-  job_openings_total: number;
+  job_openings_active?: number | null;
+  job_openings_total?: number | null;
   logo_url: string;
   name: string;
   promoted: boolean;
-  promotion_duration_days: number;
-  promotion_ends: string;
-  recruiters: number;
+  promotion_duration_days: number | null;
+  promotion_ends: string | null;
+  recruiters: number | null;
   social_media_links: null;
-  updated: string;
-  website: string;
+  updated: string | null;
+  website: string | null;
+  contact_name?: string | null;
+  email?: string | null;
+  phone_number?: string | null;
+  company_size?: number | null;
 }
 
 // company-card.tsx
