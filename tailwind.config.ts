@@ -28,15 +28,18 @@ const config = {
       },
       colors: {
         primary: {
-          DEFAULT: '#407BFF',
+          DEFAULT: '#4f46e5',
           foreground: '#ffffff',
-          ...colors.gray,
+          ...colors.indigo,
         },
         secondary: {
           DEFAULT: '#14532d',
           foreground: '#ffffff',
           ...colors.green,
         },
+        'accent-1': '#43B97F',
+        'accent-2': '#FF652E',
+        'accent-3': '#FFEDE5',
         danger: colors.red,
         neutral: colors.neutral,
         'mute-1': '#263238',
