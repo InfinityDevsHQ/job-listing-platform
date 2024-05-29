@@ -23,8 +23,8 @@ export default async function Home() {
   ]);
   return (
     <ReactQueryHydrate state={dehydrate(queryClient)}>
-      <div className="grid grid-cols-3">
-        <div className="col-span-2">
+      <div className="grid grid-cols-3 gap-8">
+        <div className="col-span-2 flex flex-col gap-8">
           <Hero
             heading="Find your dream job here!"
             desc="Explore the latest job openings and apply for the best job opportunities available today!"
@@ -34,7 +34,7 @@ export default async function Home() {
           <SectionHeader leadingIcon={<List className="text-red-500" />} heading="All Offers" />
           <JobsList />
         </div>
-        <div className="ml-auto">
+        <div>
           <CompaniesList />
         </div>
       </div>
