@@ -9,7 +9,15 @@ const CompaniesList = () => {
     <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
       {promotedCompanies
         ?.slice(0, 3)
-        ?.map((company, index) => <CompanyCard key={index} {...company} />)}
+        ?.map((company, index) => (
+          <CompanyCard
+            key={index}
+            name={company.name}
+            logo_url={company.logo_url}
+            description={company.description || ''}
+            id={company.id}
+          />
+        ))}
     </div>
   );
 };

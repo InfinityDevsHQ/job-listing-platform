@@ -18,14 +18,69 @@ const USER_URLS = {
   applyJob: `${PLATFORM_API_BASE_URL}/api/v1/user/job/apply`,
 };
 
-export const getUser = (): Promise<User> => DataService.get<User>(USER_URLS.user);
+const Profile: UserProfile = {
+  user_data: {
+    id: 27,
+    uid: 'ad275be7-c22c-47ea-aa28-0825cc842404',
+    email: 'hello@infinitydevs.io',
+    name: 'Infinity Devs',
+    company_id: null,
+    phone_number: '+1 (439) 951-6882',
+    profile_picture: '/assets/icons/profile/fugu.jpeg',
+    language: null,
+    prefered_language: 'Slovak',
+    country: 'Ireland',
+    city: 'Ut est sint est tot',
+    timezone: '(GMT-06:00) Central Time (US & Canada)',
+    latitude: null,
+    longitude: null,
+    geo_resolve_tries: 0,
+    password: '$2b$12$ktBBi2726j2VuwFzPvTLAuSRFQOfwX8XS7Jfw.tY44YsMgj9N/r5i',
+    is_recruiter: false,
+    is_active: true,
+    is_staff: false,
+    is_admin: false,
+    is_superuser: false,
+    is_investor: false,
+    is_banned: false,
+    is_onboarded: true,
+    is_social_login: false,
+    ai_tokens_query_limit: -1,
+    ai_tokens_consumed: 0,
+    created: '2024-05-28T15:38:59.982067',
+    updated: '2024-05-29T08:48:35.779806',
+    last_active: '2024-05-29T08:48:35.782998',
+    selected_country: 'Ireland',
+    online_status: 'Offline',
+  },
+  candidate_data: {
+    id: 26,
+    user_id: 27,
+    candidate_slug: 'infinity-devs',
+    headline: null,
+    seniority: null,
+    social: {
+      linkedin: 'http://localhost:3000/onboarding',
+      twitter: 'http://localhost:3000/onboarding',
+      github: 'http://localhost:3000/onboarding',
+    },
+    bio: null,
+    uploaded_resumes: null,
+    is_profile_bio_ready: false,
+    is_unable_to_process_cv: false,
+    created: '2024-05-28T15:39:00.139651',
+    updated: '2024-05-29T08:48:35.799769',
+  },
+  recruiter_data: null,
+};
 
+export const getUser = (): Promise<User> => DataService.get<User>(USER_URLS.user);
 export async function getUserProfile(): Promise<UserProfile> {
   const isLoggedIn = getToken();
   if (!isLoggedIn) {
     return {} as unknown as UserProfile;
   }
-  return DataService.get<UserProfile>(`${USER_URLS.userProfile}`);
+  return Profile;
 }
 export async function getUserInbox(): Promise<{}> {
   const data = await DataService.get<{}>(`${USER_URLS.userInbox}`);
