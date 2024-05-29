@@ -1,3 +1,4 @@
+import CompaniesList from '@/components/companies/companies-list';
 import JobsList from '@/components/jobs/jobs-list';
 import { RecommendedJobs } from '@/components/jobs/recommended-jobs';
 import SectionHeader from '@/components/ui/section-header';
@@ -32,6 +33,9 @@ export default async function Home() {
           <RecommendedJobs />
           <SectionHeader leadingIcon={<List className="text-red-500" />} heading="All Offers" />
           <JobsList />
+        </div>
+        <div className="ml-auto">
+          <CompaniesList />
         </div>
       </div>
     </ReactQueryHydrate>

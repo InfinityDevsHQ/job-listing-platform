@@ -1,29 +1,26 @@
 import { CompanyCardProps } from '@/types/types';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button } from '../ui/button-new';
 
 const CompanyCard = ({ name, logo_url, description, id }: CompanyCardProps) => {
   return (
-    <div className="flex transform flex-col gap-3 rounded-xl border-b border-gray-100 bg-gray-50 p-8 transition duration-300 ease-in-out hover:-translate-y-2">
-      <div className="inline-block">
-        <Image
-          src={logo_url}
-          alt={`${name} logo`}
-          width={100}
-          height={80}
-          className="mx-auto h-16"
-        />
-      </div>
-      <h3 className="text-center text-lg font-semibold leading-normal text-black">{name}</h3>
-      <p className="text-center text-gray-500">
+    <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4">
+      <header className="flex items-center gap-5">
+        <div className="rounded-full bg-neutral-50 p-5">
+          <Image src={logo_url} alt={`${name} Logo`} width={30} height={30} />
+        </div>
+        <h3 className="flex-1 text-3xl font-bold text-neutral-950">{name}</h3>
+      </header>
+
+      <p className="text-sm text-neutral-500 ">
         {description ||
-          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit incidunt minima officia nemo hic eprehenderit incidunt minima officia nemo hic'}
+          `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem, laborum ipsum? Nam officia
+           suscipit perspiciatis laboriosam consectetur commodi, fugit voluptates iure ipsum blanditiis
+           excepturi. Vero vitae qui possimus tenetur consectetur.`}
       </p>
-      <Link
-        className="self-center rounded-md border border-primary bg-primary px-4 py-2 text-white "
-        href={`/companies/${id}`}
-      >
-        Learn More
+      <Link href={`/companies/${id}`} className="self-end">
+        <Button variant={'primary'}>Learn More</Button>
       </Link>
     </div>
   );
