@@ -1,5 +1,5 @@
 'use server';
-import { ApplyJobResponse, User, UserProfile } from '@/types/types';
+import { ApplyJobResponse, UserData, UserProfile } from '@/types/types';
 import { getToken } from './auth-token';
 import { DataService } from './data-service';
 const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
@@ -74,7 +74,8 @@ const Profile: UserProfile = {
   recruiter_data: null,
 };
 
-export const getUser = (): Promise<User> => DataService.get<User>(USER_URLS.user);
+export const getUser = async (): Promise<UserData> => Profile.user_data;
+
 export async function getUserProfile(): Promise<UserProfile> {
   const isLoggedIn = getToken();
   if (!isLoggedIn) {
