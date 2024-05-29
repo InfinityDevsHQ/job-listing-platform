@@ -16,7 +16,7 @@ import {
 import { useState } from 'react';
 
 export default function JobCard({ job }: JobProps) {
-  const [isOpened, setIsOpened] = useState(true);
+  const [isOpened, setIsOpened] = useState(false);
 
   return (
     <div
@@ -25,7 +25,7 @@ export default function JobCard({ job }: JobProps) {
     >
       <header className="flex cursor-pointer items-center">
         <span
-          className={`mr-5 flex items-center justify-center rounded-full p-2.5 ${job.is_hot ? 'bg-accent-3' : ' bg-primary-500/30'}`}
+          className={`mr-5 flex items-center justify-center rounded-full p-2.5 lg:p-3 ${job.is_hot ? 'bg-accent-3' : ' bg-primary-500/30'}`}
         >
           <Flame className={`h-4 w-4 ${job.is_hot ? 'text-accent-2' : 'text-primary-500'}`} />
         </span>
@@ -43,33 +43,33 @@ export default function JobCard({ job }: JobProps) {
         </Button>
       </header>
       <div className="grid grid-cols-3 items-center font-semibold text-neutral-900 lg:grid-cols-6">
-        <span className="flex items-center gap-2.5 ">
-          <Clock className="h-2.5 w-3" />
-          <span className="text-xxs capitalize ">{job.employment_type}</span>
+        <span className="flex items-center gap-2.5">
+          <Clock className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">{job.employment_type}</span>
         </span>
         <span className="flex items-center gap-2.5">
-          <BaggageClaim className="h-2.5 w-3" />
-          <span className="text-xxs capitalize">1-3 Years</span>
+          <BaggageClaim className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">1-3 Years</span>
         </span>
         <span className="flex items-center gap-2.5">
-          <Locate className="h-2.5 w-3" />
-          <span className="text-xxs capitalize">
+          <Locate className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">
             {job.city},{job.country}
           </span>
         </span>
         <span className="flex items-center gap-2.5">
-          <CircleDollarSign className="h-2.5 w-3" />
-          <span className="text-xxs capitalize">
+          <CircleDollarSign className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">
             ${job.remuneration_from}-{job.remuneration_to}
           </span>
         </span>
         <span className="flex items-center gap-2.5">
-          <Users className="h-2.5 w-3" />
-          <span className="text-xxs capitalize">{job.applicants}</span>
+          <Users className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">{job.applicants}</span>
         </span>
         <span className="flex items-center gap-2.5">
-          <Calendar className="h-2.5 w-3" />
-          <span className="text-xxs capitalize">{job.updated || job.created}</span>
+          <Calendar className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">{job.updated || job.created}</span>
         </span>
       </div>
       <AnimatePresence>
