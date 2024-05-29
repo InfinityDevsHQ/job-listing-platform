@@ -27,8 +27,8 @@ const HotJobs = () => {
     <div className="flex flex-col gap-4 lg:gap-8">
       {jobs?.map((job, index) => <JobCard key={index} job={job} />)}
       {hasNextPage && (
-        <div className="flex items-center justify-center">
-          <Button onClick={onClickLoadMore} disabled={isFetchingNextPage}>
+        <div className="flex items-center justify-end">
+          <Button onClick={onClickLoadMore} disabled={isFetchingNextPage} variant={'primary'}>
             Load More
             <RefreshCcwIcon
               className={cn('ml-2 h-4 w-4', {

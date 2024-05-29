@@ -38,8 +38,8 @@ export default function JobCard({ job }: JobProps) {
             </span>
           </div>
         </div>
-        <Button className="rounded-md">
-          <Bookmark className="fill-white text-white" />
+        <Button className="rounded-md" variant={'outline'}>
+          <Bookmark className="fill-gray-200 text-gray-200" />
         </Button>
       </header>
       <div className="grid grid-cols-3 items-center font-semibold text-neutral-900 lg:grid-cols-6">
