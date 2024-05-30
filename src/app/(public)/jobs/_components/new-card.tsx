@@ -1,6 +1,8 @@
 'use client';
 import { useJobListingById } from '@/app/utils/rq/hooks/use-job-listing-by-id';
 import JobCardHeader from '@/components/jobs/_components/job-card-header';
+import Badge from '@/components/ui/badge';
+import { Button } from '@/components/ui/button-new';
 import InfoList from '@/components/ui/info-list';
 import InfoSection from '@/components/ui/info-section';
 import { SendHorizonal } from 'lucide-react';
@@ -46,7 +48,19 @@ export default function NewCard({ jobId }: { jobId: string }) {
                 icon={<SendHorizonal className="h-6 w-3 text-primary-500 lg:mr-4 lg:w-4" />}
               />
             </InfoSection>
-            <JobFeedback className="hidden self-end lg:flex" />
+            <InfoSection heading="Required Skills">
+              <div className="flex flex-col items-center gap-4 lg:flex-row">
+                <div className="flex gap-4 self-start">
+                  <Badge text="Python" bgColor="bg-gray-100 border border-gray-200 text-gray-950" />
+                  <Badge text="React" bgColor="bg-gray-100 border border-gray-200 text-gray-950" />
+                </div>
+                <Button variant={'primary'} className="flex w-full gap-2 lg:max-w-max">
+                  <span>Apply Now</span>
+                  <SendHorizonal className="h-4 w-4" />
+                </Button>
+              </div>
+            </InfoSection>
+            <JobFeedback className="lg:flex lg:self-end" />
           </div>
           <div className="order-1 lg:order-2">
             <JobInfoPanel
