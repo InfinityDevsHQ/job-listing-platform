@@ -17,7 +17,12 @@ const Header = () => {
 
   const companyHeaderRoutes = ['/recruit'];
 
-  const publicNavLinks = [{ text: 'For Companies', href: '/recruit' }];
+  const publicNavLinks = [
+    { text: 'Home', href: '/' },
+    { text: 'About', href: '/about' },
+    { text: 'Contact Us', href: '/contact' },
+    { text: 'For Companies', href: '/recruit' },
+  ];
 
   if (noHeaderRoutes.includes(pathname)) {
     return <></>;
@@ -47,23 +52,23 @@ const Header = () => {
                 companyHeaderRoutes.includes(pathname) ? 'text-secondary' : 'text-neutral-950'
               }
             />
-            <Countries />
+
             {!user?.user_data ? (
               <>
-                <Link href={'/login'}>
-                  <Button
-                    variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'default'}
-                  >
-                    Login
-                    <LockIcon className="ml-2 h-4 w-4" size={16} />
-                  </Button>
-                </Link>
                 <Link href={'/register'}>
                   <Button
-                    variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'default'}
+                    variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'outline'}
                   >
                     Register
                     <ArrowRight className="ml-2 h-4 w-4" size={16} />
+                  </Button>
+                </Link>
+                <Link href={'/login'}>
+                  <Button
+                    variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'primary'}
+                  >
+                    Login
+                    <LockIcon className="ml-2 h-4 w-4" size={16} />
                   </Button>
                 </Link>
               </>
@@ -73,6 +78,7 @@ const Header = () => {
                 <ProfileDropdown />
               </>
             )}
+            <Countries />
           </div>
         </div>
       </div>
