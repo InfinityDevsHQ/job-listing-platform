@@ -26,8 +26,13 @@ export default function NewCard({ jobId }: { jobId: string }) {
   if (job)
     return (
       <div className="flex flex-col gap-4 bg-white p-4 lg:gap-8">
-        <JobCardHeader title={job.title || ''} company="Semrush" is_hot={job.is_hot || false} />
-        <section className="flex flex-col gap-5 lg:flex-row lg:gap-8">
+        <JobCardHeader
+          title={job.title || ''}
+          company="Semrush"
+          is_hot={job.is_hot || false}
+          size="lg"
+        />
+        <section className="flex flex-col gap-5 lg:flex-row lg:justify-between">
           <div className="order-2 flex flex-1 flex-col gap-4 lg:order-1 lg:gap-8">
             <InfoSection heading="About">
               <p className="text-xs text-gray-500 lg:text-base">{job.short_description}</p>
