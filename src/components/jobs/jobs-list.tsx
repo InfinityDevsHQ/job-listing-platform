@@ -27,11 +27,21 @@ const JobsList = () => {
     <div className="flex flex-col gap-4 lg:gap-8">
       {jobs?.map((job, index) => <JobCard key={index} job={job} />)}
       {hasNextPage && (
-        <div className="flex items-center justify-between bg-primary-600 p-8">
-          <h4 className="text-2xl font-bold capitalize text-white">
-            There are thousands of jobs waiting for you
-          </h4>
-          <Button variant={'outline'} onClick={onClickLoadMore} disabled={isFetchingNextPage}>
+        <>
+          <div className="hidden items-center justify-between bg-primary-600 p-8 lg:flex">
+            <h4 className="font-bold capitalize text-white lg:text-2xl">
+              There are thousands of jobs waiting for you
+            </h4>
+            <Button variant={'outline'} onClick={onClickLoadMore} disabled={isFetchingNextPage}>
+              Load More
+              <RefreshCcwIcon
+                className={cn('ml-2 h-4 w-4', {
+                  'animate-spin': isFetchingNextPage,
+                })}
+              />
+            </Button>
+          </div>
+          <Button variant={'primary'} onClick={onClickLoadMore} disabled={isFetchingNextPage}>
             Load More
             <RefreshCcwIcon
               className={cn('ml-2 h-4 w-4', {
@@ -39,7 +49,7 @@ const JobsList = () => {
               })}
             />
           </Button>
-        </div>
+        </>
       )}
     </div>
   );

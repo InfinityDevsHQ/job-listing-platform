@@ -24,7 +24,7 @@ export default async function Home() {
   ]);
   return (
     <ReactQueryHydrate state={dehydrate(queryClient)}>
-      <div className="grid gap-8 bg-primary-50 p-8 lg:grid-cols-3">
+      <div className="grid w-screen bg-primary-50 p-4 sm:w-auto lg:grid-cols-3 lg:gap-8 lg:p-8">
         <div className="col-span-2 flex flex-col gap-8">
           <Hero
             heading="Find your dream job here!"
@@ -32,7 +32,7 @@ export default async function Home() {
             search
           />
           <RecommendedJobs />
-          <div className="flex max-w-screen-sm flex-col items-center justify-center gap-4 overflow-x-hidden lg:hidden">
+          <div className="flex w-screen flex-col items-center justify-center gap-4 overflow-x-hidden lg:hidden">
             <SectionHeader
               heading="Companies that will grow you forward."
               leadingIcon={<Plane className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
