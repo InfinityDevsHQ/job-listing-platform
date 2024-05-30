@@ -1,3 +1,4 @@
+import CompaniesCarousel from '@/components/companies/companies-carousel';
 import CompaniesList from '@/components/companies/companies-list';
 import JobsList from '@/components/jobs/jobs-list';
 import { RecommendedJobs } from '@/components/jobs/recommended-jobs';
@@ -23,7 +24,7 @@ export default async function Home() {
   ]);
   return (
     <ReactQueryHydrate state={dehydrate(queryClient)}>
-      <div className="grid grid-cols-3 gap-8 bg-primary-50 p-8">
+      <div className="grid gap-8 bg-primary-50 p-8 lg:grid-cols-3">
         <div className="col-span-2 flex flex-col gap-8">
           <Hero
             heading="Find your dream job here!"
@@ -31,13 +32,20 @@ export default async function Home() {
             search
           />
           <RecommendedJobs />
+          <div className="flex max-w-screen-sm flex-col items-center justify-center gap-4 overflow-x-hidden lg:hidden">
+            <SectionHeader
+              heading="Companies that will grow you forward."
+              leadingIcon={<Plane className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
+            />
+            <CompaniesCarousel />
+          </div>
           <SectionHeader leadingIcon={<List className="text-red-500" />} heading="All Offers" />
           <JobsList />
         </div>
-        <div className="flex flex-col items-center gap-8">
+        <div className="hidden flex-col items-center gap-8 lg:flex">
           <SectionHeader
             heading="Companies that will grow you forward."
-            leadingIcon={<Plane className="h-4 w-4 text-red-500 lg:h-6 lg:w-6" />}
+            leadingIcon={<Plane className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
           />
           <CompaniesList />
         </div>

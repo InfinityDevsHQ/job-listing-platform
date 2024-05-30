@@ -33,7 +33,7 @@ export default function JobCard({ job }: JobProps) {
           <h3 className="text-base font-semibold">{job.title}</h3>
           <div className="flex items-center gap-4">
             <span className="text-xs font-semibold text-gray-500">Semrush</span>
-            <span className="bg-accent-1 flex items-center justify-center  rounded-md px-2 py-1 text-xxs font-semibold text-white shadow-md">
+            <span className="flex items-center justify-center rounded-md  bg-accent-1 px-2 py-1 text-xxs font-semibold text-white shadow-md">
               Urgent
             </span>
           </div>

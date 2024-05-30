@@ -12,7 +12,6 @@ const Recruit = () => {
   return (
     <section className="bg-secondary-50 p-4 lg:gap-8 lg:p-8">
       <RecruitersData />
-
       <div className="relative flex w-full flex-col items-center gap-4 overflow-hidden rounded-md border border-neutral-200 bg-white p-4 lg:gap-8 lg:p-8">
         <div className="relative flex w-full flex-col items-center gap-4 lg:flex-row lg:justify-between">
           <div className="order-2 flex flex-col gap-4 lg:order-1 lg:gap-8">
@@ -21,7 +20,7 @@ const Recruit = () => {
             </h1>
             <p className="max-w-2xl text-lg text-gray-500">
               ClickJob is the all-in-one hiring solution that makes every step of your selection
-              process easier and lets you focus on what matters the most – your candidates.
+              process easier and lets you focus on what matters the most - your candidates.
             </p>
             <div className="flex flex-col items-center gap-3 lg:flex-row">
               <Button variant="secondary" className="w-full lg:w-auto">
@@ -156,7 +155,7 @@ const Recruit = () => {
             </p>
             <InfoList variant="secondary">
               <li className="text-base text-gray-500">
-                Generate text with a single click inside ClickJob’s job editor
+                Generate text with a single click inside ClickJob&apos;s job editor
               </li>
               <li className="text-base text-gray-500">
                 Content is automatically split into specific fields
