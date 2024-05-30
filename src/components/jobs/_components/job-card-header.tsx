@@ -1,57 +1,30 @@
-import { cn } from '@/lib/utils';
-import { JobProps } from '@/types/types';
-import { BriefcaseBusinessIcon } from 'lucide-react';
-import JobCardDetails from './job-card-details';
-
-const JobCardHeader = ({ job, size, handleClick }: JobProps) => {
-  return (
-    <div
-      onClick={handleClick}
-      className={cn('flex cursor-default select-none items-center gap-4', {
-        'cursor-pointer': handleClick,
-      })}
-    >
-      <div
-        className={cn(
-          'hidden h-14 w-14 items-center justify-center rounded-full bg-blue-100 md:flex',
-          {
-            'bg-red-100': job?.is_hot,
-            'h-20 w-20': size == 'lg',
-          }
-        )}
-      >
-        {/* {job?.external_company_logo ? (
-            <Image
-              src={job.external_company_logo}
-              width={100}
-              height={100}
-              alt="company logo"
-              className="ml-auto h-96 w-96 rounded-2xl"
-            />
-          ) : (
-          )} */}
-        <BriefcaseBusinessIcon
-          className={cn('text-blue-500', {
-            'text-red-500': job?.is_hot,
-            'h-8 w-8': size == 'lg',
-          })}
-        />
-      </div>
-      <div className="flex cursor-pointer select-none flex-col gap-2">
-        <h3
-          className={cn(
-            'flex items-center gap-4 pr-5 text-lg font-semibold text-neutral-900 md:pr-0',
-            {
-              'text-4xl font-bold': size == 'lg',
-            }
-          )}
-        >
-          {job?.title}
-        </h3>
-        <JobCardDetails job={job} size={size} />
-      </div>
-    </div>
-  );
+import { Button } from '@/components/ui/button-new';
+import { Bookmark, Flame } from 'lucide-react';
+type JobCardHeaderProps = {
+  is_hot: boolean;
+  title: string;
+  company: string;
 };
-
-export default JobCardHeader;
+export default function JobCardHeader({ is_hot, title, company }: JobCardHeaderProps) {
+  return (
+    <header className="flex cursor-pointer items-center">
+      <span
+        className={`mr-5 flex items-center justify-center rounded-full p-2.5 lg:p-3 ${is_hot ? 'bg-accent-3' : ' bg-primary-500/30'}`}
+      >
+        <Flame className={`h-4 w-4 ${is_hot ? 'text-accent-2' : 'text-primary-500'}`} />
+      </span>
+      <div className="flex flex-1 flex-col">
+        <h3 className="text-base font-semibold">{title}</h3>
+        <div className="flex items-center gap-4">
+          <span className="text-xs font-semibold text-gray-500">{company}</span>
+          <span className="flex items-center justify-center rounded-md  bg-accent-1 px-2 py-1 text-xxs font-semibold text-white shadow-md">
+            Urgent
+          </span>
+        </div>
+      </div>
+      <Button className="rounded-md" variant={'outline'}>
+        <Bookmark className="fill-gray-200 text-gray-200" />
+      </Button>
+    </header>
+  );
+}

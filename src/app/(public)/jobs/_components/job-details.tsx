@@ -1,6 +1,5 @@
 'use client';
 import { useJobListingById } from '@/app/utils/rq/hooks/use-job-listing-by-id';
-import JobCardHeader from '@/components/jobs/_components/job-card-header';
 import Badges from '@/components/ui/badges';
 import InfoList from '@/components/ui/info-list';
 import InfoSection from '@/components/ui/info-section';
@@ -12,7 +11,7 @@ const JobDetails = ({ jobId }: { jobId: string }) => {
   if (job) {
     return (
       <div className="flex flex-col gap-4 rounded-2xl bg-stone-100 p-4 shadow ring-1 ring-gray-200/50 lg:gap-8 lg:p-8 ">
-        <JobCardHeader job={job} size="lg" />
+        {/* <JobCardHeader job={job} size="lg" /> */}
         <div className="flex h-full flex-col gap-4 lg:flex-row lg:gap-8">
           <div className="order-2 flex w-full flex-col gap-4 lg:order-1 lg:gap-8">
             <InfoSection heading="About">

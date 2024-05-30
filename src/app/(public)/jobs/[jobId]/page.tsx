@@ -6,7 +6,7 @@ import SectionHeader from '@/components/ui/section-header';
 import { getJobById } from '@/lib/jobs';
 import { dehydrate } from '@tanstack/react-query';
 import { notFound } from 'next/navigation';
-import JobDetails from '../_components/job-details';
+import NewCard from '../_components/new-card';
 type JobDetailsSlug = {
   params: { jobId: string };
 };
@@ -23,7 +23,8 @@ const JobDetailsPage = async ({ params }: JobDetailsSlug) => {
   return (
     <div className="flex flex-col gap-4 p-4 lg:gap-8 lg:p-8">
       <ReactQueryHydrate state={dehydrate(queryClient)}>
-        <JobDetails jobId={jobListingId} />
+        <NewCard jobId={jobListingId} />
+        {/* <JobDetails jobId={jobListingId} /> */}
       </ReactQueryHydrate>
       <div className="flex w-full flex-col gap-4 lg:w-9/12 lg:gap-8">
         <SectionHeader heading="Similar Job Offers" leadingIcon={<FireIcon />} />
