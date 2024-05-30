@@ -4,6 +4,7 @@ import JobCardHeader from '@/components/jobs/_components/job-card-header';
 import InfoList from '@/components/ui/info-list';
 import InfoSection from '@/components/ui/info-section';
 import { SendHorizonal } from 'lucide-react';
+import JobFeedback from './job-feedback';
 import JobInfoPanel from './job-info-panel';
 export default function NewCard({ jobId }: { jobId: string }) {
   const { isLoading, error, data: job } = useJobListingById(jobId);
@@ -45,6 +46,7 @@ export default function NewCard({ jobId }: { jobId: string }) {
                 icon={<SendHorizonal className="h-6 w-3 text-primary-500 lg:mr-4 lg:w-4" />}
               />
             </InfoSection>
+            <JobFeedback className="hidden self-end lg:flex" />
           </div>
           <div className="order-1 lg:order-2">
             <JobInfoPanel
