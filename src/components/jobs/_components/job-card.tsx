@@ -1,4 +1,5 @@
 'use client';
+import formatDate from '@/app/utils/common/format-date';
 import Badges from '@/components/ui/badges';
 import { JobProps } from '@/types/types';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -42,7 +43,9 @@ export default function JobCard({ job }: JobProps) {
         </span>
         <span className="flex items-center gap-2.5">
           <Calendar className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
-          <span className="text-xxs capitalize lg:text-sm">{job.updated || job.created}</span>
+          <span className="text-xxs capitalize lg:text-sm">
+            {formatDate(job.updated || '') || formatDate(job.created || '')}
+          </span>
         </span>
       </div>
       <AnimatePresence>

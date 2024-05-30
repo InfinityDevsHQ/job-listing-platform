@@ -1,4 +1,5 @@
 'use client';
+import formatDate from '@/app/utils/common/format-date';
 import { useJobListingById } from '@/app/utils/rq/hooks/use-job-listing-by-id';
 import JobCardHeader from '@/components/jobs/_components/job-card-header';
 import Badge from '@/components/ui/badge';
@@ -69,7 +70,7 @@ export default function NewCard({ jobId }: { jobId: string }) {
           </div>
           <div className="order-1 lg:order-2">
             <JobInfoPanel
-              date={job.created || ''}
+              date={formatDate(job.created || '')}
               applicants={job.applicants || 0}
               jobType={job.employment_type || ''}
               experience="1-2 Years"
