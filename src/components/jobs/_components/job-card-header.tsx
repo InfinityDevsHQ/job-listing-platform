@@ -25,7 +25,7 @@ export default function JobCardHeader({
         />
       </span>
       <div className="flex flex-1 flex-col">
-        <div className="flex items-center lg:gap-8">
+        <div className="flex items-center lg:gap-4">
           <h3
             className={`font-semibold ${size === 'default' ? 'text-base' : ''} ${size === 'lg' ? 'lg:text-4xl' : ''} `}
           >

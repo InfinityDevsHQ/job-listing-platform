@@ -30,6 +30,7 @@ export default async function Home() {
             heading="Find your dream job here!"
             desc="Explore the latest job openings and apply for the best job opportunities available today!"
             search
+            vectorUrl="/assets/images/home/homePage_hero_section_vector.png"
           />
           <RecommendedJobs />
           <div className="flex w-screen flex-col items-center justify-center gap-4 overflow-x-hidden lg:hidden">

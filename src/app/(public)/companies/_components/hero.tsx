@@ -8,6 +8,7 @@ type HeroProps = {
   onSearch?: () => void;
   search?: boolean;
   className?: string;
+  vectorUrl?: string;
 };
 const Hero = ({
   heading,
@@ -16,6 +17,7 @@ const Hero = ({
   onSearch,
   search = false,
   className = '',
+  vectorUrl,
 }: HeroProps) => {
   return (
     <div
@@ -25,7 +27,7 @@ const Hero = ({
       }}
     >
       <div className="col-span-3 flex flex-col gap-4 lg:col-span-2 lg:gap-8">
-        <h2 className="text-lg font-bold text-white lg:text-3xl">{heading}</h2>
+        <h2 className="text-lg font-bold capitalize text-white lg:text-3xl">{heading}</h2>
         {desc && <p className="text-base text-white">{desc}</p>}
         {search && (
           <Input
@@ -36,13 +38,15 @@ const Hero = ({
           />
         )}
       </div>
-      <Image
-        alt="homePage_hero_section_vector.png"
-        src={'/assets/images/home/homePage_hero_section_vector.png'}
-        width={200}
-        height={163}
-        className="mx-auto hidden lg:block"
-      />
+      {vectorUrl && (
+        <Image
+          alt="Hero Image"
+          src={vectorUrl}
+          width={200}
+          height={163}
+          className="mx-auto hidden lg:block"
+        />
+      )}
     </div>
   );
 };
