@@ -41,7 +41,12 @@ const JobsList = () => {
               />
             </Button>
           </div>
-          <Button variant={'primary'} onClick={onClickLoadMore} disabled={isFetchingNextPage}>
+          <Button
+            variant={'primary'}
+            onClick={onClickLoadMore}
+            disabled={isFetchingNextPage}
+            className="lg:hidden"
+          >
             Load More
             <RefreshCcwIcon
               className={cn('ml-2 h-4 w-4', {
