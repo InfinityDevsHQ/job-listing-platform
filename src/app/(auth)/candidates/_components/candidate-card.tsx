@@ -9,16 +9,9 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { getColorClasses } from '@/lib/utils';
+import { CandidateCardData } from '@/types/types';
 import { Eye, ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
-type CandidateCardData = {
-  name: string;
-  candidateImgUrl: string;
-  profession: string;
-  location: string;
-  about: string;
-  skillSet?: string[];
-};
 
 type CandidateCardProps = {
   candidateData: CandidateCardData;
@@ -84,7 +77,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             <CarouselNext className="relative left-0 translate-x-0 translate-y-0" />
           </Carousel>
         )}
-        <Button size="lg">
+        <Button size="lg" variant={'primary'}>
           Add to Cart
           <ShoppingCart className="ml-2 h-4 w-4" />
         </Button>
