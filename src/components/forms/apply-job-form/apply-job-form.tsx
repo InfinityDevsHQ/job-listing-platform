@@ -45,7 +45,7 @@ const ApplyJobForm = ({ jobId }: { jobId: string }) => {
             </FormItem>
           )}
         />
-        <Button className="self-end" type="submit">
+        <Button className="self-end" type="submit" variant={'primary'}>
           Send
           <Send className="ml-2 h-4 w-4 rotate-45" />
         </Button>

@@ -5,6 +5,7 @@ import { getColorClasses } from '@/lib/utils';
 import { JobProps } from '@/types/types';
 import { AnimatePresence, motion } from 'framer-motion';
 import { BaggageClaim, Calendar, CircleDollarSign, Clock, Locate, Users } from 'lucide-react';
+import Link from 'next/link';
 import { useState } from 'react';
 import JobCardHeader from './job-card-header';
 
@@ -57,7 +58,9 @@ export default function JobCard({ job }: JobProps) {
             transition={{ duration: 0.3 }}
             className="flex flex-col gap-4 overflow-hidden"
           >
-            <p className="text-sm text-gray-500">{job.description}</p>
+            <Link href={`/jobs/${job.id}`}>
+              <p className="text-sm text-gray-500">{job.description}</p>
+            </Link>
             <span className=" border border-neutral-300"></span>
             <div className="flex gap-4">
               {job.skill_tags?.map((tag, index) => (
