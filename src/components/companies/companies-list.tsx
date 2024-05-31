@@ -1,9 +1,11 @@
 'use client';
 import { usePromotedCompanies } from '@/hooks/usePromotedCompanies';
+import CompanyCardSkeleton from '../skeleton/company-card-skeleton';
 import CompanyCard from './company-card';
 
 const CompaniesList = () => {
   const { isLoading, error, data: promotedCompanies } = usePromotedCompanies();
+  if (isLoading) return <CompanyCardSkeleton />;
   return (
     // TODO: check if we need to show only 3 companies, may be we can create a carousel and show them inside it
     <div className="flex flex-col gap-8">

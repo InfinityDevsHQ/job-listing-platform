@@ -2,7 +2,6 @@ import CompaniesCarousel from '@/components/companies/companies-carousel';
 import CompaniesList from '@/components/companies/companies-list';
 import JobsList from '@/components/jobs/jobs-list';
 import { RecommendedJobs } from '@/components/jobs/recommended-jobs';
-import CompanyCardSkeleton from '@/components/skeleton/company-card-skeleton';
 import SectionHeader from '@/components/ui/section-header';
 import { GET_PROMOTED_COMPANIES_KEY } from '@/hooks/usePromotedCompanies';
 import { getPromotedCompanies } from '@/lib/companies';
@@ -48,7 +47,6 @@ export default async function Home() {
             heading="Companies that will grow you forward."
             leadingIcon={<Plane className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
           />
-          <CompanyCardSkeleton />
           <CompaniesList />
         </div>
       </div>
