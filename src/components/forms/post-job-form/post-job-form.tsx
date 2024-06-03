@@ -71,7 +71,7 @@ export default function PostJobForm() {
   return (
     <Form {...form}>
       <form
-        className="flex flex-col gap-4 rounded-md bg-white p-4 lg:gap-8 lg:p-8"
+        className="flex flex-col gap-4 rounded-md bg-white"
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <div className="grid grid-cols-2 gap-4 lg:gap-8">
