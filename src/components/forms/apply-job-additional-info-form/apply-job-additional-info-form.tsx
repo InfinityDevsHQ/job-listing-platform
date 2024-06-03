@@ -33,7 +33,7 @@ const ApplyJobAdditionInfoForm = () => {
   return (
     <Form {...form}>
       <form
-        className="grid grid-cols-4 gap-4 border border-gray-200 p-4 pt-8 lg:border-none lg:bg-white"
+        className="m-4 !mt-0 grid grid-cols-4 gap-4 border border-gray-200 p-4 pt-8 lg:m-8 lg:border-none lg:bg-white"
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <h5 className="col-span-4 text-base font-bold text-gray-700">
