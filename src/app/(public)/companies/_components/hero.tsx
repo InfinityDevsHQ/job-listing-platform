@@ -24,6 +24,7 @@ const Hero = ({
       className={`grid grid-cols-3 items-center gap-4 overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8 ${className}`}
       style={{
         background: "url('/assets/images/home/homePage_hero_section_bg.png')",
+        backgroundSize: 'cover',
       }}
     >
       <div className="col-span-3 flex flex-col gap-4 lg:col-span-2 lg:gap-8">
@@ -44,7 +45,7 @@ const Hero = ({
           src={vectorUrl}
           width={200}
           height={163}
-          className="mx-auto hidden lg:block"
+          className="ml-auto hidden lg:block"
         />
       )}
     </div>
