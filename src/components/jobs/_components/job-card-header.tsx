@@ -51,8 +51,9 @@ export default function JobCardHeader({
         </div>
       </div>
       <Button
-        className="flex h-8 w-8 rounded-md !px-3 !py-0"
+        className="flex h-8 w-8 rounded-md"
         variant={saved ? 'primary' : 'outline'}
+        size={'icon'}
         onClick={() => {
           setSaved(!saved);
           if (!saved) toast.success('Job Saved.');
@@ -60,7 +61,7 @@ export default function JobCardHeader({
         }}
       >
         <Bookmark
-          className={` h-4 w-4 ${saved ? 'fill-white text-white' : 'fill-gray-200 text-gray-200'}`}
+          className={`h-4 w-4 ${saved ? 'fill-white text-white' : 'fill-gray-200 text-gray-200'}`}
         />
       </Button>
     </header>
