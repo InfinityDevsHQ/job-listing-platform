@@ -7,7 +7,7 @@ const CompanyCard = ({ name, logo_url, description, id }: CompanyCardProps) => {
   return (
     <div className="flex w-80 flex-col gap-4 border border-neutral-200 bg-white p-4 lg:w-auto">
       <header className="flex items-center gap-5">
-        <div className="rounded-full bg-neutral-50 p-5">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neutral-50">
           <Image src={logo_url} alt={`${name} Logo`} width={30} height={30} />
         </div>
         <h3 className="flex-1 text-3xl font-bold text-neutral-950">{name}</h3>
