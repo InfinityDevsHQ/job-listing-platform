@@ -21,14 +21,14 @@ export default function JobCardHeader({
       <span
         className={cn(
           'mr-5 flex items-center justify-center rounded-full p-2.5 lg:p-3',
-          is_hot ? 'bg-accent-3' : ' bg-primary-500/30',
+          is_hot ? 'bg-orange-50' : ' bg-primary-500/30',
           size === 'lg' ? 'lg:h-24 lg:w-24' : ''
         )}
       >
         <Flame
           className={cn(
             'h-4 w-4',
-            is_hot ? 'text-accent-2' : 'text-primary-500',
+            is_hot ? 'text-orange-500' : 'text-primary-500',
             size === 'lg' ? 'lg:h-10 lg:w-10' : ''
           )}
         />
@@ -46,7 +46,7 @@ export default function JobCardHeader({
           </h3>
           <span
             className={cn(
-              'hidden items-center justify-center rounded-md bg-accent-1 px-2 py-1 text-xxs font-semibold text-white shadow-md lg:flex',
+              'hidden items-center justify-center rounded-md bg-green-500 px-2 py-1 text-xxs font-semibold text-white shadow-md lg:flex',
               size === 'lg' ? 'lg:text-sm' : ''
             )}
           >
