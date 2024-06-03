@@ -5,7 +5,7 @@ import Input from '@/components/ui/input';
 import TextArea from '@/components/ui/text-area';
 import { postJobListing } from '@/lib/jobs';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ArrowRightIcon, LoaderCircleIcon } from 'lucide-react';
+import { LoaderCircleIcon, RefreshCcw } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -208,13 +208,13 @@ export default function PostJobForm() {
               We will use this information to develop a detailed job description, requirements list,
               and set of necessary skills.
             </p>
-            <Button type="submit">
-              Analyze
+            <Button type="submit" variant={'primary'}>
               {isLoading ? (
-                <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />
+                <LoaderCircleIcon className="animate mr-2 h-4 w-4 animate-spin" />
               ) : (
-                <ArrowRightIcon className="ml-2 h-4 w-4" />
+                <RefreshCcw className="mr-2 h-4 w-4" />
               )}
+              Analyze
             </Button>
           </div>
         </div>

@@ -1,10 +1,10 @@
+import Hero from '@/app/(public)/companies/_components/hero';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import Hero from '@/components/ui/hero';
 
 const FAQSection = () => {
   const Questions = [
@@ -59,7 +59,7 @@ const FAQSection = () => {
   ];
   return (
     <section className="flex flex-col gap-4 lg:gap-8">
-      <Hero heading="Search Your Questions" />
+      <Hero heading="Search Your Questions" search />
       <h2 className="text-center text-base font-bold text-gray-700 lg:text-4xl">
         Frequently asked questions.
       </h2>
@@ -69,7 +69,7 @@ const FAQSection = () => {
             <AccordionItem
               key={index}
               value={question.question}
-              className="col-span-2 w-full lg:col-span-1"
+              className="col-span-2 w-full bg-white lg:col-span-1"
             >
               <AccordionTrigger>{question.question}</AccordionTrigger>
               <AccordionContent>{question.answer}</AccordionContent>

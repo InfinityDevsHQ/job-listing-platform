@@ -31,7 +31,9 @@ const Hero = ({
         backgroundSize: 'cover',
       }}
     >
-      <div className="col-span-3 flex flex-col gap-4 lg:col-span-2 lg:gap-8">
+      <div
+        className={cn('col-span-3 flex flex-col gap-4 lg:gap-8', vectorUrl ? 'lg:col-span-2' : '')}
+      >
         <h2 className="text-lg font-bold capitalize text-white lg:text-3xl">{heading}</h2>
         {desc && <p className="text-base text-white">{desc}</p>}
         {search && (
