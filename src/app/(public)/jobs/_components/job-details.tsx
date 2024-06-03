@@ -27,7 +27,7 @@ export default function JobDetailsCard({ jobId }: { jobId: string }) {
   ];
   if (job)
     return (
-      <div className="flex flex-col gap-4 bg-white p-4 lg:gap-8">
+      <div className="flex flex-col gap-4 bg-white p-4 lg:gap-8 lg:p-8">
         <JobCardHeader
           title={job.title || ''}
           company="Semrush"
