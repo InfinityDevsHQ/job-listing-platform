@@ -46,7 +46,7 @@ const ApplyJobModal = ({ jobId, skills }: { jobId: string; skills: string[] }) =
             </Button>
           </div>
         </DialogTrigger>
-        <DialogContent className="bg-gray-200 lg:max-w-4xl">
+        <DialogContent className="bg-gray-50 lg:max-w-4xl">
           <DialogHeader className="flex flex-col gap-6">
             <DialogTitle>Apply For this role.</DialogTitle>
             <UserHeader user_name={'Infinity Devs'} user_role={'hello@test.com'} />
@@ -65,7 +65,7 @@ const ApplyJobModal = ({ jobId, skills }: { jobId: string; skills: string[] }) =
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="bg-gray-200 p-8">
+        <DrawerContent className="bg-gray-50 p-8">
           <DrawerHeader className="flex flex-col gap-6">
             <DrawerTitle>Apply For this role.</DrawerTitle>
             <UserHeader user_name={'Infinity Devs'} user_role={'hello@test.com'} />
