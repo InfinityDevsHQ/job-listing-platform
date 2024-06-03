@@ -1,6 +1,7 @@
 'use client';
 import formatDate from '@/app/utils/common/format-date';
 import Badge from '@/components/ui/badge';
+import { Button } from '@/components/ui/button-new';
 import { getColorClasses } from '@/lib/utils';
 import { JobProps } from '@/types/types';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -62,19 +63,22 @@ export default function JobCard({ job }: JobProps) {
             transition={{ duration: 0.3 }}
             className="flex flex-col gap-4 overflow-hidden"
           >
-            <Link href={`/jobs/${job.id}`}>
-              <p className="text-sm text-gray-500">{job.description}</p>
-            </Link>
+            <p className="text-sm text-gray-500">{job.description}</p>
             <span className=" border border-neutral-300"></span>
-            <div className="flex gap-4">
-              {job.skill_tags?.map((tag, index) => (
-                <Badge
-                  key={tag}
-                  text={tag}
-                  color={getColorClasses(index)?.textColor}
-                  bgColor={getColorClasses(index)?.bgColor}
-                />
-              ))}
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex flex-1 gap-4 overflow-x-auto">
+                {job.skill_tags?.map((tag, index) => (
+                  <Badge
+                    key={tag}
+                    text={tag}
+                    color={getColorClasses(index)?.textColor}
+                    bgColor={getColorClasses(index)?.bgColor}
+                  />
+                ))}
+              </div>
+              <Button variant={'primary'} asChild>
+                <Link href={`/jobs/${job.id}`}>Learn More</Link>
+              </Button>
             </div>
           </motion.div>
         )}
