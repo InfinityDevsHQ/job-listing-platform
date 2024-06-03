@@ -15,7 +15,7 @@ export default function JobCard({ job }: JobProps) {
 
   return (
     <div
-      className="flex w-screen flex-col gap-4 rounded-md border border-gray-200 bg-white p-4 sm:w-auto lg:p-8"
+      className="flex w-screen cursor-pointer flex-col gap-4 rounded-md border border-gray-200 bg-white p-4 sm:w-auto lg:p-8"
       onClick={() => setIsOpened(!isOpened)}
     >
       <JobCardHeader title={job.title || ''} is_hot={job.is_hot || false} company="Semrush" />
