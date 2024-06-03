@@ -66,7 +66,7 @@ export default function JobCard({ job }: JobProps) {
             <p className="text-sm text-gray-500">{job.description}</p>
             <span className=" border border-neutral-300"></span>
             <div className="flex items-center justify-between gap-4">
-              <div className="flex flex-1 gap-4 overflow-x-auto">
+              <div className="flex flex-1 flex-wrap gap-4 overflow-x-hidden">
                 {job.skill_tags?.map((tag, index) => (
                   <Badge
                     key={tag}
