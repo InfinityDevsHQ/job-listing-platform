@@ -57,13 +57,13 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
         </div>
         {candidateData.skillSet?.length && (
           <Carousel
-            className="mb-4 flex w-full items-center justify-center"
+            className="relative mb-4 flex w-full items-center justify-center"
             opts={{
               loop: true,
             }}
           >
-            <CarouselPrevious className="relative left-0 translate-x-0 translate-y-0" />
-            <CarouselContent className="flex items-center justify-center">
+            <CarouselPrevious className="absolute left-0 top-0 translate-x-0 translate-y-0" />
+            <CarouselContent className="flex max-w-80 items-center gap-2">
               {candidateData.skillSet?.map((skill, index) => (
                 <CarouselItem key={index} className="basis-1/4 !pl-0">
                   <Badge
@@ -74,7 +74,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselNext className="relative left-0 translate-x-0 translate-y-0" />
+            <CarouselNext className="absolute right-0 top-0 translate-x-0 translate-y-0" />
           </Carousel>
         )}
         <Button size="lg" variant={'primary'}>
