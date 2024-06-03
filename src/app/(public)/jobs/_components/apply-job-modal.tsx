@@ -1,11 +1,11 @@
 'use client';
 import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import ApplyJobForm from '@/components/forms/apply-job-form/apply-job-form';
+import UserHeader from '@/components/gernal/user-header';
 import { Button } from '@/components/ui/button-new';
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -13,7 +13,6 @@ import {
 import {
   Drawer,
   DrawerContent,
-  DrawerDescription,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -22,7 +21,7 @@ import useMediaQuery from '@/hooks/useMediaQuey';
 import { ArrowRight, SendHorizonal } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-const ApplyJobModal = ({ jobId }: { jobId: string }) => {
+const ApplyJobModal = ({ jobId, skills }: { jobId: string; skills: string[] }) => {
   const [open, setOpen] = useState(false);
   const { data: user } = useUserProfile();
   const isDesktop = useMediaQuery('(min-width: 768px)');
@@ -47,12 +46,12 @@ const ApplyJobModal = ({ jobId }: { jobId: string }) => {
             </Button>
           </div>
         </DialogTrigger>
-        <DialogContent className="xl:min-w-4xl bg-gray-200  lg:max-w-4xl">
-          <DialogHeader>
+        <DialogContent className="bg-gray-200 lg:max-w-4xl">
+          <DialogHeader className="flex flex-col gap-6">
             <DialogTitle>Apply For this role.</DialogTitle>
-            <DialogDescription></DialogDescription>
+            <UserHeader user_name={'Infinity Devs'} user_role={'hello@test.com'} />
           </DialogHeader>
-          <ApplyJobForm jobId={jobId} />
+          <ApplyJobForm jobId={jobId} skills={skills} />
         </DialogContent>
       </Dialog>
     );
@@ -67,11 +66,11 @@ const ApplyJobModal = ({ jobId }: { jobId: string }) => {
           </Button>
         </DrawerTrigger>
         <DrawerContent className="bg-gray-200 p-8">
-          <DrawerHeader>
+          <DrawerHeader className="flex flex-col gap-6">
             <DrawerTitle>Apply For this role.</DrawerTitle>
-            <DrawerDescription></DrawerDescription>
+            <UserHeader user_name={'Infinity Devs'} user_role={'hello@test.com'} />
           </DrawerHeader>
-          <ApplyJobForm jobId={jobId} />
+          <ApplyJobForm jobId={jobId} skills={skills} />
         </DrawerContent>
       </Drawer>
     </>

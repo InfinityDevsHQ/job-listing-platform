@@ -1,8 +1,10 @@
 'use client';
+import Badge from '@/components/ui/badge';
 import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import TextArea from '@/components/ui/text-area';
 import { applyForJob } from '@/lib/user';
+import { getColorClasses } from '@/lib/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Send } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -11,7 +13,7 @@ import { z } from 'zod';
 const applyJobFormSchema = z.object({
   coverLetter: z.string().min(100, { message: 'Letter Must be at least 100 characters long.' }),
 });
-const ApplyJobForm = ({ jobId }: { jobId: string }) => {
+const ApplyJobForm = ({ jobId, skills }: { jobId: string; skills: string[] }) => {
   const router = useRouter();
   const form = useForm<z.infer<typeof applyJobFormSchema>>({
     resolver: zodResolver(applyJobFormSchema),
@@ -45,6 +47,16 @@ const ApplyJobForm = ({ jobId }: { jobId: string }) => {
             </FormItem>
           )}
         />
+        <div className="flex gap-4">
+          {skills.map((skill, index) => (
+            <Badge
+              key={index}
+              bgColor={getColorClasses(index).bgColor}
+              color={getColorClasses(index).textColor}
+              text={skill}
+            />
+          ))}
+        </div>
         <Button className="self-end" type="submit" variant={'primary'}>
           Send
           <Send className="ml-2 h-4 w-4 rotate-45" />

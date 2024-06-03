@@ -7,9 +7,9 @@ import {
   MailIcon,
   MapPinIcon,
 } from 'lucide-react';
+import UserHeader from '../gernal/user-header';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 import { Button } from '../ui/button-new';
-import UserHeader from '../user-header';
 
 const UserInfoMobile = ({ online_status }: { online_status: 'Offline' | 'Online' }) => {
   return (

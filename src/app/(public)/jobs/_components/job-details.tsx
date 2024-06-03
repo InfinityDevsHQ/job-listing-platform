@@ -10,6 +10,7 @@ import ApplyJobModal from './apply-job-modal';
 import JobFeedback from './job-feedback';
 import JobInfoPanel from './job-info-panel';
 export default function JobDetailsCard({ jobId }: { jobId: string }) {
+  const Skills = ['Python', 'Java', 'React'];
   const { isLoading, error, data: job } = useJobListingById(jobId);
   const WelcomedSkills = [
     `Proficient in Python programming language with a strong understanding of Django and
@@ -57,10 +58,15 @@ export default function JobDetailsCard({ jobId }: { jobId: string }) {
             <InfoSection heading="Required Skills">
               <div className="flex flex-col items-center gap-4 lg:flex-row">
                 <div className="flex gap-4">
-                  <Badge text="Python" bgColor="bg-gray-100 border border-gray-200 text-gray-950" />
-                  <Badge text="React" bgColor="bg-gray-100 border border-gray-200 text-gray-950" />
+                  {Skills.map((skill, index) => (
+                    <Badge
+                      key={index}
+                      text={skill}
+                      bgColor="bg-gray-100 border border-gray-200 text-gray-950"
+                    />
+                  ))}
                 </div>
-                <ApplyJobModal jobId={jobId} />
+                <ApplyJobModal jobId={jobId} skills={Skills} />
               </div>
             </InfoSection>
             <JobFeedback className="lg:flex lg:self-end" />
