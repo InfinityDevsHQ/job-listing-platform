@@ -1,4 +1,5 @@
 import Input from '@/components/ui/input';
+import { cn } from '@/lib/utils';
 import { SearchIcon } from 'lucide-react';
 import Image from 'next/image';
 type HeroProps = {
@@ -21,7 +22,10 @@ const Hero = ({
 }: HeroProps) => {
   return (
     <div
-      className={`grid grid-cols-3 items-center gap-4 overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8 ${className}`}
+      className={cn(
+        'grid grid-cols-3 items-center gap-4 overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8',
+        className
+      )}
       style={{
         background: "url('/assets/images/home/homePage_hero_section_bg.png')",
         backgroundSize: 'cover',
