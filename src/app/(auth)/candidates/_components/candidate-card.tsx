@@ -63,9 +63,9 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             }}
           >
             <CarouselPrevious className="relative left-0 translate-x-0 translate-y-0" />
-            <CarouselContent className="flex items-center gap-2">
+            <CarouselContent className="flex items-center justify-center">
               {candidateData.skillSet?.map((skill, index) => (
-                <CarouselItem key={index} className="basis-1/3 !pl-0">
+                <CarouselItem key={index} className="basis-1/4 !pl-0">
                   <Badge
                     text={skill}
                     color={getColorClasses(index)?.textColor}
