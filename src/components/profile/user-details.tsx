@@ -10,19 +10,21 @@ const UserDetails = () => {
   const [showEditForm, setShowEditForm] = useState(false);
   const { data: user } = useUserProfile();
   return (
-    <div className="hidden flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-1 lg:flex lg:p-8">
-      {!showEditForm ? (
-        <>
-          <UserInfo />
-          {user && <UserInfoMobile online_status={user?.user_data.online_status} />}
-        </>
-      ) : (
-        <EditProfileForm />
-      )}
-      <Button variant="outline" onClick={() => setShowEditForm(!showEditForm)}>
-        Edit
-      </Button>
-    </div>
+    <>
+      <div className="hidden flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-1 lg:flex lg:p-8">
+        {!showEditForm ? (
+          <>
+            <UserInfo />
+            {user && <UserInfoMobile online_status={user?.user_data.online_status} />}
+          </>
+        ) : (
+          <EditProfileForm />
+        )}
+        <Button variant="outline" onClick={() => setShowEditForm(!showEditForm)}>
+          Edit
+        </Button>
+      </div>
+    </>
   );
 };
 

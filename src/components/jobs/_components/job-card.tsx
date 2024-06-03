@@ -1,51 +1,83 @@
 'use client';
-import Badges from '@/components/ui/badges';
+import formatDate from '@/app/utils/common/format-date';
+import Badge from '@/components/ui/badge';
 import { Button } from '@/components/ui/button-new';
+import { getColorClasses } from '@/lib/utils';
 import { JobProps } from '@/types/types';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { BaggageClaim, Calendar, CircleDollarSign, Clock, Locate, Users } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-
 import JobCardHeader from './job-card-header';
 
 export default function JobCard({ job }: JobProps) {
   const [isOpened, setIsOpened] = useState(false);
 
   return (
-    <div className="relative flex transform flex-col gap-4 overflow-hidden rounded-2xl bg-stone-100 p-4 shadow ring-1 ring-gray-200/50 backdrop-blur-md transition-all duration-300 animate-in fade-in hover:-translate-y-1 hover:shadow-lg">
-      {job.is_hot && (
-        <div className="absolute right-0 top-0">
-          <div className="absolute -right-11 top-3 flex h-6 w-32 items-center justify-center md:-right-8 lg:top-4">
-            <div className="h-full w-full rotate-45 transform bg-red-500 text-center text-sm font-semibold leading-6 text-white lg:text-base">
-              HOT
-            </div>
-          </div>
-        </div>
-      )}
-      <JobCardHeader job={job} handleClick={() => setIsOpened(!isOpened)} />
+    <div
+      className="flex w-screen cursor-pointer flex-col gap-4 rounded-md border border-gray-200 bg-white p-4 sm:w-auto lg:p-8"
+      onClick={() => setIsOpened(!isOpened)}
+    >
+      <JobCardHeader title={job.title || ''} is_hot={job.is_hot || false} company="Semrush" />
+      <div className="grid grid-cols-3 items-center justify-between font-semibold text-neutral-900 lg:flex">
+        <span className="flex items-center gap-2.5">
+          <Clock className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">{job.employment_type}</span>
+        </span>
+        <span className="hidden h-full w-0.5 bg-gray-200 lg:inline-block"></span>
+        <span className="flex items-center gap-2.5">
+          <Locate className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">{job.city}</span>
+        </span>
+        <span className="hidden h-full w-0.5 bg-gray-200 lg:inline-block"></span>
+        <span className="flex items-center gap-2.5 border-r-2 border-gray-50">
+          <BaggageClaim className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">1-3 Years</span>
+        </span>
+        <span className="hidden h-full w-0.5 bg-gray-200 lg:inline-block"></span>
+        <span className="flex items-center gap-2.5 border-r-2 border-gray-50">
+          <CircleDollarSign className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">
+            ${job.remuneration_from}-{job.remuneration_to}
+          </span>
+        </span>
+        <span className="hidden h-full w-0.5 bg-gray-200 lg:inline-block"></span>
+        <span className="flex items-center gap-2.5 border-r-2 border-gray-50">
+          <Users className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">{job.applicants}</span>
+        </span>
+        <span className="hidden h-full w-0.5 bg-gray-200 lg:inline-block"></span>
+        <span className="flex items-center gap-2.5">
+          <Calendar className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">
+            {formatDate(job.updated || '') || formatDate(job.created || '')}
+          </span>
+        </span>
+      </div>
       <AnimatePresence>
-        {isOpened && job?.id && (
+        {isOpened && (
           <motion.div
             initial={{ height: 0 }}
             animate={{ height: 'auto' }}
             exit={{ height: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden"
+            className="flex flex-col gap-4 overflow-hidden"
           >
-            {job?.description && (
-              <p className="border-b border-gray-300 pb-4 text-sm text-neutral-600 lg:text-base">
-                {job?.description}
-              </p>
-            )}
-            <div className="flex flex-col gap-3 pt-4 md:flex-row md:items-center md:justify-between">
-              <Badges badges={job?.skill_tags?.map((tag) => ({ text: tag }))} />
-              <span className="border-b border-gray-300 md:hidden" />
-              <Button onClick={(e) => e.stopPropagation()} variant="primary" className="max-w-max">
-                <Link href={`/jobs/${job.id}`} className="flex items-center">
-                  More Details
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+            <p className="text-sm text-gray-500">{job.description}</p>
+            <span className=" border border-neutral-300"></span>
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex flex-1 gap-4 overflow-x-hidden">
+                {job.skill_tags?.map((tag, index) => (
+                  <Badge
+                    key={tag}
+                    text={tag}
+                    color={getColorClasses(index)?.textColor}
+                    bgColor={getColorClasses(index)?.bgColor}
+                  />
+                ))}
+              </div>
+              <Button variant={'primary'} asChild>
+                <Link href={`/jobs/${job.id}`}>View Details</Link>
               </Button>
             </div>
           </motion.div>

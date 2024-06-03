@@ -28,9 +28,9 @@ const config = {
       },
       colors: {
         primary: {
-          DEFAULT: '#407BFF',
+          DEFAULT: '#4f46e5',
           foreground: '#ffffff',
-          ...colors.gray,
+          ...colors.indigo,
         },
         secondary: {
           DEFAULT: '#14532d',

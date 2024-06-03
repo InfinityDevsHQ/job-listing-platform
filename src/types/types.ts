@@ -207,8 +207,14 @@ export type UserData = {
   latitude?: number | null;
   longitude?: number | null;
   geo_resolve_tries?: number;
-  language?: string;
+  language?: string | null;
   prefered_language: string;
+  company_id?: number | null;
+  password?: string | null;
+  is_social_login?: boolean;
+  created?: string | null;
+  updated?: string | null;
+  last_active?: string | null;
 };
 export interface Resume {
   cv_filepath: string;
@@ -234,8 +240,8 @@ export interface CandidateData {
   ai_objective?: string;
   id?: number;
   ai_education?: string | null;
-  uploaded_resumes?: Resume[];
-  headline?: string;
+  uploaded_resumes?: Resume[] | null;
+  headline?: string | null;
   ai_candidate_rank?: number;
   user_id?: number;
   objective?: string | null;
@@ -251,6 +257,10 @@ export interface CandidateData {
   ai_social?: string | null;
   updated?: string;
   user?: UserData;
+  seniority?: string | null;
+  bio: string | null;
+  is_profile_bio_ready?: boolean;
+  is_unable_to_process_cv?: boolean;
 }
 
 export interface UserProfile {
@@ -1078,4 +1088,12 @@ export type GenericResponse = {
   code: number;
   result: any;
   meta: any;
+};
+export type CandidateCardData = {
+  name: string;
+  candidateImgUrl: string;
+  profession: string;
+  location: string;
+  about: string;
+  skillSet?: string[];
 };

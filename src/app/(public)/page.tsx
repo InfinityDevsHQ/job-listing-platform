@@ -1,18 +1,16 @@
+import CompaniesCarousel from '@/components/companies/companies-carousel';
 import CompaniesList from '@/components/companies/companies-list';
 import JobsList from '@/components/jobs/jobs-list';
 import { RecommendedJobs } from '@/components/jobs/recommended-jobs';
-import { CarouselItem } from '@/components/ui/carousel';
-import Hero from '@/components/ui/hero';
 import SectionHeader from '@/components/ui/section-header';
 import { GET_PROMOTED_COMPANIES_KEY } from '@/hooks/usePromotedCompanies';
 import { getPromotedCompanies } from '@/lib/companies';
 import { dehydrate } from '@tanstack/react-query';
-import { Building2Icon, ListCollapseIcon } from 'lucide-react';
-import Image from 'next/image';
+import { List, Plane } from 'lucide-react';
 import { useGetJobsPrefetch } from '../utils/rq/hooks/use-jobs';
 import { getQueryClient } from '../utils/rq/react-query-client';
 import { ReactQueryHydrate } from '../utils/rq/react-query-hydrate';
-import AutoPlayCarousel from './recruit/_components/autoplay-carousel';
+import Hero from './companies/_components/hero';
 
 export default async function Home() {
   const queryClient = getQueryClient();
@@ -26,119 +24,32 @@ export default async function Home() {
   ]);
   return (
     <ReactQueryHydrate state={dehydrate(queryClient)}>
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 p-4 lg:p-8">
-        <Hero
-          heading="Find your dream job here"
-          desc="Explore the latest job openings and apply for the best job opportunities available today!"
-          vectorUrl="/assets/images/home/homePage_hero_section_vector.svg"
-        />
-        <div className="mx-auto w-full overflow-hidden md:max-w-3xl lg:max-h-40">
-          <AutoPlayCarousel showNavControls={false}>
-            <CarouselItem className="mx-1 basis-1/3 rounded-xl border p-4 lg:mx-3 lg:basis-1/5">
-              <Image
-                src="/assets/companies/logos/company- (1).png"
-                width={150}
-                height={100}
-                className="mx-auto h-16 lg:h-20"
-                alt="company-1"
-              />
-            </CarouselItem>
-            <CarouselItem className="mx-1 basis-1/3 rounded-xl border p-4 lg:mx-3 lg:basis-1/5">
-              <Image
-                src="/assets/companies/logos/company- (2).png"
-                width={150}
-                height={100}
-                className="mx-auto h-16 lg:h-20"
-                alt="company-2"
-              />
-            </CarouselItem>
-            <CarouselItem className="mx-1 basis-1/3 rounded-xl border p-4 lg:mx-3 lg:basis-1/5">
-              <Image
-                src="/assets/companies/logos/company- (3).png"
-                width={150}
-                height={100}
-                className="mx-auto h-16 lg:h-20"
-                alt="company-3"
-              />
-            </CarouselItem>
-            <CarouselItem className="mx-1 basis-1/3 rounded-xl border p-4 lg:mx-3 lg:basis-1/5">
-              <Image
-                src="/assets/companies/logos/company- (4).png"
-                width={150}
-                height={100}
-                className="mx-auto h-16 lg:h-20"
-                alt="company-4"
-              />
-            </CarouselItem>
-            <CarouselItem className="mx-1 basis-1/3 rounded-xl border p-4 lg:mx-3 lg:basis-1/5">
-              <Image
-                src="/assets/companies/logos/company- (5).png"
-                width={150}
-                height={100}
-                className="mx-auto h-16 lg:h-20"
-                alt="company-5"
-              />
-            </CarouselItem>
-            <CarouselItem className="mx-1 basis-1/3 rounded-xl border p-4 lg:mx-3 lg:basis-1/5">
-              <Image
-                src="/assets/companies/logos/company- (6).png"
-                width={150}
-                height={100}
-                className="mx-auto h-16 lg:h-20"
-                alt="company-6"
-              />
-            </CarouselItem>
-            <CarouselItem className="mx-1 basis-1/3 rounded-xl border p-4 lg:mx-3 lg:basis-1/5">
-              <Image
-                src="/assets/companies/logos/company- (7).png"
-                width={150}
-                height={100}
-                className="mx-auto h-16 lg:h-20"
-                alt="company-7"
-              />
-            </CarouselItem>
-            <CarouselItem className="mx-1 basis-1/3 rounded-xl border p-4 lg:mx-3 lg:basis-1/5">
-              <Image
-                src="/assets/companies/logos/company- (8).png"
-                width={150}
-                height={100}
-                className="mx-auto h-16 lg:h-20"
-                alt="company-8"
-              />
-            </CarouselItem>
-            <CarouselItem className="mx-1 basis-1/3 rounded-xl border p-4 lg:mx-3 lg:basis-1/5">
-              <Image
-                src="/assets/companies/logos/company- (9).png"
-                width={150}
-                height={100}
-                className="mx-auto h-16 lg:h-20"
-                alt="company-9"
-              />
-            </CarouselItem>
-            <CarouselItem className="mx-1 basis-1/3 rounded-xl border p-4 lg:mx-3 lg:basis-1/5">
-              <Image
-                src="/assets/companies/logos/company- (10).png"
-                width={150}
-                height={100}
-                className="mx-auto h-16 lg:h-20"
-                alt="company-10"
-              />
-            </CarouselItem>
-          </AutoPlayCarousel>
+      <div className="grid w-screen bg-primary-50 p-4 sm:w-auto lg:grid-cols-3 lg:gap-8 lg:p-8">
+        <div className="col-span-2 flex flex-col gap-8">
+          <Hero
+            heading="Find your dream job here!"
+            desc="Explore the latest job openings and apply for the best job opportunities available today!"
+            search
+            vectorUrl="/assets/images/home/homePage_hero_section_vector.png"
+          />
+          <RecommendedJobs />
+          <div className="flex w-screen flex-col items-center justify-center gap-4 overflow-x-hidden lg:hidden">
+            <SectionHeader
+              heading="Companies that will grow you forward."
+              leadingIcon={<Plane className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
+            />
+            <CompaniesCarousel />
+          </div>
+          <SectionHeader leadingIcon={<List className="text-red-500" />} heading="All Offers" />
+          <JobsList />
         </div>
-        {/* This will render jobs based on user, if it's logged in or not */}
-        <RecommendedJobs />
-
-        <SectionHeader
-          leadingIcon={<ListCollapseIcon className="h-7 w-7 text-blue-500" />}
-          heading={'All offers from 2,300+ companies'}
-        />
-        <JobsList />
-        <SectionHeader
-          leadingIcon={<Building2Icon className="h-7 w-7 text-black" />}
-          heading="Companies that will grow you forward"
-        />
-        <CompaniesList />
+        <div className="hidden flex-col items-center gap-8 lg:flex">
+          <SectionHeader
+            heading="Companies that will grow you forward."
+            leadingIcon={<Plane className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
+          />
+          <CompaniesList />
+        </div>
       </div>
     </ReactQueryHydrate>
   );

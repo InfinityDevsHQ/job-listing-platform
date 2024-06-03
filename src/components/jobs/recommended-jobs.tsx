@@ -11,7 +11,7 @@ export const RecommendedJobs = () => {
   const { data } = useUserProfile();
   if (!data?.user_data?.id) {
     return (
-      <section>
+      <section className="flex flex-col gap-4 overflow-x-hidden lg:gap-8">
         <SectionHeader
           leadingIcon={<FireIcon className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
           heading="Latest Hot Offers"
@@ -21,7 +21,7 @@ export const RecommendedJobs = () => {
     );
   }
   return (
-    <section>
+    <section className="flex flex-col gap-4 overflow-x-hidden lg:gap-8">
       <SectionHeader
         leadingIcon={<BookDown className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
         heading="Ready-Set-Hired"

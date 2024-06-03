@@ -1,5 +1,5 @@
 import { usePrefetchCountries } from '@/app/utils/rq/hooks/use-countries';
-import Footer from '@/components/footer/page';
+import Footer from '@/components/footer/footer';
 import { Toaster } from '@/components/ui/sonner';
 import { dehydrate } from '@tanstack/react-query';
 import { GeistSans } from 'geist/font/sans';

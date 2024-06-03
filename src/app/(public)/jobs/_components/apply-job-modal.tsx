@@ -1,10 +1,11 @@
 'use client';
+import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import ApplyJobForm from '@/components/forms/apply-job-form/apply-job-form';
+import UserHeader from '@/components/gernal/user-header';
 import { Button } from '@/components/ui/button-new';
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -12,50 +13,45 @@ import {
 import {
   Drawer,
   DrawerContent,
-  DrawerDescription,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import useMediaQuery from '@/hooks/useMediaQuey';
-import useAuthStore from '@/stores/authStore/store';
-import { ArrowRight } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { ArrowRight, SendHorizonal } from 'lucide-react';
+import Link from 'next/link';
 import { useState } from 'react';
-const ApplyJobModal = ({ jobId }: { jobId: string }) => {
+const ApplyJobModal = ({ jobId, skills }: { jobId: string; skills: string[] }) => {
   const [open, setOpen] = useState(false);
-  const { isAuthenticated } = useAuthStore();
-  const router = useRouter();
+  const { data: user } = useUserProfile();
   const isDesktop = useMediaQuery('(min-width: 768px)');
-  const onClickLogin = () => {
-    router.replace('/login');
-  };
-  if (!isAuthenticated) {
+
+  if (!user) {
     return (
-      <div className="flex w-full items-center justify-end">
-        <Button size="lg" type="button" className="max-w-max" onClick={onClickLogin}>
+      <Link className="flex w-full items-center justify-end" href={'/login'}>
+        <Button size="lg" type="button" className="max-w-max" variant={'primary'}>
           Apply
-          <ArrowRight className="ml-2 h-5 w-5" />
+          <SendHorizonal className="ml-2 h-5 w-5" />
         </Button>
-      </div>
+      </Link>
     );
   }
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <div className="flex w-full items-center justify-end">
-            <Button size="lg" className="max-w-max">
-              Apply <ArrowRight className="ml-2 h-5 w-5" />
+          <div className="flex w-full items-center">
+            <Button size="lg" className="max-w-max" variant={'primary'}>
+              Apply <SendHorizonal className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </DialogTrigger>
-        <DialogContent className="xl:min-w-4xl  bg-gray-200  lg:max-w-4xl">
-          <DialogHeader>
+        <DialogContent className="bg-gray-50 lg:max-w-4xl">
+          <DialogHeader className="flex flex-col gap-6">
             <DialogTitle>Apply For this role.</DialogTitle>
-            <DialogDescription></DialogDescription>
+            <UserHeader user_name={'Infinity Devs'} user_role={'hello@test.com'} />
           </DialogHeader>
-          <ApplyJobForm jobId={jobId} />
+          <ApplyJobForm jobId={jobId} skills={skills} />
         </DialogContent>
       </Dialog>
     );
@@ -69,12 +65,12 @@ const ApplyJobModal = ({ jobId }: { jobId: string }) => {
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="bg-gray-200 p-8">
-          <DrawerHeader>
+        <DrawerContent className="bg-gray-50 p-8">
+          <DrawerHeader className="flex flex-col gap-6">
             <DrawerTitle>Apply For this role.</DrawerTitle>
-            <DrawerDescription></DrawerDescription>
+            <UserHeader user_name={'Infinity Devs'} user_role={'hello@test.com'} />
           </DrawerHeader>
-          <ApplyJobForm jobId={jobId} />
+          <ApplyJobForm jobId={jobId} skills={skills} />
         </DrawerContent>
       </Drawer>
     </>

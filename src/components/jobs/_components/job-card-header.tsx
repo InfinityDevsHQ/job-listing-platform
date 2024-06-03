@@ -1,57 +1,88 @@
+import { Button } from '@/components/ui/button-new';
 import { cn } from '@/lib/utils';
-import { JobProps } from '@/types/types';
-import { BriefcaseBusinessIcon } from 'lucide-react';
-import JobCardDetails from './job-card-details';
-
-const JobCardHeader = ({ job, size, handleClick }: JobProps) => {
+import { Bookmark, Flame } from 'lucide-react';
+import { useState } from 'react';
+import { toast } from 'sonner';
+type JobCardHeaderProps = {
+  is_hot: boolean;
+  title: string;
+  company: string;
+  size?: 'default' | 'lg';
+};
+export default function JobCardHeader({
+  is_hot,
+  title,
+  company,
+  size = 'default',
+}: JobCardHeaderProps) {
+  const [saved, setSaved] = useState(false);
   return (
-    <div
-      onClick={handleClick}
-      className={cn('flex cursor-default select-none items-center gap-4', {
-        'cursor-pointer': handleClick,
-      })}
-    >
-      <div
+    <header className="flex cursor-pointer items-center">
+      <span
         className={cn(
-          'hidden h-14 w-14 items-center justify-center rounded-full bg-blue-100 md:flex',
-          {
-            'bg-red-100': job?.is_hot,
-            'h-20 w-20': size == 'lg',
-          }
+          'mr-5 flex items-center justify-center rounded-full p-2.5 lg:p-3',
+          is_hot ? 'bg-orange-50' : ' bg-primary-500/30',
+          size === 'lg' ? 'lg:h-24 lg:w-24' : ''
         )}
       >
-        {/* {job?.external_company_logo ? (
-            <Image
-              src={job.external_company_logo}
-              width={100}
-              height={100}
-              alt="company logo"
-              className="ml-auto h-96 w-96 rounded-2xl"
-            />
-          ) : (
-          )} */}
-        <BriefcaseBusinessIcon
-          className={cn('text-blue-500', {
-            'text-red-500': job?.is_hot,
-            'h-8 w-8': size == 'lg',
-          })}
-        />
-      </div>
-      <div className="flex cursor-pointer select-none flex-col gap-2">
-        <h3
+        <Flame
           className={cn(
-            'flex items-center gap-4 pr-5 text-lg font-semibold text-neutral-900 md:pr-0',
-            {
-              'text-4xl font-bold': size == 'lg',
-            }
+            'h-4 w-4',
+            is_hot ? 'text-orange-500' : 'text-primary-500',
+            size === 'lg' ? 'lg:h-10 lg:w-10' : ''
           )}
-        >
-          {job?.title}
-        </h3>
-        <JobCardDetails job={job} size={size} />
+        />
+      </span>
+      <div className="flex flex-1 flex-col">
+        <div className="flex items-center lg:gap-4">
+          <h3
+            className={cn(
+              'font-semibold',
+              size === 'default' ? 'text-base' : '',
+              size === 'lg' ? 'lg:text-4xl' : ''
+            )}
+          >
+            {title}
+          </h3>
+          <span
+            className={cn(
+              'hidden items-center justify-center rounded-md bg-green-500 px-2 py-1 text-xxs font-semibold text-white shadow-md lg:flex',
+              size === 'lg' ? 'lg:text-sm' : ''
+            )}
+          >
+            Urgent
+          </span>
+        </div>
+        <div className="flex items-center gap-4">
+          <span
+            className={cn('text-xs font-semibold text-gray-500', size === 'lg' ? 'lg:text-xl' : '')}
+          >
+            {company}
+          </span>
+          <span
+            className={cn(
+              'flex items-center justify-center rounded-md bg-accent-1 px-2 py-1 text-xxs font-semibold text-white shadow-md lg:hidden',
+              size === 'lg' ? 'lg:text-sm' : ''
+            )}
+          >
+            Urgent
+          </span>
+        </div>
       </div>
-    </div>
+      <Button
+        className="flex h-8 w-8 rounded-md"
+        variant={saved ? 'primary' : 'outline'}
+        size={'icon'}
+        onClick={() => {
+          setSaved(!saved);
+          if (!saved) toast.success('Job Saved.');
+          if (saved) toast.info('Removed From Favorites');
+        }}
+      >
+        <Bookmark
+          className={cn('h-4 w-4', saved ? 'fill-white text-white' : 'fill-gray-200 text-gray-200')}
+        />
+      </Button>
+    </header>
   );
-};
-
-export default JobCardHeader;
+}

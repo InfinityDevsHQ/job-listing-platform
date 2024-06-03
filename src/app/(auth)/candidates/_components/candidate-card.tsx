@@ -9,16 +9,9 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { getColorClasses } from '@/lib/utils';
+import { CandidateCardData } from '@/types/types';
 import { Eye, ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
-type CandidateCardData = {
-  name: string;
-  candidateImgUrl: string;
-  profession: string;
-  location: string;
-  about: string;
-  skillSet?: string[];
-};
 
 type CandidateCardProps = {
   candidateData: CandidateCardData;
@@ -64,15 +57,15 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
         </div>
         {candidateData.skillSet?.length && (
           <Carousel
-            className="mb-4 flex w-full items-center justify-center"
+            className="relative mb-4 flex w-full items-center justify-center"
             opts={{
               loop: true,
             }}
           >
-            <CarouselPrevious className="relative left-0 translate-x-0 translate-y-0" />
-            <CarouselContent className="flex items-center gap-2">
+            <CarouselPrevious className="absolute left-0 top-0 translate-x-0 translate-y-0" />
+            <CarouselContent className="flex max-w-80 items-center gap-2">
               {candidateData.skillSet?.map((skill, index) => (
-                <CarouselItem key={index} className="basis-1/3 !pl-0">
+                <CarouselItem key={index} className="basis-1/4 !pl-0">
                   <Badge
                     text={skill}
                     color={getColorClasses(index)?.textColor}
@@ -81,10 +74,10 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselNext className="relative left-0 translate-x-0 translate-y-0" />
+            <CarouselNext className="absolute right-0 top-0 translate-x-0 translate-y-0" />
           </Carousel>
         )}
-        <Button size="lg">
+        <Button size="lg" variant={'primary'}>
           Add to Cart
           <ShoppingCart className="ml-2 h-4 w-4" />
         </Button>

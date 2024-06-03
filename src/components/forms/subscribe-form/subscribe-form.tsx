@@ -36,7 +36,13 @@ export default function Subscribe() {
         className="flex flex-col items-center justify-center gap-4 lg:flex-row lg:justify-between"
         onSubmit={form.handleSubmit(onSubmit)}
       >
-        <h2 className="text-xl font-semibold  lg:text-2xl">Sign Up for Our Newsletter</h2>
+        <div className="flex flex-col gap-5">
+          <h2 className="text-xl font-semibold  lg:text-2xl">Sign Up for Our Newsletter</h2>
+          <p className="hidden text-xs lg:block lg:text-lg">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate totam omnis sunt
+            repellendus possimus! Velit,
+          </p>
+        </div>
         <div className="flex flex-shrink-0 items-center justify-center gap-2 lg:max-w-xl">
           <FormField
             name="email"
@@ -50,7 +56,7 @@ export default function Subscribe() {
               </FormItem>
             )}
           />
-          <Button type="submit" variant="outline">
+          <Button type="submit" variant="outline" className="text-gray-800">
             Subscribe
             {isLoading ? (
               <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />
@@ -59,6 +65,10 @@ export default function Subscribe() {
             )}
           </Button>
         </div>
+        <p className="text-center text-xs lg:hidden lg:text-lg">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate totam omnis sunt
+          repellendus possimus! Ve
+        </p>
       </form>
     </Form>
   );

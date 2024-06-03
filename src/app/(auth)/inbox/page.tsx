@@ -7,7 +7,7 @@ import ChatPanel from './panels/chat-panel';
 import InboxPanel from './panels/inbox-panel';
 import AcceptedTab from './tabs/accepted-tab';
 
-export default async function Inbox() {
+export default function Inbox() {
   const { data: user, isLoading } = useUserProfile();
   if (!user?.user_data.id || isLoading) {
     return;

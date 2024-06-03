@@ -9,13 +9,13 @@ const JobFeedback = ({ className }: JobHeaderProps) => {
     <div
       className={`flex items-center justify-center gap-4 rounded-md border border-gray-200 px-5 py-2 lg:max-w-lg lg:justify-between lg:px-8 ${className}`}
     >
-      <span className="text-gray-950">Do you like this job offer?</span>
+      <span className="text-sm text-gray-950 lg:text-base">Do you like this job offer?</span>
       <div className="flex items-center gap-4">
-        <Button variant="outline" size="icon-xs">
-          <ThumbsUpIcon className="h-4 w-4 text-gray-500" />
+        <Button variant="outline" size="icon" className="rounded-full bg-gray-200">
+          <ThumbsUpIcon className="h-4 w-4 fill-gray-600 text-gray-500" />
         </Button>
-        <Button variant="outline" size="icon-xs">
-          <ThumbsDownIcon className="h-4 w-4 text-gray-500" />
+        <Button variant="outline" size="icon" className="rounded-full bg-gray-200">
+          <ThumbsDownIcon className="h-4 w-4 fill-gray-500 text-gray-500" />
         </Button>
       </div>
     </div>

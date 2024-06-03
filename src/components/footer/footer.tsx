@@ -21,15 +21,11 @@ const Footer = () => {
   }
 
   return (
-    <footer>
+    <footer className="bg-primary text-white">
       <div className={cn('mx-auto flex w-full max-w-screen-2xl flex-col gap-4 p-8 lg:gap-8')}>
         <Link href={'/'}>
           <Image
-            src={
-              companyHeaderRoutes.includes(pathname)
-                ? '/assets/images/common/logo_clickJob_secondary.svg'
-                : '/assets/images/common/logo_clickJob_primary.svg'
-            }
+            src={'/assets/logo_white.png'}
             alt="Logo"
             className="mx-auto h-7 w-28 lg:mx-0 lg:h-12 lg:w-56"
             width={226}

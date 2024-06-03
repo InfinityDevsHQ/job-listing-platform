@@ -17,7 +17,12 @@ const Header = () => {
 
   const companyHeaderRoutes = ['/recruit'];
 
-  const publicNavLinks = [{ text: 'For Companies', href: '/recruit' }];
+  const publicNavLinks = [
+    { text: 'Home', href: '/' },
+    { text: 'About', href: '/about' },
+    { text: 'Contact Us', href: '/contact' },
+    { text: 'For Companies', href: '/recruit' },
+  ];
 
   if (noHeaderRoutes.includes(pathname)) {
     return <></>;
@@ -39,41 +44,31 @@ const Header = () => {
             className="h-7 w-28 lg:h-10 lg:w-40"
           />
         </Link>
-        <div className="flex items-center gap-4">
-          <div className="hidden gap-4 lg:flex">
-            <Navbar
-              links={publicNavLinks}
-              activeLinkClassName={
-                companyHeaderRoutes.includes(pathname) ? 'text-secondary' : 'text-neutral-950'
-              }
-            />
-            <Countries />
-            {!user?.user_data ? (
-              <>
-                <Link href={'/login'}>
-                  <Button
-                    variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'default'}
-                  >
-                    Login
-                    <LockIcon className="ml-2 h-4 w-4" size={16} />
-                  </Button>
-                </Link>
-                <Link href={'/register'}>
-                  <Button
-                    variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'default'}
-                  >
-                    Register
-                    <ArrowRight className="ml-2 h-4 w-4" size={16} />
-                  </Button>
-                </Link>
-              </>
-            ) : (
-              <>
-                <Notifications />
-                <ProfileDropdown />
-              </>
-            )}
-          </div>
+
+        <Navbar links={publicNavLinks} />
+        <div className="flex gap-4">
+          {!user?.user_data ? (
+            <>
+              <Link href={'/register'}>
+                <Button variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'outline'}>
+                  Register
+                  <ArrowRight className="ml-2 h-4 w-4" size={16} />
+                </Button>
+              </Link>
+              <Link href={'/login'}>
+                <Button variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'primary'}>
+                  Login
+                  <LockIcon className="ml-2 h-4 w-4" size={16} />
+                </Button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Notifications />
+              <ProfileDropdown />
+            </>
+          )}
+          <Countries />
         </div>
       </div>
     </header>
