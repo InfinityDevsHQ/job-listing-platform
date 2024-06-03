@@ -51,7 +51,7 @@ export default function JobCardHeader({
         </div>
       </div>
       <Button
-        className="flex h-7 w-7 rounded-md px-3 py-0"
+        className="flex h-8 w-8 rounded-md !px-3 !py-0"
         variant={saved ? 'primary' : 'outline'}
         onClick={() => {
           setSaved(!saved);
@@ -60,7 +60,7 @@ export default function JobCardHeader({
         }}
       >
         <Bookmark
-          className={`${saved ? 'fill-white text-white' : 'fill-gray-200 text-gray-200'}`}
+          className={` h-4 w-4 ${saved ? 'fill-white text-white' : 'fill-gray-200 text-gray-200'}`}
         />
       </Button>
     </header>
