@@ -18,7 +18,10 @@ const AboutTab = ({ user }: { user: UserProfile }) => {
         <InfoList list={user.candidate_data.ai_expertise} />
       </InfoSection>
       <InfoSection heading="Skills">
-        <Badges badges={user.candidate_data.skill_tags?.map((item) => ({ text: item }))} />
+        <Badges
+          multiColor
+          badges={user.candidate_data.skill_tags?.map((item) => ({ text: item }))}
+        />
       </InfoSection>
     </TabsContent>
   );

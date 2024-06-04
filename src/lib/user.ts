@@ -65,6 +65,19 @@ const Profile: UserProfile = {
       github: 'http://localhost:3000/onboarding',
     },
     bio: null,
+    ai_objective:
+      'Aspiring to leverage my extensive experience in software development and project management to lead a dynamic tech team at a forward-thinking company, contributing to innovative projects and achieving organizational goals.',
+    ai_cv_summary:
+      'A highly skilled software engineer with over 8 years of experience in developing high-quality applications. Proficient in multiple programming languages including JavaScript, Python, and Java. Adept at working in agile environments, managing projects, and mentoring junior developers. Committed to continuous learning and improvement, with a strong track record of successful project delivery and problem-solving.',
+    ai_expertise: [
+      'Full-Stack Development',
+      'Agile Project Management',
+      'Cloud Computing (AWS, Azure)',
+      'Microservices Architecture',
+      'DevOps Practices',
+      'Database Management (SQL, NoSQL)',
+    ],
+    skill_tags: ['JavaScript', 'Python', 'Java', 'C++', 'React', 'Angular', 'Django'],
     uploaded_resumes: null,
     is_profile_bio_ready: false,
     is_unable_to_process_cv: false,
