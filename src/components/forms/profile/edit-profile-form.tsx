@@ -315,7 +315,9 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
             />
           </>
         )}
-        <Button type="submit">{isLoading ? 'Saving....' : 'Save'}</Button>
+        <Button variant={'primary'} type="submit">
+          {isLoading ? 'Saving....' : 'Save'}
+        </Button>
       </form>
     </Form>
   );
