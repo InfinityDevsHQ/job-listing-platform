@@ -64,7 +64,7 @@ const Profile: UserProfile = {
       twitter: 'http://localhost:3000/onboarding',
       github: 'http://localhost:3000/onboarding',
     },
-    bio: null,
+    bio: 'Software Engineer',
     ai_objective:
       'Aspiring to leverage my extensive experience in software development and project management to lead a dynamic tech team at a forward-thinking company, contributing to innovative projects and achieving organizational goals.',
     ai_cv_summary:
