@@ -14,8 +14,8 @@ export default function Inbox() {
   }
   const messages = getReadInboxMessageByUserId(user.user_data.id as number);
   return (
-    <div className="inbox flex flex-col p-4 lg:h-screen lg:flex-row">
-      {messages && <pre>{JSON.stringify(messages, null, 2)}</pre>}
+    <div className="inbox flex flex-col overflow-hidden rounded-md  p-4 lg:h-screen lg:flex-row">
+      {/* {messages && <pre>{JSON.stringify(messages, null, 2)}</pre>} */}
 
       <Tabs defaultValue="accepted" className="w-full lg:hidden">
         <TabsList className="bg-primary-50 lg:bg-transparent">

@@ -8,7 +8,7 @@ const InboxPanel = ({ className }: InboxPanelProps) => {
   return (
     <div
       className={cn(
-        'flex w-64 flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4',
+        'flex w-64 flex-col gap-4 rounded-l-md border border-r-0 border-neutral-200 bg-white p-4',
         className
       )}
     >

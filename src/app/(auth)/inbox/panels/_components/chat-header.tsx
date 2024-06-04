@@ -3,7 +3,7 @@ import { InfoIcon, MenuIcon } from 'lucide-react';
 import Image from 'next/image';
 const ChatHeader = () => {
   return (
-    <header className="flex items-center justify-between gap-2 rounded-t-md border border-neutral-200 bg-white p-2">
+    <header className="flex items-center justify-between gap-2 rounded-t-md border-b border-neutral-200 bg-white p-2">
       <div className="flex items-center gap-3">
         <Image
           src={'/assets/inbox/avatar.png'}
