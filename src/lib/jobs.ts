@@ -1315,8 +1315,15 @@ export async function getJobs({
   allow_for_translated_jobs = false,
   is_hot = false,
   country,
-}: GetJobsParams): Promise<any> {
-  return is_hot ? hotJobs : jobs;
+}: GetJobsParams): Promise<Job[]> {
+  const data = is_hot ? hotJobs : jobs;
+  const paginatedData = data.slice(skip, skip + limit);
+
+  return new Promise<Job[]>((resolve) => {
+    setTimeout(() => {
+      resolve(paginatedData);
+    }, 2000); // 4 seconds delay
+  });
 }
 
 export async function getJobById(jobId: string): Promise<Job> {

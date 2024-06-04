@@ -1,27 +1,29 @@
 'use client';
-import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
+import { Edit } from 'lucide-react';
 import { useState } from 'react';
 import EditProfileForm from '../forms/profile/edit-profile-form';
 import { Button } from '../ui/button-new';
 import UserInfo from './user-info';
-import UserInfoMobile from './user-info-mobile';
 
 const UserDetails = () => {
   const [showEditForm, setShowEditForm] = useState(false);
-  const { data: user } = useUserProfile();
   return (
     <>
-      <div className="hidden flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-1 lg:flex lg:p-8">
+      <div className="flex flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-1 lg:gap-8 lg:p-8">
         {!showEditForm ? (
           <>
             <UserInfo />
-            {user && <UserInfoMobile online_status={user?.user_data.online_status} />}
           </>
         ) : (
           <EditProfileForm />
         )}
-        <Button variant="outline" onClick={() => setShowEditForm(!showEditForm)}>
-          Edit
+        <Button
+          variant="outline"
+          onClick={() => setShowEditForm(!showEditForm)}
+          className="hidden gap-2 lg:flex"
+        >
+          {showEditForm ? 'Cancel' : 'Edit'}
+          {!showEditForm && <Edit className="h-4 w-4 text-current" />}
         </Button>
       </div>
     </>

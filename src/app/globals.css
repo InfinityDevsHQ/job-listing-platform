@@ -110,3 +110,8 @@ textarea {
   min-height: calc(100vh - 128px - 39.981px);
   max-height: calc(100vh - 128px - 39.981px);
 }
+
+/* Hiding Extra Elements In Profile Tabs Section to fix spacing */
+div[data-state='inactive'] {
+  display: none;
+}

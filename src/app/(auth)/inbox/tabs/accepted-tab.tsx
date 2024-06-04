@@ -32,7 +32,7 @@ const AcceptedTab = ({ className }: AcceptedTabProps) => {
   ];
   return (
     <div
-      className={`w-82 flex-col gap-4 rounded-md border border-neutral-200  bg-white p-4 ${className}`}
+      className={`w-82 flex-col gap-4 rounded-r-md border border-neutral-200  bg-white p-4 ${className}`}
     >
       <div className="hidden lg:block">
         <Input

@@ -5,17 +5,15 @@ import { TabsContent } from '@/components/ui/tabs';
 import { getCandidateRecommendationById } from '@/lib/candidates';
 import { dehydrate } from '@tanstack/react-query';
 import AiInsightsTabsData from './ai-insights-tabs-data';
-
 const AiInsightsTabs = async ({ candidateId }: { candidateId: number }) => {
   const queryClient = getQueryClient();
-
   await queryClient.prefetchQuery({
     queryKey: [GET_CANDIDATE_RECOMMENDATION_BY_ID_KEY],
     queryFn: () => getCandidateRecommendationById(candidateId),
   });
 
   return (
-    <TabsContent value="ai-insights" className="-mt-4 flex flex-col gap-5">
+    <TabsContent value="ai-insights" className="mt-0 flex flex-col gap-5 lg:gap-8">
       <ReactQueryHydrate state={dehydrate(queryClient)}>
         <AiInsightsTabsData candidateId={candidateId} />
       </ReactQueryHydrate>

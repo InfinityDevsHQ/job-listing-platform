@@ -389,14 +389,24 @@ const companies: Company[] = [
   },
 ];
 export async function getPromotedCompanies(): Promise<Company[]> {
-  return companies;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(companies);
+    }, 2000);
+  });
 }
+
 export async function getCompanyById(companyId: string | number): Promise<Company> {
   if (!companyId) {
     // can return 404 heres
     return {} as Company;
   }
   const company = companies.find((comp) => comp.id.toString() === companyId);
-  if (company) return company;
+  if (company)
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(company);
+      }, 2000);
+    });
   return {} as Company;
 }

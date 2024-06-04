@@ -248,6 +248,21 @@ export async function getCandidateRawDataById(candidateId: string): Promise<Cand
   );
   return data;
 }
+const recommendations: RecommendationsProps = {
+  job_market_insights: {
+    text: 'Proficiency in cloud technologies and DevOps practices is increasingly in demand.',
+  },
+  cv_optimization_suggestions: {
+    text: 'Highlight specific project outcomes and metrics (e.g., "Improved application performance by 30%").',
+  },
+  skill_gap_analysis: { text: 'Strong in full-stack development and project management.' },
+  certification_suggestions: { text: 'A certification in project management could be beneficial.' },
+  personal_branding: { text: 'Improve your LinkedIn profile with a professional photo.' },
+  career_advice: { text: 'Networking is key to finding new opportunities.' },
+  overall_assessment: { text: 'Your career progress is on the right track.' },
+  career_achievements: { text: 'You have successfully led several high-impact projects.' },
+};
+
 export async function getCandidateRecommendationById(
   candidateId: number | string
 ): Promise<RecommendationsProps> {
@@ -255,11 +270,9 @@ export async function getCandidateRecommendationById(
     // can return 404 heres
     return {} as RecommendationsProps;
   }
-  const data = await DataService.get<RecommendationsProps>(
-    `${CANDIDATES_URLS.candidateRecommendation}/${candidateId}`
-  );
 
-  return data;
+  if (candidateId === 26 || '26') return recommendations;
+  return {} as RecommendationsProps;
 }
 
 export async function getAllCandidates(): Promise<CandidateCardData[]> {

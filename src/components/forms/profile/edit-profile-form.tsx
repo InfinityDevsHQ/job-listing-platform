@@ -19,6 +19,8 @@ import { toast } from 'sonner';
 import { z } from 'zod';
 
 const editProfileSchema = z.object({
+  name: z.string(),
+  title: z.string(),
   preferLanguage: z.string(),
   timeZone: z.string(),
   country: z.string(),
@@ -43,6 +45,8 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
   const form = useForm<z.infer<typeof editProfileSchema>>({
     resolver: zodResolver(editProfileSchema),
     defaultValues: {
+      name: user?.user_data.name,
+      title: user?.candidate_data.bio || '',
       preferLanguage: user?.user_data.prefered_language || '',
       timeZone: user?.user_data.timezone || '',
       country: user?.user_data.country,
@@ -77,6 +81,7 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
     const body = {
       user_data: {
         ...user?.user_data,
+        name: values.name,
         language: values.preferLanguage,
         timezone: values.timeZone,
         country: values.country,
@@ -89,6 +94,7 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
         ai_cv_summary: values.summary,
         ai_expertise: values.expertise,
         ai_skill_tags: values.ai_skill_tags,
+        bio: values.title,
         social: {
           ...user?.candidate_data?.social,
           github: values.github,
@@ -111,6 +117,31 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-3">
         {formName === 'user-info' && (
           <>
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             <FormField
               control={form.control}
               name="preferLanguage"
@@ -315,7 +346,9 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
             />
           </>
         )}
-        <Button type="submit">{isLoading ? 'Saving....' : 'Save'}</Button>
+        <Button variant={'primary'} type="submit">
+          {isLoading ? 'Saving....' : 'Save'}
+        </Button>
       </form>
     </Form>
   );

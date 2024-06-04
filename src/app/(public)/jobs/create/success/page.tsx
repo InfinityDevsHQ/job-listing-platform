@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function JobPostSuccess() {
   return (
-    <section className="success relative my-4 flex items-center justify-center bg-white lg:my-8">
+    <section className="success relative my-4 flex items-center justify-center rounded-md border border-gray-200 bg-gray-50 lg:my-8">
       <Image
         src="/assets/party.png"
         width={1684}

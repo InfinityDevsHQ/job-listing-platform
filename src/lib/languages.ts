@@ -6,5 +6,9 @@ const LANGUAGES_URLS = {
 };
 const Languages = ['Czech', 'English', 'German', 'Slovak', 'Ukrainian'];
 export default async function getLanguages(): Promise<string[]> {
-  return Languages;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(Languages);
+    }, 2000);
+  });
 }

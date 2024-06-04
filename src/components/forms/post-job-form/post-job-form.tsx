@@ -5,7 +5,7 @@ import Input from '@/components/ui/input';
 import TextArea from '@/components/ui/text-area';
 import { postJobListing } from '@/lib/jobs';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ArrowRightIcon, LoaderCircleIcon } from 'lucide-react';
+import { LoaderCircleIcon, RefreshCcw } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -71,7 +71,7 @@ export default function PostJobForm() {
   return (
     <Form {...form}>
       <form
-        className="flex flex-col gap-4 rounded-md bg-white p-4 lg:gap-8 lg:p-8"
+        className="flex flex-col gap-4 rounded-md bg-white"
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <div className="grid grid-cols-2 gap-4 lg:gap-8">
@@ -208,13 +208,13 @@ export default function PostJobForm() {
               We will use this information to develop a detailed job description, requirements list,
               and set of necessary skills.
             </p>
-            <Button type="submit">
-              Analyze
+            <Button type="submit" variant={'primary'} className="self-stretch">
               {isLoading ? (
-                <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />
+                <LoaderCircleIcon className="animate mr-2 h-4 w-4 animate-spin" />
               ) : (
-                <ArrowRightIcon className="ml-2 h-4 w-4" />
+                <RefreshCcw className="mr-2 h-4 w-4" />
               )}
+              Analyze
             </Button>
           </div>
         </div>

@@ -78,6 +78,11 @@ export async function getCountryById(countryId: string): Promise<Country> {
     return {} as Country;
   }
   const data = Countries.find((item) => item.id.toString() === countryId);
-  if (data) return data;
+  if (data)
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(data);
+      }, 2000);
+    });
   return {} as Country;
 }
