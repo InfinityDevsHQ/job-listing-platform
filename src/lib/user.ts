@@ -26,7 +26,7 @@ const Profile: UserProfile = {
     name: 'Infinity Devs',
     company_id: null,
     phone_number: '+1 (439) 951-6882',
-    profile_picture: '/assets/icons/profile/fugu.jpeg',
+    profile_picture: '/assets/avatar.png',
     language: null,
     prefered_language: 'Slovak',
     country: 'Ireland',

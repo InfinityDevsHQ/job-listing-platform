@@ -3,7 +3,6 @@ import { copyToClipboard } from '@/app/utils/common/copyToClipboard';
 import { calculateTimeDifference } from '@/app/utils/common/date';
 import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import { useUpdateUserProfile } from '@/hooks/useUpdateUserProfile';
-import { cn } from '@/lib/utils';
 import {
   ClipboardIcon,
   ClockIcon,
@@ -67,12 +66,10 @@ const UserInfo = () => {
             {user?.profile_picture ? (
               <Image
                 src={user?.profile_picture || '/assets/avatar.png'}
-                alt="test"
+                alt={user?.profile_picture ? `${user?.name}'s Profile Photo` : 'Profile Avatar'}
                 width={150}
                 height={150}
-                className={cn('rounded-full border-4 border-gray-100 ring-4 ring-gray-500', {
-                  'ring-green-500': user.online_status !== 'Offline',
-                })}
+                className="rounded-full"
               />
             ) : (
               <div className="h-36 w-36 rounded-full bg-gray-200"></div>
