@@ -61,7 +61,7 @@ const UserInfo = () => {
   if (user) {
     return (
       <>
-        <div className="hidden max-w-md lg:block">
+        <div className="hidden max-w-md flex-col gap-8 lg:flex">
           <div className="flex flex-col items-center justify-center gap-2">
             {user?.profile_picture ? (
               <Image
@@ -84,10 +84,9 @@ const UserInfo = () => {
               <StatusPill online_status={user.online_status} />
             </div>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 lg:gap-8">
             <h4 className="text-xl font-bold text-gray-700 lg:text-xl">Contact</h4>
-            {/* TODO: create info-list component  */}
-            <ul className="flex flex-col gap-4">
+            <ul className="flex flex-col gap-4 lg:gap-8">
               <li className="flex items-center gap-4">
                 <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
                   <MapPinIcon className="h-5 w-5 text-neutral-950" />
@@ -150,7 +149,7 @@ const UserInfo = () => {
           <div className="flex flex-col gap-8">
             <h4 className="text-xl font-bold text-gray-700 lg:text-xl">Resume</h4>
             {/* TODO: create info-list component  */}
-            <ul className="flex flex-col gap-8">
+            <ul className="flex flex-col gap-4 lg:gap-8">
               <li className="flex items-center gap-4">
                 <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
                   <FileIcon className="h-5 w-5 text-neutral-950" />
