@@ -1,4 +1,5 @@
 'use client';
+import { Edit } from 'lucide-react';
 import { useState } from 'react';
 import EditProfileForm from '../forms/profile/edit-profile-form';
 import { Button } from '../ui/button-new';
@@ -19,9 +20,10 @@ const UserDetails = () => {
         <Button
           variant="outline"
           onClick={() => setShowEditForm(!showEditForm)}
-          className="hidden lg:flex"
+          className="hidden gap-2 lg:flex"
         >
-          Edit
+          {showEditForm ? 'Cancel' : 'Edit'}
+          {!showEditForm && <Edit className="h-4 w-4 text-current" />}
         </Button>
       </div>
     </>
