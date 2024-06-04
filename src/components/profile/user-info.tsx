@@ -17,6 +17,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { Button } from '../ui/button-new';
+import StatusPill from './status-pill';
 
 const UserInfo = () => {
   const updateUserBody = {
@@ -75,54 +76,13 @@ const UserInfo = () => {
             <div className="h-36 w-36 rounded-full bg-gray-200"></div>
           )}
           <div className="flex flex-col">
-            <h4 className="pt-2 text-center text-xl font-bold text-neutral-950 lg:text-3xl">
+            <h4 className="py-2 text-center text-xl font-bold text-neutral-950 lg:text-3xl">
               {user.name}
             </h4>
-            <p className="text-xl text-gray-500">{candidate?.headline}</p>
-            <div className="mt-2 flex items-center justify-center gap-3">
-              {candidate?.social?.github && (
-                <Link
-                  href={`${candidate?.social?.github}`}
-                  className="flex h-8 w-8 items-center justify-center gap-2 rounded-full bg-gray-200 text-black"
-                >
-                  <Image
-                    src={'/assets/svgs/github.svg'}
-                    alt="github"
-                    width={24}
-                    height={24}
-                    className={cn('h-4 w-4 grayscale')}
-                  />
-                </Link>
-              )}
-              {candidate?.social?.twitter && (
-                <Link
-                  href={`${candidate?.social?.twitter}`}
-                  className="flex h-8 w-8 items-center justify-center gap-2 rounded-full bg-gray-200 text-black"
-                >
-                  <Image
-                    src={'/assets/svgs/twitter.svg'}
-                    alt="github"
-                    width={24}
-                    height={24}
-                    className={cn('h-4 w-4 grayscale')}
-                  />
-                </Link>
-              )}
-              {candidate?.social?.linkedin && (
-                <Link
-                  href={`${candidate?.social?.linkedin}`}
-                  className="flex h-8 w-8 items-center justify-center gap-2 rounded-full bg-gray-200 text-black"
-                >
-                  <Image
-                    src={'/assets/svgs/linkedin.svg'}
-                    alt="github"
-                    width={24}
-                    height={24}
-                    className={cn('h-4 w-4 grayscale')}
-                  />
-                </Link>
-              )}
-            </div>
+            <p className="mb-4 text-xl text-gray-500">
+              {candidate?.headline || 'Software Engineer'}
+            </p>
+            <StatusPill online_status={user.online_status} />
           </div>
         </div>
         <div className="flex flex-col gap-4">
