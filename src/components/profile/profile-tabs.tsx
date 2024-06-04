@@ -1,5 +1,6 @@
 'use client';
 import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
+import { UserProfile } from '@/types/types';
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
 import AboutTab from './tabs/about-tab';
 import AiInsightsTabs from './tabs/ai-insights-tabs';
@@ -20,7 +21,7 @@ const ProfileTabs = () => {
             {editProfile ? 'Save' : 'Edit'}
           </Button> */}
         </div>
-        <AboutTab />
+        <AboutTab user={user as UserProfile} />
         <AiInsightsTabs candidateId={Number(user?.candidate_data?.id)} />
         <RecruiterTab />
       </Tabs>
