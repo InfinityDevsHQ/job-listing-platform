@@ -60,7 +60,7 @@ const UserInfo = () => {
 
   if (user) {
     return (
-      <>
+      <div className="hidden max-w-md lg:block">
         <div className="flex flex-col items-center justify-center gap-2">
           {user?.profile_picture ? (
             <Image
@@ -182,7 +182,7 @@ const UserInfo = () => {
         {updateProfileError && (
           <h2 className="text-5xl">error while updating: ${updateProfileError.message} </h2>
         )}
-      </>
+      </div>
     );
   }
 };

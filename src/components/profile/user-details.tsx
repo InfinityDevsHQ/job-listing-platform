@@ -11,7 +11,7 @@ const UserDetails = () => {
   const { data: user } = useUserProfile();
   return (
     <>
-      <div className="hidden max-w-md flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-1 lg:flex lg:p-8">
+      <div className="flex   flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-1 lg:p-8">
         {!showEditForm ? (
           <>
             <UserInfo />
