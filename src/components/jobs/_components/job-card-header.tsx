@@ -47,7 +47,7 @@ export default function JobCardHeader({
           <span
             className={cn(
               'hidden items-center justify-center rounded-md bg-green-500 px-2 py-1 text-xxs font-semibold text-white shadow-md lg:flex',
-              size === 'lg' ? 'lg:text-sm' : ''
+              size === 'lg' ? 'lg:text-xs' : ''
             )}
           >
             Urgent
@@ -61,8 +61,8 @@ export default function JobCardHeader({
           </span>
           <span
             className={cn(
-              'flex items-center justify-center rounded-md bg-accent-1 px-2 py-1 text-xxs font-semibold text-white shadow-md lg:hidden',
-              size === 'lg' ? 'lg:text-sm' : ''
+              'bg-accent-1 flex items-center justify-center rounded-md px-2 py-1 text-xxs font-semibold text-white shadow-md lg:hidden',
+              size === 'lg' ? 'lg:text-xs' : ''
             )}
           >
             Urgent
