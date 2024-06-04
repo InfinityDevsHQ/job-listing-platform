@@ -4,6 +4,7 @@ import { useCandidateRecommendationById } from '@/app/utils/rq/hooks/use-candida
 import InfoSection from '@/components/ui/info-section';
 
 const AiInsightsTabsData = ({ candidateId }: { candidateId: number }) => {
+  console.log('I am ', candidateId);
   const { isLoading, error, data: recommendation } = useCandidateRecommendationById(candidateId);
 
   if (isLoading || !recommendation || !Object.keys(recommendation).length) {
