@@ -7,7 +7,6 @@ const CompaniesList = () => {
   const { isLoading, error, data: promotedCompanies } = usePromotedCompanies();
   if (isLoading) return <CompanyCardSkeleton />;
   return (
-    // TODO: check if we need to show only 3 companies, may be we can create a carousel and show them inside it
     <div className="flex flex-col gap-8">
       {promotedCompanies
         ?.slice(0, 4)
