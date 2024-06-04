@@ -208,7 +208,7 @@ export default function PostJobForm() {
               We will use this information to develop a detailed job description, requirements list,
               and set of necessary skills.
             </p>
-            <Button type="submit" variant={'primary'}>
+            <Button type="submit" variant={'primary'} className="self-stretch">
               {isLoading ? (
                 <LoaderCircleIcon className="animate mr-2 h-4 w-4 animate-spin" />
               ) : (
