@@ -64,7 +64,7 @@ const UserInfo = () => {
         <div className="flex flex-col items-center justify-center gap-2">
           {user?.profile_picture ? (
             <Image
-              src={user?.profile_picture}
+              src={user?.profile_picture || '/assets/avatar.png'}
               alt="test"
               width={150}
               height={150}
