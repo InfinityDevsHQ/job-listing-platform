@@ -94,7 +94,11 @@ export async function getUserProfile(): Promise<UserProfile> {
   if (!isLoggedIn) {
     return {} as unknown as UserProfile;
   }
-  return Profile;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(Profile);
+    }, 2000);
+  });
 }
 export async function getUserInbox(): Promise<{}> {
   const data = await DataService.get<{}>(`${USER_URLS.userInbox}`);
