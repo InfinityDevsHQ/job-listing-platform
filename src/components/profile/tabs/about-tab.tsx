@@ -14,7 +14,10 @@ const AboutTab = ({ user }: { user: UserProfile }) => {
         <p className="text-gray-500">{user.candidate_data.ai_cv_summary}</p>
       </InfoSection>
       <InfoSection heading="Expertise">
-        <InfoList list={user.candidate_data.ai_expertise} />
+        <InfoList
+          list={user.candidate_data.ai_expertise}
+          icon={<span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-gray-500"></span>}
+        />
       </InfoSection>
       <InfoSection heading="Skills">
         <Badges
