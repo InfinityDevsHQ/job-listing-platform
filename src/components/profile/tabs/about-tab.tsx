@@ -6,8 +6,7 @@ import { UserProfile } from '@/types/types';
 
 const AboutTab = ({ user }: { user: UserProfile }) => {
   return (
-    <TabsContent value="about" className="flex flex-col gap-5">
-      {/* TODO: FIX it */}
+    <TabsContent value="about" className="mt-0 flex flex-col gap-5 lg:gap-8">
       <InfoSection heading="Objective">
         <p className="text-gray-500">{user.candidate_data.ai_objective}</p>
       </InfoSection>

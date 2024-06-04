@@ -13,7 +13,7 @@ const RecruiterTab = async ({ candidateId }: { candidateId: number }) => {
   });
 
   return (
-    <TabsContent value="recruiter" className="-mt-4 flex flex-col gap-5">
+    <TabsContent value="recruiter" className="mt-0 flex flex-col gap-5 lg:gap-8">
       <ReactQueryHydrate state={dehydrate(queryClient)}>
         <RecruiterTabsData candidateId={candidateId} />
       </ReactQueryHydrate>

@@ -13,7 +13,7 @@ const AiInsightsTabs = async ({ candidateId }: { candidateId: number }) => {
   });
 
   return (
-    <TabsContent value="ai-insights" className="-mt-4 flex flex-col gap-5">
+    <TabsContent value="ai-insights" className="mt-0 flex flex-col gap-5 lg:gap-8">
       <ReactQueryHydrate state={dehydrate(queryClient)}>
         <AiInsightsTabsData candidateId={candidateId} />
       </ReactQueryHydrate>
