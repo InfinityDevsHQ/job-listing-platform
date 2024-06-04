@@ -45,24 +45,18 @@ export default function JobCardHeader({
             {title}
           </h3>
           <span
-            className={cn(
-              'hidden items-center justify-center rounded-md bg-green-500 px-2 py-1 text-xxs font-semibold text-white shadow-md lg:flex',
-              size === 'lg' ? 'lg:text-xs' : ''
-            )}
+            className={
+              'hidden items-center justify-center rounded-md bg-green-500 px-2 py-1 text-xs font-semibold text-white shadow-md lg:flex'
+            }
           >
             Urgent
           </span>
         </div>
         <div className="flex items-center gap-4">
-          <span
-            className={cn('text-xs font-semibold text-gray-500', size === 'lg' ? 'lg:text-xl' : '')}
-          >
-            {company}
-          </span>
+          <span className="text-xs font-semibold text-gray-500">{company}</span>
           <span
             className={cn(
-              'bg-accent-1 flex items-center justify-center rounded-md px-2 py-1 text-xxs font-semibold text-white shadow-md lg:hidden',
-              size === 'lg' ? 'lg:text-xs' : ''
+              'bg-accent-1 flex items-center justify-center rounded-md px-2 py-1 text-xs font-semibold text-white shadow-md lg:hidden'
             )}
           >
             Urgent
