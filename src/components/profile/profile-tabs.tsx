@@ -23,7 +23,7 @@ const ProfileTabs = () => {
         </div>
         <AboutTab user={user as UserProfile} />
         <AiInsightsTabs candidateId={Number(user?.candidate_data?.id)} />
-        <RecruiterTab />
+        <RecruiterTab candidateId={Number(user?.candidate_data?.id)} />
       </Tabs>
     </div>
   );
