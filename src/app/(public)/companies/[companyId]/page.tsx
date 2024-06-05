@@ -22,7 +22,7 @@ const Company = async ({ params }: CompanySlug) => {
       />
       <div className="grid lg:grid-cols-3 lg:gap-8">
         <CompanyMainPanel companyInfo={companyData} />
-        <CompanyContactPanel />
+        <CompanyContactPanel company={companyData} />
       </div>
     </div>
   );
