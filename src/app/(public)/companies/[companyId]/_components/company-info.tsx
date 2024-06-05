@@ -30,7 +30,7 @@ export default function CompanyInfo({ companyInfo }: CompanyInfoProps) {
             Get Emails About New Jobs
           </Button>
         </div>
-        <Button className="hidden lg:flex">
+        <Button className="hidden lg:flex" variant={'primary'}>
           <Mail size={16} className="mr-2" />
           Get Emails About New Jobs
         </Button>
