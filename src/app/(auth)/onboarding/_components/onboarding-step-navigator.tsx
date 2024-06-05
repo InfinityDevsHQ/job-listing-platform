@@ -12,12 +12,12 @@ export default function OnboardingStepNavigator({ step }: OnboardingStepNavigato
   const handleTabSelect = (value: string) => {
     addQueryParams('step', value);
   };
-  // useEffect(() => {
-  //   window.history.replaceState({}, document.title, window.location.pathname);
-  //   if (!step) {
-  //     window.history.replaceState({}, document.title, window.location.pathname);
-  //   }
-  // }, [step]);
+  useEffect(() => {
+    window.history.replaceState({}, document.title, window.location.pathname);
+    if (!step) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, [step]);
   return (
     <Tabs className="mb-3">
       <TabsList className="flex items-center bg-transparent">
