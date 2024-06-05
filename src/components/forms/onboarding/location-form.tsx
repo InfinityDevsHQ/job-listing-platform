@@ -141,11 +141,7 @@ export default function LocationForm() {
             </FormItem>
           )}
         />
-        <Pagination
-          handleBack={() => addQueryParams('', '')}
-          isNextSubmit
-          nextLoading={isLoading}
-        />
+        <Pagination previous={false} isNextSubmit nextLoading={isLoading} />
       </form>
     </Form>
   );
