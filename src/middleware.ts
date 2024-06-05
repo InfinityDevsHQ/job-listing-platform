@@ -24,13 +24,16 @@ export default async function middleware(req: NextRequest) {
       const absoluteURL = new URL('/onboarding', req.nextUrl.origin);
       return NextResponse.redirect(absoluteURL.toString());
     }
-    if (
-      isAuthenticated &&
-      userProfile.user_data.is_onboarded &&
-      req.nextUrl.pathname.includes('onboarding')
-    ) {
-      const absoluteURL = new URL('/profile', req.nextUrl.origin);
-      return NextResponse.redirect(absoluteURL.toString());
-    }
+
+    // For fixing design removed this check temporarily
+
+    // if (
+    //   isAuthenticated &&
+    //   userProfile.user_data.is_onboarded &&
+    //   req.nextUrl.pathname.includes('onboarding')
+    // ) {
+    //   const absoluteURL = new URL('/profile', req.nextUrl.origin);
+    //   return NextResponse.redirect(absoluteURL.toString());
+    // }
   }
 }
