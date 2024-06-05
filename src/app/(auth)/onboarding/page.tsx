@@ -5,7 +5,7 @@ export default function Home({ searchParams }: { searchParams?: { step?: string 
   const step = searchParams?.step;
   return (
     <>
-      <div className="flex flex-col items-center justify-between p-4">
+      <div className="flex flex-col items-center justify-between gap-4 p-4 lg:gap-8">
         {/* {step && <Intro />} */}
         {step && (
           <Hero
