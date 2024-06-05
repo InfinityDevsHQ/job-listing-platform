@@ -10,7 +10,9 @@ export default function CompanySubscribe() {
         to our rules.
       </p>
       <Input placeholder="Email" type="email" />
-      <Button className="self-end">Subscribe</Button>
+      <Button className="self-end" variant={'primary'}>
+        Subscribe
+      </Button>
     </div>
   );
 }
