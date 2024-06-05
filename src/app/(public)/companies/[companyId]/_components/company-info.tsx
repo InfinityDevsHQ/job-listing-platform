@@ -36,7 +36,7 @@ export default function CompanyInfo({ companyInfo }: CompanyInfoProps) {
         </Button>
       </div>
       {/* BIO */}
-      <p className="hidden text-xl text-gray-500 lg:block">Silicon Valley</p>
+      <p className="hidden text-xl text-gray-500 lg:block">{companyInfo.city}</p>
       <div className="flex w-full flex-col gap-4 border-gray-200 text-gray-500 lg:flex-row lg:gap-0 lg:divide-x-2">
         <div className="flex flex-1 justify-between lg:pr-6">
           <div className="flex items-center gap-2">
@@ -49,7 +49,7 @@ export default function CompanyInfo({ companyInfo }: CompanyInfoProps) {
             <CompanyCommunity />
             <p className="font-bold lg:text-xl">Size of Company</p>
           </div>
-          <p className="lg:text-xl">0-100 Employees</p>
+          <p className="lg:text-xl"> {companyInfo.employee_count || '0 - 10'} Employees</p>
         </div>
       </div>
     </>
