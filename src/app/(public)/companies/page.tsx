@@ -1,11 +1,11 @@
 import { getQueryClient } from '@/app/utils/rq/react-query-client';
 import { ReactQueryHydrate } from '@/app/utils/rq/react-query-hydrate';
-import Hero from '@/components/ui/hero';
 import { GET_PROMOTED_COMPANIES_KEY } from '@/hooks/usePromotedCompanies';
 import { getPromotedCompanies } from '@/lib/companies';
 import { dehydrate } from '@tanstack/react-query';
 import Image from 'next/image';
 import CompaniesGallery from './_components/companies-gallery';
+import Hero from './_components/hero';
 export default async function Companies() {
   const queryClient = getQueryClient();
   await queryClient.prefetchQuery({
@@ -25,6 +25,7 @@ export default async function Companies() {
         heading="Explore Companies Offering Job Opportunities"
         desc="Amet nulla dolore ullam quia maxime laboriosam obcaecati nostrum ad aliquam, modi libero voluptatem doloribus voluptatibus!"
         vectorUrl="/assets/companies/companies-hero.png"
+        search
       />
       <div className="z-10 flex items-center justify-center">
         <ReactQueryHydrate state={dehydrate(queryClient)}>

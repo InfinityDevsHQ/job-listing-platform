@@ -23,7 +23,7 @@ const Hero = ({
   return (
     <div
       className={cn(
-        'grid grid-cols-3 items-center gap-4 overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8',
+        'z-10 grid grid-cols-3 items-center gap-4 overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8',
         className
       )}
       style={{
