@@ -3,7 +3,7 @@ import Image from 'next/image';
 import BoardingHeader from '../_components/boarding-header';
 export default function OnboardingStepTwo() {
   return (
-    <div className="grid w-full grid-cols-2">
+    <div className="grid w-full grid-cols-2 items-center">
       <div className="col-span-2 hidden w-full items-center justify-center lg:col-span-1 lg:flex">
         <Image
           src={'/assets/boarding/cv_poster.png'}
