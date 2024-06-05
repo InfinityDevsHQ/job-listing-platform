@@ -23,7 +23,7 @@ const Company = async ({ params }: CompanySlug) => {
         coverPhotoUrl="/assets/company/cover.png"
       />
       <div className="grid lg:grid-cols-3 lg:gap-8">
-        <CompanyMainPanel />
+        <CompanyMainPanel companyInfo={companyData} />
         <CompanyContactPanel />
       </div>
     </div>
