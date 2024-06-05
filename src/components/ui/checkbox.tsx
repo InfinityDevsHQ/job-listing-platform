@@ -32,7 +32,7 @@ const Checkbox = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Root
         ) : (
           <div
             className={cn(
-              'flex max-w-max items-center p-2 px-3 text-base',
+              'flex max-w-max items-center gap-2 p-2 px-3 text-base',
               checked ? 'bg-primary' : 'bg-white'
             )}
             style={{ boxShadow: '0px 4px 50px rgba(0, 0, 0, 0.05)', borderRadius: '100px' }}
