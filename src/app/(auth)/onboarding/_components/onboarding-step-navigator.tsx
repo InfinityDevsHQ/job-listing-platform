@@ -4,6 +4,7 @@ import { Tabs, TabsList } from '@/components/ui/tabs';
 import { useQueryParams } from '@/hooks/useQueryParams';
 import { cn } from '@/lib/utils';
 import { Contact, Filter, Flag, Locate, Upload } from 'lucide-react';
+import { useEffect } from 'react';
 type OnboardingStepNavigatorProps = {
   step?: string;
 };
