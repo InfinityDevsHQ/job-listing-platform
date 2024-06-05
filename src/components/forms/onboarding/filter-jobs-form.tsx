@@ -59,16 +59,16 @@ export default function FilterJobsForm() {
             control={form.control}
             render={({ field }) => (
               <FormItem>
-                <FormControl className="flex gap-4 lg:gap-8">
-                  <div className="flex items-center gap-1">
-                    <Checkbox
-                      {...field}
-                      value={field.value === false ? 'false' : 'true'}
-                      id="full_time"
-                      onClick={(e) => field.onChange(field.value === false ? true : false)}
-                    />
+                <FormControl>
+                  <Checkbox
+                    {...field}
+                    value={field.value === false ? 'false' : 'true'}
+                    id="full_time"
+                    onClick={(e) => field.onChange(field.value === false ? true : false)}
+                    pill
+                  >
                     <Label htmlFor="full_time">Full-Time</Label>
-                  </div>
+                  </Checkbox>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -86,8 +86,10 @@ export default function FilterJobsForm() {
                       value={field.value === false ? 'false' : 'true'}
                       id="part_time"
                       onClick={(e) => field.onChange(field.value === false ? true : false)}
-                    />
-                    <Label htmlFor="part_time">Part-Time</Label>
+                      pill
+                    >
+                      <Label htmlFor="part_time">Part-Time</Label>
+                    </Checkbox>
                   </div>
                 </FormControl>
               </FormItem>
@@ -105,8 +107,10 @@ export default function FilterJobsForm() {
                       value={field.value === false ? 'false' : 'true'}
                       id="freelance"
                       onClick={(e) => field.onChange(field.value === false ? true : false)}
-                    />
-                    <Label htmlFor="freelance">FreeLance</Label>
+                      pill
+                    >
+                      <Label htmlFor="freelance">FreeLance</Label>
+                    </Checkbox>
                   </div>
                 </FormControl>
               </FormItem>
@@ -124,8 +128,10 @@ export default function FilterJobsForm() {
                       value={field.value === false ? 'false' : 'true'}
                       id="volunteer"
                       onClick={(e) => field.onChange(field.value === false ? true : false)}
-                    />
-                    <Label htmlFor="volunteer">Volunteer</Label>
+                      pill
+                    >
+                      <Label htmlFor="volunteer">Volunteer</Label>
+                    </Checkbox>
                   </div>
                 </FormControl>
               </FormItem>
@@ -148,8 +154,10 @@ export default function FilterJobsForm() {
                       value={field.value === false ? 'false' : 'true'}
                       id="on_site"
                       onClick={(e) => field.onChange(field.value === false ? true : false)}
-                    />
-                    <Label htmlFor="on_site">On-Site</Label>
+                      pill
+                    >
+                      <Label htmlFor="on_site">On-Site</Label>
+                    </Checkbox>
                   </div>
                 </FormControl>
               </FormItem>
@@ -167,8 +175,10 @@ export default function FilterJobsForm() {
                       value={field.value === false ? 'false' : 'true'}
                       id="remote"
                       onClick={(e) => field.onChange(field.value === false ? true : false)}
-                    />
-                    <Label htmlFor="remote">Remote</Label>
+                      pill
+                    >
+                      <Label htmlFor="remote">Remote</Label>
+                    </Checkbox>
                   </div>
                 </FormControl>
               </FormItem>
@@ -186,8 +196,10 @@ export default function FilterJobsForm() {
                       value={field.value === false ? 'false' : 'true'}
                       id="hybrid"
                       onClick={(e) => field.onChange(field.value === false ? true : false)}
-                    />
-                    <Label htmlFor="hybrid">Hybrid</Label>
+                      pill
+                    >
+                      <Label htmlFor="hybrid">Hybrid</Label>
+                    </Checkbox>
                   </div>
                 </FormControl>
               </FormItem>
