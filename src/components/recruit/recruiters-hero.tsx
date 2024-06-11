@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Button } from '../ui/button-new';
 export default function RecruitersHero() {
   return (
-    <div className="relative flex w-full flex-col items-center gap-4 lg:flex-row lg:justify-between">
+    <section className="relative flex w-full flex-col items-center gap-4 lg:flex-row lg:justify-between">
       <div className="order-2 flex flex-col gap-4 lg:order-1 lg:gap-8">
         <h1 className="text-center text-2xl font-bold text-gray-700 lg:text-left lg:text-5xl">
           Rethink! The Way You Are
@@ -29,6 +29,6 @@ export default function RecruitersHero() {
         alt="party"
         className="order-1 h-40 w-40 lg:order-2 lg:h-96 lg:w-full lg:max-w-sm"
       />
-    </div>
+    </section>
   );
 }

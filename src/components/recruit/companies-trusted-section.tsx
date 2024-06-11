@@ -2,7 +2,7 @@ import Image from 'next/image';
 import UserHeader from '../gernal/user-header';
 export default function CompaniesTrustedSection() {
   return (
-    <div className="flex w-full flex-col items-center gap-8">
+    <section className="flex w-full flex-col items-center gap-8">
       <h2 className="text-xl font-bold text-gray-700 lg:text-4xl">
         What our customers love about ClickJob
       </h2>
@@ -116,6 +116,6 @@ export default function CompaniesTrustedSection() {
           <UserHeader user_name="John Doe" user_role="Software Engineer" />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

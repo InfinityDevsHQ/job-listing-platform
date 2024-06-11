@@ -1,7 +1,7 @@
 import Image from 'next/image';
 export default function ClientResultsSection() {
   return (
-    <div className="flex w-full flex-col items-center gap-8">
+    <section className="flex w-full flex-col items-center gap-8">
       <h2 className="text-xl font-bold text-gray-700 lg:text-4xl">Our clients results</h2>
       <div className="grid gap-4 lg:grid-cols-5">
         <div className="order-2 flex gap-4 lg:order-1 lg:col-span-1 lg:flex-col lg:gap-16">
@@ -45,6 +45,6 @@ export default function ClientResultsSection() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -2,7 +2,7 @@ import InfoList from '../ui/info-list';
 import FeatureCard from './feature-card';
 export default function RecruitFeaturesSection() {
   return (
-    <div className="flex w-full flex-col gap-8">
+    <section className="flex w-full flex-col gap-8">
       <h2 className="col-span-2 text-center text-xl font-bold text-gray-700 lg:text-4xl">
         Features
       </h2>
@@ -109,6 +109,6 @@ export default function RecruitFeaturesSection() {
           </li>
         </InfoList>
       </FeatureCard>
-    </div>
+    </section>
   );
 }
