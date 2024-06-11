@@ -1,6 +1,6 @@
 import UserHeader from '@/components/gernal/user-header';
-import RecruitersCarousel from '@/components/recruit/recruiters-carousel';
 import RecruitersHero from '@/components/recruit/recruiters-hero';
+import TopBrandsSection from '@/components/recruit/top-brands-section';
 import { Button } from '@/components/ui/button-new';
 import InfoList from '@/components/ui/info-list';
 import Image from 'next/image';
@@ -11,14 +11,7 @@ const Recruit = () => {
     <section className="bg-secondary-50 p-4 lg:gap-8 lg:p-8">
       <div className="relative flex w-full flex-col items-center gap-4 overflow-hidden rounded-md border border-neutral-200 bg-white p-4 lg:gap-8 lg:p-8">
         <RecruitersHero />
-        <div className="flex w-full flex-col items-center gap-8">
-          <h2 className="text-xl font-bold text-gray-700 lg:text-4xl">Top brands trust ClickJob</h2>
-          <span className="text-gray-500">
-            We help over 270 recruitment agencies and companies across every industry to make their
-            selection process more efficient
-          </span>
-          <RecruitersCarousel />
-        </div>
+        <TopBrandsSection />
         <div className="flex w-full flex-col gap-8">
           <h2 className="col-span-2 text-center text-xl font-bold text-gray-700 lg:text-4xl">
             Features
