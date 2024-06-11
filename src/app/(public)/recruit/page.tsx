@@ -1,17 +1,14 @@
 import UserHeader from '@/components/gernal/user-header';
+import RecruitersCarousel from '@/components/recruit/recruiters-carousel';
 import { Button } from '@/components/ui/button-new';
-import { CarouselItem } from '@/components/ui/carousel';
 import InfoList from '@/components/ui/info-list';
 import { EyeIcon } from 'lucide-react';
 import Image from 'next/image';
-import AutoPlayCarousel from './_components/autoplay-carousel';
 import FeatureCard from './_components/feature-card';
-import RecruitersData from './_components/recruiters-data';
 
 const Recruit = () => {
   return (
     <section className="bg-secondary-50 p-4 lg:gap-8 lg:p-8">
-      <RecruitersData />
       <div className="relative flex w-full flex-col items-center gap-4 overflow-hidden rounded-md border border-neutral-200 bg-white p-4 lg:gap-8 lg:p-8">
         <div className="relative flex w-full flex-col items-center gap-4 lg:flex-row lg:justify-between">
           <div className="order-2 flex flex-col gap-4 lg:order-1 lg:gap-8">
@@ -46,100 +43,7 @@ const Recruit = () => {
             We help over 270 recruitment agencies and companies across every industry to make their
             selection process more efficient
           </span>
-          <div className="max-w-4xl overflow-hidden lg:max-h-40">
-            <AutoPlayCarousel showNavControls={false}>
-              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
-                <Image
-                  src="/assets/companies/logos/company- (1).png"
-                  width={150}
-                  height={100}
-                  className="mx-auto h-16 lg:h-20"
-                  alt="company-1"
-                />
-              </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
-                <Image
-                  src="/assets/companies/logos/company- (2).png"
-                  width={150}
-                  height={100}
-                  className="mx-auto h-16 lg:h-20"
-                  alt="company-2"
-                />
-              </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
-                <Image
-                  src="/assets/companies/logos/company- (3).png"
-                  width={150}
-                  height={100}
-                  className="mx-auto h-16 lg:h-20"
-                  alt="company-3"
-                />
-              </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
-                <Image
-                  src="/assets/companies/logos/company- (4).png"
-                  width={150}
-                  height={100}
-                  className="mx-auto h-16 lg:h-20"
-                  alt="company-4"
-                />
-              </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
-                <Image
-                  src="/assets/companies/logos/company- (5).png"
-                  width={150}
-                  height={100}
-                  className="mx-auto h-16 lg:h-20"
-                  alt="company-5"
-                />
-              </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
-                <Image
-                  src="/assets/companies/logos/company- (6).png"
-                  width={150}
-                  height={100}
-                  className="mx-auto h-16 lg:h-20"
-                  alt="company-6"
-                />
-              </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
-                <Image
-                  src="/assets/companies/logos/company- (7).png"
-                  width={150}
-                  height={100}
-                  className="mx-auto h-16 lg:h-20"
-                  alt="company-7"
-                />
-              </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
-                <Image
-                  src="/assets/companies/logos/company- (8).png"
-                  width={150}
-                  height={100}
-                  className="mx-auto h-16 lg:h-20"
-                  alt="company-8"
-                />
-              </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
-                <Image
-                  src="/assets/companies/logos/company- (9).png"
-                  width={150}
-                  height={100}
-                  className="mx-auto h-16 lg:h-20"
-                  alt="company-9"
-                />
-              </CarouselItem>
-              <CarouselItem className="mx-1 basis-1/3 rounded-md border border-neutral-200 bg-white p-4 lg:mx-3 lg:basis-1/6">
-                <Image
-                  src="/assets/companies/logos/company- (10).png"
-                  width={150}
-                  height={100}
-                  className="mx-auto h-16 lg:h-20"
-                  alt="company-10"
-                />
-              </CarouselItem>
-            </AutoPlayCarousel>
-          </div>
+          <RecruitersCarousel />
         </div>
         <div className="flex w-full flex-col gap-8">
           <h2 className="col-span-2 text-center text-xl font-bold text-gray-700 lg:text-4xl">
