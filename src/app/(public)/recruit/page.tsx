@@ -1,9 +1,9 @@
 import UserHeader from '@/components/gernal/user-header';
 import ClientResultsSection from '@/components/recruit/client-results-section';
+import FreeTrialSection from '@/components/recruit/free-trial-section';
+import RecruitFeaturesSection from '@/components/recruit/recruit-features-section';
 import RecruitersHero from '@/components/recruit/recruiters-hero';
 import TopBrandsSection from '@/components/recruit/top-brands-section';
-import { Button } from '@/components/ui/button-new';
-import InfoList from '@/components/ui/info-list';
 import Image from 'next/image';
 
 const Recruit = () => {
@@ -12,7 +12,7 @@ const Recruit = () => {
       <div className="relative flex w-full flex-col items-center gap-4 overflow-hidden rounded-md border border-neutral-200 bg-white p-4 lg:gap-8 lg:p-8">
         <RecruitersHero />
         <TopBrandsSection />
-
+        <RecruitFeaturesSection />
         <ClientResultsSection />
         <div className="flex w-full flex-col items-center gap-8">
           <h2 className="text-xl font-bold text-gray-700 lg:text-4xl">
@@ -161,27 +161,7 @@ const Recruit = () => {
             </div>
           </div>
         </div>
-        <div className="flex w-full flex-col items-center justify-center gap-8 bg-secondary-gradient p-4 lg:p-8">
-          <h2 className="text-xl font-bold text-gray-700 lg:text-4xl">
-            Start your 14-day free trial
-          </h2>
-          <p className="text-center text-gray-500">
-            Join 270+ companies already growing with ClickJob.
-          </p>
-          <InfoList className="text-center">
-            <li className="text-base text-gray-500">Monthly contracts, cancel at any time</li>
-            <li className="text-base text-gray-500">Book a Free Demo with our team</li>
-            <li className="text-base text-gray-500">We’ll do the setup for you</li>
-          </InfoList>
-          <div className="flex w-full flex-col items-center justify-center gap-3 lg:flex-row">
-            <Button variant="secondary" className="w-full lg:w-auto">
-              Try it Free for 14 Days
-            </Button>
-            <Button variant="outline" className="w-full lg:w-auto">
-              See it in Action
-            </Button>
-          </div>
-        </div>
+        <FreeTrialSection />
       </div>
     </section>
   );
