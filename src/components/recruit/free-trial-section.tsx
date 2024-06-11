@@ -10,7 +10,7 @@ export default function FreeTrialSection() {
       <InfoList className="text-center">
         <li className="text-base text-gray-500">Monthly contracts, cancel at any time</li>
         <li className="text-base text-gray-500">Book a Free Demo with our team</li>
-        <li className="text-base text-gray-500">We’ll do the setup for you</li>
+        <li className="text-base text-gray-500">We&apos;ll do the setup for you</li>
       </InfoList>
       <div className="flex w-full flex-col items-center justify-center gap-3 lg:flex-row">
         <Button variant="secondary" className="w-full lg:w-auto">
