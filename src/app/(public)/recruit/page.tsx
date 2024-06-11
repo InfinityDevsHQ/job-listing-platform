@@ -1,7 +1,7 @@
+import UserHeader from '@/components/gernal/user-header';
 import { Button } from '@/components/ui/button-new';
 import { CarouselItem } from '@/components/ui/carousel';
 import InfoList from '@/components/ui/info-list';
-import UserHeader from '@/components/user-header';
 import { EyeIcon } from 'lucide-react';
 import Image from 'next/image';
 import AutoPlayCarousel from './_components/autoplay-carousel';
