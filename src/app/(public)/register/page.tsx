@@ -7,15 +7,15 @@ import Divider from '@/components/ui/divider';
 import PageHeader from '@/components/ui/page-header';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import usePageStore from '@/stores/pageStore/store';
-
+import Image from 'next/image';
 const Register = () => {
   const [currentUserRole, setCurrentUserRole] = usePageStore((state) => [
     state.currentUserRole,
     state.setCurrentUserRole,
   ]);
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white p-8">
-      <div className="lg:px- mx-auto flex w-full max-w-xl flex-col gap-8 rounded-2xl bg-stone-100 p-4 shadow ring-1 ring-gray-200/50 backdrop-blur-md">
+    <div className="grid h-screen grid-cols-2 items-center justify-center overflow-x-hidden">
+      <div className="mx-auto flex w-full max-w-xl flex-col gap-8 overflow-y-auto rounded-2xl">
         <PageHeader title="Create your Account" />
         <Divider
           size={2}
@@ -47,6 +47,31 @@ const Register = () => {
           </TabsContent>
         </Tabs>
         <LoginRegisterToggler currentPage="register" />
+      </div>
+      <div className="relative hidden h-full w-full lg:block">
+        <Image
+          src={'/assets/auth/login-poster.png'}
+          alt="Login Poster"
+          width={100000}
+          height={1000000}
+          className="absolute left-0 top-0 -z-10 h-full w-full"
+        />
+        <div className="flex h-full w-full items-center justify-center">
+          <div className="mx-auto max-w-2xl text-center text-gray-50">
+            <Image
+              src={'/assets/auth/login-vector.png'}
+              alt="LoginVector"
+              width={534}
+              height={388}
+              className="mx-auto mb-8 h-auto w-auto"
+            />
+            <h4 className="mb-5 text-3xl font-bold uppercase">Project al-fugu</h4>
+            <p>
+              Mauris pharetra imperdiet iaculis elementum nulla. Tellus morbi nunc non vitae enim
+              amet. Faucibus eleifend sit leo varius suspendisse.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
