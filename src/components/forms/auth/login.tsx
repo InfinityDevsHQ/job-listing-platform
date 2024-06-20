@@ -42,6 +42,7 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
     };
     if (!(email === 'hello@infinitydevs.io' && password === 'hello@infinitydevs.io')) {
       toast.error('Invalid username or password');
+
       return;
     }
     try {
