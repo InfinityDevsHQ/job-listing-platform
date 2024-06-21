@@ -2,7 +2,6 @@
 import { copyToClipboard } from '@/app/utils/common/copyToClipboard';
 import { calculateTimeDifference } from '@/app/utils/common/date';
 import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
-import { useUpdateUserProfile } from '@/hooks/useUpdateUserProfile';
 import {
   ClipboardIcon,
   ClockIcon,
@@ -20,31 +19,7 @@ import { Button } from '../ui/button-new';
 import StatusPill from './status-pill';
 
 const UserInfo = () => {
-  const updateUserBody = {
-    email: 'new@gmail.com',
-    name: 'John Doe',
-    language: 'Persion',
-    latitude: 100,
-    longitude: 200,
-    city: 'Manchester',
-    country: 'United Kingdom',
-    timezone: 'UK',
-    phone_number: '0000099393',
-    profile_picture: '/assets/avatar',
-    prefered_language: 'English',
-    online_status: 'Online',
-    selected_country: 'United Kingdom',
-    geo_resolve_tries: 'Pro',
-    is_onboarded: true,
-  };
-
   const { isLoading: profileLoading, error: profileError, data: userProfile } = useUserProfile();
-
-  const {
-    isPending: updateProfileLoading,
-    data: updateProfileResponse,
-    error: updateProfileError,
-  } = useUpdateUserProfile();
 
   if (profileError || !userProfile) {
     if (profileError) {
@@ -181,9 +156,6 @@ const UserInfo = () => {
               </li>
             </ul>
           </div>
-          {updateProfileError && (
-            <h2 className="text-5xl">error while updating: ${updateProfileError.message} </h2>
-          )}
         </div>
         <UserHeader
           user_name={user.name}
