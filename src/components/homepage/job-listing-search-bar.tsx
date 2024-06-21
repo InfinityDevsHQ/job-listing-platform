@@ -1,8 +1,8 @@
 'use client';
 import Hero from '@/app/(public)/companies/_components/hero';
-import { useState } from 'react';
+import useSearchQueryStore from '@/stores/searchQueryStore/store';
 export default function JobListingSearchBard() {
-  const [query, setQuery] = useState('');
+  const { query, setQuery } = useSearchQueryStore();
   function handleSearch() {
     console.log(query);
   }
