@@ -7,6 +7,7 @@ type HeroProps = {
   desc?: string;
   searchQuery?: string;
   onSearch?: () => void;
+  setSearchQuery?: (value: string) => void;
   search?: boolean;
   className?: string;
   vectorUrl?: string;
@@ -15,6 +16,7 @@ const Hero = ({
   heading,
   desc,
   searchQuery,
+  setSearchQuery,
   onSearch,
   search = false,
   className = '',
@@ -43,8 +45,11 @@ const Hero = ({
           <Input
             leadingIcon={<SearchIcon />}
             placeholder="Search"
-            value={searchQuery}
-            onChange={onSearch}
+            onChange={(e) => {
+              if (setSearchQuery) setSearchQuery(e.target.value);
+              console.log(searchQuery);
+              onSearch && onSearch();
+            }}
           />
         )}
       </div>
