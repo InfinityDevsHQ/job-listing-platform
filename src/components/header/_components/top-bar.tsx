@@ -53,7 +53,7 @@ const Header = () => {
                 variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'outline'}
                 asChild
               >
-                <Link href={'/register'} className="hidden lg:block">
+                <Link href={'/register'} className="hidden lg:flex">
                   Register
                   <ArrowRight className="ml-2 h-4 w-4" size={16} />
                 </Link>

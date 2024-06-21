@@ -33,7 +33,7 @@ export const Countries = () => {
 
   return (
     <DropdownMenu modal={false}>
-      <DropdownMenuTrigger asChild className="hidden lg:block">
+      <DropdownMenuTrigger asChild className="hidden lg:flex">
         <Button variant={companyHeaderRoutes.includes(pathname) ? 'outline' : 'outline'}>
           {selectedCountry?.flag_icon ? (
             <>

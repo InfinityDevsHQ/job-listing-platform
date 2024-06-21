@@ -24,7 +24,7 @@ export default async function Home() {
   ]);
   return (
     <ReactQueryHydrate state={dehydrate(queryClient)}>
-      <div className="grid w-screen bg-primary-50 p-4 sm:w-auto lg:grid-cols-3 lg:gap-8 lg:p-8">
+      <div className="grid bg-primary-50 p-4 sm:w-auto lg:grid-cols-3 lg:gap-8 lg:p-8">
         <div className="col-span-2 flex flex-col gap-8">
           <JobListingSearchBard />
           <RecommendedJobs />
