@@ -61,9 +61,11 @@ export default function JobCard({ job }: JobProps) {
             animate={{ height: 'auto' }}
             exit={{ height: 0 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col gap-4 overflow-hidden"
+            className="flex max-w-full flex-col gap-4 overflow-hidden"
           >
-            <p className="text-sm text-gray-500">{job.description}</p>
+            <p className="h-20 max-w-full overflow-hidden whitespace-pre-wrap break-words text-sm text-gray-500">
+              {job.description}
+            </p>
             <span className=" border border-neutral-300"></span>
             <div className="flex items-center justify-between gap-4">
               <div className="flex flex-1 gap-4 overflow-x-hidden">
