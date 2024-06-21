@@ -67,7 +67,8 @@ export default function JobCardHeader({
         className="flex h-8 w-8 rounded-md"
         variant={saved ? 'primary' : 'outline'}
         size={'icon'}
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
           setSaved(!saved);
           if (!saved) toast.success('Job Saved.');
           if (saved) toast.info('Removed From Favorites');
