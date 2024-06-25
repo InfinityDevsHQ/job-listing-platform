@@ -8,9 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from '@/component
 import Input from '@/components/ui/input';
 import { useQueryParams } from '@/hooks/useQueryParams';
 import { timezones } from '@/lib/time-zones';
-import { updateUserProfile } from '@/lib/user';
 import useOnboardingStore from '@/stores/onboardingStore/store';
-import { UserProfile } from '@/types/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Building2Icon, Clock, Globe2, Languages } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -62,7 +60,7 @@ export default function LocationForm() {
       },
     };
 
-    const response = await updateUserProfile(body as UserProfile);
+    // const response = await updateUserProfile(body as UserProfile);
     addQueryParams('step', 'upload-cv');
   }
 
@@ -141,11 +139,7 @@ export default function LocationForm() {
             </FormItem>
           )}
         />
-        <Pagination
-          handleBack={() => addQueryParams('', '')}
-          isNextSubmit
-          nextLoading={isLoading}
-        />
+        <Pagination previous={false} isNextSubmit nextLoading={isLoading} />
       </form>
     </Form>
   );

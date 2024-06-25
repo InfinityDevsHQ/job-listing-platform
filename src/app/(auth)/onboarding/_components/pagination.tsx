@@ -37,7 +37,11 @@ export default function Pagination({
           </Button>
         )}
         {next && (
-          <Button onClick={handleNext} type={`${isNextSubmit ? 'submit' : 'button'}`}>
+          <Button
+            onClick={handleNext}
+            type={`${isNextSubmit ? 'submit' : 'button'}`}
+            variant={'primary'}
+          >
             Continue
             {!nextLoading ? (
               <ArrowRightIcon className="ml-2 h-4 w-4" />

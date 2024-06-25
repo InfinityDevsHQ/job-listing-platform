@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-import { MoveRight } from 'lucide-react';
 import Link from 'next/link';
 type LoginRegisterTogglerProps = {
   currentPage: 'login' | 'register';
@@ -12,17 +11,15 @@ const LoginRegisterToggler = ({ currentPage }: LoginRegisterTogglerProps) => {
       </span>
       <Link
         href={currentPage === 'register' ? '/login' : '/register'}
-        className={cn('flex items-center gap-2 text-neutral-950')}
+        className={cn('flex items-center gap-2 font-bold text-primary-800')}
       >
         {currentPage === 'register' ? (
           <>
             <span>Login</span>
-            <MoveRight className="h-4" />
           </>
         ) : (
           <>
             <span>Register</span>
-            <MoveRight className="h-4" />
           </>
         )}
       </Link>

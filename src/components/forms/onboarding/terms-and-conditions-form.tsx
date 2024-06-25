@@ -58,17 +58,17 @@ export default function TermsAndConditionsForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <div className="flex items-center gap-1">
-                  <Checkbox
-                    id="terms"
-                    {...field}
-                    onClick={(e) => field.onChange(field.value === 'false' ? 'true' : 'false')}
-                  />
+                <Checkbox
+                  id="terms"
+                  {...field}
+                  onClick={(e) => field.onChange(field.value === 'false' ? 'true' : 'false')}
+                  pill
+                >
                   <Label htmlFor="terms">
                     I agree to
                     <Link href="/tos">Terms and Conditions</Link>
                   </Label>
-                </div>
+                </Checkbox>
               </FormControl>
               <FormMessage />
             </FormItem>

@@ -42,6 +42,7 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
     };
     if (!(email === 'hello@infinitydevs.io' && password === 'hello@infinitydevs.io')) {
       toast.error('Invalid username or password');
+
       return;
     }
     try {
@@ -107,7 +108,7 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
             )}
           />
         )}
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full" variant={'primary'}>
           Login
           {isLoading ? (
             <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />

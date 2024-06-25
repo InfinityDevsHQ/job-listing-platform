@@ -12,7 +12,7 @@ import { usePathname } from 'next/navigation';
 const Footer = () => {
   const pathname = usePathname();
 
-  const noFooterRoutes = ['/login', '/register', '/inbox'];
+  const noFooterRoutes = ['/login', '/register', '/inbox', '/onboarding'];
 
   const companyHeaderRoutes = ['/recruit'];
 

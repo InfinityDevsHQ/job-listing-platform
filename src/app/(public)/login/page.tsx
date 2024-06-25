@@ -8,11 +8,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import SocialAuthWidget from '@/components/forms/auth/_components/social-auth-widget';
 import LoginForm from '@/components/forms/auth/login';
 import Divider from '@/components/ui/divider';
+import Image from 'next/image';
 
 const Login = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white p-8">
-      <div className="mx-auto flex w-full max-w-xl flex-col gap-8 rounded-2xl bg-stone-100 p-4 shadow ring-1 ring-gray-200/50 backdrop-blur-md">
+    <div className="grid min-h-screen grid-cols-2 items-center justify-center overflow-x-hidden">
+      <div className="col-span-2 mx-auto  flex w-full max-w-xl flex-col gap-8 rounded-2xl bg-primary-50 lg:col-span-1">
         <PageHeader title="Login to your Account" />
         <Divider size={2} text="Select Method to Login" mobileVariant="primary" variant="light" />
         <SocialAuthWidget google linkedin github auth="login" />
@@ -30,6 +31,31 @@ const Login = () => {
           </TabsContent>
         </Tabs>
         <LoginRegisterToggler currentPage="login" />
+      </div>
+      <div className="relative hidden h-full w-full lg:block">
+        <Image
+          src={'/assets/auth/login-poster.png'}
+          alt="Login Poster"
+          width={100000}
+          height={1000000}
+          className="absolute left-0 top-0 -z-10 h-full w-full"
+        />
+        <div className="flex h-full w-full items-center justify-center">
+          <div className="mx-auto max-w-2xl text-center text-gray-50">
+            <Image
+              src={'/assets/auth/login-vector.png'}
+              alt="LoginVector"
+              width={534}
+              height={388}
+              className="mx-auto mb-8 h-auto w-auto"
+            />
+            <h4 className="mb-5 text-3xl font-bold uppercase">Project al-fugu</h4>
+            <p>
+              Mauris pharetra imperdiet iaculis elementum nulla. Tellus morbi nunc non vitae enim
+              amet. Faucibus eleifend sit leo varius suspendisse.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ export default function CompaniesCarousel() {
     <Carousel className="w-full overflow-hidden">
       <CarouselContent>
         {promotedCompanies?.map((company) => (
-          <CarouselItem key={company.id} className="sm:basis-2/3">
+          <CarouselItem key={company.id} className=" w-full">
             <CompanyCard
               id={company.id}
               name={company.name}

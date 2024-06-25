@@ -56,7 +56,7 @@ export default function JobCardHeader({
           <span className="text-xs font-semibold text-gray-500">{company}</span>
           <span
             className={cn(
-              'bg-accent-1 flex items-center justify-center rounded-md px-2 py-1 text-xs font-semibold text-white shadow-md lg:hidden'
+              'flex items-center justify-center rounded-md bg-green-500 px-2 py-1 text-xs font-semibold text-white shadow-md lg:hidden'
             )}
           >
             Urgent
@@ -67,7 +67,8 @@ export default function JobCardHeader({
         className="flex h-8 w-8 rounded-md"
         variant={saved ? 'primary' : 'outline'}
         size={'icon'}
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
           setSaved(!saved);
           if (!saved) toast.success('Job Saved.');
           if (saved) toast.info('Removed From Favorites');

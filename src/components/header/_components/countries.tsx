@@ -1,4 +1,4 @@
-'use clients';
+'use client';
 import { useCountries } from '@/app/utils/rq/hooks/use-countries';
 import { ALL_JOBS_KEY } from '@/app/utils/rq/hooks/use-jobs';
 import { Button } from '@/components/ui/button-new';
@@ -33,7 +33,7 @@ export const Countries = () => {
 
   return (
     <DropdownMenu modal={false}>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger asChild className="hidden lg:flex">
         <Button variant={companyHeaderRoutes.includes(pathname) ? 'outline' : 'outline'}>
           {selectedCountry?.flag_icon ? (
             <>

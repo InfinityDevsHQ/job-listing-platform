@@ -15,13 +15,14 @@ const Company = async ({ params }: CompanySlug) => {
 
   return (
     <div className="mt-8 flex flex-col gap-4 bg-white p-4 lg:gap-8 lg:p-8">
-      {companyData && <pre>{JSON.stringify(companyData, null, 2)}</pre>}
-
       {/* COVER AND PROFILE */}
-      <CompanyHeader />
+      <CompanyHeader
+        profilePhotoUrl={companyData.logo_url}
+        coverPhotoUrl="/assets/company/cover.png"
+      />
       <div className="grid lg:grid-cols-3 lg:gap-8">
-        <CompanyMainPanel />
-        <CompanyContactPanel />
+        <CompanyMainPanel companyInfo={companyData} />
+        <CompanyContactPanel company={companyData} />
       </div>
     </div>
   );

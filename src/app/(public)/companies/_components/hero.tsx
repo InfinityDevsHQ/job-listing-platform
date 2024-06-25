@@ -7,6 +7,7 @@ type HeroProps = {
   desc?: string;
   searchQuery?: string;
   onSearch?: () => void;
+  setSearchQuery?: (value: string) => void;
   search?: boolean;
   className?: string;
   vectorUrl?: string;
@@ -15,6 +16,7 @@ const Hero = ({
   heading,
   desc,
   searchQuery,
+  setSearchQuery,
   onSearch,
   search = false,
   className = '',
@@ -23,7 +25,7 @@ const Hero = ({
   return (
     <div
       className={cn(
-        'grid grid-cols-3 items-center gap-4 overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8',
+        'z-10 grid grid-cols-3 items-center gap-4 overflow-hidden rounded-md bg-cover p-4 lg:gap-8 lg:p-8',
         className
       )}
       style={{
@@ -32,7 +34,10 @@ const Hero = ({
       }}
     >
       <div
-        className={cn('col-span-3 flex flex-col gap-4 lg:gap-8', vectorUrl ? 'lg:col-span-2' : '')}
+        className={cn(
+          'col-span-3 flex flex-1 flex-col gap-4 lg:gap-8',
+          vectorUrl ? 'lg:col-span-2' : ''
+        )}
       >
         <h2 className="text-lg font-bold capitalize text-white lg:text-3xl">{heading}</h2>
         {desc && <p className="text-base text-white">{desc}</p>}
@@ -40,8 +45,11 @@ const Hero = ({
           <Input
             leadingIcon={<SearchIcon />}
             placeholder="Search"
-            value={searchQuery}
-            onChange={onSearch}
+            onChange={(e) => {
+              if (setSearchQuery) setSearchQuery(e.target.value);
+              console.log(searchQuery);
+              onSearch && onSearch();
+            }}
           />
         )}
       </div>

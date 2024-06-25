@@ -1,5 +1,6 @@
 import CompaniesCarousel from '@/components/companies/companies-carousel';
 import CompaniesList from '@/components/companies/companies-list';
+import JobListingSearchBard from '@/components/homepage/job-listing-search-bar';
 import JobsList from '@/components/jobs/jobs-list';
 import { RecommendedJobs } from '@/components/jobs/recommended-jobs';
 import SectionHeader from '@/components/ui/section-header';
@@ -10,7 +11,6 @@ import { List, Plane } from 'lucide-react';
 import { useGetJobsPrefetch } from '../utils/rq/hooks/use-jobs';
 import { getQueryClient } from '../utils/rq/react-query-client';
 import { ReactQueryHydrate } from '../utils/rq/react-query-hydrate';
-import Hero from './companies/_components/hero';
 
 export default async function Home() {
   const queryClient = getQueryClient();
@@ -24,16 +24,11 @@ export default async function Home() {
   ]);
   return (
     <ReactQueryHydrate state={dehydrate(queryClient)}>
-      <div className="grid w-screen bg-primary-50 p-4 sm:w-auto lg:grid-cols-3 lg:gap-8 lg:p-8">
+      <div className="grid w-auto bg-primary-50 p-4 lg:grid-cols-3 lg:gap-8 lg:p-8">
         <div className="col-span-2 flex flex-col gap-8">
-          <Hero
-            heading="Find your dream job here!"
-            desc="Explore the latest job openings and apply for the best job opportunities available today!"
-            search
-            vectorUrl="/assets/images/home/homePage_hero_section_vector.png"
-          />
+          <JobListingSearchBard />
           <RecommendedJobs />
-          <div className="flex w-screen flex-col items-center justify-center gap-4 overflow-x-hidden lg:hidden">
+          <div className="flex max-w-96 flex-col items-center justify-center gap-4  lg:hidden">
             <SectionHeader
               heading="Companies that will grow you forward."
               leadingIcon={<Plane className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}

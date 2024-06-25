@@ -10,9 +10,9 @@ export default function CompanyLanguages() {
             <p className="lg:text-xl">English</p>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-950" />
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-950" />
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-950" />
+            <span className="inline-block h-2.5 w-2.5 rounded-full bg-primary-900" />
+            <span className="inline-block h-2.5 w-2.5 rounded-full bg-primary-900" />
+            <span className="inline-block h-2.5 w-2.5 rounded-full bg-primary-900" />
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-gray-200" />
           </div>
         </div>
@@ -21,9 +21,9 @@ export default function CompanyLanguages() {
             <p className="lg:text-xl">Czech</p>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-950" />
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-950" />
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-950" />
+            <span className="inline-block h-2.5 w-2.5 rounded-full bg-primary-900" />
+            <span className="inline-block h-2.5 w-2.5 rounded-full bg-primary-900" />
+            <span className="inline-block h-2.5 w-2.5 rounded-full bg-primary-900" />
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-gray-200" />
           </div>
         </div>

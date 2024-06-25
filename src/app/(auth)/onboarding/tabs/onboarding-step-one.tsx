@@ -23,7 +23,7 @@ export default async function OnboardingStepOne() {
   ]);
 
   return (
-    <div className="grid w-full grid-cols-2">
+    <div className="grid w-full grid-cols-2 items-center">
       <div className="col-span-2 hidden items-center justify-center lg:col-span-1 lg:flex">
         <Image
           src={'/assets/boarding/location_poster.png'}

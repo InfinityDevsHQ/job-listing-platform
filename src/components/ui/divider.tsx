@@ -16,9 +16,7 @@ const Divider = ({ size, variant, mobileVariant, text }: DividerProps) => {
     >
       {text && (
         <span
-          className={cn(
-            'absolute -top-4 left-1/2 w-full max-w-max -translate-x-1/2 bg-stone-100 px-2 py-1'
-          )}
+          className={cn('absolute -top-4 left-1/2 w-full max-w-max -translate-x-1/2 px-2 py-1')}
         >
           {text}
         </span>

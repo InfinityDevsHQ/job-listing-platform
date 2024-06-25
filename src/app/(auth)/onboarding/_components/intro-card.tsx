@@ -47,7 +47,7 @@ const IntroCard = () => {
         </div>
       </div>
       <Link href={'?step=location'} className="self-end">
-        <Button className="flex items-center">
+        <Button className="flex items-center" variant={'primary'}>
           Let&apos;s Go
           <ArrowRightIcon className="ml-2 h-4 w-4" />
         </Button>

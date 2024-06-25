@@ -49,18 +49,24 @@ const Header = () => {
         <div className="flex gap-4">
           {!user?.user_data ? (
             <>
-              <Link href={'/register'}>
-                <Button variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'outline'}>
+              <Button
+                variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'outline'}
+                asChild
+              >
+                <Link href={'/register'} className="hidden lg:flex">
                   Register
                   <ArrowRight className="ml-2 h-4 w-4" size={16} />
-                </Button>
-              </Link>
-              <Link href={'/login'}>
-                <Button variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'primary'}>
+                </Link>
+              </Button>
+              <Button
+                variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'primary'}
+                asChild
+              >
+                <Link href={'/login'}>
                   Login
                   <LockIcon className="ml-2 h-4 w-4" size={16} />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </>
           ) : (
             <>

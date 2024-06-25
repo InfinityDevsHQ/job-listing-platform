@@ -18,7 +18,7 @@ const CompanyTile = ({ company }: CompanyTileProps) => {
         height={80}
         className="h-16 w-auto lg:h-20"
       />
-      <h5 className="hidden font-bold text-neutral-950 lg:block lg:text-base">{company.name}</h5>
+      <h5 className="hidden text-base font-bold text-neutral-950 lg:block">{company.name}</h5>
     </Link>
   );
 };

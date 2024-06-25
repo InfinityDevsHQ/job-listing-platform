@@ -28,7 +28,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${GeistSans.variable} h-auto bg-primary-50`}>
-        <main className="mx-auto h-full w-full max-w-screen-2xl">
+        <main className="mx-auto h-full w-full">
           <RqProvider>
             <ReactQueryHydrate state={dehydratedState}>
               {children}
