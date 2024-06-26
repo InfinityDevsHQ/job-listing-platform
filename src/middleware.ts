@@ -2,7 +2,7 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { getUserProfile } from './lib/user';
 
-const protectedRoutes = ['/candidates', '/company', '/inbox', '/onboarding'];
+const protectedRoutes = ['/candidates', '/company', '/inbox', '/onboarding', '/profile'];
 
 export default async function middleware(req: NextRequest) {
   if (protectedRoutes.includes(req.nextUrl.pathname)) {
