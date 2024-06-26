@@ -3,7 +3,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 export const JobCardSkeleton = () => {
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
-      <div className="relative flex transform flex-col gap-4 rounded-2xl bg-gray-100 p-4 shadow">
+      <div className="relative flex transform flex-col gap-4 rounded-2xl bg-gray-50 p-4 shadow">
         <div className="flex items-center gap-4">
           <div className="hidden h-14 w-14 items-center justify-center rounded-full bg-gray-200 md:flex"></div>
           <div className="flex flex-col gap-2">
