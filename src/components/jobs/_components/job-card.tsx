@@ -78,7 +78,7 @@ export default function JobCard({ job }: JobProps) {
                   />
                 ))}
               </div>
-              <Button variant={'primary'} asChild>
+              <Button onClick={(e) => e.stopPropagation()} variant={'primary'} asChild>
                 <Link href={`/jobs/${job.id}`}>View Details</Link>
               </Button>
             </div>
