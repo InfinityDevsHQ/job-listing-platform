@@ -25,7 +25,7 @@ const JobsList = () => {
 
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
-      = {jobs?.map((job, index) => <JobCard key={index} job={job} />)}
+      {jobs?.map((job, index) => <JobCard key={index} job={job} />)}
       {hasNextPage && (
         <>
           <div className="hidden items-center justify-between bg-primary-600 p-8 lg:flex">
