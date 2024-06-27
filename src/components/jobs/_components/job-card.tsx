@@ -63,10 +63,10 @@ export default function JobCard({ job }: JobProps) {
             transition={{ duration: 0.3 }}
             className="flex max-w-full flex-col gap-4 overflow-hidden"
           >
-            <p className="h-20 max-w-full overflow-hidden whitespace-pre-wrap break-words text-sm text-gray-500">
+            <p className="h-[116px] max-w-full overflow-hidden whitespace-pre-wrap break-words text-sm text-gray-500 lg:h-auto">
               {job.description}
             </p>
-            <span className=" border border-neutral-300"></span>
+            <span className="border border-neutral-300"></span>
             <div className="flex items-center justify-between gap-4">
               <div className="flex flex-1 gap-4 overflow-x-hidden">
                 {job.skill_tags?.map((tag, index) => (
