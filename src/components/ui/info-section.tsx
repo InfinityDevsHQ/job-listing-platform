@@ -4,12 +4,13 @@ type InfoSectionProps = {
   heading?: string;
   children?: React.ReactNode;
   className?: string;
+  headingClass?: string;
 };
 
-const InfoSection = ({ heading, className, children }: InfoSectionProps) => {
+const InfoSection = ({ heading, className, children, headingClass }: InfoSectionProps) => {
   return (
     <section className={cn('flex w-full flex-col gap-4', className)}>
-      <h2 className="text-sm font-bold text-gray-700 lg:text-xl">{heading}</h2>
+      <h2 className={cn('text-sm font-bold text-gray-700 lg:text-xl', headingClass)}>{heading}</h2>
       {children}
     </section>
   );

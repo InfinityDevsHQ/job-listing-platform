@@ -18,6 +18,7 @@ const FeatureCard = ({ imageUrl, imageFirst, heading, children }: FeatureCardPro
           'lg:order-2': imageFirst,
           'lg:order-1': !imageFirst,
         })}
+        headingClass="text-xl lg:text-4xl"
       >
         {children}
       </InfoSection>
