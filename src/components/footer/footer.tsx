@@ -1,4 +1,5 @@
 'use client';
+
 import Copyright from '@/components/footer/_components/copyrights';
 import Navigation from '@/components/footer/_components/navigation';
 import Subscribe from '@/components/forms/subscribe-form/subscribe-form';
@@ -16,12 +17,14 @@ const Footer = () => {
 
   const companyHeaderRoutes = ['/recruit'];
 
-  if (noFooterRoutes?.includes(pathname)) {
-    return <></>;
+  if (noFooterRoutes.includes(pathname)) {
+    return null;
   }
 
+  const footerVariant = companyHeaderRoutes.includes(pathname) ? 'bg-secondary' : 'bg-primary';
+
   return (
-    <footer className={cn('text-white', companyHeaderRoutes ? 'bg-secondary' : 'bg-primary')}>
+    <footer className={cn('text-white', footerVariant)}>
       <div className={cn('mx-auto flex w-full max-w-screen-2xl flex-col gap-4 p-8 lg:gap-8')}>
         <Link href={'/'}>
           <Image
