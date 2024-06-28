@@ -1,8 +1,8 @@
 'use client';
 import { USER_PROFILE, useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import { ALL_JOBS_KEY } from '@/app/utils/rq/hooks/use-jobs';
+import { removeToken } from '@/lib/auth';
 import { cn } from '@/lib/utils';
-import useAuthStore from '@/stores/authStore/store';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,11 +19,10 @@ import { useRouter } from 'next/navigation';
 export const ProfileDropdown = () => {
   const { data } = useUserProfile();
   const router = useRouter();
-  const { setIsAuthenticated } = useAuthStore();
   const queryClient = useQueryClient();
 
   const logout = async () => {
-    setIsAuthenticated(false);
+    removeToken();
     router.replace('/login');
     await queryClient.invalidateQueries({
       queryKey: [USER_PROFILE],
