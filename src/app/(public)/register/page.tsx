@@ -14,7 +14,7 @@ const Register = () => {
     state.setCurrentUserRole,
   ]);
   return (
-    <div className="relative grid h-screen items-center justify-center overflow-x-hidden lg:grid-cols-2">
+    <div className="relative grid h-screen items-center justify-center overflow-hidden lg:grid-cols-2">
       <Image
         src={'/assets/auth/login-poster.png'}
         alt="Login Poster"
@@ -22,38 +22,47 @@ const Register = () => {
         height={1000000}
         className="absolute left-0 top-0 -z-10 h-full w-full lg:hidden"
       />
-      <div className="mx-auto flex w-full max-w-xl flex-col gap-8 overflow-y-auto rounded-2xl">
-        <PageHeader title="Create your Account" />
-        <Divider
-          size={2}
-          text="Select Method to Register"
-          mobileVariant={currentUserRole === 'candidate' ? 'primary' : 'secondary'}
-          variant="light"
-        />
-        <SocialAuthWidget google linkedin github auth="register" />
-        <Divider
-          size={2}
-          text="OR"
-          mobileVariant={currentUserRole === 'candidate' ? 'primary' : 'secondary'}
-          variant="light"
-        />
-        <Tabs
-          defaultValue="candidate"
-          onValueChange={(val) => setCurrentUserRole(val)}
-          className="flex w-full flex-col gap-4"
-        >
-          <TabsList className="bg-primary-50 lg:bg-transparent">
-            <TabsTrigger value="candidate">Candidate</TabsTrigger>
-            <TabsTrigger value="company">Company</TabsTrigger>
-          </TabsList>
-          <TabsContent value="candidate">
-            <RegisterCandidateForm />
-          </TabsContent>
-          <TabsContent value="company">
-            <RegisterCompanyForm />
-          </TabsContent>
-        </Tabs>
-        <LoginRegisterToggler currentPage="register" />
+      <div className="flex h-screen items-center justify-center overflow-y-auto">
+        <div className="flex w-[500px] flex-col gap-8  rounded-2xl pt-32">
+          <Image
+            src={'/assets/logo_white_vertical.png'}
+            alt="Logo"
+            width={80}
+            height={86}
+            className="mx-auto lg:hidden"
+          />
+          <PageHeader title="Create your Account" />
+          <Divider
+            size={2}
+            text="Select Method to Register"
+            mobileVariant={currentUserRole === 'candidate' ? 'primary' : 'secondary'}
+            variant="light"
+          />
+          <SocialAuthWidget google linkedin github auth="register" />
+          <Divider
+            size={2}
+            text="OR"
+            mobileVariant={currentUserRole === 'candidate' ? 'primary' : 'secondary'}
+            variant="light"
+          />
+          <Tabs
+            defaultValue="candidate"
+            onValueChange={(val) => setCurrentUserRole(val)}
+            className="flex w-full flex-col gap-4"
+          >
+            <TabsList className="bg-primary-50 lg:bg-transparent">
+              <TabsTrigger value="candidate">Candidate</TabsTrigger>
+              <TabsTrigger value="company">Company</TabsTrigger>
+            </TabsList>
+            <TabsContent value="candidate">
+              <RegisterCandidateForm />
+            </TabsContent>
+            <TabsContent value="company">
+              <RegisterCompanyForm />
+            </TabsContent>
+          </Tabs>
+          <LoginRegisterToggler currentPage="register" />
+        </div>
       </div>
       <div className="relative hidden h-full w-full lg:block">
         <Image

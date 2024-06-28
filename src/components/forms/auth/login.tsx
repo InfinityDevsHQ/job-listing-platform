@@ -108,7 +108,7 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
             )}
           />
         )}
-        <Button type="submit" className="hidden w-full lg:block" variant={'primary'}>
+        <Button type="submit" className="hidden w-full lg:flex" variant={'primary'}>
           Login
           {isLoading ? (
             <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />

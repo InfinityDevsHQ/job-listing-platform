@@ -21,6 +21,13 @@ const Login = () => {
         className="absolute left-0 top-0 -z-10 h-full w-full lg:hidden"
       />
       <div className="col-span-2 mx-auto  flex w-full max-w-xl flex-col gap-8 rounded-2xl lg:col-span-1 lg:bg-primary-50">
+        <Image
+          src={'/assets/logo_white_vertical.png'}
+          alt="Logo"
+          width={80}
+          height={86}
+          className="mx-auto lg:hidden"
+        />
         <PageHeader title="Login to your Account" />
         <Divider size={2} text="Select Method to Login" mobileVariant="primary" variant="light" />
         <SocialAuthWidget google linkedin github auth="login" />
