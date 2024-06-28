@@ -14,7 +14,7 @@ const Register = () => {
     state.setCurrentUserRole,
   ]);
   return (
-    <div className="relative grid h-screen items-center justify-center overflow-hidden lg:grid-cols-2">
+    <div className="relative grid h-screen items-center justify-center lg:grid-cols-2 lg:overflow-hidden">
       <Image
         src={'/assets/auth/login-poster.png'}
         alt="Login Poster"
@@ -22,8 +22,8 @@ const Register = () => {
         height={1000000}
         className="absolute left-0 top-0 -z-10 h-full w-full lg:hidden"
       />
-      <div className="flex h-screen items-center justify-center overflow-y-auto">
-        <div className="flex w-[500px] flex-col gap-8  rounded-2xl pt-32">
+      <div className="flex h-screen items-center justify-center lg:overflow-y-auto">
+        <div className="flex flex-col gap-8 rounded-2xl  pt-32 lg:w-[500px]">
           <Image
             src={'/assets/logo_white_vertical.png'}
             alt="Logo"
