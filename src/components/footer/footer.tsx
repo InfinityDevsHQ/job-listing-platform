@@ -21,7 +21,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-primary text-white">
+    <footer className={cn('text-white', companyHeaderRoutes ? 'bg-secondary' : 'bg-primary')}>
       <div className={cn('mx-auto flex w-full max-w-screen-2xl flex-col gap-4 p-8 lg:gap-8')}>
         <Link href={'/'}>
           <Image
