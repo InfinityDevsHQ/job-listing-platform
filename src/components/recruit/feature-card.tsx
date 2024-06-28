@@ -11,13 +11,14 @@ type FeatureCardProps = {
 
 const FeatureCard = ({ imageUrl, imageFirst, heading, children }: FeatureCardProps) => {
   return (
-    <div className="relative grid w-full items-center gap-4 lg:grid-cols-2 lg:gap-8">
+    <div className="relative grid w-full items-center gap-4 lg:grid-cols-2 lg:gap-8 lg:py-16">
       <InfoSection
         heading={heading}
         className={cn('order-2 lg:order-1', {
           'lg:order-2': imageFirst,
           'lg:order-1': !imageFirst,
         })}
+        headingClass="text-xl lg:text-4xl"
       >
         {children}
       </InfoSection>

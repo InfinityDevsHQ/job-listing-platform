@@ -3,9 +3,6 @@ import Hero from '@/app/(public)/companies/_components/hero';
 import useSearchQueryStore from '@/stores/searchQueryStore/store';
 export default function JobListingSearchBard() {
   const { query, setQuery } = useSearchQueryStore();
-  function handleSearch() {
-    console.log(query);
-  }
   return (
     <Hero
       heading="Find your dream job here!"
@@ -13,7 +10,6 @@ export default function JobListingSearchBard() {
       vectorUrl="/assets/images/home/homePage_hero_section_vector.png"
       searchQuery={query}
       setSearchQuery={setQuery}
-      onSearch={handleSearch}
       search
     />
   );

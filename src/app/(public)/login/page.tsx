@@ -12,8 +12,22 @@ import Image from 'next/image';
 
 const Login = () => {
   return (
-    <div className="grid min-h-screen grid-cols-2 items-center justify-center overflow-x-hidden">
-      <div className="col-span-2 mx-auto  flex w-full max-w-xl flex-col gap-8 rounded-2xl bg-primary-50 lg:col-span-1">
+    <div className="relative grid min-h-screen items-center justify-center overflow-x-hidden lg:grid-cols-2">
+      <Image
+        src={'/assets/auth/login-poster.png'}
+        alt="Login Poster"
+        width={10000}
+        height={10000}
+        className="absolute left-0 top-0 -z-10 h-full w-full lg:hidden"
+      />
+      <div className="col-span-2 mx-auto  flex w-full max-w-xl flex-col gap-8 rounded-2xl lg:col-span-1 lg:bg-primary-50">
+        <Image
+          src={'/assets/logo_white_vertical.png'}
+          alt="Logo"
+          width={80}
+          height={86}
+          className="mx-auto lg:hidden"
+        />
         <PageHeader title="Login to your Account" />
         <Divider size={2} text="Select Method to Login" mobileVariant="primary" variant="light" />
         <SocialAuthWidget google linkedin github auth="login" />
@@ -36,8 +50,8 @@ const Login = () => {
         <Image
           src={'/assets/auth/login-poster.png'}
           alt="Login Poster"
-          width={100000}
-          height={1000000}
+          width={10000}
+          height={10000}
           className="absolute left-0 top-0 -z-10 h-full w-full"
         />
         <div className="flex h-full w-full items-center justify-center">

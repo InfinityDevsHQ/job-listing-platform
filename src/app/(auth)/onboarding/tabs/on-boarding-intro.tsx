@@ -2,7 +2,7 @@ import Image from 'next/image';
 import IntroCard from '../_components/intro-card';
 const OnboardingIntro = () => {
   return (
-    <div className="grid w-full grid-cols-2">
+    <div className="grid h-full min-h-[88vh] w-full flex-1 grid-cols-2">
       <div className="col-span-2 hidden items-center justify-center lg:col-span-1 lg:flex">
         <Image
           src={'/assets/boarding/intro_poster.png'}

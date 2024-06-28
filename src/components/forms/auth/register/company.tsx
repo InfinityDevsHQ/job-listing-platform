@@ -159,7 +159,15 @@ export default function RegisterCandidateForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full" variant={'primary'}>
+        <Button type="submit" className="hidden w-full lg:flex" variant={'primary'}>
+          Register
+          {isLoading ? (
+            <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />
+          ) : (
+            <ArrowRightIcon className="ml-2 h-4 w-4" />
+          )}
+        </Button>
+        <Button type="submit" className="w-full lg:hidden" variant={'outline'}>
           Register
           {isLoading ? (
             <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />

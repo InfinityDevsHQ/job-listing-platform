@@ -105,26 +105,6 @@ export async function getUserInbox(): Promise<{}> {
   return data;
 }
 
-export async function getUserNotifications(): Promise<{}> {
-  const data = await DataService.get<{}>(`${USER_URLS.userNotifications}`);
-  return data;
-}
-export async function getUserJobsAppliedFor(): Promise<{}> {
-  const data = await DataService.get<{}>(`${USER_URLS.userJobsAppliedFor}`);
-  return data;
-}
-export async function getUserJobsClicked(): Promise<{}> {
-  const data = await DataService.get<{}>(`${USER_URLS.userJobsClicked}`);
-  return data;
-}
-export async function getUserJobsFavorited(): Promise<{}> {
-  const data = await DataService.get<{}>(`${USER_URLS.userJobsFavorited}`);
-  return data;
-}
-export async function getUserJobsDisabled(): Promise<{}> {
-  const data = await DataService.get<{}>(`${USER_URLS.userJobsDisabled}`);
-  return data;
-}
 export async function updateUserProfile(body: UserProfile) {
   const data = await DataService.put<UserProfile>(USER_URLS.userUpdate, body);
   return data;
