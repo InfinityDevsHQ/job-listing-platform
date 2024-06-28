@@ -27,7 +27,7 @@ export default function RecruitFeaturesSection() {
     'Make changes if necessary and enjoy the time savings',
   ];
   return (
-    <section className="flex w-full flex-col gap-8">
+    <section className="flex w-full flex-col gap-4 lg:gap-16">
       <h2 className="col-span-2 text-center text-2xl font-bold text-gray-700 lg:text-5xl">
         Features
       </h2>
