@@ -2,7 +2,7 @@ import Image from 'next/image';
 export default function ClientResultsSection() {
   return (
     <section className="flex w-full flex-col items-center gap-8">
-      <h2 className="text-xl font-bold text-gray-700 lg:text-4xl">Our clients results</h2>
+      <h2 className="text-2xl font-bold text-gray-700 lg:text-5xl">Our clients results</h2>
       <div className="grid gap-4 lg:grid-cols-5">
         <div className="order-2 flex gap-4 lg:order-1 lg:col-span-1 lg:flex-col lg:gap-16">
           <div className="flex w-full flex-col items-center justify-center gap-1 border border-gray-200 p-2 lg:w-auto lg:border-none lg:p-0 ">

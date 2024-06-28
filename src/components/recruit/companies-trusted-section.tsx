@@ -3,7 +3,7 @@ import UserHeader from '../gernal/user-header';
 export default function CompaniesTrustedSection() {
   return (
     <section className="flex w-full flex-col items-center gap-8">
-      <h2 className="text-xl font-bold text-gray-700 lg:text-4xl">
+      <h2 className="text-2xl font-bold text-gray-700 lg:text-5xl">
         What our customers love about ClickJob
       </h2>
       <p className="text-gray-500">
