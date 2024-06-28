@@ -25,13 +25,13 @@ export default async function middleware(req: NextRequest) {
       return NextResponse.redirect(absoluteURL.toString());
     }
 
-    // if (
-    //   isAuthenticated &&
-    //   userProfile.user_data.is_onboarded &&
-    //   req.nextUrl.pathname.includes('onboarding')
-    // ) {
-    //   const absoluteURL = new URL('/profile', req.nextUrl.origin);
-    //   return NextResponse.redirect(absoluteURL.toString());
-    // }
+    if (
+      isAuthenticated &&
+      userProfile.user_data.is_onboarded &&
+      req.nextUrl.pathname.includes('onboarding')
+    ) {
+      const absoluteURL = new URL('/profile', req.nextUrl.origin);
+      return NextResponse.redirect(absoluteURL.toString());
+    }
   }
 }
