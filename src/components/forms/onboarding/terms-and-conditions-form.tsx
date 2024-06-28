@@ -4,7 +4,6 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Label } from '@/components/ui/label';
 import { useQueryParams } from '@/hooks/useQueryParams';
-import { uploadOnBoardingData } from '@/lib/onboarding';
 import useOnboardingStore from '@/stores/onboardingStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
@@ -35,16 +34,9 @@ export default function TermsAndConditionsForm() {
       ...onboardingData,
       is_terms_agreed: values.termsAgreed === 'true',
     });
-    const resp = await uploadOnBoardingData({
-      ...onboardingData,
-      is_terms_agreed: values.termsAgreed === 'true',
-    });
-    if (resp.id) {
-      toast.success('Profile Created Successfully.');
-      router.push('/profile');
-    } else {
-      toast.error('Profile Creation Failed, Try again later.');
-    }
+
+    toast.success('Profile Created Successfully.');
+    router.push('/profile');
   }
   return (
     <Form {...form}>

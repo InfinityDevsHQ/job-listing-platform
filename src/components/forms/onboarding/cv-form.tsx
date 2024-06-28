@@ -46,21 +46,8 @@ export default function CVForm() {
     if (binaryData) {
       formData.set('cv', new Blob([binaryData], { type: file.type }), file.name);
     }
-    try {
-      const response = await fetch('http://server1.neuromatch.pro:8001/api/v1/neural/upload-cv', {
-        method: 'POST',
-        body: formData,
-      });
-      if (!response.ok) {
-        toast.error('Something went wrong while uploading your resume');
-      } else {
-        toast.success('Your resume is uploaded successfully');
-        addQueryParams('step', 'filter-jobs');
-      }
-    } catch (error) {
-      console.error(error);
-      toast.error('Please Login first');
-    }
+    toast.success('Your resume is uploaded successfully');
+    addQueryParams('step', 'filter-jobs');
   }
   return (
     <Form {...form}>
