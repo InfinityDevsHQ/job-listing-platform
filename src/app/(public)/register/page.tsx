@@ -14,7 +14,14 @@ const Register = () => {
     state.setCurrentUserRole,
   ]);
   return (
-    <div className="grid h-screen items-center justify-center overflow-x-hidden lg:grid-cols-2">
+    <div className="relative grid h-screen items-center justify-center overflow-x-hidden lg:grid-cols-2">
+      <Image
+        src={'/assets/auth/login-poster.png'}
+        alt="Login Poster"
+        width={100000}
+        height={1000000}
+        className="absolute left-0 top-0 -z-10 h-full w-full lg:hidden"
+      />
       <div className="mx-auto flex w-full max-w-xl flex-col gap-8 overflow-y-auto rounded-2xl">
         <PageHeader title="Create your Account" />
         <Divider

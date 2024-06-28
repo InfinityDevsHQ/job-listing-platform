@@ -8,20 +8,21 @@ type DividerProps = {
 
 const Divider = ({ size, variant, mobileVariant, text }: DividerProps) => {
   return (
-    <span
-      className={cn('relative w-full border-t border-gray-300', {
-        'border-t-2': size == 2,
-        'border-t-4': size == 4,
-      })}
-    >
-      {text && (
-        <span
-          className={cn('absolute -top-4 left-1/2 w-full max-w-max -translate-x-1/2 px-2 py-1')}
-        >
-          {text}
-        </span>
-      )}
-    </span>
+    <div className="flex items-center">
+      <span
+        className={cn('relative flex-1 border-t border-gray-300', {
+          'border-t-2': size == 2,
+          'border-t-4': size == 4,
+        })}
+      />
+      <span className={cn('z-50 w-full max-w-max px-2 py-1')}>{text}</span>
+      <span
+        className={cn('relative flex-1 border-t border-gray-300', {
+          'border-t-2': size == 2,
+          'border-t-4': size == 4,
+        })}
+      />
+    </div>
   );
 };
 
