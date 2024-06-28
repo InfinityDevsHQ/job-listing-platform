@@ -108,12 +108,20 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
             )}
           />
         )}
-        <Button type="submit" className="w-full" variant={'primary'}>
+        <Button type="submit" className="hidden w-full lg:block" variant={'primary'}>
           Login
           {isLoading ? (
             <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />
           ) : (
-            <ArrowRightIcon className="ml-2 h-4 w-4 " />
+            <ArrowRightIcon className="ml-2 h-4 w-4" />
+          )}
+        </Button>
+        <Button type="submit" className="w-full lg:hidden" variant={'outline'}>
+          Login
+          {isLoading ? (
+            <LoaderCircleIcon className="animate ml-2 h-4 w-4 animate-spin" />
+          ) : (
+            <ArrowRightIcon className="ml-2 h-4 w-4" />
           )}
         </Button>
       </form>
