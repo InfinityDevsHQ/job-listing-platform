@@ -1,5 +1,6 @@
 'use server';
 import { ApplyJobResponse, UserData, UserProfile } from '@/types/types';
+import { getToken } from './auth-token';
 import { DataService } from './data-service';
 const PLATFORM_API_BASE_URL = process.env.PLATFORM_API_BASE_URL;
 
@@ -89,6 +90,10 @@ const Profile: UserProfile = {
 export const getUser = async (): Promise<UserData> => Profile.user_data;
 
 export async function getUserProfile(): Promise<UserProfile> {
+  const isLoggedIn = getToken();
+  if (!isLoggedIn) {
+    return {} as unknown as UserProfile;
+  }
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(Profile);
