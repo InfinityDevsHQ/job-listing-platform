@@ -17,9 +17,16 @@ export const registerCandidate = async (body: RegisterBodyProps): Promise<Regist
 };
 
 export const login = async (body: LoginBodyProps): Promise<LoginResProps> => {
-  const data = await DataService.post<LoginResProps>(AUTH_URLS.login, body);
-  storeToken({ token: data.access_token });
-  return data;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const mockData = {
+        access_token: 'dummy_access_token_12345',
+        token_type: 'access',
+      };
+      storeToken({ token: mockData.access_token });
+      resolve(mockData);
+    }, 4000); // 4 seconds delay
+  });
 };
 
 export const registerCompany = (body: RegisterBodyProps) =>

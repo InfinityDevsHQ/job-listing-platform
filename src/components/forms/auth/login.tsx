@@ -4,6 +4,7 @@ import CompanyMail from '@/components/svgs/coompany-mail';
 import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
+import { login } from '@/lib/auth';
 import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRightIcon, EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
@@ -45,8 +46,11 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
       return;
     }
     try {
-      setIsAuthenticated(true);
-      router.push('/profile');
+      const data = await login(body);
+      if (data.access_token) {
+        setIsAuthenticated(true);
+        router.push('/profile');
+      }
     } catch (error) {
       let message;
       if (error instanceof Error) {
