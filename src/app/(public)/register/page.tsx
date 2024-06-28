@@ -14,7 +14,7 @@ const Register = () => {
     state.setCurrentUserRole,
   ]);
   return (
-    <div className="grid h-screen grid-cols-2 items-center justify-center overflow-x-hidden">
+    <div className="grid h-screen items-center justify-center overflow-x-hidden lg:grid-cols-2">
       <div className="mx-auto flex w-full max-w-xl flex-col gap-8 overflow-y-auto rounded-2xl">
         <PageHeader title="Create your Account" />
         <Divider

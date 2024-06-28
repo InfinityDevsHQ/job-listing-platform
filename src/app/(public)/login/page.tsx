@@ -12,7 +12,7 @@ import Image from 'next/image';
 
 const Login = () => {
   return (
-    <div className="grid min-h-screen grid-cols-2 items-center justify-center overflow-x-hidden">
+    <div className="grid min-h-screen items-center justify-center overflow-x-hidden lg:grid-cols-2">
       <div className="col-span-2 mx-auto  flex w-full max-w-xl flex-col gap-8 rounded-2xl bg-primary-50 lg:col-span-1">
         <PageHeader title="Login to your Account" />
         <Divider size={2} text="Select Method to Login" mobileVariant="primary" variant="light" />
