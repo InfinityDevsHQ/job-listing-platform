@@ -21,14 +21,18 @@ const Footer = () => {
     return null;
   }
 
-  const footerVariant = companyHeaderRoutes.includes(pathname) ? 'bg-secondary' : 'bg-primary';
+  const isSecondaryFooter = companyHeaderRoutes.includes(pathname);
 
   return (
-    <footer className={cn('text-white', footerVariant)}>
+    <footer className={cn('text-white', isSecondaryFooter ? 'bg-secondary' : 'bg-primary')}>
       <div className={cn('mx-auto flex w-full max-w-screen-2xl flex-col gap-4 p-8 lg:gap-8')}>
         <Link href={'/'}>
           <Image
-            src={'/assets/logo_white.png'}
+            src={
+              isSecondaryFooter
+                ? '/assets/images/common/logo_clickjob_secondary_white.png'
+                : '/assets/logo_white.png'
+            }
             alt="Logo"
             className="mx-auto h-7 w-28 lg:mx-0 lg:h-12 lg:w-56"
             width={226}
