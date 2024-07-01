@@ -13,7 +13,7 @@ export default async function Candidates() {
     queryFn: getAllCandidates,
   });
   return (
-    <div className="bg-primary-50 p-4 lg:p-8">
+    <div className="mx-auto max-w-screen-2xl bg-primary-50 p-4 lg:p-8">
       <Hero
         heading="Find best candidates for you!"
         desc="Bibendum non id pharetra integer. Enim arcu accumsan diam tempus magna duis urna id."

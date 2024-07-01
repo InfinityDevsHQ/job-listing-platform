@@ -43,7 +43,7 @@ const Footer = () => {
           Mauris pharetra imperdiet iaculis elementum nulla. Tellus morbi nunc non vitae enim amet.
           Faucibus eleifend sit leo varius suspendisse.
         </p>
-        <Navigation />
+
         <Divider variant="light" mobileVariant="primary" />
         <Subscribe />
         <Divider variant="light" mobileVariant="primary" />

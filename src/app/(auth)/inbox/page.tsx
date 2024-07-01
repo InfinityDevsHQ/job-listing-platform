@@ -12,7 +12,7 @@ export default function Inbox() {
     return;
   }
   return (
-    <div className="inbox flex flex-col overflow-hidden rounded-md  p-4 lg:h-screen lg:flex-row">
+    <div className="inbox mx-auto flex max-w-screen-2xl flex-col  overflow-hidden rounded-md p-4 lg:h-screen lg:flex-row">
       <Tabs defaultValue="accepted" className="w-full lg:hidden">
         <TabsList className="bg-primary-50 lg:bg-transparent">
           <TabsTrigger value="accepted">Accepted</TabsTrigger>

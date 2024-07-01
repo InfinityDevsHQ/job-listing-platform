@@ -16,7 +16,7 @@ export default async function PostJob() {
     queryFn: getPromotedCompanies,
   });
   return (
-    <div className="mt-4 flex flex-col gap-4 border border-gray-200 bg-gray-50 p-4 lg:mt-8 lg:gap-8 lg:p-8">
+    <div className="mx-auto mt-4 flex max-w-screen-2xl flex-col gap-4 border border-gray-200 bg-gray-50 p-4 lg:mt-8 lg:gap-8 lg:p-8">
       <PostJobForm />
       <AdvancedPromotion />
       <FAQSection />

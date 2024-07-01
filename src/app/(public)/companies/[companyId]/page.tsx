@@ -14,7 +14,7 @@ const Company = async ({ params }: CompanySlug) => {
   const companyData = await getCompanyById(companyId);
 
   return (
-    <div className="mt-8 flex flex-col gap-4 bg-white p-4 lg:gap-8 lg:p-8">
+    <div className="mx-auto mt-8 flex max-w-screen-2xl flex-col gap-4 bg-white p-4 lg:gap-8 lg:p-8">
       {/* COVER AND PROFILE */}
       <CompanyHeader
         profilePhotoUrl={companyData.logo_url}
