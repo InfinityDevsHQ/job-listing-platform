@@ -21,8 +21,6 @@ const Header = () => {
 
   const publicNavLinks = [
     { text: 'Home', href: '/' },
-    { text: 'About', href: '/about' },
-    { text: 'Contact Us', href: '/contact' },
     { text: 'For Companies', href: '/recruit' },
   ];
 
