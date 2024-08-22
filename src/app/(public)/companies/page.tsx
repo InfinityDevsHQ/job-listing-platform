@@ -13,7 +13,7 @@ export default async function Companies() {
     queryFn: getPromotedCompanies,
   });
   return (
-    <div className="bg--50 relative flex flex-col gap-4 border border-gray-200 bg-gray-50 p-4 lg:gap-8 lg:p-8">
+    <div className="relative mx-auto flex max-w-screen-2xl flex-col gap-4 border border-gray-200 bg-gray-50 p-4 lg:gap-8 lg:p-8">
       <Image
         src={'/assets/companies/white-vector.png'}
         width={1411}

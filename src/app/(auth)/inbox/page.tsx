@@ -2,7 +2,6 @@
 
 import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { getReadInboxMessageByUserId } from '@/lib/inbox-messages';
 import ChatPanel from './panels/chat-panel';
 import InboxPanel from './panels/inbox-panel';
 import AcceptedTab from './tabs/accepted-tab';
@@ -12,11 +11,8 @@ export default function Inbox() {
   if (!user?.user_data.id || isLoading) {
     return;
   }
-  const messages = getReadInboxMessageByUserId(user.user_data.id as number);
   return (
-    <div className="inbox flex flex-col overflow-hidden rounded-md  p-4 lg:h-screen lg:flex-row">
-      {/* {messages && <pre>{JSON.stringify(messages, null, 2)}</pre>} */}
-
+    <div className="inbox mx-auto flex max-w-screen-2xl flex-col  overflow-hidden rounded-md p-4 lg:h-screen lg:flex-row">
       <Tabs defaultValue="accepted" className="w-full lg:hidden">
         <TabsList className="bg-primary-50 lg:bg-transparent">
           <TabsTrigger value="accepted">Accepted</TabsTrigger>

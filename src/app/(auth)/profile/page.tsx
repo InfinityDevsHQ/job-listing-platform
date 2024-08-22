@@ -9,7 +9,7 @@ const Profile = async () => {
   const queryClient = getQueryClient();
   await usePrefetchUserProfile();
   return (
-    <div className="flex flex-col gap-4 p-4 lg:flex-row lg:gap-8 lg:p-8">
+    <div className="mx-auto flex max-w-screen-2xl flex-col gap-4 p-4 lg:flex-row lg:gap-8 lg:p-8">
       <ReactQueryHydrate state={dehydrate(queryClient)}>
         <UserDetails />
         <ProfileTabs />

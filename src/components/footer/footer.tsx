@@ -1,4 +1,5 @@
 'use client';
+
 import Copyright from '@/components/footer/_components/copyrights';
 import Navigation from '@/components/footer/_components/navigation';
 import Subscribe from '@/components/forms/subscribe-form/subscribe-form';
@@ -16,16 +17,22 @@ const Footer = () => {
 
   const companyHeaderRoutes = ['/recruit'];
 
-  if (noFooterRoutes?.includes(pathname)) {
-    return <></>;
+  if (noFooterRoutes.includes(pathname)) {
+    return null;
   }
 
+  const isSecondaryFooter = companyHeaderRoutes.includes(pathname);
+
   return (
-    <footer className="bg-primary text-white">
+    <footer className={cn('text-white', isSecondaryFooter ? 'bg-secondary' : 'bg-primary')}>
       <div className={cn('mx-auto flex w-full max-w-screen-2xl flex-col gap-4 p-8 lg:gap-8')}>
         <Link href={'/'}>
           <Image
-            src={'/assets/logo_white.png'}
+            src={
+              isSecondaryFooter
+                ? '/assets/images/common/logo_clickjob_secondary_white.png'
+                : '/assets/logo_white.png'
+            }
             alt="Logo"
             className="mx-auto h-7 w-28 lg:mx-0 lg:h-12 lg:w-56"
             width={226}
@@ -36,7 +43,7 @@ const Footer = () => {
           Mauris pharetra imperdiet iaculis elementum nulla. Tellus morbi nunc non vitae enim amet.
           Faucibus eleifend sit leo varius suspendisse.
         </p>
-        <Navigation />
+
         <Divider variant="light" mobileVariant="primary" />
         <Subscribe />
         <Divider variant="light" mobileVariant="primary" />

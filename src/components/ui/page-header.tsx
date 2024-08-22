@@ -10,7 +10,9 @@ export default function PageHeader({
 }: PageHeaderProps) {
   return (
     <header className={`py-5 ${containerClassName}`}>
-      <h3 className={`text-center text-2xl font-bold text-neutral-700 lg:text-3xl ${className}`}>
+      <h3
+        className={`text-center text-2xl font-bold text-white lg:text-3xl lg:text-neutral-700 ${className}`}
+      >
         {title}
       </h3>
     </header>

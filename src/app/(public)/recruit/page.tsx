@@ -7,7 +7,7 @@ import TopBrandsSection from '@/components/recruit/top-brands-section';
 
 const Recruit = () => {
   return (
-    <main className="bg-secondary-50 p-4 lg:gap-8 lg:p-8">
+    <div className="mx-auto max-w-screen-2xl bg-secondary-50 p-4 lg:gap-8 lg:p-8">
       <div className="relative flex w-full flex-col items-center gap-4 overflow-hidden rounded-md border border-neutral-200 bg-white p-4 lg:gap-8 lg:p-8">
         <RecruitersHero />
         <TopBrandsSection />
@@ -16,7 +16,7 @@ const Recruit = () => {
         <CompaniesTrustedSection />
         <FreeTrialSection />
       </div>
-    </main>
+    </div>
   );
 };
 

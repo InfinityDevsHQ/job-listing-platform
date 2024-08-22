@@ -22,7 +22,7 @@ const JobDetailsPage = async ({ params }: JobDetailsSlug) => {
     return notFound();
   }
   return (
-    <div className="flex flex-col gap-4 p-4 lg:gap-8 lg:p-8">
+    <div className="mx-auto flex max-w-screen-2xl flex-col gap-4 p-4 lg:gap-8 lg:p-8">
       <ReactQueryHydrate state={dehydrate(queryClient)}>
         <JobDetailsCard jobId={jobListingId} />
       </ReactQueryHydrate>

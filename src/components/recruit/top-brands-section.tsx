@@ -4,7 +4,7 @@ import { CarouselItem } from '../ui/carousel';
 export default function TopBrandsSection() {
   return (
     <section className="flex w-full flex-col items-center gap-8">
-      <h2 className="text-xl font-bold text-gray-700 lg:text-4xl">Top brands trust ClickJob</h2>
+      <h2 className="text-2xl font-bold text-gray-700 lg:text-5xl">Top brands trust ClickJob</h2>
       <span className="text-gray-500">
         We help over 270 recruitment agencies and companies across every industry to make their
         selection process more efficient

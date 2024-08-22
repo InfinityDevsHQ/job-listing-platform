@@ -82,7 +82,7 @@ export const ProfileDropdown = () => {
         </Link>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="focus:bg-red-50 focus:text-red-900">
-          <button onClick={() => logout()} type="button">
+          <button onClick={async () => await logout()} type="button">
             Log out
           </button>
         </DropdownMenuItem>

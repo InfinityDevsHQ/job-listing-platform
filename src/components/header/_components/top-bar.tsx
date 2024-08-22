@@ -1,6 +1,7 @@
 'use client';
 import { useUserProfile } from '@/app/utils/rq/hooks/use-auth';
 import { Button } from '@/components/ui/button-new';
+import useAuthStore from '@/stores/authStore/store';
 import { ArrowRight, LockIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,6 +13,7 @@ import { ProfileDropdown } from './profile-dropdown';
 
 const Header = () => {
   const pathname = usePathname();
+  const { isAuthenticated } = useAuthStore();
   const { data: user } = useUserProfile();
   const noHeaderRoutes = ['/login', '/register'];
 
@@ -19,8 +21,6 @@ const Header = () => {
 
   const publicNavLinks = [
     { text: 'Home', href: '/' },
-    { text: 'About', href: '/about' },
-    { text: 'Contact Us', href: '/contact' },
     { text: 'For Companies', href: '/recruit' },
   ];
 
@@ -47,7 +47,7 @@ const Header = () => {
 
         <Navbar links={publicNavLinks} />
         <div className="flex gap-4">
-          {!user?.user_data ? (
+          {!isAuthenticated ? (
             <>
               <Button
                 variant={companyHeaderRoutes.includes(pathname) ? 'secondary' : 'outline'}

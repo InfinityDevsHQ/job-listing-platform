@@ -18,16 +18,7 @@ export default function Subscribe() {
   });
   const isLoading = form.formState.isSubmitting;
   async function onSubmit({ email }: z.infer<typeof subscribeFormSchema>) {
-    const body = {
-      email,
-    };
-    subscribe(body)
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        toast.error(error.message || 'Uh oh! Something went wrong.');
-      });
+    toast.success('Subscribed👍');
   }
   return (
     <Form {...form}>
