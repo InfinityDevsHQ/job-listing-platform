@@ -60,6 +60,7 @@ const Hero = ({
           src={vectorUrl}
           width={200}
           height={163}
+          quality={100}
           className="ml-auto hidden lg:block"
         />
       )}
