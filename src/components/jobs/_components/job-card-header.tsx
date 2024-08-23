@@ -1,6 +1,7 @@
+import FireIcon from '@/components/svgs/fire';
 import { Button } from '@/components/ui/button-new';
 import { cn } from '@/lib/utils';
-import { Bookmark, Flame } from 'lucide-react';
+import { Bookmark } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 type JobCardHeaderProps = {
@@ -25,7 +26,7 @@ export default function JobCardHeader({
           size === 'lg' ? 'lg:h-24 lg:w-24' : ''
         )}
       >
-        <Flame
+        <FireIcon
           className={cn(
             'h-4 w-4',
             is_hot ? 'text-orange-500' : 'text-primary-500',
