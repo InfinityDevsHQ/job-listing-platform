@@ -77,11 +77,12 @@ const Register = () => {
             <Image
               src={'/assets/auth/login-vector.png'}
               alt="LoginVector"
+              quality={100}
               width={534}
               height={388}
               className="mx-auto mb-8 h-auto w-auto"
             />
-            <h4 className="mb-5 text-3xl font-bold uppercase">Project al-fugu</h4>
+            <h4 className="mb-5 text-3xl font-bold uppercase">Project ai-fugu</h4>
             <p>
               Mauris pharetra imperdiet iaculis elementum nulla. Tellus morbi nunc non vitae enim
               amet. Faucibus eleifend sit leo varius suspendisse.

@@ -30,6 +30,7 @@ const config = {
         primary: {
           DEFAULT: '#4f46e5',
           foreground: '#ffffff',
+          background: '#fafafa',
           ...colors.indigo,
         },
         secondary: {

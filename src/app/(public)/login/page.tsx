@@ -31,7 +31,7 @@ const Login = () => {
         <PageHeader title="Login to your Account" />
         <Divider size={2} text="Select Method to Login" mobileVariant="primary" variant="light" />
         <SocialAuthWidget google linkedin github auth="login" />
-        <Divider size={2} text="OR" mobileVariant="primary" variant="light" />
+        <Divider size={2} text="or" mobileVariant="primary" variant="light" />
         <Tabs defaultValue="email-password" className="flex w-full flex-col gap-4">
           <TabsList className="bg-primary-50 lg:bg-transparent">
             <TabsTrigger value="email-password">Email / Password</TabsTrigger>
@@ -59,11 +59,12 @@ const Login = () => {
             <Image
               src={'/assets/auth/login-vector.png'}
               alt="LoginVector"
+              quality={100}
               width={534}
               height={388}
               className="mx-auto mb-8 h-auto w-auto"
             />
-            <h4 className="mb-5 text-3xl font-bold uppercase">Project al-fugu</h4>
+            <h4 className="mb-5 text-3xl font-bold uppercase">Project ai-fugu</h4>
             <p>
               Mauris pharetra imperdiet iaculis elementum nulla. Tellus morbi nunc non vitae enim
               amet. Faucibus eleifend sit leo varius suspendisse.

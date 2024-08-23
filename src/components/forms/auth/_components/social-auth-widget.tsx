@@ -15,7 +15,7 @@ const SocialAuthWidget = ({ google, github, linkedin, auth }: AppsAuthProps) => 
     <div className="flex flex-wrap items-center justify-center gap-4">
       {google && (
         <Link href={'#'}>
-          <Button variant="outline" className="flex gap-2 bg-white">
+          <Button variant="outline" className="flex gap-2 bg-primary-background">
             <CompanyGoogle className="mr-2 h-4 w-4" />
             Google
           </Button>
@@ -23,7 +23,7 @@ const SocialAuthWidget = ({ google, github, linkedin, auth }: AppsAuthProps) => 
       )}
       {github && (
         <Link href={'#'}>
-          <Button variant="outline" className="flex gap-2 bg-white">
+          <Button variant="outline" className="flex gap-2 bg-primary-background">
             <CompanyGithub className="mr-2 h-4 w-4" />
             Github
           </Button>
@@ -31,7 +31,7 @@ const SocialAuthWidget = ({ google, github, linkedin, auth }: AppsAuthProps) => 
       )}
       {linkedin && (
         <Link href={'#'}>
-          <Button variant="outline" className="flex gap-2 bg-white">
+          <Button variant="outline" className="flex gap-2 bg-primary-background">
             <CompanyLinkedin />
             Linkedin
           </Button>
