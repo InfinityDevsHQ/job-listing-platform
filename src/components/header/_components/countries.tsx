@@ -52,7 +52,7 @@ export const Countries = () => {
           <ChevronDownIcon className="ml-2 h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="mt-1 w-36 rounded-lg border bg-white p-1">
+      <DropdownMenuContent className="z-50 mt-1 w-36 rounded-lg border bg-white p-1">
         {countries?.map((country, index) => (
           <Fragment key={index}>
             {index === countries.length - 1 && <DropdownMenuSeparator />}
