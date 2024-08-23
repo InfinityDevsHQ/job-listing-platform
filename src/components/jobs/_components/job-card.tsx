@@ -25,14 +25,14 @@ export default function JobCard({ job }: JobProps) {
           <span className="text-xxs capitalize lg:text-sm">{job.employment_type}</span>
         </span>
         <span className="hidden h-full w-0.5 bg-gray-200 lg:inline-block"></span>
-        <span className="flex items-center gap-2.5">
-          <Locate className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
-          <span className="text-xxs capitalize lg:text-sm">{job.city}</span>
-        </span>
-        <span className="hidden h-full w-0.5 bg-gray-200 lg:inline-block"></span>
         <span className="flex items-center gap-2.5 border-r-2 border-gray-50">
           <BaggageClaim className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
           <span className="text-xxs capitalize lg:text-sm">1-3 Years</span>
+        </span>
+        <span className="hidden h-full w-0.5 bg-gray-200 lg:inline-block"></span>
+        <span className="flex items-center gap-2.5">
+          <Locate className="h-2.5 w-3 lg:h-3 lg:w-3.5" />
+          <span className="text-xxs capitalize lg:text-sm">{job.city}</span>
         </span>
         <span className="hidden h-full w-0.5 bg-gray-200 lg:inline-block"></span>
         <span className="flex items-center gap-2.5 border-r-2 border-gray-50">
