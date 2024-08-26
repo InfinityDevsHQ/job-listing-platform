@@ -80,6 +80,7 @@ export default function PostJobForm() {
               src={'/assets/post-jobs/post_poster.png'}
               alt="Location Poster"
               width={432}
+              quality={100}
               height={408}
               className="h-auto w-auto"
             />
