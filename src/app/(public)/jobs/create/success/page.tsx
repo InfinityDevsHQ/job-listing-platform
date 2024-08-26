@@ -10,24 +10,24 @@ export default function JobPostSuccess() {
         alt="party"
         className="absolute top-0"
       />
-      <div className="absolute flex flex-col gap-4 lg:gap-8">
+      <div className="absolute bottom-28 flex flex-col gap-4 md:bottom-14 lg:bottom-2 lg:gap-8 xl:bottom-4">
         <div className="flex items-center justify-center">
           <Image
             src="/assets/success.png"
             alt="Flowers"
             width={400}
             height={305}
-            className="hidden lg:inline-block"
+            className="hidden md:inline-block"
           />
           <Image
             src="/assets/success.png"
             alt="Flowers"
             width={200}
-            height={153}
-            className="lg:hidden"
+            height={200}
+            className="md:hidden"
           />
         </div>
-        <h3 className="text-center font-sans text-xl font-bold text-gray-700 lg:text-6xl">
+        <h3 className="text-center font-sans text-xl font-bold text-gray-700 sm:text-4xl md:text-5xl lg:text-6xl">
           Congratulations!
         </h3>
         <p className="text-center font-sans text-sm text-gray-500 lg:text-3xl">
