@@ -20,7 +20,7 @@ export default async function Candidates() {
         vectorUrl="/assets/candidates/candidate-hero.png"
         search
       />
-      <div className="flex flex-col gap-4 rounded-md bg-gray-50 p-4 lg:gap-8 lg:bg-transparent lg:p-8">
+      <div className="flex flex-col gap-4 rounded-md bg-gray-50 py-4 lg:gap-8 lg:bg-transparent lg:py-8">
         <ReactQueryHydrate state={dehydrate(queryClient)}>
           <CandidateList />
         </ReactQueryHydrate>

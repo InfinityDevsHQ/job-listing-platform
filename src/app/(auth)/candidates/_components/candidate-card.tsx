@@ -18,7 +18,7 @@ type CandidateCardProps = {
 };
 export default function CandidateCard({ candidateData }: CandidateCardProps) {
   return (
-    <div className="max-w-80 rounded-md border border-gray-200 bg-gray-50 p-4 lg:max-w-none">
+    <div className="max-w-96 rounded-md border border-gray-200 bg-gray-50 p-4 lg:max-w-none lg:px-8 lg:py-4">
       <div className="flex flex-col">
         <header className="mb-4 flex gap-4">
           <div className="flex items-center justify-center">
@@ -49,15 +49,16 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             Resume
           </Button>
         </div>
-        <div className="flex flex-col gap-4 p-4">
+        <div className="flex flex-col gap-4 py-4">
           <h4 className="text-base font-bold text-gray-700">About</h4>
           <p className="overflow-hidden text-ellipsis text-base text-gray-500 lg:max-h-12">
             {candidateData.about}
           </p>
         </div>
+        <h4 className="mb-4 text-base font-bold text-gray-700">Skillset</h4>
         {candidateData.skillSet?.length && (
           <Carousel
-            className="relative mb-4 flex w-full items-center justify-center"
+            className="relative my-4 flex w-full items-center justify-center"
             opts={{
               loop: true,
             }}
@@ -65,7 +66,7 @@ export default function CandidateCard({ candidateData }: CandidateCardProps) {
             <CarouselPrevious className="absolute left-0 top-0 translate-x-0 translate-y-0" />
             <CarouselContent className="flex max-w-80 items-center gap-2">
               {candidateData.skillSet?.map((skill, index) => (
-                <CarouselItem key={index} className="basis-1/4 !pl-0">
+                <CarouselItem key={index} className="mt-1 basis-1/4 !pl-0">
                   <Badge
                     text={skill}
                     color={getColorClasses(index)?.textColor}
