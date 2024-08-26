@@ -79,7 +79,7 @@ const UserInfo = () => {
                 <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
                   <ClockIcon className="h-5 w-5 text-neutral-950" />
                 </span>
-                <p className="flex h-full flex-col justify-between">
+                <p className="flex h-full flex-col justify-between truncate">
                   <span className="w-full truncate font-bold text-gray-700 lg:text-base">
                     Timezone
                   </span>

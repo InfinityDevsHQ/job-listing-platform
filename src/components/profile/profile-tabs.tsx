@@ -18,7 +18,7 @@ const ProfileTabs = () => {
   return (
     <>
       {user && (
-        <div className="flex flex-1 flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-3 lg:p-8">
+        <div className="flex flex-1 flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:p-8">
           <Tabs
             orientation="vertical"
             defaultValue="about"
