@@ -12,7 +12,7 @@ const AcceptedTab = ({ className }: AcceptedTabProps) => {
       message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, repellendus. Non eligendi
       nulla, possimus inventore quae magnam reiciendis a ab quo quis, laudantium quidem illum
       excepturi quibusdam ullam omnis corporis.`,
-      notifications: 1,
+      notifications: 8,
       senderType: 'Candidate',
       date: '13 April,2024',
       time: '01:23 PM',
@@ -23,7 +23,7 @@ const AcceptedTab = ({ className }: AcceptedTabProps) => {
       message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, repellendus. Non eligendi
       nulla, possimus inventore quae magnam reiciendis a ab quo quis, laudantium quidem illum
       excepturi quibusdam ullam omnis corporis.`,
-      notifications: 3,
+      notifications: 8,
       senderType: 'Company',
       date: '15 April,2024',
       time: '02:13 PM',
@@ -32,7 +32,7 @@ const AcceptedTab = ({ className }: AcceptedTabProps) => {
   ];
   return (
     <div
-      className={`w-82 flex-col gap-4 rounded-r-md border border-neutral-200  bg-white p-4 ${className}`}
+      className={`flex-col gap-4 rounded-r-md border border-neutral-200 bg-white p-4 lg:w-72 xl:w-82 ${className}`}
     >
       <div className="hidden lg:block">
         <Input

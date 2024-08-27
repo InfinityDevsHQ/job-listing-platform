@@ -21,7 +21,7 @@ const ContactCard = ({
 }: ContactCardProps) => {
   return (
     <li
-      className={`flex cursor-pointer flex-col gap-2.5 rounded-md  border-gray-200 p-2.5 lg:gap-4 lg:p-4 ${open ? 'border bg-gray-100 lg:border-gray-200' : 'border-y bg-white lg:border-transparent'}`}
+      className={`flex cursor-pointer flex-col gap-2.5 rounded-md  border-gray-200 p-2.5 hover:border hover:bg-gray-100 lg:gap-4 lg:p-4 hover:lg:border-gray-200 ${open ? 'border bg-gray-100 lg:border-gray-200' : 'border-y bg-white lg:border-transparent'}`}
     >
       <header className="flex items-center gap-5">
         <div className="flex items-center justify-center rounded-full">
@@ -37,9 +37,7 @@ const ContactCard = ({
               {notifications}
             </span>
           )}
-          <span className="hidden text-xxs text-gray-500 lg:inline-block">
-            {date} {time}
-          </span>
+          <span className="hidden text-xxs text-gray-500 lg:inline-block">{date}</span>
           <span className="self-end text-xxs text-gray-500 lg:hidden">{date}</span>
           <span className="self-end text-xxs text-gray-500">{time}</span>
         </div>
