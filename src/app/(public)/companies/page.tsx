@@ -13,24 +13,26 @@ export default async function Companies() {
     queryFn: getPromotedCompanies,
   });
   return (
-    <div className="relative mx-auto flex max-w-screen-2xl flex-col gap-4 border border-gray-200 bg-gray-50 p-4 lg:gap-8 lg:p-8">
-      <Image
-        src={'/assets/companies/white-vector.png'}
-        width={1411}
-        height={840}
-        alt="Vector"
-        className="absolute right-0 top-0"
-      />
-      <Hero
-        heading="Explore Companies Offering Job Opportunities"
-        desc="Amet nulla dolore ullam quia maxime laboriosam obcaecati nostrum ad aliquam, modi libero voluptatem doloribus voluptatibus!"
-        vectorUrl="/assets/companies/companies-hero.png"
-        search
-      />
-      <div className="z-10 flex items-center justify-center">
-        <ReactQueryHydrate state={dehydrate(queryClient)}>
-          <CompaniesGallery />
-        </ReactQueryHydrate>
+    <div className="p-4 lg:p-8">
+      <div className="relative mx-auto flex max-w-screen-2xl flex-col gap-4 border border-gray-200 bg-gray-50 p-4 lg:gap-8 lg:p-8">
+        <Image
+          src={'/assets/companies/white-vector.png'}
+          width={1411}
+          height={840}
+          alt="Vector"
+          className="absolute right-0 top-0"
+        />
+        <Hero
+          heading="Explore Companies Offering Job Opportunities"
+          desc="Amet nulla dolore ullam quia maxime laboriosam obcaecati nostrum ad aliquam, modi libero voluptatem doloribus voluptatibus!"
+          vectorUrl="/assets/companies/companies-hero.png"
+          search
+        />
+        <div className="z-10 flex items-center justify-center">
+          <ReactQueryHydrate state={dehydrate(queryClient)}>
+            <CompaniesGallery />
+          </ReactQueryHydrate>
+        </div>
       </div>
     </div>
   );

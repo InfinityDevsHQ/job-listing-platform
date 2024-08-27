@@ -13,7 +13,7 @@ export default function CompaniesGallery() {
   if (!companies?.length) return <p>Not found any promoted company</p>;
 
   return (
-    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8">
       {companies?.map((company, index) => <CompanyTile key={index} company={company} />)}
     </div>
   );
