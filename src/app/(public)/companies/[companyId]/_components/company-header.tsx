@@ -7,9 +7,9 @@ export default function CompanyHeader({ coverPhotoUrl, profilePhotoUrl }: Compan
   return (
     <header className="relative lg:mb-16">
       <div className="hidden items-center justify-center lg:flex">
-        <Image src={coverPhotoUrl} alt="cover photo" width={1600} height={456} />
+        <Image src={coverPhotoUrl} alt="cover photo" width={1600} height={456} quality={100} />
       </div>
-      <div className="absolute left-8 top-96 hidden h-[150px] w-[150px] items-center justify-center rounded-full bg-white lg:flex">
+      <div className="absolute bottom-0 left-8 hidden translate-y-1/2 items-center justify-center rounded-full bg-gray-100 lg:flex lg:h-[150px] lg:w-[150px]">
         <Image
           src={profilePhotoUrl}
           alt="profile"

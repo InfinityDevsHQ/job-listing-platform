@@ -1,7 +1,7 @@
 import CompanyCommunity from '@/components/svgs/company-community';
 import { Button } from '@/components/ui/button-new';
 import { Company } from '@/types/types';
-import { Mail } from 'lucide-react';
+import { Crosshair, Mail, Plus } from 'lucide-react';
 import Image from 'next/image';
 type CompanyInfoProps = {
   companyInfo: Company;
@@ -9,7 +9,7 @@ type CompanyInfoProps = {
 export default function CompanyInfo({ companyInfo }: CompanyInfoProps) {
   return (
     <>
-      <div className="flex items-center gap-4 lg:mt-14 lg:gap-8">
+      <div className="flex items-center gap-4 lg:gap-8">
         <div className="flex h-48 w-48 items-center justify-center rounded-full bg-gray-50 lg:hidden">
           <Image
             src={companyInfo.logo_url}
@@ -22,7 +22,10 @@ export default function CompanyInfo({ companyInfo }: CompanyInfoProps) {
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-2 lg:gap-4">
             <h4 className="text-base font-bold text-black lg:text-4xl">{companyInfo.name}</h4>
-            <Button variant="outline">Follow</Button>
+            <Button variant="outline" className="gap-2">
+              <Plus className="size-4" />
+              Follow
+            </Button>
           </div>
           <p className="text-sm text-gray-500 lg:hidden">{companyInfo.city}</p>
           <Button className="lg:hidden" variant={'primary'}>
@@ -40,7 +43,10 @@ export default function CompanyInfo({ companyInfo }: CompanyInfoProps) {
       <div className="flex w-full flex-col gap-4 border-gray-200 text-gray-500 lg:flex-row lg:gap-0 lg:divide-x-2">
         <div className="flex flex-1 justify-between lg:pr-6">
           <div className="flex items-center gap-2">
-            <p className="font-bold lg:text-xl">Field of Company</p>
+            <p className="flex items-center gap-2 font-bold lg:text-xl">
+              <Crosshair className="size-5" />
+              Field of Company
+            </p>
           </div>
           <p className="lg:text-xl">Education</p>
         </div>

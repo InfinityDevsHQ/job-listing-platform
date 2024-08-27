@@ -25,7 +25,7 @@ const CompanyBenefits = () => {
   return (
     <div className="flex flex-col gap-4 lg:gap-8">
       <SectionHeading text="Benefits" leadingIcon={<Stars height={18} width={24} />} />
-      <div className="flex flex-wrap items-center gap-2.5 text-gray-400 lg:gap-4">
+      <div className="flex flex-wrap items-center gap-2.5 text-gray-500 lg:gap-4">
         <Building2 size={28} />
         <BookOpenText size={28} />
         <DollarSign size={28} />
