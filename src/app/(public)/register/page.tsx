@@ -14,7 +14,7 @@ const Register = () => {
     state.setCurrentUserRole,
   ]);
   return (
-    <div className="relative grid h-screen items-center justify-center lg:grid-cols-2 lg:overflow-hidden">
+    <div className="relative grid h-full items-center justify-center lg:h-screen lg:grid-cols-2 lg:overflow-hidden">
       <Image
         src={'/assets/auth/login-poster.png'}
         alt="Login Poster"
@@ -22,8 +22,8 @@ const Register = () => {
         height={1000000}
         className="absolute left-0 top-0 -z-10 h-full w-full lg:hidden"
       />
-      <div className="flex h-screen items-center justify-center lg:overflow-y-auto">
-        <div className="flex flex-col gap-8 rounded-2xl  pt-32 lg:w-[500px]">
+      <div className="flex h-full items-center justify-center lg:h-full lg:overflow-y-auto">
+        <div className="flex flex-col gap-4 rounded-2xl  pt-8 lg:w-[500px] lg:gap-8 lg:pt-60">
           <Image
             src={'/assets/logo_white_vertical.png'}
             alt="Logo"
@@ -31,7 +31,7 @@ const Register = () => {
             height={86}
             className="mx-auto lg:hidden"
           />
-          <PageHeader title="Create your Account" />
+          <PageHeader containerClassName="md:py-0" title="Create your Account" />
           <Divider
             size={2}
             text="Select Method to Register"
@@ -41,7 +41,7 @@ const Register = () => {
           <SocialAuthWidget google linkedin github auth="register" />
           <Divider
             size={2}
-            text="OR"
+            text="or"
             mobileVariant={currentUserRole === 'candidate' ? 'primary' : 'secondary'}
             variant="light"
           />
