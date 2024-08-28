@@ -44,6 +44,7 @@ const UserInfo = () => {
                 alt={user?.profile_picture ? `${user?.name}'s Profile Photo` : 'Profile Avatar'}
                 width={150}
                 height={150}
+                quality={100}
                 className="rounded-full"
               />
             ) : (

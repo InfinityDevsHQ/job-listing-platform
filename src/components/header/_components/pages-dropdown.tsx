@@ -25,8 +25,8 @@ export const PagesDropdown = () => {
       link: '/companies',
     },
     {
-      name: 'Jobs',
-      link: '/jobs',
+      name: 'Job Details',
+      link: '/jobs/110',
     },
     {
       name: 'Create a Job',

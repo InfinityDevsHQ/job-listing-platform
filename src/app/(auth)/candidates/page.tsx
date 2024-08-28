@@ -14,18 +14,20 @@ export default async function Candidates() {
   });
   return (
     <div className="mx-auto max-w-screen-2xl bg-primary-50 p-4 lg:p-8">
-      <Hero
-        heading="Find best candidates for you!"
-        desc="Bibendum non id pharetra integer. Enim arcu accumsan diam tempus magna duis urna id."
-        vectorUrl="/assets/candidates/candidate-hero.png"
-        search
-      />
-      <div className="flex flex-col gap-4 rounded-md bg-gray-50 py-4 lg:gap-8 lg:bg-transparent lg:py-8">
-        <ReactQueryHydrate state={dehydrate(queryClient)}>
-          <CandidateList />
-        </ReactQueryHydrate>
+      <div className="rounded-md border border-gray-200 bg-white p-4 lg:border-none lg:bg-transparent lg:p-0">
+        <Hero
+          heading="Find best candidates for you!"
+          desc="Bibendum non id pharetra integer. Enim arcu accumsan diam tempus magna duis urna id."
+          vectorUrl="/assets/candidates/candidate-hero.png"
+          search
+        />
+        <div className="flex flex-col gap-4 rounded-md py-4 lg:gap-8 lg:bg-transparent lg:py-8">
+          <ReactQueryHydrate state={dehydrate(queryClient)}>
+            <CandidateList />
+          </ReactQueryHydrate>
+        </div>
+        <CandidatePagination />
       </div>
-      <CandidatePagination />
     </div>
   );
 }
