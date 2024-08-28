@@ -9,8 +9,8 @@ type CompanyInfoProps = {
 export default function CompanyInfo({ companyInfo }: CompanyInfoProps) {
   return (
     <>
-      <div className="flex items-center gap-4 lg:gap-8">
-        <div className="flex h-48 w-48 items-center justify-center rounded-full bg-gray-50 lg:hidden">
+      <div className="flex items-center gap-4 pb-4 lg:gap-8 lg:pb-0">
+        <div className="flex h-24 w-24 items-center justify-between rounded-full bg-gray-50  lg:hidden lg:h-48 lg:w-48 lg:justify-center">
           <Image
             src={companyInfo.logo_url}
             alt="profile"
