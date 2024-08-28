@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation';
 import { Countries } from './countries';
 import Navbar from './navbar';
 import { Notifications } from './notifications';
+import { PagesDropdown } from './pages-dropdown';
 import { ProfileDropdown } from './profile-dropdown';
 
 const Header = () => {
@@ -74,6 +75,7 @@ const Header = () => {
               <ProfileDropdown />
             </>
           )}
+          <PagesDropdown />
           <Countries />
         </div>
       </div>
