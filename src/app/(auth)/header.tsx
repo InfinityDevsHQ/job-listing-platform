@@ -27,10 +27,10 @@ const Header = () => {
             className="h-7 w-28 lg:h-10 lg:w-40"
           />
         </Link>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center md:gap-4">
           <Link
             href={'/companies'}
-            className="inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium"
+            className="hidden h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium lg:inline-flex"
           >
             Companies
           </Link>
@@ -40,6 +40,7 @@ const Header = () => {
           >
             <span>Inbox</span>
           </Link>
+
           <Countries />
           <Notifications />
           <ProfileDropdown />

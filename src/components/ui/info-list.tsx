@@ -27,7 +27,7 @@ const InfoList = ({
           {list?.map((listItem, index) => (
             <li
               key={index}
-              className={cn('flex gap-2 text-base  text-gray-500 lg:items-center', listClassName)}
+              className={cn('flex items-center gap-2 text-base text-gray-500', listClassName)}
             >
               {icon && icon}
               {listItem}
