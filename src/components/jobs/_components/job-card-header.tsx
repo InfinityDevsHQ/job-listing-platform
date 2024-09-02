@@ -21,7 +21,7 @@ export default function JobCardHeader({
     <header className="flex cursor-pointer items-center">
       <span
         className={cn(
-          'mr-5 flex items-center justify-center rounded-full p-2.5 lg:p-3',
+          'mr-2 flex items-center justify-center rounded-full p-2.5 md:mr-5 lg:p-3',
           is_hot ? 'bg-orange-50' : ' bg-primary-500/30',
           size === 'lg' ? 'lg:h-24 lg:w-24' : ''
         )}
