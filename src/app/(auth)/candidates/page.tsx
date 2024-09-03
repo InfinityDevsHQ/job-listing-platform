@@ -14,7 +14,7 @@ export default async function Candidates() {
   });
   return (
     <div className="mx-auto max-w-screen-2xl bg-primary-50 p-4 lg:p-8">
-      <div className="rounded-md border border-gray-200 bg-white p-4 lg:border-none lg:bg-transparent lg:p-0">
+      <div className="rounded-md border border-gray-200 bg-white py-4 xs:p-4 lg:border-none lg:bg-transparent lg:p-0">
         <Hero
           heading="Find best candidates for you!"
           desc="Bibendum non id pharetra integer. Enim arcu accumsan diam tempus magna duis urna id."
@@ -26,7 +26,9 @@ export default async function Candidates() {
             <CandidateList />
           </ReactQueryHydrate>
         </div>
-        <CandidatePagination />
+        <div className="mx-auto">
+          <CandidatePagination />
+        </div>
       </div>
     </div>
   );
