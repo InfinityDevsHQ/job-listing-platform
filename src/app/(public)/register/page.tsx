@@ -14,7 +14,7 @@ const Register = () => {
     state.setCurrentUserRole,
   ]);
   return (
-    <div className="relative grid h-full items-center justify-center lg:h-screen lg:grid-cols-2 lg:overflow-hidden">
+    <div className="relative grid h-full items-center justify-center p-4 md:p-0 lg:h-screen lg:grid-cols-2 lg:overflow-hidden">
       <Image
         src={'/assets/auth/login-poster.png'}
         alt="Login Poster"
