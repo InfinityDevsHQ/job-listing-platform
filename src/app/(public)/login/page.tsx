@@ -12,7 +12,7 @@ import Image from 'next/image';
 
 const Login = () => {
   return (
-    <div className="relative grid min-h-screen items-center justify-center overflow-x-hidden lg:grid-cols-2">
+    <div className="relative grid min-h-screen items-center justify-center overflow-x-hidden p-4 sm:px-0 lg:grid-cols-2">
       <Image
         src={'/assets/auth/login-poster.png'}
         alt="Login Poster"
@@ -32,7 +32,7 @@ const Login = () => {
         <Divider size={2} text="Select Method to Login" mobileVariant="primary" variant="light" />
         <SocialAuthWidget google linkedin github auth="login" />
         <Divider size={2} text="or" mobileVariant="primary" variant="light" />
-        <Tabs defaultValue="email-password" className="flex w-full flex-col gap-4">
+        <Tabs defaultValue="email-password" className="flex w-full flex-col flex-wrap gap-4">
           <TabsList className="bg-primary-50 lg:bg-transparent">
             <TabsTrigger value="email-password">Email / Password</TabsTrigger>
             <TabsTrigger value="password-less">Password Less</TabsTrigger>

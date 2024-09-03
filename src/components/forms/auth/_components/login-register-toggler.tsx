@@ -11,7 +11,9 @@ const LoginRegisterToggler = ({ currentPage }: LoginRegisterTogglerProps) => {
       </span>
       <Link
         href={currentPage === 'register' ? '/login' : '/register'}
-        className={cn('flex items-center gap-2 px-4 py-2 font-bold text-zinc-50 lg:text-primary')}
+        className={cn(
+          'flex items-center gap-2 py-2 font-bold text-zinc-50 xs:px-4 lg:text-primary'
+        )}
       >
         {currentPage === 'register' ? (
           <>
