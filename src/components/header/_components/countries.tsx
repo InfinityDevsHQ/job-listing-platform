@@ -33,7 +33,7 @@ export const Countries = () => {
 
   return (
     <DropdownMenu modal={false}>
-      <DropdownMenuTrigger asChild className="hidden lg:flex">
+      <DropdownMenuTrigger asChild className="hidden font-normal lg:flex">
         <Button variant={companyHeaderRoutes.includes(pathname) ? 'outline' : 'outline'}>
           {selectedCountry?.flag_icon ? (
             <>
@@ -60,7 +60,7 @@ export const Countries = () => {
               <span className="flex items-center gap-2 rounded-md px-4 py-1 hover:cursor-pointer hover:bg-gray-200">
                 <Image src={country.flag_icon} alt="test" width={20} height={20} />
                 <span className="-gap-1 flex flex-col">
-                  <span className="font-medium capitalize">{country.name}</span>
+                  <span className="capitalize text-gray-500">{country.name}</span>
                 </span>
               </span>
             </DropdownMenuItem>

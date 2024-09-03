@@ -13,7 +13,7 @@ export const Notifications = () => {
         <DropdownMenuTrigger asChild>
           <button
             type="button"
-            className="group relative inline-flex h-10 w-max items-center justify-center rounded-md bg-white p-2 text-sm font-medium"
+            className="group relative inline-flex h-10 w-max items-center justify-center rounded-md bg-white p-2 text-sm"
           >
             Notifications
             <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
