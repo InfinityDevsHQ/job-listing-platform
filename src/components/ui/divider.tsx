@@ -15,9 +15,9 @@ const Divider = ({ size, variant, mobileVariant, text }: DividerProps) => {
           'border-t-4': size == 4,
         })}
       />
-      <span className={cn('z-50 w-full max-w-max px-2 text-white lg:py-1 lg:text-neutral-700')}>
+      {/* <span className={cn('z-50 w-full max-w-max px-2 text-white lg:py-1 lg:text-neutral-700')}>
         {text}
-      </span>
+      </span> */}
       <span
         className={cn('relative flex-1 border-t border-gray-300', {
           'border-t-2': size == 2,
