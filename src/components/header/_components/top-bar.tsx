@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <header className="bg-white">
-      <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4 py-3.5 lg:px-16 lg:py-8">
+      <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4 py-3.5 lg:px-16 lg:py-4">
         <Link href={'/'}>
           <Image
             alt="logo"
