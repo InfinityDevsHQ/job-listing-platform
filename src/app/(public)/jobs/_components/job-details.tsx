@@ -42,7 +42,7 @@ export default function JobDetailsCard({ jobId }: { jobId: string }) {
             <InfoSection heading="Job requirements">
               <InfoList
                 className="text-neutral-900"
-                icon={<SendHorizonal className="h-6 w-3 text-primary-500 lg:mr-4 lg:w-4" />}
+                icon={<SendHorizonal className="h-5 w-3 text-primary-500 xs:h-6 lg:mr-4 lg:w-4" />}
                 list={job.job_requirements?.split('\n').map((item) => item.replace('• ', ''))}
               />
             </InfoSection>

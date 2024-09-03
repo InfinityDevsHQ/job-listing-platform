@@ -16,7 +16,7 @@ export default function JobInfoPanel({
   date,
 }: JobInfoPanelProps) {
   return (
-    <ol className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-1 lg:gap-8">
+    <ol className="grid grid-cols-2 gap-4 xs:grid-cols-3 lg:grid-cols-1 lg:gap-8">
       <JobInfoCard title="Salary" description={salary} />
       <JobInfoCard title="Job Type" description={jobType} />
       <JobInfoCard title="Applicants" description={`${applicants} Applicants`} />
