@@ -50,6 +50,20 @@ const config = {
           DEFAULT: 'hsl(0 72.22% 50.59%)',
           foreground: '#FFF',
         },
+
+        // Inbox Colors
+
+        inbox: {
+          primary: '#343338',
+          background: '#272729',
+          messageBackground: '#98979d',
+          backgroundDark: '#040718',
+          nameWhite: '#f8f9f6',
+          name: '#b2b1b6',
+          nameHalfWhite: '#98979d',
+          statusbg: '#3a8f64',
+          statustext: '#305142',
+        },
       },
       borderRadius: {
         'custom-20': '20px',
