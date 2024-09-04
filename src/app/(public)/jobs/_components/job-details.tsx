@@ -56,20 +56,22 @@ export default function JobDetailsCard({ jobId }: { jobId: string }) {
               />
             </InfoSection>
             <InfoSection heading="Required Skills">
-              <div className="flex flex-col items-center gap-4 lg:flex-row">
-                <div className="flex gap-4">
-                  {Skills.map((skill, index) => (
-                    <Badge
-                      key={index}
-                      text={skill}
-                      bgColor="bg-gray-100 border border-gray-200 text-gray-950"
-                    />
-                  ))}
+              <div className="flex flex-col items-center gap-4 lg:flex-row lg:justify-between">
+                <div className="flex flex-col items-center gap-4 lg:flex-row">
+                  <div className="flex gap-4">
+                    {Skills.map((skill, index) => (
+                      <Badge
+                        key={index}
+                        text={skill}
+                        bgColor="bg-gray-100 border border-gray-200 text-gray-950"
+                      />
+                    ))}
+                  </div>
+                  <ApplyJobModal jobId={jobId} skills={Skills} />
                 </div>
-                <ApplyJobModal jobId={jobId} skills={Skills} />
+                <JobFeedback />
               </div>
             </InfoSection>
-            <JobFeedback className="lg:flex lg:self-end" />
           </div>
           <div className="order-1 lg:order-2">
             <JobInfoPanel

@@ -25,7 +25,7 @@ const ContactCard = ({
     >
       <header className="flex items-center gap-5">
         <div className="flex items-center justify-center rounded-full">
-          <Image src={senderImgUrl} alt={`${senderName} Image`} width={50} height={40} />
+          <Image src={senderImgUrl} alt={`${senderName} Image`} width={40} height={40} />
         </div>
         <div className="flex flex-1 flex-col">
           <h4 className="text-base font-bold text-gray-700">{senderName}</h4>

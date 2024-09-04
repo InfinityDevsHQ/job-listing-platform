@@ -15,8 +15,8 @@ const Message = ({ type, text, sendImgUrl, timeStamp }: MessageProps) => {
           <Image
             src={sendImgUrl}
             alt="Sender Image"
-            width={50}
-            height={50}
+            width={40}
+            height={40}
             className="hidden xl:inline-block"
           />
         </div>
@@ -25,7 +25,7 @@ const Message = ({ type, text, sendImgUrl, timeStamp }: MessageProps) => {
         <div
           className={`rounded-md border p-2 lg:p-4 ${type === 'incoming' ? 'rounded-bl-none border-neutral-950 bg-primary-800 text-white' : 'rounded-br-none border-gray-200 bg-white text-mute-3'}`}
         >
-          <p className="text-xs lg:text-base">{text}</p>
+          <p className="text-xs lg:text-sm">{text}</p>
         </div>
         <p className={`text-xs text-mute-3 ${type === 'outgoing' ? 'ml-auto' : ''}`}>{timeStamp}</p>
       </div>

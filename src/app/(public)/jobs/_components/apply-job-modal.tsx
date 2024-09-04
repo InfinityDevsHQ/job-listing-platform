@@ -40,7 +40,7 @@ const ApplyJobModal = ({ jobId, skills }: { jobId: string; skills: string[] }) =
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <div className="flex w-full items-center">
+          <div className="flex items-center">
             <Button size="lg" className="max-w-max" variant={'primary'}>
               Apply <SendHorizonal className="ml-2 h-5 w-5" />
             </Button>

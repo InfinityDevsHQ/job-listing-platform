@@ -4,7 +4,7 @@ import { ThumbsDownIcon, ThumbsUpIcon } from 'lucide-react';
 type JobHeaderProps = {
   className?: string;
 };
-const JobFeedback = ({ className }: JobHeaderProps) => {
+const JobFeedback = ({ className = '' }: JobHeaderProps) => {
   return (
     <div
       className={`flex items-center justify-center gap-2 rounded-md border border-gray-200 px-4 py-2 xs:gap-4 sm:px-6 lg:max-w-lg lg:justify-between lg:px-8 ${className}`}

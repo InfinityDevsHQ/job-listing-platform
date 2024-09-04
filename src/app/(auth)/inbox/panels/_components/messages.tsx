@@ -23,38 +23,6 @@ const Messages = () => {
       senderImgUrl: '/assets/inbox/avatar.png',
       timeStamp: '06:30 PM',
     },
-    {
-      type: 'incoming',
-      text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit natus deleniti iste
-      possimus? Facere aliquid, velit perspiciatis pariatur repellat sequi accusamus placeat
-      eum! Illum placeat accusantium dolorum at autem quisquam.`,
-      senderImgUrl: '/assets/inbox/avatar.png',
-      timeStamp: '07:45 PM',
-    },
-    {
-      type: 'outgoing',
-      text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit natus deleniti iste
-      possimus? Facere aliquid, velit perspiciatis pariatur repellat sequi accusamus placeat
-      eum! Illum placeat accusantium dolorum at autem quisquam.`,
-      senderImgUrl: '/assets/inbox/avatar.png',
-      timeStamp: '07:45 PM',
-    },
-    {
-      type: 'incoming',
-      text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam exercitationem iure
-      distinctio. Deserunt eum quam et eveniet necessitatibus, voluptatem non! Ratione commodi
-      ipsam adipisci nulla impedit est maxime mollitia?`,
-      senderImgUrl: '/assets/inbox/avatar.png',
-      timeStamp: '08:20 PM',
-    },
-    {
-      type: 'outgoing',
-      text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam exercitationem iure
-      distinctio. Deserunt eum quam et eveniet necessitatibus, voluptatem non! Ratione commodi
-      ipsam adipisci nulla impedit est maxime mollitia?`,
-      senderImgUrl: '/assets/inbox/avatar.png',
-      timeStamp: '08:20 PM',
-    },
   ];
 
   return (
