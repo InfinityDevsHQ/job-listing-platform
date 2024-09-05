@@ -22,7 +22,7 @@ export default function JobCardHeader({
       <span
         className={cn(
           'mr-2 flex items-center justify-center rounded-full p-2.5 md:mr-5 lg:p-3',
-          is_hot ? 'bg-orange-50' : ' bg-primary-500/30',
+          is_hot ? 'bg-dark-background' : ' bg-dark-background',
           size === 'lg' ? 'lg:h-24 lg:w-24' : ''
         )}
       >
@@ -38,7 +38,7 @@ export default function JobCardHeader({
         <div className="flex items-center lg:gap-4">
           <h3
             className={cn(
-              'font-semibold',
+              'font-semibold text-dark-nameWhite',
               size === 'default' ? 'text-base' : '',
               size === 'lg' ? 'lg:text-4xl' : ''
             )}
@@ -47,7 +47,7 @@ export default function JobCardHeader({
           </h3>
           <span
             className={
-              'hidden items-center justify-center rounded-md bg-green-500 px-2 py-1 text-xs font-semibold text-white shadow-md lg:flex'
+              'hidden items-center justify-center rounded-md bg-dark-statustext px-2 py-1 text-xs font-semibold text-dark-statusbg shadow-md lg:flex'
             }
           >
             Urgent
@@ -65,7 +65,7 @@ export default function JobCardHeader({
         </div>
       </div>
       <Button
-        className="flex h-8 w-8 rounded-md"
+        className={`flex h-8 w-8 rounded-md border-dark-background3 ${saved ? 'bg-primary' : 'bg-dark-primary'}`}
         variant={saved ? 'primary' : 'outline'}
         size={'icon'}
         onClick={(e) => {

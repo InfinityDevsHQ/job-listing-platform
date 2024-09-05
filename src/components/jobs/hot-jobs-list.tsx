@@ -22,7 +22,9 @@ const HotJobs = () => {
     return <JobCardSkeleton />;
   }
   if (!jobs.length) {
-    return <h3 className="mt-2 text-center text-sm font-semibold text-gray-900">No Jobs found</h3>;
+    return (
+      <h3 className="mt-2 text-center text-sm font-semibold text-dark-nameWhite">No Jobs found</h3>
+    );
   }
 
   return (

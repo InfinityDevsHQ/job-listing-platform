@@ -27,7 +27,7 @@ export default async function RootLayout({
   const dehydratedState = dehydrate(queryClient);
   return (
     <html lang="en">
-      <body className={`${GeistSans.variable} h-auto bg-primary-50`}>
+      <body className={`${GeistSans.variable} h-auto bg-dark-backgroundDark`}>
         <main className="mx-auto h-full w-full">
           <RqProvider>
             <ReactQueryHydrate state={dehydratedState}>

@@ -4,7 +4,7 @@ import { cva } from 'class-variance-authority';
 import * as React from 'react';
 
 const inputVariants = cva(
-  'p-2 h-10 w-full peer border border-gray-300 rounded-md bg-white text-black placeholder-gray-400 outline-none transition-all duration-300',
+  'p-2 h-10 w-full peer border border-dark-primary rounded-md bg-dark-background text-dark-name placeholder-gray-400 outline-none transition-all duration-300',
   {
     variants: {
       variant: {
@@ -49,7 +49,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             type="button"
             onClick={onClickTrailing}
             className={cn(
-              'absolute right-2 top-1/2 -translate-y-1/2 text-neutral-400 transition-all duration-300',
+              'absolute right-2 top-1/2 -translate-y-1/2 text-dark-name transition-all duration-300',
               {
                 'cursor-pointer': onClickTrailing,
               }
