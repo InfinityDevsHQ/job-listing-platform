@@ -20,7 +20,7 @@ const Login = () => {
         height={10000}
         className="absolute left-0 top-0 -z-10 h-full w-full lg:hidden"
       />
-      <div className="col-span-2 mx-auto flex w-full max-w-xl flex-col gap-4 rounded-2xl lg:col-span-1 lg:gap-8 lg:bg-primary-50">
+      <div className="lg:bg-dark-backgroundDar col-span-2 mx-auto flex w-full max-w-xl flex-col gap-4 rounded-2xl lg:col-span-1 lg:gap-8">
         <Image
           src={'/assets/logo_white_vertical.png'}
           alt="Logo"
@@ -33,7 +33,7 @@ const Login = () => {
         <SocialAuthWidget google linkedin github auth="login" />
         <Divider size={2} text="or" mobileVariant="primary" variant="light" />
         <Tabs defaultValue="email-password" className="flex w-full flex-col flex-wrap gap-4">
-          <TabsList className="bg-primary-50 lg:bg-transparent">
+          <TabsList className="bg-primary-50 lg:bg-dark-greenDark">
             <TabsTrigger value="email-password">Email / Password</TabsTrigger>
             <TabsTrigger value="password-less">Password Less</TabsTrigger>
           </TabsList>
@@ -46,7 +46,7 @@ const Login = () => {
         </Tabs>
         <LoginRegisterToggler currentPage="login" />
       </div>
-      <div className="relative hidden h-full w-full lg:block">
+      <div className="relative hidden h-full w-full bg-dark-greenLight lg:block">
         <Image
           src={'/assets/auth/login-poster.png'}
           alt="Login Poster"

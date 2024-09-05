@@ -72,7 +72,7 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
                 <Input
                   {...field}
                   placeholder="Email"
-                  leadingIcon={<CompanyMail width={14} height={11} />}
+                  leadingIcon={<CompanyMail width={14} height={11} className="text-dark-name" />}
                 />
               </FormControl>
               <FormMessage />
@@ -90,7 +90,7 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
                     {...field}
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Password"
-                    leadingIcon={<CompanyLock width={14} height={15} />}
+                    leadingIcon={<CompanyLock width={14} height={15} className="text-dark-name" />}
                     trailingIcon={
                       showPassword ? (
                         <EyeOffIcon className="h-4 w-4" />

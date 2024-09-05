@@ -11,7 +11,7 @@ export default function PageHeader({
   return (
     <header className={`sm:py-5 ${containerClassName}`}>
       <h3
-        className={`text-center text-2xl font-bold text-white lg:text-3xl lg:text-neutral-700 ${className}`}
+        className={`text-center text-2xl font-bold text-dark-nameWhite lg:text-3xl lg:text-dark-nameWhite ${className}`}
       >
         {title}
       </h3>
