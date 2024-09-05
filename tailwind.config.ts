@@ -64,8 +64,8 @@ const config = {
           nameWhite: '#f8f9f6',
           name: '#b2b1b6',
           nameHalfWhite: '#98979d',
-          statusbg: '#3a8f64',
-          statustext: '#305142',
+          greenLight: '#3a8f64',
+          greenDark: '#305142',
         },
       },
       borderRadius: {

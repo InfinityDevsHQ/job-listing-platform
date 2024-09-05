@@ -33,7 +33,7 @@ const ContactCard = ({
         </div>
         <div className="flex flex-col">
           <div>
-            <p className="rounded-3xl bg-dark-statustext px-2 py-0.5 text-dark-statusbg">Hiring</p>
+            <p className="rounded-3xl bg-dark-greenDark px-2 py-0.5 text-dark-greenLight">Hiring</p>
           </div>
           {/* {notifications && (
             <span className="mb-auto flex h-4 w-4  items-center justify-center self-end rounded-full bg-red-500 text-center text-xs text-gray-50">

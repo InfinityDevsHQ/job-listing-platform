@@ -27,7 +27,7 @@ export default function JobDetailsCard({ jobId }: { jobId: string }) {
   ];
   if (job)
     return (
-      <div className="flex flex-col gap-4 bg-white p-4 lg:gap-8 lg:p-8">
+      <div className="flex flex-col gap-4 rounded-md bg-dark-background p-4 lg:gap-8 lg:p-8">
         <JobCardHeader
           title={job.title || ''}
           company="Semrush"
@@ -37,22 +37,24 @@ export default function JobDetailsCard({ jobId }: { jobId: string }) {
         <section className="flex flex-col gap-5 lg:flex-row lg:justify-between">
           <div className="order-2 flex flex-1 flex-col gap-4 lg:order-1 lg:gap-8">
             <InfoSection heading="About">
-              <p className="text-xs text-gray-500 lg:text-base">{job.short_description}</p>
+              <p className="text-xs text-dark-name lg:text-base">{job.short_description}</p>
             </InfoSection>
             <InfoSection heading="Job requirements">
               <InfoList
                 className="text-neutral-900"
-                icon={<SendHorizonal className="h-5 w-3 text-primary-500 xs:h-6 lg:mr-4 lg:w-4" />}
+                icon={
+                  <SendHorizonal className="h-5 w-3 text-dark-greenLight xs:h-6 lg:mr-4 lg:w-4" />
+                }
                 list={job.job_requirements?.split('\n').map((item) => item.replace('• ', ''))}
               />
             </InfoSection>
             <InfoSection heading="Responsibilities">
-              <p className="text-xs text-gray-500 lg:text-base">{job.description}</p>
+              <p className="text-xs text-dark-name lg:text-base">{job.description}</p>
             </InfoSection>
             <InfoSection heading="Welcomed Skills">
               <InfoList
                 list={WelcomedSkills}
-                icon={<SendHorizonal className="h-6 w-3 text-primary-500 lg:mr-4 lg:w-4" />}
+                icon={<SendHorizonal className="h-6 w-3 text-dark-greenLight lg:mr-4 lg:w-4" />}
               />
             </InfoSection>
             <InfoSection heading="Required Skills">
@@ -63,7 +65,7 @@ export default function JobDetailsCard({ jobId }: { jobId: string }) {
                       <Badge
                         key={index}
                         text={skill}
-                        bgColor="bg-gray-100 border border-gray-200 text-gray-950"
+                        bgColor="bg-dark-primary border border-neutral-700 text-dark-nameWhite"
                       />
                     ))}
                   </div>

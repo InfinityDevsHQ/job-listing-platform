@@ -28,7 +28,7 @@ const JobsList = () => {
       {jobs?.map((job, index) => <JobCard key={index} job={job} />)}
       {hasNextPage && (
         <>
-          <div className="hidden items-center justify-between rounded-md bg-dark-primaryDark p-8 lg:flex">
+          <div className="hidden items-center justify-between rounded-md bg-dark-greenDark p-8 lg:flex">
             <h4 className="font-bold capitalize text-dark-nameWhite lg:text-2xl">
               There are thousands of jobs waiting for you
             </h4>
