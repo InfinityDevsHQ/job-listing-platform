@@ -45,7 +45,7 @@ export default function Subscribe() {
                     placeholder="Email"
                     name="Mail"
                     leadingIcon={<MailIcon className="stroke-gray-400" />}
-                    className="peer h-10 w-full rounded-md border border-gray-300 bg-white p-2 pl-7 text-black placeholder-gray-400 outline-none transition-all duration-300 lg:min-w-[600px]"
+                    className="peer h-10 w-full rounded-md border border-dark-primary bg-dark-background p-2 pl-7 text-dark-nameWhite placeholder-dark-name outline-none transition-all duration-300 lg:min-w-[600px]"
                   />
                 </FormControl>
                 <FormMessage />
