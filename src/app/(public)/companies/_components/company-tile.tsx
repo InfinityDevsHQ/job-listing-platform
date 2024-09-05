@@ -16,6 +16,7 @@ const CompanyTile = ({ company }: CompanyTileProps) => {
         alt="Logo"
         width={118}
         height={80}
+        quality={100}
         className="h-16 w-auto lg:h-20"
       />
       <h5 className="hidden text-base font-bold text-neutral-950 lg:block">{company.name}</h5>

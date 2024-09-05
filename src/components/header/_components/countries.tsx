@@ -33,7 +33,7 @@ export const Countries = () => {
 
   return (
     <DropdownMenu modal={false}>
-      <DropdownMenuTrigger asChild className="hidden lg:flex">
+      <DropdownMenuTrigger asChild className="hidden font-normal lg:flex">
         <Button variant={companyHeaderRoutes.includes(pathname) ? 'outline' : 'outline'}>
           {selectedCountry?.flag_icon ? (
             <>
@@ -52,15 +52,15 @@ export const Countries = () => {
           <ChevronDownIcon className="ml-2 h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-52 bg-white">
+      <DropdownMenuContent className="z-50 mt-1 w-36 rounded-lg border bg-white p-1">
         {countries?.map((country, index) => (
           <Fragment key={index}>
             {index === countries.length - 1 && <DropdownMenuSeparator />}
             <DropdownMenuItem onSelect={() => handleSelectCountry(country)}>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 rounded-md px-4 py-1 hover:cursor-pointer hover:bg-gray-200">
                 <Image src={country.flag_icon} alt="test" width={20} height={20} />
                 <span className="-gap-1 flex flex-col">
-                  <span className="font-medium capitalize">{country.name}</span>
+                  <span className="capitalize text-gray-500">{country.name}</span>
                 </span>
               </span>
             </DropdownMenuItem>

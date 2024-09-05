@@ -9,9 +9,11 @@ const CompanyTabs = () => {
   return (
     <Tabs defaultValue="about" className="lg:hidden">
       <TabsList>
-        <TabsTrigger value="about">About</TabsTrigger>
-        <TabsTrigger value="contact">Contacts</TabsTrigger>
-        <TabsTrigger value="job-openings">Job Openings</TabsTrigger>
+        <span className="rounded-md bg-primary-50 p-1">
+          <TabsTrigger value="about">About</TabsTrigger>
+          <TabsTrigger value="contact">Contacts</TabsTrigger>
+          <TabsTrigger value="job-openings">Job Openings</TabsTrigger>
+        </span>
       </TabsList>
       <TabsContent value="about">
         <CompanyAbout />
@@ -35,7 +37,9 @@ const CompanyTabs = () => {
             </p>
             <div className="flex items-center gap-2.5">
               <Input placeholder="Email" type="email" />
-              <Button className="self-end">Subscribe</Button>
+              <Button variant="primary" className="self-end bg-primary">
+                Subscribe
+              </Button>
             </div>
           </div>
         </div>

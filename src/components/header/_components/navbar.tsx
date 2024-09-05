@@ -25,7 +25,7 @@ const Navbar = ({ links }: NavbarProps) => {
               <Link
                 href={link.href}
                 className={cn(
-                  `inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium ${pathname === link.href ? 'text-primary' : 'text-neutral-950'}`
+                  `inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-normal lg:text-base ${pathname === link.href ? 'text-primary' : 'text-neutral-950'}`
                 )}
               >
                 {link.text}

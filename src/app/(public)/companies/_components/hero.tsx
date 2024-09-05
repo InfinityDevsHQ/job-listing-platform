@@ -41,7 +41,7 @@ const Hero = ({
         )}
       >
         <h2 className="text-lg font-bold capitalize text-white lg:text-3xl">{heading}</h2>
-        {desc && <p className="text-base text-white">{desc}</p>}
+        {desc && <p className="hidden text-base text-white md:block">{desc}</p>}
         {search && (
           <Input
             leadingIcon={<SearchIcon />}
@@ -60,6 +60,7 @@ const Hero = ({
           src={vectorUrl}
           width={200}
           height={163}
+          quality={100}
           className="ml-auto hidden lg:block"
         />
       )}

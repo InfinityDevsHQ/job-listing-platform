@@ -12,7 +12,7 @@ import Image from 'next/image';
 
 const Login = () => {
   return (
-    <div className="relative grid min-h-screen items-center justify-center overflow-x-hidden lg:grid-cols-2">
+    <div className="relative grid min-h-screen items-center justify-center overflow-x-hidden p-4 sm:px-0 lg:grid-cols-2">
       <Image
         src={'/assets/auth/login-poster.png'}
         alt="Login Poster"
@@ -20,7 +20,7 @@ const Login = () => {
         height={10000}
         className="absolute left-0 top-0 -z-10 h-full w-full lg:hidden"
       />
-      <div className="col-span-2 mx-auto  flex w-full max-w-xl flex-col gap-8 rounded-2xl lg:col-span-1 lg:bg-primary-50">
+      <div className="col-span-2 mx-auto flex w-full max-w-xl flex-col gap-4 rounded-2xl lg:col-span-1 lg:gap-8 lg:bg-primary-50">
         <Image
           src={'/assets/logo_white_vertical.png'}
           alt="Logo"
@@ -28,11 +28,11 @@ const Login = () => {
           height={86}
           className="mx-auto lg:hidden"
         />
-        <PageHeader title="Login to your Account" />
+        <PageHeader containerClassName="lg:pt-20" title="Login to your Account" />
         <Divider size={2} text="Select Method to Login" mobileVariant="primary" variant="light" />
         <SocialAuthWidget google linkedin github auth="login" />
-        <Divider size={2} text="OR" mobileVariant="primary" variant="light" />
-        <Tabs defaultValue="email-password" className="flex w-full flex-col gap-4">
+        <Divider size={2} text="or" mobileVariant="primary" variant="light" />
+        <Tabs defaultValue="email-password" className="flex w-full flex-col flex-wrap gap-4">
           <TabsList className="bg-primary-50 lg:bg-transparent">
             <TabsTrigger value="email-password">Email / Password</TabsTrigger>
             <TabsTrigger value="password-less">Password Less</TabsTrigger>
@@ -59,11 +59,12 @@ const Login = () => {
             <Image
               src={'/assets/auth/login-vector.png'}
               alt="LoginVector"
+              quality={100}
               width={534}
               height={388}
               className="mx-auto mb-8 h-auto w-auto"
             />
-            <h4 className="mb-5 text-3xl font-bold uppercase">Project al-fugu</h4>
+            <h4 className="mb-5 text-3xl font-bold uppercase">Project ai-fugu</h4>
             <p>
               Mauris pharetra imperdiet iaculis elementum nulla. Tellus morbi nunc non vitae enim
               amet. Faucibus eleifend sit leo varius suspendisse.

@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        xs: '400px',
+      },
       fontSize: {
         xxs: [
           '10px',
@@ -30,6 +33,7 @@ const config = {
         primary: {
           DEFAULT: '#4f46e5',
           foreground: '#ffffff',
+          background: '#fafafa',
           ...colors.indigo,
         },
         secondary: {
@@ -45,6 +49,23 @@ const config = {
         destructive: {
           DEFAULT: 'hsl(0 72.22% 50.59%)',
           foreground: '#FFF',
+        },
+
+        // Inbox Colors
+
+        dark: {
+          primary: '#343338',
+          background: '#272729',
+          messageBackground: '#98979d',
+          background2: '#191d28',
+          background3: '#424348',
+
+          backgroundDark: '#040718',
+          nameWhite: '#f8f9f6',
+          name: '#b2b1b6',
+          nameHalfWhite: '#98979d',
+          statusbg: '#3a8f64',
+          statustext: '#305142',
         },
       },
       borderRadius: {

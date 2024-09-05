@@ -7,7 +7,9 @@ const SectionHeader = ({ leadingIcon, heading, helpText }: SectionHeaderProps) =
         <div className="flex items-center justify-center gap-4">
           {leadingIcon && leadingIcon}
           {heading && (
-            <h4 className="text-2xl font-semibold text-neutral-950 lg:text-3xl">{heading}</h4>
+            <h4 className="text-base font-semibold text-neutral-950 sm:text-xl md:text-2xl lg:text-3xl">
+              {heading}
+            </h4>
           )}
         </div>
       )}

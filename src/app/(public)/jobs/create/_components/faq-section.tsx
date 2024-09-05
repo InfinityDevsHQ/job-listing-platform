@@ -64,13 +64,9 @@ const FAQSection = () => {
         Frequently asked questions.
       </h2>
       <Accordion type="single" className="w-full" collapsible>
-        <div className="grid grid-cols-2 items-center gap-4">
+        <div className="grid items-center gap-4 sm:grid-cols-2">
           {Questions.map((question, index) => (
-            <AccordionItem
-              key={index}
-              value={question.question}
-              className="col-span-2 w-full bg-white lg:col-span-1"
-            >
+            <AccordionItem key={index} value={question.question} className="w-full bg-white">
               <AccordionTrigger>{question.question}</AccordionTrigger>
               <AccordionContent>{question.answer}</AccordionContent>
             </AccordionItem>

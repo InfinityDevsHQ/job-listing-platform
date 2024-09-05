@@ -7,7 +7,7 @@ import SectionHeader from '@/components/ui/section-header';
 import { GET_PROMOTED_COMPANIES_KEY } from '@/hooks/usePromotedCompanies';
 import { getPromotedCompanies } from '@/lib/companies';
 import { dehydrate } from '@tanstack/react-query';
-import { List, Plane } from 'lucide-react';
+import { List, RocketIcon } from 'lucide-react';
 import { useGetJobsPrefetch } from '../utils/rq/hooks/use-jobs';
 import { getQueryClient } from '../utils/rq/react-query-client';
 import { ReactQueryHydrate } from '../utils/rq/react-query-hydrate';
@@ -28,12 +28,14 @@ export default async function Home() {
         <div className="col-span-2 flex flex-col gap-8">
           <JobListingSearchBard />
           <RecommendedJobs />
-          <div className="flex max-w-96 flex-col items-center justify-center gap-4  lg:hidden">
+          <div className="flex flex-col items-center justify-center gap-4 sm:items-start lg:hidden">
             <SectionHeader
               heading="Companies that will grow you forward."
-              leadingIcon={<Plane className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
+              leadingIcon={<RocketIcon className="h-6 w-6 text-red-500 lg:h-7 lg:w-7" />}
             />
-            <CompaniesCarousel />
+            <div className="flex w-full max-w-[290px] sm:max-w-96">
+              <CompaniesCarousel />
+            </div>
           </div>
           <SectionHeader leadingIcon={<List className="text-red-500" />} heading="All Offers" />
           <JobsList />
@@ -41,7 +43,7 @@ export default async function Home() {
         <div className="hidden flex-col items-center gap-8 lg:flex">
           <SectionHeader
             heading="Companies that will grow you forward."
-            leadingIcon={<Plane className="h-6 w-6 text-red-500 lg:h-7 lg:w-6" />}
+            leadingIcon={<RocketIcon className="h-6 w-6 text-red-500 lg:h-7 lg:w-7" />}
           />
           <CompaniesList />
         </div>

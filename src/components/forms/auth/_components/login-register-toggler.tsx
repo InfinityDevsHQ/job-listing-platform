@@ -5,13 +5,15 @@ type LoginRegisterTogglerProps = {
 };
 const LoginRegisterToggler = ({ currentPage }: LoginRegisterTogglerProps) => {
   return (
-    <div className="mb-8 flex items-center justify-center gap-2">
+    <div className="mb-4 flex items-center justify-center gap-2 sm:mb-8">
       <span className="text-white lg:text-gray-800">
         {currentPage === 'register' ? `Already have an account?` : `Don't have an account?`}
       </span>
       <Link
         href={currentPage === 'register' ? '/login' : '/register'}
-        className={cn('flex items-center gap-2 font-bold text-zinc-50 lg:text-primary-800')}
+        className={cn(
+          'flex items-center gap-2 py-2 font-bold text-zinc-50 xs:px-4 lg:text-primary'
+        )}
       >
         {currentPage === 'register' ? (
           <>
@@ -19,7 +21,7 @@ const LoginRegisterToggler = ({ currentPage }: LoginRegisterTogglerProps) => {
           </>
         ) : (
           <>
-            <span>Register</span>
+            <span>Register Now</span>
           </>
         )}
       </Link>

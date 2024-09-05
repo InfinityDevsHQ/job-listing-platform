@@ -13,7 +13,7 @@ type CompanyMainPanelProps = {
 };
 export default function CompanyMainPanel({ companyInfo }: CompanyMainPanelProps) {
   return (
-    <div className="flex flex-col gap-4 lg:col-span-2 lg:gap-8">
+    <div className="flex flex-col gap-4 lg:col-span-3 lg:gap-8">
       <CompanyInfo companyInfo={companyInfo} />
       <span className="border border-gray-200" />
       <CompanyBenefits />

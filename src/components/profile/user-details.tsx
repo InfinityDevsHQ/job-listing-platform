@@ -9,7 +9,7 @@ const UserDetails = () => {
   const [showEditForm, setShowEditForm] = useState(false);
   return (
     <>
-      <div className="flex flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:col-span-1 lg:gap-8 lg:p-8">
+      <div className="flex flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:w-[410px] lg:gap-8 lg:p-8">
         {!showEditForm ? (
           <>
             <UserInfo />

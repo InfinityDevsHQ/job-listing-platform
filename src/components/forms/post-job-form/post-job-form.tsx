@@ -5,7 +5,17 @@ import Input from '@/components/ui/input';
 import TextArea from '@/components/ui/text-area';
 import { postJobListing } from '@/lib/jobs';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { LoaderCircleIcon, RefreshCcw } from 'lucide-react';
+import {
+  ArrowLeftFromLine,
+  ArrowRightFromLine,
+  Building,
+  DollarSign,
+  Languages,
+  LoaderCircleIcon,
+  MapPin,
+  RefreshCcw,
+  User,
+} from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -80,6 +90,7 @@ export default function PostJobForm() {
               src={'/assets/post-jobs/post_poster.png'}
               alt="Location Poster"
               width={432}
+              quality={100}
               height={408}
               className="h-auto w-auto"
             />
@@ -106,7 +117,11 @@ export default function PostJobForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder={'City'} />
+                    <Input
+                      {...field}
+                      leadingIcon={<Building className="size-4" />}
+                      placeholder={'City'}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -118,7 +133,11 @@ export default function PostJobForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder={'Employment'} />
+                    <Input
+                      {...field}
+                      placeholder={'Employment'}
+                      leadingIcon={<User className="size-4" />}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -130,7 +149,11 @@ export default function PostJobForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder={'Germany'} />
+                    <Input
+                      {...field}
+                      placeholder={'Germany'}
+                      leadingIcon={<MapPin className="size-4" />}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -142,7 +165,11 @@ export default function PostJobForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder={'Language'} />
+                    <Input
+                      {...field}
+                      placeholder={'Language'}
+                      leadingIcon={<Languages className="size-4" />}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -155,7 +182,12 @@ export default function PostJobForm() {
                 render={({ field }) => (
                   <FormItem className="flex-1">
                     <FormControl>
-                      <Input {...field} type="number" placeholder={'From'} />
+                      <Input
+                        {...field}
+                        type="number"
+                        placeholder={'From'}
+                        leadingIcon={<ArrowRightFromLine className="size-4" />}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -167,7 +199,12 @@ export default function PostJobForm() {
                 render={({ field }) => (
                   <FormItem className="flex-1">
                     <FormControl>
-                      <Input {...field} type="number" placeholder={'To'} />
+                      <Input
+                        {...field}
+                        type="number"
+                        placeholder={'To'}
+                        leadingIcon={<ArrowLeftFromLine className="size-4" />}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -180,7 +217,11 @@ export default function PostJobForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder={'EUR'} />
+                    <Input
+                      {...field}
+                      placeholder={'EUR'}
+                      leadingIcon={<DollarSign className="size-4" />}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
-import { subscribe } from '@/lib/newsletter';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { MailIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
@@ -26,21 +26,27 @@ export default function Subscribe() {
         className="flex flex-col items-center justify-center gap-4 lg:flex-row lg:justify-between"
         onSubmit={form.handleSubmit(onSubmit)}
       >
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 lg:max-w-xl">
           <h2 className="text-xl font-semibold  lg:text-2xl">Sign Up for Our Newsletter</h2>
           <p className="hidden text-xs lg:block lg:text-lg">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate totam omnis sunt
             repellendus possimus! Velit,
           </p>
         </div>
-        <div className="flex flex-shrink-0 items-center justify-center gap-2 lg:max-w-xl">
+        <div className="flex flex-shrink-0 items-center justify-center gap-2">
           <FormField
             name="email"
             control={form.control}
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input {...field} placeholder="Email" name="Mail" />
+                  <Input
+                    {...field}
+                    placeholder="Email"
+                    name="Mail"
+                    leadingIcon={<MailIcon className="stroke-gray-400" />}
+                    className="peer h-10 w-full rounded-md border border-gray-300 bg-white p-2 pl-7 text-black placeholder-gray-400 outline-none transition-all duration-300 lg:min-w-[600px]"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

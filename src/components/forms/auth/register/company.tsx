@@ -50,7 +50,7 @@ export default function RegisterCandidateForm() {
 
   return (
     <Form {...form}>
-      <form className="flex flex-col gap-8" onSubmit={form.handleSubmit(onSubmit)}>
+      <form className="flex flex-col gap-4 lg:gap-8" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="company_name"
