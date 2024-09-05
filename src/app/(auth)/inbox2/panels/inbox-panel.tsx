@@ -35,15 +35,15 @@ const InboxPanel = ({ className }: InboxPanelProps) => {
   return (
     <div
       className={cn(
-        'flex flex-col gap-4 rounded-l-2xl border border-inbox-primary  bg-white p-4 lg:w-48 xl:w-72',
+        'flex flex-col gap-4 rounded-l-2xl border border-dark-primary  bg-white p-4 lg:w-48 xl:w-72',
         className
       )}
     >
       <div className="hidden w-full lg:block">
         <Input
-          className="rounded-full bg-inbox-primary py-3 pl-8 text-inbox-name"
+          className="rounded-full bg-dark-primary py-3 pl-8 text-dark-name"
           placeholder="Search"
-          leadingIcon={<MagnifyingGlassIcon className="text-inbox-name" />}
+          leadingIcon={<MagnifyingGlassIcon className="text-dark-name" />}
           // trailingIcon={<CompanyEye width={16} height={16} />}
         />
       </div>
@@ -51,21 +51,21 @@ const InboxPanel = ({ className }: InboxPanelProps) => {
       <div className="flex items-center justify-between">
         <Button
           variant="tertiary"
-          className="justify-start rounded-none border-transparent p-1 text-inbox-name  lg:h-8"
+          className="justify-start rounded-none border-transparent p-1 text-dark-name  lg:h-8"
           size="lg"
         >
           All
         </Button>
         <Button
           variant="tertiary"
-          className="justify-start rounded-none border-b border-inbox-name p-1 text-inbox-name lg:h-8"
+          className="justify-start rounded-none border-b border-dark-name p-1 text-dark-name lg:h-8"
           size="lg"
         >
           Unread
         </Button>
         <Button
           variant="tertiary"
-          className="justify-start rounded-none border-transparent p-1 text-inbox-name hover:border-b lg:h-8"
+          className="justify-start rounded-none border-transparent p-1 text-dark-name hover:border-b lg:h-8"
           size="lg"
         >
           Sent

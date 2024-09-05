@@ -7,17 +7,17 @@ type ChatPanelProps = {
 };
 const ChatPanel = ({ className = '' }: ChatPanelProps) => {
   return (
-    <div className={`chat-pane flex-1 flex-col border border-inbox-primary lg:flex ${className}`}>
+    <div className={`chat-pane flex-1 flex-col border border-dark-primary lg:flex ${className}`}>
       <ChatHeader />
       <Messages />
-      <div className="mx-2 -mt-[60px] flex gap-4 rounded-t-2xl bg-inbox-background px-4 py-8">
+      <div className="mx-2 -mt-[60px] flex gap-4 rounded-t-2xl bg-dark-background px-4 py-8">
         <Input
           placeholder="Type Message"
-          className="w-full rounded-full border border-neutral-600 bg-inbox-primary px-4 py-2"
+          className="w-full rounded-full border border-neutral-600 bg-dark-primary px-4 py-2"
         />
-        <span className="cursor-pointer rounded-full bg-inbox-primary p-3">
+        <span className="cursor-pointer rounded-full bg-dark-primary p-3">
           <Send
-            className="-rotate-6 self-center text-inbox-name hover:text-inbox-nameWhite"
+            className="-rotate-6 self-center text-dark-name hover:text-dark-nameWhite"
             size={16}
           />
         </span>

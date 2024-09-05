@@ -13,16 +13,16 @@ export default function Inbox() {
     return;
   }
   return (
-    <div className="bg-inbox-backgroundDark">
+    <div className="bg-dark-backgroundDark">
       <div className="mx-auto max-w-screen-2xl px-4 pt-4 lg:px-8 lg:pt-8">
-        <div className="flex justify-between rounded-full border border-inbox-primary bg-[#191d28] p-4">
-          <h1 className="px-4 text-lg text-inbox-nameWhite">Inbox</h1>
+        <div className="flex justify-between rounded-full border border-dark-primary bg-dark-background2 p-4">
+          <h1 className="px-4 text-lg text-dark-nameWhite">Inbox</h1>
           <div className="flex gap-4 px-4">
             <span>
-              <Lightbulb className="text-inbox-nameWhite" />
+              <Lightbulb className="text-dark-nameWhite" />
             </span>
             <span>
-              <BellRing className="text-inbox-nameWhite" />
+              <BellRing className="text-dark-nameWhite" />
             </span>
           </div>
         </div>
@@ -42,9 +42,9 @@ export default function Inbox() {
           <ChatPanel />
         </TabsContent>
       </Tabs> */}
-        <InboxPanel className="hidden bg-inbox-background lg:flex" />
+        <InboxPanel className="hidden bg-dark-background lg:flex" />
         <ChatPanel className=" hidden lg:block" />
-        <AcceptedTab className="hidden bg-inbox-background lg:flex lg:max-w-80" />
+        <AcceptedTab className="hidden bg-dark-background lg:flex lg:max-w-80" />
       </div>
     </div>
   );

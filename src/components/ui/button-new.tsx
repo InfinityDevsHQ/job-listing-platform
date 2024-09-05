@@ -14,7 +14,7 @@ const buttonVariants = cva(
         outline: 'border border-gray-300 bg-white hover:text-gray-700',
         primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        tertiary: 'border-b bg-transparent hover:border-inbox-name shadow-none hover:border-b',
+        tertiary: 'border-b bg-transparent hover:border-dark-name shadow-none hover:border-b',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
         'link-hover-primary': 'px-4 py-2 text-sm font-medium hover:text-primary',

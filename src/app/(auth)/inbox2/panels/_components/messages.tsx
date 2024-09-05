@@ -32,8 +32,8 @@ const Messages = () => {
   ];
 
   return (
-    <div className="chat flex flex-1 flex-col gap-5 overflow-y-auto bg-inbox-primary p-2.5 lg:gap-4 xl:px-8 xl:pb-20">
-      <p className="mx-auto mt-auto text-xs font-bold text-inbox-name">4 March, 2024</p>
+    <div className="chat flex flex-1 flex-col gap-5 overflow-y-auto bg-dark-primary p-2.5 lg:gap-4 xl:px-8 xl:pb-20">
+      <p className="mx-auto mt-auto text-xs font-bold text-dark-name">4 March, 2024</p>
       {Messages.map((message, index) => (
         <Message
           key={index}

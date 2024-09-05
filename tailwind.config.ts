@@ -53,10 +53,13 @@ const config = {
 
         // Inbox Colors
 
-        inbox: {
+        dark: {
           primary: '#343338',
           background: '#272729',
           messageBackground: '#98979d',
+          background2: '#191d28',
+          background3: '#424348',
+
           backgroundDark: '#040718',
           nameWhite: '#f8f9f6',
           name: '#b2b1b6',

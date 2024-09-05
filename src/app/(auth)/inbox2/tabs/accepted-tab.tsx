@@ -31,13 +31,13 @@ const AcceptedTab = ({ className }: AcceptedTabProps) => {
   ];
   return (
     <div
-      className={`flex-col rounded-r-2xl border border-inbox-primary p-4 text-inbox-name lg:w-72 xl:w-82 ${className}`}
+      className={`flex-col rounded-r-2xl border border-dark-primary p-4 text-dark-name lg:w-72 xl:w-82 ${className}`}
     >
       <div className="flex items-center justify-end gap-3">
         <Button
           variant="outline"
           size="icon-xs"
-          className="rounded-full border-none bg-inbox-primary p-1 text-inbox-name hover:text-inbox-nameWhite"
+          className="rounded-full border-none bg-dark-primary p-1 text-dark-name hover:text-dark-nameWhite"
         >
           <EllipsisVertical className="h-4 w-4" />
         </Button>
