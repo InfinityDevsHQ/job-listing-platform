@@ -14,13 +14,13 @@ export default async function Companies() {
   });
   return (
     <div className="p-4 lg:p-8">
-      <div className="relative mx-auto flex max-w-screen-2xl flex-col gap-4 border border-gray-200 bg-gray-50 p-4 lg:gap-8 lg:p-8">
+      <div className="relative mx-auto flex max-w-screen-2xl flex-col gap-4 border border-dark-background3 bg-dark-background p-4 lg:gap-8 lg:p-8">
         <Image
           src={'/assets/companies/white-vector.png'}
           width={1411}
           height={840}
           alt="Vector"
-          className="absolute right-0 top-0"
+          className="absolute right-0 top-0 opacity-50"
         />
         <Hero
           heading="Explore Companies Offering Job Opportunities"

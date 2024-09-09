@@ -9,7 +9,7 @@ const CompanyTile = ({ company }: CompanyTileProps) => {
   return (
     <Link
       href={`/companies/${company.id}`}
-      className="flex flex-col items-center justify-center gap-4 rounded-md border border-gray-200 bg-white p-4 shadow-theme lg:gap-8 lg:p-8"
+      className="flex flex-col items-center justify-center gap-4 rounded-md border border-dark-background3 bg-white p-4 shadow-theme lg:gap-8 lg:p-8"
     >
       <Image
         src={company.logo_url}
