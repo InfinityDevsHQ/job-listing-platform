@@ -20,7 +20,7 @@ export default async function Companies() {
           width={1411}
           height={840}
           alt="Vector"
-          className="absolute right-0 top-0 opacity-50"
+          className="absolute right-0 top-0 opacity-20"
         />
         <Hero
           heading="Explore Companies Offering Job Opportunities"
