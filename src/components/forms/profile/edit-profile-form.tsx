@@ -123,7 +123,7 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} />
+                    <Input variant="primary" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -135,7 +135,7 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} />
+                    <Input variant="primary" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -209,6 +209,7 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
                 <FormItem>
                   <FormControl>
                     <Input
+                      variant="primary"
                       {...field}
                       placeholder="City"
                       leadingIcon={<Building2Icon size={16} />}
@@ -226,8 +227,8 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
                   <FormItem>
                     <FormControl>
                       <Input
+                        variant="primary"
                         {...field}
-                        variant={'primary'}
                         placeholder="Phone Number"
                         leadingIcon={<Phone width={16} height={16} />}
                       />
@@ -237,7 +238,7 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
                 )}
               />
 
-              <h3 className="text-mute font-sans text-base font-bold lg:text-lg lg:font-semibold">
+              <h3 className="text-mute font-sans text-base font-bold text-dark-nameWhite lg:text-lg lg:font-semibold">
                 Social Networks
               </h3>
               <FormField
@@ -247,8 +248,8 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
                   <FormItem>
                     <FormControl>
                       <Input
+                        variant="primary"
                         {...field}
-                        variant={'primary'}
                         placeholder="Linkedin"
                         leadingIcon={<Linkedin />}
                       />
@@ -264,8 +265,8 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
                   <FormItem>
                     <FormControl>
                       <Input
+                        variant="primary"
                         {...field}
-                        variant={'primary'}
                         placeholder="X"
                         leadingIcon={<TwitterIcon />}
                       />
@@ -281,8 +282,8 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
                   <FormItem>
                     <FormControl>
                       <Input
+                        variant="primary"
                         {...field}
-                        variant={'primary'}
                         placeholder="Github"
                         leadingIcon={<CompanyGithubSecond width={16} height={16} />}
                       />
@@ -302,7 +303,7 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder="Ai Objectives" />
+                    <Input variant="primary" {...field} placeholder="Ai Objectives" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -314,7 +315,7 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder="Ai CV Summary" />
+                    <Input variant="primary" {...field} placeholder="Ai CV Summary" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -326,7 +327,7 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder="Ai Expertise" />
+                    <Input variant="primary" {...field} placeholder="Ai Expertise" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -338,7 +339,7 @@ export default function EditProfileForm({ formName = 'user-info' }: EditProfileF
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder="AI Skill Tags" />
+                    <Input variant="primary" {...field} placeholder="AI Skill Tags" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

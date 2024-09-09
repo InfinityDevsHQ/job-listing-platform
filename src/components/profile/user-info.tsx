@@ -51,101 +51,101 @@ const UserInfo = () => {
               <div className="h-36 w-36 rounded-full bg-gray-200"></div>
             )}
             <div className="flex flex-col">
-              <h4 className="py-2 text-center text-xl font-bold text-neutral-950 lg:text-3xl">
+              <h4 className="py-2 text-center text-xl font-bold text-dark-nameWhite lg:text-3xl">
                 {user.name}
               </h4>
-              <p className="mb-4 text-xl text-gray-500">
+              <p className="mb-4 text-xl text-dark-name">
                 {candidate?.headline || 'Software Engineer'}
               </p>
               <StatusPill online_status={user.online_status} />
             </div>
           </div>
           <div className="flex flex-col gap-4 lg:gap-8">
-            <h4 className="text-xl font-bold text-gray-700 lg:text-xl">Contact</h4>
+            <h4 className="text-xl font-bold text-dark-nameWhite lg:text-xl">Contact</h4>
             <ul className="flex flex-col gap-4 lg:gap-8">
               <li className="flex items-center gap-4">
-                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
-                  <MapPinIcon className="h-5 w-5 text-neutral-950" />
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-dark-background3 bg-dark-primary">
+                  <MapPinIcon className="h-5 w-5 text-dark-nameWhite" />
                 </span>
                 <p className="flex h-full flex-col justify-between">
-                  <span className="w-full truncate font-bold text-gray-700 lg:text-base">
+                  <span className="w-full truncate font-bold text-dark-nameWhite lg:text-base">
                     Location
                   </span>
-                  <span className="w-full truncate text-gray-700 lg:text-base">
+                  <span className="w-full truncate text-dark-name lg:text-base">
                     {[user?.city, user?.country].join(', ')}
                   </span>
                 </p>
               </li>
               <li className="flex items-center gap-4">
-                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
-                  <ClockIcon className="h-5 w-5 text-neutral-950" />
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-dark-background3 bg-dark-primary">
+                  <ClockIcon className="h-5 w-5 text-dark-nameWhite" />
                 </span>
                 <p className="flex h-full flex-col justify-between truncate">
-                  <span className="w-full truncate font-bold text-gray-700 lg:text-base">
+                  <span className="w-full truncate font-bold text-dark-nameWhite lg:text-base">
                     Timezone
                   </span>
-                  <span className="w-full truncate text-gray-700 lg:text-base">
+                  <span className="w-full truncate text-dark-name lg:text-base">
                     {user?.timezone}
                   </span>
                 </p>
               </li>
               <li className="flex items-center gap-4">
-                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
-                  <MailIcon className="h-5 w-5 text-neutral-950" />
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-dark-background3 bg-dark-primary">
+                  <MailIcon className="h-5 w-5 text-dark-nameWhite" />
                 </span>
                 <p className="flex h-full flex-col justify-between">
-                  <span className="w-full truncate font-bold text-gray-700 lg:text-base">
+                  <span className="w-full truncate font-bold text-dark-nameWhite lg:text-base">
                     Email
                   </span>
-                  <span className="w-full truncate text-gray-700 lg:text-base">{user?.email}</span>
+                  <span className="w-full truncate text-dark-name lg:text-base">{user?.email}</span>
                 </p>
               </li>
               {currentUrl && (
                 <li className="flex items-center gap-4">
-                  <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
-                    <LinkIcon className="h-5 w-5 text-neutral-950" />
+                  <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-dark-background3 bg-dark-primary">
+                    <LinkIcon className="h-5 w-5 text-dark-nameWhite" />
                   </span>
                   <p className="flex h-full flex-col justify-between overflow-hidden">
-                    <span className="flex w-full items-center gap-2 truncate font-bold text-gray-700 lg:text-base">
+                    <span className="flex w-full items-center gap-2 truncate font-bold text-dark-nameWhite lg:text-base">
                       <span>Public Profile</span>
                       <Button
-                        variant="outline"
+                        variant="primary"
                         size="icon-xs"
                         onClick={() => copyToClipboard(`${currentUrl}/user/${user?.uid}`)}
                       >
-                        <ClipboardIcon className="h-4 w-4" />
+                        <ClipboardIcon className="h-4 w-4 text-dark-nameWhite" />
                       </Button>
                     </span>
-                    <span className="w-full truncate text-gray-700 lg:text-base">{`${currentUrl}/user/${user?.uid}`}</span>
+                    <span className="w-full truncate text-dark-name lg:text-base">{`${currentUrl}/user/${user?.uid}`}</span>
                   </p>
                 </li>
               )}
             </ul>
           </div>
           <div className="flex flex-col gap-8">
-            <h4 className="text-xl font-bold text-gray-700 lg:text-xl">Resume</h4>
+            <h4 className="text-xl font-bold text-dark-nameWhite lg:text-xl">Resume</h4>
             {/* TODO: create info-list component  */}
             <ul className="flex flex-col gap-4 lg:gap-8">
               <li className="flex items-center gap-4">
-                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
-                  <FileIcon className="h-5 w-5 text-neutral-950" />
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-dark-background3 bg-dark-primary">
+                  <FileIcon className="h-5 w-5 text-dark-nameWhite" />
                 </span>
                 <p className="flex h-full flex-col justify-between">
-                  <span className="flex w-full items-center gap-2 truncate font-bold text-gray-700 lg:text-base">
+                  <span className="flex w-full items-center gap-2 truncate font-bold text-dark-nameWhite lg:text-base">
                     <Link
                       href={`${candidate?.uploaded_resumes?.length ? candidate?.uploaded_resumes[0]?.cv_filepath : ''}`}
                     >
                       {user?.name}&apos;s Resume
                     </Link>
-                    <Button variant="outline" size="icon-xs">
+                    <Button variant="primary" size="icon-xs">
                       <Link
                         href={`${candidate?.uploaded_resumes?.length ? candidate?.uploaded_resumes[0]?.cv_url : ''}`}
                       >
-                        <ExternalLinkIcon className="h-4 w-4" />
+                        <ExternalLinkIcon className="h-4 w-4 text-dark-nameWhite" />
                       </Link>
                     </Button>
                   </span>
-                  <span className="w-full truncate text-gray-700 lg:text-base">
+                  <span className="w-full truncate text-dark-name lg:text-base">
                     Created{' '}
                     {calculateTimeDifference(
                       candidate?.uploaded_resumes?.length
