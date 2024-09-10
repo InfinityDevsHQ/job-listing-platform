@@ -11,21 +11,20 @@ export default function AdvancedPromotionCard({
   points,
   reverse,
 }: AdvancedPromotionCardProps) {
-  // const gradient = reverse
-  //   ? 'linear-gradient(92.04deg, #343338 1.76%, #272729 102.29%)'
-  //   : 'linear-gradient(92.04deg, #272729 1.76%, #343338 102.29%)';
   return (
-    <div
-      className="flex items-center justify-center rounded-lg border border-dark-background3 bg-dark-primary p-4 lg:p-8"
-      // style={{
-      //   background: gradient,
-      // }}
-    >
+    <div className="flex items-center justify-center rounded-lg border border-dark-background3 bg-dark-primary p-4 lg:p-8">
       <div className="flex flex-col justify-center gap-4 lg:flex-row lg:items-center lg:gap-8">
         <div
           className={`flex items-center justify-center ${reverse ? 'lg:order-2' : 'lg:order-1'}`}
         >
-          <Image src={imagUrl} alt={title} width={539} height={539} className="h-auto w-auto" />
+          <Image
+            src={imagUrl}
+            alt={title}
+            width={539}
+            height={539}
+            quality={100}
+            className="h-auto w-auto"
+          />
         </div>
         <div
           className={`flex flex-1 flex-col gap-4 lg:gap-12 ${reverse ? 'lg:order-1' : 'lg:order-2'}`}
