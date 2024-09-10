@@ -37,42 +37,42 @@ export const ProfileDropdown = () => {
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <button className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm">
+        <button className="group inline-flex h-10 w-max items-center justify-center rounded-md border border-dark-background3 bg-dark-background px-4 py-2 text-sm font-medium text-dark-nameWhite">
           <span>Profile</span>
           <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="z-50 w-52 rounded-md border border-gray-300 bg-white p-2">
+      <DropdownMenuContent className="z-50 w-52 rounded-md border border-dark-background3 bg-dark-background p-2">
         <DropdownMenuItem>
           <Link href="/profile" legacyBehavior passHref>
-            <span className="flex cursor-pointer items-center gap-2 rounded-md px-4 py-1 hover:cursor-pointer hover:bg-gray-200 focus-visible:outline-none">
+            <span className="flex cursor-pointer items-center gap-2 rounded-md px-4 py-1 hover:cursor-pointer hover:bg-dark-primary focus-visible:outline-none">
               {data?.user_data?.profile_picture && (
                 <Image
                   src={data?.user_data?.profile_picture}
                   alt="test"
                   width={40}
                   height={40}
-                  className={cn('rounded-full border-2 border-gray-200', {
-                    'border-green-500': data?.user_data?.online_status !== 'Offline', //TODO: add user online state
+                  className={cn('rounded-full border-2 border-dark-background3', {
+                    'border-dark-greenLight': data?.user_data?.online_status !== 'Offline', //TODO: add user online state
                   })}
                 />
               )}
-              <span className="-gap-1 flex flex-col text-gray-500">
-                <span className="font-medium">{data?.user_data?.name}</span>
-                <span className="text-xs">Software Engineer</span>
+              <span className="-gap-1 flex flex-col">
+                <span className="font-medium text-dark-nameWhite">{data?.user_data?.name}</span>
+                <span className="text-xs text-dark-name">Software Engineer</span>
               </span>
             </span>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <span className="mt-2 flex items-center rounded-md px-4 py-1 text-gray-500 hover:cursor-pointer hover:bg-gray-200">
+        <span className="mt-2 flex items-center rounded-md px-4 py-1 text-dark-name hover:cursor-pointer hover:bg-dark-primary">
           <Link href="/my-applications" legacyBehavior passHref>
             <DropdownMenuItem disabled>My Applications</DropdownMenuItem>
           </Link>
         </span>
-        <span className="flex items-center rounded-md px-4 py-1 text-gray-500 hover:cursor-pointer hover:bg-gray-200">
+        <span className="flex items-center rounded-md px-4 py-1 text-dark-name hover:cursor-pointer hover:bg-dark-primary">
           <Link
-            className=" rounded-md px-4 py-1 hover:cursor-pointer hover:bg-gray-200"
+            className=" rounded-md px-4 py-1 hover:cursor-pointer hover:bg-dark-primary"
             href="/job-offers"
             legacyBehavior
             passHref
@@ -81,9 +81,9 @@ export const ProfileDropdown = () => {
           </Link>
         </span>
 
-        <span className="flex items-center rounded-md px-4 py-1 text-gray-500 hover:cursor-pointer hover:bg-gray-200">
+        <span className="flex items-center rounded-md px-4 py-1 text-dark-name hover:cursor-pointer hover:bg-dark-primary">
           <Link
-            className=" rounded-md px-4 py-1 hover:cursor-pointer hover:bg-gray-200"
+            className=" rounded-md px-4 py-1 hover:cursor-pointer hover:bg-dark-primary"
             href="/jobs-filter"
             legacyBehavior
             passHref
@@ -91,9 +91,9 @@ export const ProfileDropdown = () => {
             <DropdownMenuItem disabled>Jobs Filter</DropdownMenuItem>
           </Link>
         </span>
-        <span className="flex items-center rounded-md px-4 py-1 text-gray-500 hover:cursor-pointer hover:bg-gray-200">
+        <span className="flex items-center rounded-md px-4 py-1 text-dark-name hover:cursor-pointer hover:bg-dark-primary">
           <Link
-            className=" rounded-md px-4 py-1 hover:cursor-pointer hover:bg-gray-200"
+            className=" rounded-md px-4 py-1 hover:cursor-pointer hover:bg-dark-primary"
             href="/settings"
             legacyBehavior
             passHref
@@ -101,9 +101,9 @@ export const ProfileDropdown = () => {
             <DropdownMenuItem disabled>Settings</DropdownMenuItem>
           </Link>
         </span>
-        <span className="flex items-center rounded-md px-4 py-1 text-gray-500 hover:cursor-pointer hover:bg-gray-200">
+        <span className="flex items-center rounded-md px-4 py-1 text-dark-name hover:cursor-pointer hover:bg-dark-primary">
           <Link
-            className=" rounded-md px-4 py-1 hover:cursor-pointer hover:bg-gray-200"
+            className=" rounded-md px-4 py-1 hover:cursor-pointer hover:bg-dark-primary"
             href="/email-notifications"
             legacyBehavior
             passHref
@@ -112,7 +112,7 @@ export const ProfileDropdown = () => {
           </Link>
         </span>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="focus:bg-red-50 ">
+        <DropdownMenuItem className="">
           <span className="flex items-center rounded-md px-4 py-1 text-gray-500 hover:cursor-pointer hover:bg-red-700 hover:text-white hover:outline-none">
             <button onClick={async () => await logout()} type="button" className="all">
               Log out

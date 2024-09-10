@@ -52,7 +52,11 @@ export default function Subscribe() {
               </FormItem>
             )}
           />
-          <Button type="submit" variant="outline" className="text-gray-800">
+          <Button
+            type="submit"
+            variant="outline"
+            className="text-dark-nameWhite hover:text-dark-name"
+          >
             Subscribe
           </Button>
         </div>

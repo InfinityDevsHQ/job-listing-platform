@@ -30,16 +30,12 @@ const Header = () => {
   }
 
   return (
-    <header className="bg-white">
+    <header className="bg-dark-backgroundDark">
       <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4 py-3.5 lg:px-16 lg:py-4">
         <Link href={'/'}>
           <Image
             alt="logo"
-            src={
-              companyHeaderRoutes.includes(pathname)
-                ? '/assets/images/common/logo_clickJob_secondary.svg'
-                : '/assets/images/common/logo_clickJob_primary.svg'
-            }
+            src="/assets/images/common/logo_clickJob_secondary.svg"
             width={160}
             height={40}
             className="h-7 w-28 lg:h-10 lg:w-40"
