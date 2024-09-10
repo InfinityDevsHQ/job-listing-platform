@@ -1,3 +1,4 @@
+import { Dot } from 'lucide-react';
 import InfoList from '../ui/info-list';
 import FeatureCard from './feature-card';
 export default function RecruitFeaturesSection() {
@@ -27,8 +28,8 @@ export default function RecruitFeaturesSection() {
     'Make changes if necessary and enjoy the time savings',
   ];
   return (
-    <section className="flex w-full flex-col gap-4 lg:gap-16">
-      <h2 className="col-span-2 text-center text-2xl font-bold text-gray-700 lg:text-5xl">
+    <section className="flex w-full flex-col gap-4 text-dark-name lg:gap-16">
+      <h2 className="col-span-2 text-center text-2xl font-bold text-dark-nameWhite lg:text-5xl">
         Features
       </h2>
       <FeatureCard
@@ -39,7 +40,7 @@ export default function RecruitFeaturesSection() {
           To engage qualified candidates, a compelling job description is crucial. To help you save
           time, ClickJob has launched AI-powered job description.
         </p>
-        <InfoList variant="secondary" list={FeaturesListObe} />
+        <InfoList variant="secondary" icon={<Dot />} list={FeaturesListObe} />
       </FeatureCard>
       <FeatureCard
         heading="Save time with AI and automation"
@@ -50,7 +51,7 @@ export default function RecruitFeaturesSection() {
           Say goodbye to tedious manual tasks, boost your team’s productivity and ensure positive
           candidate experience at every stage of the hiring journey.
         </p>
-        <InfoList variant="secondary" list={FeaturesListTwo} />
+        <InfoList variant="secondary" icon={<Dot />} list={FeaturesListTwo} />
       </FeatureCard>
       <FeatureCard
         heading="Maximize your sourcing strategy"
@@ -60,7 +61,7 @@ export default function RecruitFeaturesSection() {
           Build a strong talent pool and find your next hires easier and faster with advanced
           sourcing features.
         </p>
-        <InfoList variant="secondary" list={FeaturesListThree} />
+        <InfoList variant="secondary" icon={<Dot />} list={FeaturesListThree} />
       </FeatureCard>
       <FeatureCard
         heading="CV screening made simple"
@@ -71,7 +72,7 @@ export default function RecruitFeaturesSection() {
           Let AI technology turn all new job applications into detailed candidate profiles within
           seconds.
         </p>
-        <InfoList variant="secondary" list={FeaturesListFour} />
+        <InfoList variant="secondary" icon={<Dot />} list={FeaturesListFour} />
       </FeatureCard>
       <FeatureCard
         heading="AI-powered job descriptions with ChatGPT integration"
@@ -81,7 +82,7 @@ export default function RecruitFeaturesSection() {
           To engage qualified candidates, a compelling job description is crucial. To help you save
           time, ClickJob has launched AI-powered job description.
         </p>
-        <InfoList variant="secondary" list={FeaturesListFive} />
+        <InfoList variant="secondary" icon={<Dot />} list={FeaturesListFive} />
       </FeatureCard>
     </section>
   );

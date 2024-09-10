@@ -19,10 +19,10 @@ const UserHeader = ({ online_status, user_name, user_role, className }: UserHead
       />
       <div className="flex flex-1 flex-col items-start gap-0">
         <div className="flex w-full items-center justify-between">
-          <h4 className="text-lg font-bold text-neutral-950">{user_name}</h4>
+          <h4 className="text-lg font-bold text-dark-nameWhite">{user_name}</h4>
           {online_status && <StatusPill online_status={online_status} />}
         </div>
-        <p className="text-base font-normal text-gray-500">{user_role}</p>
+        <p className="text-base font-normal text-dark-name">{user_role}</p>
       </div>
     </div>
   );
