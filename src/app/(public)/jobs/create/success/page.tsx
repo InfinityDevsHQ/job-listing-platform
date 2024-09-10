@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function JobPostSuccess() {
   return (
     <section className="p-4 lg:p-8">
-      <div className="lg:success relative mx-auto flex min-h-96 max-w-screen-2xl items-center justify-center rounded-md border border-gray-200 bg-gray-50 lg:h-[70vh]">
+      <div className="lg:success relative mx-auto flex min-h-96 max-w-screen-2xl items-center justify-center rounded-lg border border-dark-background3 bg-dark-background lg:h-[70vh]">
         <Image
           src="/assets/party.png"
           width={1684}
@@ -28,10 +28,10 @@ export default function JobPostSuccess() {
               className="lg:hidden"
             />
           </div>
-          <h3 className="text-center font-sans text-xl font-bold text-gray-700 sm:text-4xl md:text-5xl lg:text-6xl">
+          <h3 className="text-center font-sans text-xl font-bold text-dark-nameWhite sm:text-4xl md:text-5xl lg:text-6xl">
             Congratulations!
           </h3>
-          <p className="text-center font-sans text-sm text-gray-500 lg:text-3xl">
+          <p className="text-center font-sans text-sm text-dark-name lg:text-3xl">
             You Have Successfully Posted Job
           </p>
         </div>
