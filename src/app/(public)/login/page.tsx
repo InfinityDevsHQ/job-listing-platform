@@ -13,7 +13,7 @@ import Image from 'next/image';
 const Login = () => {
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-x-hidden p-4 md:p-8">
-      <div className="mx-auto flex w-full max-w-xl flex-col gap-4 rounded-2xl border border-dark-background3 bg-dark-background p-2 xs:p-4 md:p-8 lg:col-span-1 lg:gap-6 lg:p-8 xl:gap-8">
+      <div className="mx-auto flex w-full max-w-xl flex-col gap-4 rounded-2xl border border-dark-background3 bg-dark-background p-2 xs:p-4 md:p-8 lg:col-span-1 lg:gap-6 lg:p-8">
         <Image
           src={'/assets/logo_white_vertical.png'}
           alt="Logo"
@@ -21,7 +21,7 @@ const Login = () => {
           height={86}
           className="lg:hidde mx-auto"
         />
-        <PageHeader containerClassName="lg:pt-" title="Login to your Account" />
+        <PageHeader containerClassName="md:p-0" title="Login to your Account" />
         <Divider size={2} text="Select Method to Login" mobileVariant="primary" variant="light" />
         <SocialAuthWidget google linkedin github auth="login" />
         <Divider size={2} text="or" mobileVariant="primary" variant="light" />

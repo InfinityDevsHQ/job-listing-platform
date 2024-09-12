@@ -7,7 +7,7 @@ export default function FreeTrialSection() {
     `We'll do the setup for you`,
   ];
   return (
-    <section className="flex w-full flex-col items-center justify-center gap-8 rounded-lg bg-dark-backgroundDark p-4 lg:p-8">
+    <section className="flex w-full flex-col items-center justify-center gap-8 rounded-lg bg-dark-primary p-4 lg:p-8">
       <h2 className="text-2xl font-bold text-dark-nameWhite lg:text-5xl">
         Start your 14-day free trial
       </h2>

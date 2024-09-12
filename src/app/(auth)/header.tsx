@@ -1,5 +1,4 @@
 'use client';
-import { Countries } from '@/components/header/_components/countries';
 import { Notifications } from '@/components/header/_components/notifications';
 import { ProfileDropdown } from '@/components/header/_components/profile-dropdown';
 import Image from 'next/image';
@@ -12,7 +11,7 @@ const Header = () => {
   const companyHeaderRoutes = ['/recruit'];
 
   return (
-    <header className="bg-dark-backgroundDark">
+    <header className="bg-dark-background">
       <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between overflow-hidden px-4 py-2 lg:px-16 lg:py-4">
         <Link href={'/'}>
           <Image
@@ -37,7 +36,6 @@ const Header = () => {
             <span>Inbox</span>
           </Link>
 
-          <Countries />
           <Notifications />
           <ProfileDropdown />
         </div>
