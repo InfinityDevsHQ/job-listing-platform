@@ -25,7 +25,7 @@ export const login = async (body: LoginBodyProps): Promise<LoginResProps> => {
       };
       storeToken({ token: mockData.access_token });
       resolve(mockData);
-    }, 4000); // 4 seconds delay
+    }, 4000);
   });
 };
 

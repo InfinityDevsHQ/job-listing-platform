@@ -10,10 +10,10 @@ export default async function middleware(req: NextRequest) {
 
     const isAuthenticated = Object.keys(userProfile).length && userProfile.user_data.id;
     // first check if user is not logged in by checking their id exist or not
-    if (!isAuthenticated) {
-      const absoluteURL = new URL('/login', req.nextUrl.origin);
-      return NextResponse.redirect(absoluteURL.toString());
-    }
+    // if (!isAuthenticated) {
+    //   const absoluteURL = new URL('/login', req.nextUrl.origin);
+    //   return NextResponse.redirect(absoluteURL.toString());
+    // }
 
     if (
       isAuthenticated &&

@@ -90,10 +90,10 @@ const Profile: UserProfile = {
 export const getUser = async (): Promise<UserData> => Profile.user_data;
 
 export async function getUserProfile(): Promise<UserProfile> {
-  const isLoggedIn = getToken();
-  if (!isLoggedIn) {
-    return {} as unknown as UserProfile;
-  }
+  // const isLoggedIn = getToken();
+  // if (!isLoggedIn) {
+  //   return {} as unknown as UserProfile;
+  // }
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(Profile);

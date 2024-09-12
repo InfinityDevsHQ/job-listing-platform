@@ -1,5 +1,5 @@
 'use client';
-import { Notifications } from '@/components/header/_components/notifications';
+import { PagesDropdown } from '@/components/header/_components/pages-dropdown';
 import { ProfileDropdown } from '@/components/header/_components/profile-dropdown';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -36,8 +36,9 @@ const Header = () => {
             <span>Inbox</span>
           </Link>
 
-          <Notifications />
+          {/* <Notifications /> */}
           <ProfileDropdown />
+          <PagesDropdown />
         </div>
       </div>
     </header>
