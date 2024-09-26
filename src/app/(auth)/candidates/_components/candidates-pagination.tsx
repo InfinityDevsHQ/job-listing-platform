@@ -13,28 +13,40 @@ const CandidatePagination = () => {
     <Pagination>
       <PaginationContent className="space-x-2 lg:space-x-4">
         <PaginationItem>
-          <PaginationPrevious href="#" className="bg-primary text-primary-foreground" />
+          <PaginationPrevious
+            href="#"
+            className="bg-dark-greenLight text-primary-foreground hover:bg-dark-greenDark"
+          />
         </PaginationItem>
 
         {Array.from({ length: 8 }).map((_, index) => (
           <PaginationItem key={index} className="hidden lg:block">
-            <PaginationLink href="#" className="bg-primary-foreground">
+            <PaginationLink
+              href="#"
+              className="bg-dark-primary text-dark-nameWhite hover:bg-dark-greenDark"
+            >
               {index + 1}
             </PaginationLink>
           </PaginationItem>
         ))}
 
         <PaginationItem className="lg:hidden">
-          <PaginationLink href="#" className="bg-primary-foreground">
+          <PaginationLink
+            href="#"
+            className="bg-dark-primary text-dark-nameWhite hover:bg-dark-greenDark"
+          >
             1
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationEllipsis />
+          <PaginationEllipsis className="text-dark-nameWhite" />
         </PaginationItem>
 
         <PaginationItem>
-          <PaginationNext href="#" className="bg-primary text-primary-foreground" />
+          <PaginationNext
+            href="#"
+            className="bg-dark-greenLight text-primary-foreground hover:bg-dark-greenDark"
+          />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

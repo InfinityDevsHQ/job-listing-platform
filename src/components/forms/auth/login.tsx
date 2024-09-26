@@ -4,14 +4,12 @@ import CompanyMail from '@/components/svgs/coompany-mail';
 import { Button } from '@/components/ui/button-new';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import Input from '@/components/ui/input';
-import { login } from '@/lib/auth';
 import useAuthStore from '@/stores/authStore/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRightIcon, EyeIcon, EyeOffIcon, LoaderCircleIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { toast } from 'sonner';
 
 import * as z from 'zod';
 
@@ -40,29 +38,29 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
       username: email,
       password,
     };
-    if (!(email === 'hello@infinitydevs.io' && password === 'hello@infinitydevs.io')) {
-      toast.error('Invalid username or password');
+    // if (!(email === 'hello@infinitydevs.io' && password === 'hello@infinitydevs.io')) {
+    //   toast.error('Invalid username or password');
 
-      return;
-    }
-    try {
-      const data = await login(body);
-      if (data.access_token) {
-        setIsAuthenticated(true);
-        router.push('/profile');
-      }
-    } catch (error) {
-      let message;
-      if (error instanceof Error) {
-        message = error.message || 'Uh oh! Invalid credentials.';
-      }
-      toast.error(message);
-    }
+    //   return;
+    // }
+    setIsAuthenticated(true);
+    // try {
+    //   const data = await login(body);
+    //   if (data.access_token) {
+    //     router.push('/profile');
+    //   }
+    // } catch (error) {
+    //   let message;
+    //   if (error instanceof Error) {
+    //     message = error.message || 'Uh oh! Invalid credentials.';
+    //   }
+    //   toast.error(message);
+    // }
   }
 
   return (
     <Form {...form}>
-      <form className="flex flex-col gap-4 lg:gap-8" onSubmit={form.handleSubmit(onSubmit)}>
+      <form className="flex flex-col gap-4 lg:gap-6" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="email"
@@ -72,7 +70,7 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
                 <Input
                   {...field}
                   placeholder="Email"
-                  leadingIcon={<CompanyMail width={14} height={11} />}
+                  leadingIcon={<CompanyMail width={14} height={11} className="text-dark-name" />}
                 />
               </FormControl>
               <FormMessage />
@@ -90,7 +88,7 @@ const LoginForm = ({ activeTab }: { activeTab: string }) => {
                     {...field}
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Password"
-                    leadingIcon={<CompanyLock width={14} height={15} />}
+                    leadingIcon={<CompanyLock width={14} height={15} className="text-dark-name" />}
                     trailingIcon={
                       showPassword ? (
                         <EyeOffIcon className="h-4 w-4" />

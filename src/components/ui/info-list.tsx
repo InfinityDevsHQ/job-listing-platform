@@ -28,7 +28,7 @@ const InfoList = ({
             <li
               key={index}
               className={cn(
-                'flex gap-2 text-xs text-gray-500 xs:items-center sm:text-base',
+                'flex gap-2 text-xs text-dark-name xs:items-center sm:text-base',
                 listClassName
               )}
             >

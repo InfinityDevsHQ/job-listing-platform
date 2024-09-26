@@ -16,12 +16,12 @@ export default async function PostJob() {
     queryFn: getPromotedCompanies,
   });
   return (
-    <div className="mx-auto mt-4 flex max-w-screen-2xl flex-col gap-4 border border-gray-200 bg-gray-50 p-4 lg:mt-8 lg:gap-8 lg:p-8">
+    <div className="mx-auto my-4 flex max-w-screen-2xl flex-col gap-4 border border-dark-background3 bg-dark-background p-4 lg:my-8 lg:gap-8 lg:p-8">
       <PostJobForm />
       <AdvancedPromotion />
       <FAQSection />
       <Assister />
-      <h3 className="text-center font-bold text-gray-700 lg:text-4xl">
+      <h3 className="text-center font-bold text-dark-nameWhite lg:text-4xl">
         You may also know us from the media
       </h3>
       <ReactQueryHydrate state={dehydrate(queryClient)}>

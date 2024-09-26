@@ -36,7 +36,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className={cn('text-white', isSecondaryFooter ? 'bg-secondary' : 'bg-primary')}>
+    <footer
+      className={cn('text-white', isSecondaryFooter ? 'bg-dark-background' : 'bg-dark-background')}
+    >
       <div className={cn('mx-auto flex w-full max-w-screen-2xl flex-col gap-4 p-8 lg:gap-8')}>
         <Link href={'/'}>
           <Image

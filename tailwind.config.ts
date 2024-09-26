@@ -55,17 +55,17 @@ const config = {
 
         dark: {
           primary: '#343338',
+          primaryDark: '#312E81',
           background: '#272729',
           messageBackground: '#98979d',
           background2: '#191d28',
           background3: '#424348',
-
           backgroundDark: '#040718',
           nameWhite: '#f8f9f6',
           name: '#b2b1b6',
           nameHalfWhite: '#98979d',
-          statusbg: '#3a8f64',
-          statustext: '#305142',
+          greenLight: '#3a8f64',
+          greenDark: '#305142',
         },
       },
       borderRadius: {

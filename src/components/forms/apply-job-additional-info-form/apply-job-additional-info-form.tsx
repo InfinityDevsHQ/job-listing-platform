@@ -33,13 +33,13 @@ const ApplyJobAdditionInfoForm = () => {
   return (
     <Form {...form}>
       <form
-        className="m-4 !mt-0 grid grid-cols-4 gap-4 border border-gray-200 p-4 pt-8 lg:m-8 lg:border-none lg:bg-white"
+        className="m-4 !mt-0 grid grid-cols-4 gap-4 rounded-lg border border-dark-background3 p-4 pt-8 lg:m-8 lg:border-none lg:bg-dark-primary"
         onSubmit={form.handleSubmit(onSubmit)}
       >
-        <h5 className="col-span-4 text-base font-bold text-gray-700">
+        <h5 className="col-span-4 text-base font-bold text-dark-nameWhite">
           Increase your chances of success!
         </h5>
-        <p className="col-span-4 text-sm">
+        <p className="col-span-4 text-sm text-dark-name">
           Even in companyName, the following additional information about you is welcome. Filling it
           out is not mandatory, but it may help you get this job.
         </p>
@@ -49,7 +49,7 @@ const ApplyJobAdditionInfoForm = () => {
           render={({ field }) => (
             <FormItem className="col-span-4">
               <FormControl>
-                <Input placeholder="Email" type="email" {...field} />
+                <Input placeholder="Email" variant="primary" type="email" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

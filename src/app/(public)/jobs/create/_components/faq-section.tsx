@@ -60,13 +60,17 @@ const FAQSection = () => {
   return (
     <section className="flex flex-col gap-4 lg:gap-8">
       <Hero heading="Search Your Questions" search />
-      <h2 className="text-center text-base font-bold text-gray-700 lg:text-4xl">
+      <h2 className="text-center text-base font-bold text-dark-nameWhite lg:text-4xl">
         Frequently asked questions.
       </h2>
       <Accordion type="single" className="w-full" collapsible>
         <div className="grid items-center gap-4 sm:grid-cols-2">
           {Questions.map((question, index) => (
-            <AccordionItem key={index} value={question.question} className="w-full bg-white">
+            <AccordionItem
+              key={index}
+              value={question.question}
+              className="w-full border-dark-background3 bg-dark-primary text-dark-nameWhite"
+            >
               <AccordionTrigger>{question.question}</AccordionTrigger>
               <AccordionContent>{question.answer}</AccordionContent>
             </AccordionItem>

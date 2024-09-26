@@ -31,7 +31,7 @@ const ApplyJobModal = ({ jobId, skills }: { jobId: string; skills: string[] }) =
       <Link className="flex w-full items-center justify-end" href={'/login'}>
         <Button size="lg" type="button" className="max-w-max" variant={'primary'}>
           Apply
-          <SendHorizonal className="ml-2 h-5 w-5" />
+          <SendHorizonal className="ml-2 h-4 w-4" />
         </Button>
       </Link>
     );
@@ -42,7 +42,7 @@ const ApplyJobModal = ({ jobId, skills }: { jobId: string; skills: string[] }) =
         <DialogTrigger asChild>
           <div className="flex items-center">
             <Button size="lg" className="max-w-max" variant={'primary'}>
-              Apply <SendHorizonal className="ml-2 h-5 w-5" />
+              Apply <SendHorizonal className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </DialogTrigger>
@@ -62,7 +62,7 @@ const ApplyJobModal = ({ jobId, skills }: { jobId: string; skills: string[] }) =
         <DrawerTrigger asChild>
           <Button size="lg" className="h-9 bg-primary sm:h-11">
             Apply
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </DrawerTrigger>
         <DrawerContent className="bg-gray-50 p-4 lg:p-8">

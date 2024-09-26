@@ -15,11 +15,11 @@ export default function CompanyMainPanel({ companyInfo }: CompanyMainPanelProps)
   return (
     <div className="flex flex-col gap-4 lg:col-span-3 lg:gap-8">
       <CompanyInfo companyInfo={companyInfo} />
-      <span className="border border-gray-200" />
+      <span className="border border-dark-background3" />
       <CompanyBenefits />
-      <span className="border border-gray-200" />
+      <span className="border border-dark-background3" />
       <CompanyLanguages />
-      <span className="border border-gray-200" />
+      <span className="border border-dark-background3" />
       <CompanyAbout className="hidden lg:flex" />
       <CompanyTabs />
       <div className="hidden flex-col gap-7 lg:flex">

@@ -10,10 +10,10 @@ export default function RecruiterTabsData({ candidateId }: { candidateId: number
   return (
     <>
       <InfoSection heading="Overall Assessment">
-        <p className="text-gray-500">{recommendation?.overall_assessment?.text}</p>
+        <p className="text-dark-name">{recommendation?.overall_assessment?.text}</p>
       </InfoSection>
       <InfoSection heading="Career Achievements">
-        <p className="text-gray-500">{recommendation?.career_achievements?.text}</p>
+        <p className="text-dark-name">{recommendation?.career_achievements?.text}</p>
       </InfoSection>
     </>
   );

@@ -5,15 +5,15 @@ import { Button } from '../ui/button-new';
 
 const CompanyCard = ({ name, logo_url, description, id }: CompanyCardProps) => {
   return (
-    <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4">
+    <div className="flex flex-col gap-4 rounded-2xl border border-dark-background3 bg-dark-primary p-4">
       <header className="flex items-center gap-2 md:gap-5">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neutral-50">
-          <Image src={logo_url} alt={`${name} Logo`} width={30} height={30} />
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-dark-messageBackground">
+          <Image src={logo_url} alt={`${name} Logo`} width={60} height={60} />
         </div>
-        <h3 className="flex-1 text-3xl font-bold text-neutral-950">{name}</h3>
+        <h3 className="flex-1 text-3xl font-bold text-dark-nameWhite">{name}</h3>
       </header>
 
-      <p className="text-sm text-neutral-500">
+      <p className="text-sm text-dark-name">
         {description ||
           `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem, laborum ipsum? Nam officia
            suscipit perspiciatis laboriosam consectetur commodi, fugit voluptates iure ipsum blanditiis

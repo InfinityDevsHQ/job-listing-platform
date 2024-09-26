@@ -55,7 +55,7 @@ const CandidateCard2 = ({
           <div className="flex items-center justify-between text-sm">
             <p>Full Time</p>
             <p>Location</p>
-            <p className="rounded-3xl bg-dark-statustext px-2 py-1 text-dark-statusbg">status</p>
+            <p className="rounded-3xl bg-dark-greenDark px-2 py-1 text-dark-greenLight">status</p>
           </div>
         </div>
       </div>

@@ -21,13 +21,18 @@ export default function CompanyInfo({ companyInfo }: CompanyInfoProps) {
         </div>
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-2 lg:gap-4">
-            <h4 className="text-base font-bold text-black lg:text-4xl">{companyInfo.name}</h4>
-            <Button variant="outline" className="gap-2">
+            <h4 className="text-base font-bold text-dark-nameWhite lg:text-4xl">
+              {companyInfo.name}
+            </h4>
+            <Button
+              variant="outline"
+              className="gap-2 border-dark-background3 bg-dark-primary text-dark-name hover:text-dark-nameHalfWhite"
+            >
               <Plus className="size-4" />
               Follow
             </Button>
           </div>
-          <p className="text-sm text-gray-500 lg:hidden">{companyInfo.city}</p>
+          <p className="text-sm text-dark-name lg:hidden">{companyInfo.city}</p>
           <Button className="lg:hidden" variant={'primary'}>
             <Mail size={16} className="mr-2" />
             Get Emails About New Jobs
@@ -39,8 +44,8 @@ export default function CompanyInfo({ companyInfo }: CompanyInfoProps) {
         </Button>
       </div>
       {/* BIO */}
-      <p className="hidden text-xl text-gray-500 lg:block">{companyInfo.city}</p>
-      <div className="flex w-full flex-col gap-4 border-gray-200 text-gray-500 lg:flex-row lg:gap-0 lg:divide-x-2">
+      <p className="hidden text-xl text-dark-name lg:block">{companyInfo.city}</p>
+      <div className="flex w-full flex-col gap-4 border-gray-200 text-dark-nameWhite lg:flex-row lg:gap-0 lg:divide-x-2">
         <div className="flex flex-1 justify-between lg:pr-6">
           <div className="flex items-center gap-2">
             <p className="flex items-center gap-2 font-bold lg:text-xl">
@@ -48,14 +53,17 @@ export default function CompanyInfo({ companyInfo }: CompanyInfoProps) {
               Field of Company
             </p>
           </div>
-          <p className="lg:text-xl">Education</p>
+          <p className="text-dark-name lg:text-xl">Education</p>
         </div>
         <div className="flex flex-1 justify-between lg:pl-6">
           <div className="flex items-center gap-2">
             <CompanyCommunity />
             <p className="font-bold lg:text-xl">Size of Company</p>
           </div>
-          <p className="lg:text-xl"> {companyInfo.employee_count || '0 - 10'} Employees</p>
+          <p className="text-dark-name lg:text-xl">
+            {' '}
+            {companyInfo.employee_count || '0 - 10'} Employees
+          </p>
         </div>
       </div>
     </>

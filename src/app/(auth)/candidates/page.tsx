@@ -13,7 +13,7 @@ export default async function Candidates() {
     queryFn: getAllCandidates,
   });
   return (
-    <div className="mx-auto max-w-screen-2xl bg-primary-50 p-4 lg:p-8">
+    <div className="mx-auto max-w-screen-2xl bg-dark-background p-4 lg:p-8">
       <div className="rounded-md border border-gray-200 bg-white py-4 xs:p-4 lg:border-none lg:bg-transparent lg:p-0">
         <Hero
           heading="Find best candidates for you!"

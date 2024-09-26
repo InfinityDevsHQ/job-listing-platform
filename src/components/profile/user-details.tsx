@@ -9,7 +9,7 @@ const UserDetails = () => {
   const [showEditForm, setShowEditForm] = useState(false);
   return (
     <>
-      <div className="flex flex-col gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:w-[410px] lg:gap-8 lg:p-8">
+      <div className="flex flex-col gap-4 rounded-lg border border-dark-background3 bg-dark-background p-4 lg:w-[410px] lg:gap-8 lg:p-8">
         {!showEditForm ? (
           <>
             <UserInfo />
@@ -18,7 +18,7 @@ const UserDetails = () => {
           <EditProfileForm />
         )}
         <Button
-          variant="outline"
+          variant="primary"
           onClick={() => setShowEditForm(!showEditForm)}
           className="hidden gap-2 lg:flex"
         >

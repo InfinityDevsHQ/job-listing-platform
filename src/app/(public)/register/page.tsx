@@ -14,22 +14,15 @@ const Register = () => {
     state.setCurrentUserRole,
   ]);
   return (
-    <div className="relative grid h-full items-center justify-center p-4 md:p-0 lg:h-screen lg:grid-cols-2 lg:overflow-hidden">
-      <Image
-        src={'/assets/auth/login-poster.png'}
-        alt="Login Poster"
-        width={100000}
-        height={1000000}
-        className="absolute left-0 top-0 -z-10 h-full w-full lg:hidden"
-      />
-      <div className="flex h-full items-center justify-center lg:h-full lg:overflow-y-auto">
-        <div className="flex flex-col gap-4 rounded-2xl  pt-8 lg:w-[500px] lg:gap-8 lg:pt-60">
+    <div className="relative flex h-full items-center justify-center p-4 md:p-8 lg:min-h-screen">
+      <div className="flex h-full max-w-2xl items-center justify-center rounded-2xl border border-dark-background3 bg-dark-background p-4 md:p-8 lg:h-full">
+        <div className="flex flex-col gap-4 pt-2 lg:w-[500px] lg:gap-8">
           <Image
             src={'/assets/logo_white_vertical.png'}
             alt="Logo"
             width={80}
             height={86}
-            className="mx-auto lg:hidden"
+            className="mx-auto"
           />
           <PageHeader containerClassName="md:py-0" title="Create your Account" />
           <Divider
@@ -50,7 +43,7 @@ const Register = () => {
             onValueChange={(val) => setCurrentUserRole(val)}
             className="flex w-full flex-col gap-4"
           >
-            <TabsList className="bg-primary-50 lg:bg-transparent">
+            <TabsList className="bg-dark-greenDark">
               <TabsTrigger value="candidate">Candidate</TabsTrigger>
               <TabsTrigger value="company">Company</TabsTrigger>
             </TabsList>
@@ -62,32 +55,6 @@ const Register = () => {
             </TabsContent>
           </Tabs>
           <LoginRegisterToggler currentPage="register" />
-        </div>
-      </div>
-      <div className="relative hidden h-full w-full lg:block">
-        <Image
-          src={'/assets/auth/login-poster.png'}
-          alt="Login Poster"
-          width={100000}
-          height={1000000}
-          className="absolute left-0 top-0 -z-10 h-full w-full"
-        />
-        <div className="flex h-full w-full items-center justify-center">
-          <div className="mx-auto max-w-2xl text-center text-gray-50">
-            <Image
-              src={'/assets/auth/login-vector.png'}
-              alt="LoginVector"
-              quality={100}
-              width={534}
-              height={388}
-              className="mx-auto mb-8 h-auto w-auto"
-            />
-            <h4 className="mb-5 text-3xl font-bold uppercase">Project ai-fugu</h4>
-            <p>
-              Mauris pharetra imperdiet iaculis elementum nulla. Tellus morbi nunc non vitae enim
-              amet. Faucibus eleifend sit leo varius suspendisse.
-            </p>
-          </div>
         </div>
       </div>
     </div>

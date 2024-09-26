@@ -5,10 +5,10 @@ export default function RecruitersHero() {
   return (
     <section className="relative flex w-full flex-col items-center gap-4 lg:flex-row lg:justify-between">
       <div className="order-2 flex flex-col gap-4 lg:order-1 lg:gap-8">
-        <h1 className="text-center text-2xl font-bold text-gray-700 lg:text-left lg:text-5xl">
+        <h1 className="text-center text-2xl font-bold text-dark-nameWhite lg:text-left lg:text-5xl">
           Rethink! The Way You Are
         </h1>
-        <p className="max-w-2xl text-lg text-gray-500">
+        <p className="max-w-2xl text-lg text-dark-name">
           ClickJob is the all-in-one hiring solution that makes every step of your selection process
           easier and lets you focus on what matters the most - your candidates.
         </p>

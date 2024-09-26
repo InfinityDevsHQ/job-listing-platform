@@ -10,7 +10,7 @@ const Divider = ({ size, variant, mobileVariant, text }: DividerProps) => {
   return (
     <div className="flex items-center">
       <span
-        className={cn('relative flex-1 border-t border-gray-300', {
+        className={cn('relative flex-1 border-t border-dark-name', {
           'border-t-2': size == 2,
           'border-t-4': size == 4,
         })}
@@ -19,7 +19,7 @@ const Divider = ({ size, variant, mobileVariant, text }: DividerProps) => {
         {text}
       </span> */}
       <span
-        className={cn('relative flex-1 border-t border-gray-300', {
+        className={cn('relative flex-1 border-t border-dark-name', {
           'border-t-2': size == 2,
           'border-t-4': size == 4,
         })}

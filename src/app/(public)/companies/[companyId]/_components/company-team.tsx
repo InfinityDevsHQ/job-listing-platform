@@ -35,15 +35,15 @@ export default function CompanyTeam() {
                   width={150}
                   height={150}
                 />
-                <h5 className="font-semibold text-gray-500 lg:text-base">John Doe</h5>
-                <p className="text-xs text-gray-500">CEO</p>
-                <div className="flex items-center gap-2.5">
-                  <CompanyLinkedin black />
+                <h5 className="font-semibold text-dark-nameWhite lg:text-base">John Doe</h5>
+                <p className="text-xs text-dark-name ">CEO</p>
+                <div className="flex items-center gap-2.5 text-dark-name">
+                  <CompanyLinkedin />
                   <InstagramIcon />
                 </div>
               </>
             ) : (
-              <span className="flex h-[150px] w-[150px] cursor-pointer items-center justify-center rounded-md border border-gray-200 bg-gray-50">
+              <span className="flex h-[150px] w-[150px] cursor-pointer items-center justify-center rounded-md border border-dark-background3 bg-dark-primary">
                 {member.icon}
               </span>
             )}

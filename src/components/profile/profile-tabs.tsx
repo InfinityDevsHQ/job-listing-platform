@@ -18,14 +18,14 @@ const ProfileTabs = () => {
   return (
     <>
       {user && (
-        <div className="flex flex-1 flex-col flex-wrap gap-4 rounded-md border border-neutral-200 bg-white p-4 lg:p-8">
+        <div className="flex flex-1 flex-col flex-wrap gap-4 rounded-lg border border-dark-background3 bg-dark-background p-4 lg:p-8">
           <Tabs
             orientation="vertical"
             defaultValue="about"
             className="flex flex-col gap-4 lg:gap-8"
           >
             <div className="flex items-center justify-between gap-4">
-              <TabsList className="mx-0 w-full overflow-x-auto bg-primary-50">
+              <TabsList className="mx-0 w-full overflow-x-auto bg-dark-background3 text-dark-nameHalfWhite">
                 <TabsTrigger className="lg:hidden" value="user-info">
                   User Info
                 </TabsTrigger>
